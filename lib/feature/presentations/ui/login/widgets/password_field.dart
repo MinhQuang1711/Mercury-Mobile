@@ -19,6 +19,7 @@ class PasswordField extends StatelessWidget {
         hintText: "Nhập mật khẩu",
         prefWidget: _emailIcon(),
         validator: Validator.password,
+        onChanged: cubit.changedPassword,
         sufWidget: _showPasswordButton(state.isHiden),
       ),
     );

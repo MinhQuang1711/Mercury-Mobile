@@ -10,14 +10,14 @@ class AuthenBloc extends Bloc<AuthenEvent, AuthenState> {
     on<AuthenEvent>(_onEvent);
   }
 
-  void _onEvent(AuthenEvent event, Emitter emitter) async {
+  Future _onEvent(AuthenEvent event, Emitter emitter) async {
     await event.map(
       login: (event) async => await _login(event, emitter),
     );
   }
 
   Future _login(LOGIN event, Emitter emitter) async {
-    emitter(const AuthenState.init());
+    emitter(const AuthenState.loading());
     (await repo.login(event.dto)).on(
       whenSuccess: (data) => emitter(AuthenState.loginSuccess(data)),
       whenFaild: (msg) => emitter(AuthenState.failure(msg)),

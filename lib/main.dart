@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mercury/config/router/route.dart';
+import 'package:mercury/config/server.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   initInjection();
+  AppConfig.instance.configServer(ServerConfig.company());
   runApp(const MyApp());
 }
 

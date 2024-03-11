@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:mercury/core/network/response/data_response.dart';
 import 'package:mercury/core/network/service/service.dart';
@@ -16,6 +15,7 @@ class UseCaseNetwork {
     required T Function(dynamic json) parser,
   }) async {
     final dioClient = DioClient();
+
     try {
       final json = await dioClient.makeRequest(paramRequest: paramRequest);
       return SuccessfulResponse(parser.call(json));

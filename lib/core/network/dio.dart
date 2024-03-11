@@ -1,7 +1,7 @@
-
 import 'package:dio/dio.dart';
 
 import '../../config/server.dart';
+import 'interceptor.dart';
 import 'request/param_payload.dart';
 
 class DioClient {
@@ -18,7 +18,7 @@ class DioClient {
     );
 
     dio = Dio(options);
-    // dio.interceptors.add(AppInterceptor());
+    dio.interceptors.add(AppInterceptor());
   }
 
   Future<T> makeRequest<T>({required ParamRequest paramRequest}) async {
@@ -31,8 +31,8 @@ class DioClient {
     final options = Options(
       headers: paramRequest.header,
       method: paramRequest.method.name,
-      sendTimeout: paramRequest.duration ?? defaultTimeOut,
-      receiveTimeout: paramRequest.duration ?? defaultTimeOut,
+      sendTimeout: paramRequest.duration,
+      receiveTimeout: paramRequest.duration,
     );
 
     final response = await dio.request(

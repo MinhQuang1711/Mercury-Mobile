@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mercury/config/router/path.dart';
+import 'package:mercury/core/utils/extension/contetxt.dart';
+import 'package:mercury/core/utils/storage/token_storage.dart';
+import 'package:mercury/feature/data/model/token/token.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/event/event.dart';
+import 'package:mercury/feature/presentations/bloc/authen/bloc/state/state.dart';
 import 'package:mercury/feature/presentations/bloc/authen/cubit/cubit.dart';
 import 'package:mercury/feature/presentations/widget/button/button.dart';
 
@@ -19,9 +25,28 @@ class LoginButton extends StatelessWidget {
       }
     }
 
+    void onLoginSuccess(Token token) {
+      TokenStorage.instance.saveToken(token: token);
+      context.go(AppPath.splash);
+    }
+
+    return BlocConsumer<AuthenBloc, AuthenState>(
+      listener: (context, state) => state.whenOrNull(
+        loginSuccess: onLoginSuccess,
+        failure: context.showFailureSnackBar,
+      ),
+      builder: (context, state) => state.maybeMap(
+        orElse: () => _button(onSubmit),
+        loading: (value) => _button(() {}, isLoading: true),
+      ),
+    );
+  }
+
+  SizedBox _button(void Function() onSubmit, {bool? isLoading}) {
     return SizedBox(
       width: double.infinity,
       child: AppButton(
+        isLoading: isLoading,
         label: "Đăng nhập",
         onTap: onSubmit,
       ),

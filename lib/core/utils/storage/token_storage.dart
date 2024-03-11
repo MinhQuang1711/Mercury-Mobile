@@ -12,9 +12,10 @@ class TokenStorage {
   final String _tokenKey = "Token";
 
   void saveToken({
-    required String jsonString,
+    required Token token,
   }) async {
     final prefs = await SharedPreferences.getInstance();
+    var jsonString = jsonEncode(token);
     prefs.setString(_tokenKey, jsonString);
   }
 
