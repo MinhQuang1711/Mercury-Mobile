@@ -3,10 +3,13 @@ import 'package:mercury/config/router/route.dart';
 import 'package:mercury/config/server.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
+import 'package:mercury/core/utils/singleton/token_singleton.dart';
+import 'package:mercury/core/utils/storage/token_storage.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   initInjection();
+  TokenSingleton.instance.saveToken(await TokenStorage.instance.getToken());
   AppConfig.instance.configServer(ServerConfig.company());
   runApp(const MyApp());
 }
