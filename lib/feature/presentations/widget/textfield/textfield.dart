@@ -74,6 +74,11 @@ class _AppTextFieldState extends State<AppTextField> {
       controller: controller,
       readOnly: widget.readOnly ?? false,
       keyboardType: widget.textInputType,
+      onTapOutside: (event) {
+        FocusScope.of(context).hasFocus
+            ? FocusScope.of(context).unfocus()
+            : null;
+      },
       decoration: TextFieldProperties.getInputDecoration(
         hintText: widget.hintText,
         prefWidget: widget.prefWidget,

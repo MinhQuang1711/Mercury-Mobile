@@ -11,10 +11,10 @@ class UserNameField extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppTextField(
       canDelete: true,
-      onTapClearButton: () => cubit.changedUserName(""),
       hintText: "Nhập tên đăng nhập",
       onChanged: cubit.changedUserName,
       initValue: cubit.state.dto.userName,
+      onTapClearButton: () => cubit.changedUserName(""),
       prefWidget: const Icon(Icons.email, color: AppColor.grey4),
     );
   }
