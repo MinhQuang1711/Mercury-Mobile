@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/theme/color.dart';
+import 'package:mercury/core/utils/validator/validator.dart';
 import 'package:mercury/feature/presentations/bloc/authen/cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/authen/cubit/state/state.dart';
 import 'package:mercury/feature/presentations/widget/textfield/textfield.dart';
@@ -17,6 +18,7 @@ class PasswordField extends StatelessWidget {
         obs: state.isHiden,
         hintText: "Nhập mật khẩu",
         prefWidget: _emailIcon(),
+        validator: Validator.password,
         sufWidget: _showPasswordButton(state.isHiden),
       ),
     );

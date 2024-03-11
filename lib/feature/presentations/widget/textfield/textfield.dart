@@ -18,6 +18,7 @@ class AppTextField extends StatefulWidget {
     this.controller,
     this.prefWidget,
     this.borderColor,
+    this.validator,
     this.textInputType,
     this.backgroundColor,
     this.onTapClearButton,
@@ -32,9 +33,11 @@ class AppTextField extends StatefulWidget {
   final Function()? onTap;
   final Color? borderColor;
   final Color? backgroundColor;
+
   final TextInputType? textInputType;
   final Function()? onTapClearButton;
   final TextEditingController? controller;
+  final String? Function(String?)? validator;
   final Function(String? onChaned)? onChanged;
 
   @override
@@ -70,8 +73,9 @@ class _AppTextFieldState extends State<AppTextField> {
     return TextFormField(
       obscureText: widget.obs ?? false,
       onTap: widget.onTap,
-      onChanged: widget.onChanged,
       controller: controller,
+      onChanged: widget.onChanged,
+      validator: widget.validator,
       readOnly: widget.readOnly ?? false,
       keyboardType: widget.textInputType,
       onTapOutside: (event) {
