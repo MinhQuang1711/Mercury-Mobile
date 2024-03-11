@@ -41,7 +41,8 @@ class AppButton extends StatelessWidget {
           child: Text(
             label,
             overflow: TextOverflow.ellipsis,
-            style: currentButtonSize.getTextstyle(color: textColor),
+            style: currentButtonSize.getTextstyle(
+                color: currentButtonType.getTextColor(color: textColor)),
           ),
         ),
       ),

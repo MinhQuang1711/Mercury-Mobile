@@ -33,7 +33,7 @@ extension ButtonSizeEx on ButtonSize {
       case ButtonSize.SIZE_32:
         return BorderRadius.circular(8);
       case ButtonSize.SIZE_40:
-        return BorderRadius.circular(10);
+        return BorderRadius.circular(9);
     }
   }
 }

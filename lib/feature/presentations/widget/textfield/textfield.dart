@@ -120,12 +120,13 @@ class TextFieldProperties {
       prefixIcon: prefWidget,
       border: getBorder(borderColor),
       disabledBorder: getBorder(null),
-      contentPadding: AppPadding.padding12,
+      contentPadding: AppPadding.padding16,
       enabledBorder: getBorder(borderColor),
       fillColor: backgroundColor ?? AppColor.grey3,
       errorBorder: getBorder(borderColor ?? AppColor.red),
       focusedBorder: getBorder(borderColor ?? AppColor.blue),
-      hintStyle: captionRegular.copyWith(color: Colors.grey.shade700),
+      hintStyle:
+          captionRegular.copyWith(color: Colors.grey.shade700, fontSize: 16),
     );
   }
 

@@ -4,6 +4,7 @@ import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/authen/cubit/cubit.dart';
+import 'package:mercury/feature/presentations/ui/login/widgets/login_button.dart';
 import 'package:mercury/feature/presentations/ui/login/widgets/password_field.dart';
 import 'package:mercury/feature/presentations/ui/login/widgets/user_name_field.dart';
 
@@ -27,17 +28,23 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
     final cubit = context.read<AuthenCubit>();
     return Scaffold(
       body: Padding(
         padding: AppPadding.padding16,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            UserNameField(cubit: cubit),
-            const SizedBox(height: 15),
-            PasswordField(cubit: cubit),
-          ],
+        child: Form(
+          key: formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              UserNameField(cubit: cubit),
+              const SizedBox(height: 15),
+              PasswordField(cubit: cubit),
+              const SizedBox(height: 40),
+              LoginButton(formKey: formKey),
+            ],
+          ),
         ),
       ),
     );
