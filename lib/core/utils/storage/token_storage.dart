@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:mercury/core/utils/log.dart';
+import 'package:mercury/core/utils/singleton/user_singleton.dart';
 import 'package:mercury/feature/data/model/token/token.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -14,6 +15,7 @@ class TokenStorage {
   void saveToken({
     required Token token,
   }) async {
+    UserSingleton.instance.saveUser(token.user);
     final prefs = await SharedPreferences.getInstance();
     var jsonString = jsonEncode(token.toJson());
     prefs.setString(_tokenKey, jsonString);
