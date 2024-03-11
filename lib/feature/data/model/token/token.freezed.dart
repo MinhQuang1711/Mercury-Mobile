@@ -20,6 +20,7 @@ Token _$TokenFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Token {
+  User? get user => throw _privateConstructorUsedError;
   String? get accessToken => throw _privateConstructorUsedError;
   String? get refreshToken => throw _privateConstructorUsedError;
 
@@ -33,7 +34,9 @@ abstract class $TokenCopyWith<$Res> {
   factory $TokenCopyWith(Token value, $Res Function(Token) then) =
       _$TokenCopyWithImpl<$Res, Token>;
   @useResult
-  $Res call({String? accessToken, String? refreshToken});
+  $Res call({User? user, String? accessToken, String? refreshToken});
+
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -49,10 +52,15 @@ class _$TokenCopyWithImpl<$Res, $Val extends Token>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? user = freezed,
     Object? accessToken = freezed,
     Object? refreshToken = freezed,
   }) {
     return _then(_value.copyWith(
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
       accessToken: freezed == accessToken
           ? _value.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
@@ -63,6 +71,18 @@ class _$TokenCopyWithImpl<$Res, $Val extends Token>
               as String?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -72,7 +92,10 @@ abstract class _$$TOKENImplCopyWith<$Res> implements $TokenCopyWith<$Res> {
       __$$TOKENImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? accessToken, String? refreshToken});
+  $Res call({User? user, String? accessToken, String? refreshToken});
+
+  @override
+  $UserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -86,10 +109,15 @@ class __$$TOKENImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? user = freezed,
     Object? accessToken = freezed,
     Object? refreshToken = freezed,
   }) {
     return _then(_$TOKENImpl(
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
       accessToken: freezed == accessToken
           ? _value.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
@@ -105,11 +133,13 @@ class __$$TOKENImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$TOKENImpl implements _TOKEN {
-  const _$TOKENImpl({this.accessToken, this.refreshToken});
+  const _$TOKENImpl({this.user, this.accessToken, this.refreshToken});
 
   factory _$TOKENImpl.fromJson(Map<String, dynamic> json) =>
       _$$TOKENImplFromJson(json);
 
+  @override
+  final User? user;
   @override
   final String? accessToken;
   @override
@@ -117,7 +147,7 @@ class _$TOKENImpl implements _TOKEN {
 
   @override
   String toString() {
-    return 'Token(accessToken: $accessToken, refreshToken: $refreshToken)';
+    return 'Token(user: $user, accessToken: $accessToken, refreshToken: $refreshToken)';
   }
 
   @override
@@ -125,6 +155,7 @@ class _$TOKENImpl implements _TOKEN {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TOKENImpl &&
+            (identical(other.user, user) || other.user == user) &&
             (identical(other.accessToken, accessToken) ||
                 other.accessToken == accessToken) &&
             (identical(other.refreshToken, refreshToken) ||
@@ -133,7 +164,7 @@ class _$TOKENImpl implements _TOKEN {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, accessToken, refreshToken);
+  int get hashCode => Object.hash(runtimeType, user, accessToken, refreshToken);
 
   @JsonKey(ignore: true)
   @override
@@ -151,10 +182,14 @@ class _$TOKENImpl implements _TOKEN {
 
 abstract class _TOKEN implements Token {
   const factory _TOKEN(
-      {final String? accessToken, final String? refreshToken}) = _$TOKENImpl;
+      {final User? user,
+      final String? accessToken,
+      final String? refreshToken}) = _$TOKENImpl;
 
   factory _TOKEN.fromJson(Map<String, dynamic> json) = _$TOKENImpl.fromJson;
 
+  @override
+  User? get user;
   @override
   String? get accessToken;
   @override

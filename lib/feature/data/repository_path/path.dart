@@ -1,3 +1,4 @@
 class AppRepositoryPath {
-  static String login = "/api/user/login";
+  static String login = "/api/authen/login";
+  static String refreshToken = "/api/authen/refresh-token";
 }
