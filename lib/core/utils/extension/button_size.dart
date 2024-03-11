@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
-import 'package:mercury/feature/widget/button/button.dart';
+import 'package:mercury/feature/presentations/widget/button/button.dart';
 
 extension ButtonSizeEx on ButtonSize {
   EdgeInsets getPadding() {

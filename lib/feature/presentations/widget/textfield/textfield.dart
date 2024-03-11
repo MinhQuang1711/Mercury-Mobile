@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mercury/config/const/padding.dart';
 
-import '../../../config/theme/color.dart';
-import '../../../config/theme/text_style.dart';
+import '../../../../config/theme/color.dart';
+import '../../../../config/theme/text_style.dart';
 
 class AppTextField extends StatefulWidget {
   const AppTextField({

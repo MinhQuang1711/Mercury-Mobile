@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../config/theme/color.dart';
-import '../../../config/theme/text_style.dart';
+import '../../../../config/theme/color.dart';
+import '../../../../config/theme/text_style.dart';
 
 class ColumnInput extends StatelessWidget {
   const ColumnInput({
