@@ -21,6 +21,7 @@ mixin _$AuthenState {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(String msg) failure,
+    required TResult Function(User user) gotUser,
     required TResult Function(Token token) loginSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +30,7 @@ mixin _$AuthenState {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(String msg)? failure,
+    TResult? Function(User user)? gotUser,
     TResult? Function(Token token)? loginSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +39,7 @@ mixin _$AuthenState {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(String msg)? failure,
+    TResult Function(User user)? gotUser,
     TResult Function(Token token)? loginSuccess,
     required TResult orElse(),
   }) =>
@@ -46,6 +49,7 @@ mixin _$AuthenState {
     required TResult Function(INIT value) init,
     required TResult Function(LOADING value) loading,
     required TResult Function(FAILD value) failure,
+    required TResult Function(GOT_USER value) gotUser,
     required TResult Function(LOGIN_SUCCESS value) loginSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +58,7 @@ mixin _$AuthenState {
     TResult? Function(INIT value)? init,
     TResult? Function(LOADING value)? loading,
     TResult? Function(FAILD value)? failure,
+    TResult? Function(GOT_USER value)? gotUser,
     TResult? Function(LOGIN_SUCCESS value)? loginSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +67,7 @@ mixin _$AuthenState {
     TResult Function(INIT value)? init,
     TResult Function(LOADING value)? loading,
     TResult Function(FAILD value)? failure,
+    TResult Function(GOT_USER value)? gotUser,
     TResult Function(LOGIN_SUCCESS value)? loginSuccess,
     required TResult orElse(),
   }) =>
@@ -126,6 +132,7 @@ class _$INITImpl implements INIT {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(String msg) failure,
+    required TResult Function(User user) gotUser,
     required TResult Function(Token token) loginSuccess,
   }) {
     return init();
@@ -137,6 +144,7 @@ class _$INITImpl implements INIT {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(String msg)? failure,
+    TResult? Function(User user)? gotUser,
     TResult? Function(Token token)? loginSuccess,
   }) {
     return init?.call();
@@ -148,6 +156,7 @@ class _$INITImpl implements INIT {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(String msg)? failure,
+    TResult Function(User user)? gotUser,
     TResult Function(Token token)? loginSuccess,
     required TResult orElse(),
   }) {
@@ -163,6 +172,7 @@ class _$INITImpl implements INIT {
     required TResult Function(INIT value) init,
     required TResult Function(LOADING value) loading,
     required TResult Function(FAILD value) failure,
+    required TResult Function(GOT_USER value) gotUser,
     required TResult Function(LOGIN_SUCCESS value) loginSuccess,
   }) {
     return init(this);
@@ -174,6 +184,7 @@ class _$INITImpl implements INIT {
     TResult? Function(INIT value)? init,
     TResult? Function(LOADING value)? loading,
     TResult? Function(FAILD value)? failure,
+    TResult? Function(GOT_USER value)? gotUser,
     TResult? Function(LOGIN_SUCCESS value)? loginSuccess,
   }) {
     return init?.call(this);
@@ -185,6 +196,7 @@ class _$INITImpl implements INIT {
     TResult Function(INIT value)? init,
     TResult Function(LOADING value)? loading,
     TResult Function(FAILD value)? failure,
+    TResult Function(GOT_USER value)? gotUser,
     TResult Function(LOGIN_SUCCESS value)? loginSuccess,
     required TResult orElse(),
   }) {
@@ -240,6 +252,7 @@ class _$LOADINGImpl implements LOADING {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(String msg) failure,
+    required TResult Function(User user) gotUser,
     required TResult Function(Token token) loginSuccess,
   }) {
     return loading();
@@ -251,6 +264,7 @@ class _$LOADINGImpl implements LOADING {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(String msg)? failure,
+    TResult? Function(User user)? gotUser,
     TResult? Function(Token token)? loginSuccess,
   }) {
     return loading?.call();
@@ -262,6 +276,7 @@ class _$LOADINGImpl implements LOADING {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(String msg)? failure,
+    TResult Function(User user)? gotUser,
     TResult Function(Token token)? loginSuccess,
     required TResult orElse(),
   }) {
@@ -277,6 +292,7 @@ class _$LOADINGImpl implements LOADING {
     required TResult Function(INIT value) init,
     required TResult Function(LOADING value) loading,
     required TResult Function(FAILD value) failure,
+    required TResult Function(GOT_USER value) gotUser,
     required TResult Function(LOGIN_SUCCESS value) loginSuccess,
   }) {
     return loading(this);
@@ -288,6 +304,7 @@ class _$LOADINGImpl implements LOADING {
     TResult? Function(INIT value)? init,
     TResult? Function(LOADING value)? loading,
     TResult? Function(FAILD value)? failure,
+    TResult? Function(GOT_USER value)? gotUser,
     TResult? Function(LOGIN_SUCCESS value)? loginSuccess,
   }) {
     return loading?.call(this);
@@ -299,6 +316,7 @@ class _$LOADINGImpl implements LOADING {
     TResult Function(INIT value)? init,
     TResult Function(LOADING value)? loading,
     TResult Function(FAILD value)? failure,
+    TResult Function(GOT_USER value)? gotUser,
     TResult Function(LOGIN_SUCCESS value)? loginSuccess,
     required TResult orElse(),
   }) {
@@ -380,6 +398,7 @@ class _$FAILDImpl implements FAILD {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(String msg) failure,
+    required TResult Function(User user) gotUser,
     required TResult Function(Token token) loginSuccess,
   }) {
     return failure(msg);
@@ -391,6 +410,7 @@ class _$FAILDImpl implements FAILD {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(String msg)? failure,
+    TResult? Function(User user)? gotUser,
     TResult? Function(Token token)? loginSuccess,
   }) {
     return failure?.call(msg);
@@ -402,6 +422,7 @@ class _$FAILDImpl implements FAILD {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(String msg)? failure,
+    TResult Function(User user)? gotUser,
     TResult Function(Token token)? loginSuccess,
     required TResult orElse(),
   }) {
@@ -417,6 +438,7 @@ class _$FAILDImpl implements FAILD {
     required TResult Function(INIT value) init,
     required TResult Function(LOADING value) loading,
     required TResult Function(FAILD value) failure,
+    required TResult Function(GOT_USER value) gotUser,
     required TResult Function(LOGIN_SUCCESS value) loginSuccess,
   }) {
     return failure(this);
@@ -428,6 +450,7 @@ class _$FAILDImpl implements FAILD {
     TResult? Function(INIT value)? init,
     TResult? Function(LOADING value)? loading,
     TResult? Function(FAILD value)? failure,
+    TResult? Function(GOT_USER value)? gotUser,
     TResult? Function(LOGIN_SUCCESS value)? loginSuccess,
   }) {
     return failure?.call(this);
@@ -439,6 +462,7 @@ class _$FAILDImpl implements FAILD {
     TResult Function(INIT value)? init,
     TResult Function(LOADING value)? loading,
     TResult Function(FAILD value)? failure,
+    TResult Function(GOT_USER value)? gotUser,
     TResult Function(LOGIN_SUCCESS value)? loginSuccess,
     required TResult orElse(),
   }) {
@@ -455,6 +479,167 @@ abstract class FAILD implements AuthenState {
   String get msg;
   @JsonKey(ignore: true)
   _$$FAILDImplCopyWith<_$FAILDImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GOT_USERImplCopyWith<$Res> {
+  factory _$$GOT_USERImplCopyWith(
+          _$GOT_USERImpl value, $Res Function(_$GOT_USERImpl) then) =
+      __$$GOT_USERImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({User user});
+
+  $UserCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class __$$GOT_USERImplCopyWithImpl<$Res>
+    extends _$AuthenStateCopyWithImpl<$Res, _$GOT_USERImpl>
+    implements _$$GOT_USERImplCopyWith<$Res> {
+  __$$GOT_USERImplCopyWithImpl(
+      _$GOT_USERImpl _value, $Res Function(_$GOT_USERImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$GOT_USERImpl(
+      null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res> get user {
+    return $UserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$GOT_USERImpl implements GOT_USER {
+  const _$GOT_USERImpl(this.user);
+
+  @override
+  final User user;
+
+  @override
+  String toString() {
+    return 'AuthenState.gotUser(user: $user)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GOT_USERImpl &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GOT_USERImplCopyWith<_$GOT_USERImpl> get copyWith =>
+      __$$GOT_USERImplCopyWithImpl<_$GOT_USERImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() loading,
+    required TResult Function(String msg) failure,
+    required TResult Function(User user) gotUser,
+    required TResult Function(Token token) loginSuccess,
+  }) {
+    return gotUser(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? loading,
+    TResult? Function(String msg)? failure,
+    TResult? Function(User user)? gotUser,
+    TResult? Function(Token token)? loginSuccess,
+  }) {
+    return gotUser?.call(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? loading,
+    TResult Function(String msg)? failure,
+    TResult Function(User user)? gotUser,
+    TResult Function(Token token)? loginSuccess,
+    required TResult orElse(),
+  }) {
+    if (gotUser != null) {
+      return gotUser(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(INIT value) init,
+    required TResult Function(LOADING value) loading,
+    required TResult Function(FAILD value) failure,
+    required TResult Function(GOT_USER value) gotUser,
+    required TResult Function(LOGIN_SUCCESS value) loginSuccess,
+  }) {
+    return gotUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(INIT value)? init,
+    TResult? Function(LOADING value)? loading,
+    TResult? Function(FAILD value)? failure,
+    TResult? Function(GOT_USER value)? gotUser,
+    TResult? Function(LOGIN_SUCCESS value)? loginSuccess,
+  }) {
+    return gotUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(INIT value)? init,
+    TResult Function(LOADING value)? loading,
+    TResult Function(FAILD value)? failure,
+    TResult Function(GOT_USER value)? gotUser,
+    TResult Function(LOGIN_SUCCESS value)? loginSuccess,
+    required TResult orElse(),
+  }) {
+    if (gotUser != null) {
+      return gotUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GOT_USER implements AuthenState {
+  const factory GOT_USER(final User user) = _$GOT_USERImpl;
+
+  User get user;
+  @JsonKey(ignore: true)
+  _$$GOT_USERImplCopyWith<_$GOT_USERImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -535,6 +720,7 @@ class _$LOGIN_SUCCESSImpl implements LOGIN_SUCCESS {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(String msg) failure,
+    required TResult Function(User user) gotUser,
     required TResult Function(Token token) loginSuccess,
   }) {
     return loginSuccess(token);
@@ -546,6 +732,7 @@ class _$LOGIN_SUCCESSImpl implements LOGIN_SUCCESS {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(String msg)? failure,
+    TResult? Function(User user)? gotUser,
     TResult? Function(Token token)? loginSuccess,
   }) {
     return loginSuccess?.call(token);
@@ -557,6 +744,7 @@ class _$LOGIN_SUCCESSImpl implements LOGIN_SUCCESS {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(String msg)? failure,
+    TResult Function(User user)? gotUser,
     TResult Function(Token token)? loginSuccess,
     required TResult orElse(),
   }) {
@@ -572,6 +760,7 @@ class _$LOGIN_SUCCESSImpl implements LOGIN_SUCCESS {
     required TResult Function(INIT value) init,
     required TResult Function(LOADING value) loading,
     required TResult Function(FAILD value) failure,
+    required TResult Function(GOT_USER value) gotUser,
     required TResult Function(LOGIN_SUCCESS value) loginSuccess,
   }) {
     return loginSuccess(this);
@@ -583,6 +772,7 @@ class _$LOGIN_SUCCESSImpl implements LOGIN_SUCCESS {
     TResult? Function(INIT value)? init,
     TResult? Function(LOADING value)? loading,
     TResult? Function(FAILD value)? failure,
+    TResult? Function(GOT_USER value)? gotUser,
     TResult? Function(LOGIN_SUCCESS value)? loginSuccess,
   }) {
     return loginSuccess?.call(this);
@@ -594,6 +784,7 @@ class _$LOGIN_SUCCESSImpl implements LOGIN_SUCCESS {
     TResult Function(INIT value)? init,
     TResult Function(LOADING value)? loading,
     TResult Function(FAILD value)? failure,
+    TResult Function(GOT_USER value)? gotUser,
     TResult Function(LOGIN_SUCCESS value)? loginSuccess,
     required TResult orElse(),
   }) {

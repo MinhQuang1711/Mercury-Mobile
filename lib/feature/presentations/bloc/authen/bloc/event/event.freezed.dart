@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AuthenEvent {
-  LoginDto get dto => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(LoginDto dto) login,
+    required TResult Function() getUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(LoginDto dto)? login,
+    TResult? Function()? getUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(LoginDto dto)? login,
+    TResult Function()? getUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LOGIN value) login,
+    required TResult Function(GET_USER value) getUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LOGIN value)? login,
+    TResult? Function(GET_USER value)? getUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LOGIN value)? login,
+    TResult Function(GET_USER value)? getUser,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $AuthenEventCopyWith<AuthenEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,10 +61,6 @@ abstract class $AuthenEventCopyWith<$Res> {
   factory $AuthenEventCopyWith(
           AuthenEvent value, $Res Function(AuthenEvent) then) =
       _$AuthenEventCopyWithImpl<$Res, AuthenEvent>;
-  @useResult
-  $Res call({LoginDto dto});
-
-  $LoginDtoCopyWith<$Res> get dto;
 }
 
 /// @nodoc
@@ -75,40 +72,16 @@ class _$AuthenEventCopyWithImpl<$Res, $Val extends AuthenEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? dto = null,
-  }) {
-    return _then(_value.copyWith(
-      dto: null == dto
-          ? _value.dto
-          : dto // ignore: cast_nullable_to_non_nullable
-              as LoginDto,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $LoginDtoCopyWith<$Res> get dto {
-    return $LoginDtoCopyWith<$Res>(_value.dto, (value) {
-      return _then(_value.copyWith(dto: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$LOGINImplCopyWith<$Res>
-    implements $AuthenEventCopyWith<$Res> {
+abstract class _$$LOGINImplCopyWith<$Res> {
   factory _$$LOGINImplCopyWith(
           _$LOGINImpl value, $Res Function(_$LOGINImpl) then) =
       __$$LOGINImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({LoginDto dto});
 
-  @override
   $LoginDtoCopyWith<$Res> get dto;
 }
 
@@ -131,6 +104,14 @@ class __$$LOGINImplCopyWithImpl<$Res>
           : dto // ignore: cast_nullable_to_non_nullable
               as LoginDto,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LoginDtoCopyWith<$Res> get dto {
+    return $LoginDtoCopyWith<$Res>(_value.dto, (value) {
+      return _then(_value.copyWith(dto: value));
+    });
   }
 }
 
@@ -168,6 +149,7 @@ class _$LOGINImpl implements LOGIN {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(LoginDto dto) login,
+    required TResult Function() getUser,
   }) {
     return login(dto);
   }
@@ -176,6 +158,7 @@ class _$LOGINImpl implements LOGIN {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(LoginDto dto)? login,
+    TResult? Function()? getUser,
   }) {
     return login?.call(dto);
   }
@@ -184,6 +167,7 @@ class _$LOGINImpl implements LOGIN {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(LoginDto dto)? login,
+    TResult Function()? getUser,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -196,6 +180,7 @@ class _$LOGINImpl implements LOGIN {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(LOGIN value) login,
+    required TResult Function(GET_USER value) getUser,
   }) {
     return login(this);
   }
@@ -204,6 +189,7 @@ class _$LOGINImpl implements LOGIN {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LOGIN value)? login,
+    TResult? Function(GET_USER value)? getUser,
   }) {
     return login?.call(this);
   }
@@ -212,6 +198,7 @@ class _$LOGINImpl implements LOGIN {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LOGIN value)? login,
+    TResult Function(GET_USER value)? getUser,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -224,10 +211,110 @@ class _$LOGINImpl implements LOGIN {
 abstract class LOGIN implements AuthenEvent {
   const factory LOGIN({required final LoginDto dto}) = _$LOGINImpl;
 
-  @override
   LoginDto get dto;
-  @override
   @JsonKey(ignore: true)
   _$$LOGINImplCopyWith<_$LOGINImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GET_USERImplCopyWith<$Res> {
+  factory _$$GET_USERImplCopyWith(
+          _$GET_USERImpl value, $Res Function(_$GET_USERImpl) then) =
+      __$$GET_USERImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GET_USERImplCopyWithImpl<$Res>
+    extends _$AuthenEventCopyWithImpl<$Res, _$GET_USERImpl>
+    implements _$$GET_USERImplCopyWith<$Res> {
+  __$$GET_USERImplCopyWithImpl(
+      _$GET_USERImpl _value, $Res Function(_$GET_USERImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$GET_USERImpl implements GET_USER {
+  const _$GET_USERImpl();
+
+  @override
+  String toString() {
+    return 'AuthenEvent.getUser()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$GET_USERImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(LoginDto dto) login,
+    required TResult Function() getUser,
+  }) {
+    return getUser();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(LoginDto dto)? login,
+    TResult? Function()? getUser,
+  }) {
+    return getUser?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(LoginDto dto)? login,
+    TResult Function()? getUser,
+    required TResult orElse(),
+  }) {
+    if (getUser != null) {
+      return getUser();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LOGIN value) login,
+    required TResult Function(GET_USER value) getUser,
+  }) {
+    return getUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LOGIN value)? login,
+    TResult? Function(GET_USER value)? getUser,
+  }) {
+    return getUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LOGIN value)? login,
+    TResult Function(GET_USER value)? getUser,
+    required TResult orElse(),
+  }) {
+    if (getUser != null) {
+      return getUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GET_USER implements AuthenEvent {
+  const factory GET_USER() = _$GET_USERImpl;
 }

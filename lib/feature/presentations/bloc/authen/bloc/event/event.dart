@@ -6,4 +6,5 @@ part 'event.freezed.dart';
 @freezed
 class AuthenEvent with _$AuthenEvent {
   const factory AuthenEvent.login({required LoginDto dto}) = LOGIN;
+  const factory AuthenEvent.getUser() = GET_USER;
 }
