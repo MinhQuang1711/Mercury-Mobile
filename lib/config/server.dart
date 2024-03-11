@@ -2,7 +2,7 @@ class ServerConfig {
   final String baseUrl;
   ServerConfig.home() : baseUrl = "-------->IP ADDRESS<-------";
   ServerConfig.motel() : baseUrl = "-------->IP ADDRESS<-------";
-  ServerConfig.company() : baseUrl = "http://192.168.3.99.5000";
+  ServerConfig.company() : baseUrl = "http://192.168.3.99:7057";
 }
 
 class AppConfig {

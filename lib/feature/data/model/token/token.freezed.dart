@@ -23,6 +23,7 @@ mixin _$Token {
   String? get accessToken => throw _privateConstructorUsedError;
   String? get refreshToken => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TokenCopyWith<Token> get copyWith => throw _privateConstructorUsedError;
 }
@@ -102,7 +103,7 @@ class __$$TOKENImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable(createToJson: false)
+@JsonSerializable()
 class _$TOKENImpl implements _TOKEN {
   const _$TOKENImpl({this.accessToken, this.refreshToken});
 
@@ -139,6 +140,13 @@ class _$TOKENImpl implements _TOKEN {
   @pragma('vm:prefer-inline')
   _$$TOKENImplCopyWith<_$TOKENImpl> get copyWith =>
       __$$TOKENImplCopyWithImpl<_$TOKENImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$TOKENImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _TOKEN implements Token {

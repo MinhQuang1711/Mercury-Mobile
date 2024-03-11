@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'token.freezed.dart';
 part 'token.g.dart';
 
-@Freezed(fromJson: true, toJson: false)
+@Freezed(fromJson: true, toJson: true)
 class Token with _$Token {
   const factory Token({
     String? accessToken,

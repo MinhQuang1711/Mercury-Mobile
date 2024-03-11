@@ -15,7 +15,7 @@ class TokenStorage {
     required Token token,
   }) async {
     final prefs = await SharedPreferences.getInstance();
-    var jsonString = jsonEncode(token);
+    var jsonString = jsonEncode(token.toJson());
     prefs.setString(_tokenKey, jsonString);
   }
 
