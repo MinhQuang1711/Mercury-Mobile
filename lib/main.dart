@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mercury/config/router/route.dart';
 import 'package:mercury/config/theme/color.dart';
+import 'package:mercury/core/utils/injection/get_it.dart';
 
 void main() {
+  initInjection();
   runApp(const MyApp());
 }
 

@@ -7,7 +7,10 @@ import '../../../../config/theme/text_style.dart';
 class AppTextField extends StatefulWidget {
   const AppTextField({
     super.key,
+    this.obs,
     this.onTap,
+    this.canDelete,
+    this.initValue,
     this.readOnly,
     this.hintText,
     this.onChanged,
@@ -19,6 +22,9 @@ class AppTextField extends StatefulWidget {
     this.backgroundColor,
     this.onTapClearButton,
   });
+  final bool? obs;
+  final bool? canDelete;
+  final String? initValue;
   final bool? readOnly;
   final String? hintText;
   final Widget? sufWidget;
@@ -37,29 +43,35 @@ class AppTextField extends StatefulWidget {
 
 class _AppTextFieldState extends State<AppTextField> {
   bool hasValue = false;
+  TextEditingController controller = TextEditingController();
   @override
   void initState() {
     super.initState();
-  }
-
-  void onChanged(String? val) {
-    if (val != null && val.isNotEmpty && !hasValue) {
-      hasValue = true;
-      setState(() {});
+    if (widget.controller != null) {
+      controller = widget.controller!;
     }
-    if (val != null && val.isEmpty && hasValue) {
-      hasValue = false;
-      setState(() {});
+    if (widget.initValue != null) {
+      controller.text = widget.initValue!;
     }
-    widget.onChanged?.call(val);
+    controller.addListener(() {
+      if (controller.text.isNotEmpty && !hasValue) {
+        hasValue = true;
+        setState(() {});
+      }
+      if (controller.text.isEmpty && hasValue) {
+        hasValue = false;
+        setState(() {});
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: widget.obs ?? false,
       onTap: widget.onTap,
-      onChanged: onChanged,
-      controller: widget.controller,
+      onChanged: widget.onChanged,
+      controller: controller,
       readOnly: widget.readOnly ?? false,
       keyboardType: widget.textInputType,
       decoration: TextFieldProperties.getInputDecoration(
@@ -67,14 +79,21 @@ class _AppTextFieldState extends State<AppTextField> {
         prefWidget: widget.prefWidget,
         borderColor: widget.borderColor,
         backgroundColor: widget.backgroundColor,
-        sufWidget: hasValue ? _closeButton() : widget.sufWidget,
+        sufWidget: (hasValue && widget.canDelete == true)
+            ? _closeButton()
+            : widget.sufWidget,
       ),
     );
   }
 
   GestureDetector _closeButton() {
+    void onTapClearButton() {
+      controller.clear();
+      widget.onTapClearButton?.call();
+    }
+
     return GestureDetector(
-      onTap: widget.onTapClearButton,
+      onTap: onTapClearButton,
       child: const Icon(Icons.close, color: AppColor.grey5),
     );
   }

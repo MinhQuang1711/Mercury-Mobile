@@ -21,4 +21,8 @@ class AuthenCubit extends Cubit<AuthenCubitState> {
       emit(state.copyWith(dto: state.dto.copyWith(password: val)));
     }
   }
+
+  void changedIsHiden() {
+    emit(state.copyWith(isHiden: !state.isHiden));
+  }
 }

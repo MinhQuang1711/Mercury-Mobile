@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/authen/cubit/cubit.dart';
+import 'package:mercury/feature/presentations/ui/login/widgets/password_field.dart';
+import 'package:mercury/feature/presentations/ui/login/widgets/user_name_field.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -24,6 +27,19 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    final cubit = context.read<AuthenCubit>();
+    return Scaffold(
+      body: Padding(
+        padding: AppPadding.padding16,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            UserNameField(cubit: cubit),
+            const SizedBox(height: 15),
+            PasswordField(cubit: cubit),
+          ],
+        ),
+      ),
+    );
   }
 }
