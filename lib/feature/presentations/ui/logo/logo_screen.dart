@@ -32,7 +32,10 @@ class LogoPage extends StatelessWidget {
           gotUser: () => context.go(AppPath.splash),
         );
       },
-      child: Container(),
+      child: Container(
+        height: double.infinity,
+        color: Colors.white,
+      ),
     );
   }
 }
