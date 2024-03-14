@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mercury/config/router/path.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
-import 'package:mercury/core/utils/storage/token_storage.dart';
-import 'package:mercury/feature/data/model/token/token.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/state/state.dart';
@@ -25,15 +23,12 @@ class LoginButton extends StatelessWidget {
       }
     }
 
-    void onLoginSuccess(Token token) {
-      TokenStorage.instance.saveToken(token: token);
-      context.go(AppPath.splash);
-    }
-
     return BlocConsumer<AuthenBloc, AuthenState>(
       listener: (context, state) => state.whenOrNull(
-        loginSuccess: onLoginSuccess,
         failure: context.showFailureSnackBar,
+        loginSuccess: () => context.go(
+          AppPath.splash,
+        ),
       ),
       builder: (context, state) => state.maybeMap(
         orElse: () => _button(onSubmit),

@@ -29,7 +29,7 @@ class LogoPage extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(
           failure: (msg) => context.go(AppPath.login),
-          gotUser: (user) => context.go(AppPath.splash),
+          gotUser: () => context.go(AppPath.splash),
         );
       },
       child: Container(),
