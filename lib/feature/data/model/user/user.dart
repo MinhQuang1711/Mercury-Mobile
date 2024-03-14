@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:mercury/feature/domain/enum/permission.dart';
 
 part 'user.freezed.dart';
 part 'user.g.dart';
@@ -12,7 +11,7 @@ class User with _$User {
     String? userName,
     String? fullName,
     String? phoneNumber,
-    List<Permission>? permissions,
+    List<int>? permissions,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

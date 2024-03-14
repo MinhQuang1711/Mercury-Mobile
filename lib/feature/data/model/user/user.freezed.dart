@@ -25,7 +25,7 @@ mixin _$User {
   String? get userName => throw _privateConstructorUsedError;
   String? get fullName => throw _privateConstructorUsedError;
   String? get phoneNumber => throw _privateConstructorUsedError;
-  List<Permission>? get permissions => throw _privateConstructorUsedError;
+  List<int>? get permissions => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,7 @@ abstract class $UserCopyWith<$Res> {
       String? userName,
       String? fullName,
       String? phoneNumber,
-      List<Permission>? permissions});
+      List<int>? permissions});
 }
 
 /// @nodoc
@@ -90,7 +90,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
       permissions: freezed == permissions
           ? _value.permissions
           : permissions // ignore: cast_nullable_to_non_nullable
-              as List<Permission>?,
+              as List<int>?,
     ) as $Val);
   }
 }
@@ -108,7 +108,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       String? userName,
       String? fullName,
       String? phoneNumber,
-      List<Permission>? permissions});
+      List<int>? permissions});
 }
 
 /// @nodoc
@@ -152,7 +152,7 @@ class __$$UserImplCopyWithImpl<$Res>
       permissions: freezed == permissions
           ? _value._permissions
           : permissions // ignore: cast_nullable_to_non_nullable
-              as List<Permission>?,
+              as List<int>?,
     ));
   }
 }
@@ -166,7 +166,7 @@ class _$UserImpl implements _User {
       this.userName,
       this.fullName,
       this.phoneNumber,
-      final List<Permission>? permissions})
+      final List<int>? permissions})
       : _permissions = permissions;
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
@@ -182,9 +182,9 @@ class _$UserImpl implements _User {
   final String? fullName;
   @override
   final String? phoneNumber;
-  final List<Permission>? _permissions;
+  final List<int>? _permissions;
   @override
-  List<Permission>? get permissions {
+  List<int>? get permissions {
     final value = _permissions;
     if (value == null) return null;
     if (_permissions is EqualUnmodifiableListView) return _permissions;
@@ -240,7 +240,7 @@ abstract class _User implements User {
       final String? userName,
       final String? fullName,
       final String? phoneNumber,
-      final List<Permission>? permissions}) = _$UserImpl;
+      final List<int>? permissions}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
@@ -255,7 +255,7 @@ abstract class _User implements User {
   @override
   String? get phoneNumber;
   @override
-  List<Permission>? get permissions;
+  List<int>? get permissions;
   @override
   @JsonKey(ignore: true)
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>
