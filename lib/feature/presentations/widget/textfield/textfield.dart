@@ -78,6 +78,13 @@ class _AppTextFieldState extends State<AppTextField> {
   }
 
   @override
+  void dispose() {
+    controller.dispose();
+    timer?.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: widget.obs ?? false,
