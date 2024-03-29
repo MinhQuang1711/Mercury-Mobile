@@ -12,7 +12,7 @@ class IngredientBloc extends Bloc<IngredientEvent, IngredientState> {
   }
 
   void _onEvent(IngredientEvent event, Emitter emitter) async {
-    event.when(
+    await event.when(
       get: (dto) async => await _get(dto, emitter),
     );
   }
