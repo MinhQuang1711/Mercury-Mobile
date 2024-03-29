@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/feature/presentations/ui/ingredient/widget/card.dart';
 
 import '../../../bloc/ingredient/cubit/get/cubit.dart';
 import '../../../bloc/ingredient/cubit/get/state/state.dart';
@@ -17,7 +18,8 @@ class IngredientList extends StatelessWidget {
             items: state.list,
             child: ListView.builder(
               itemCount: state.list.length,
-              itemBuilder: (context, index) => Text(state.list[index].name),
+              itemBuilder: (context, index) =>
+                  IngredientCard(ingredient: state.list[index]),
             ),
           );
         },
