@@ -1,5 +1,5 @@
 class PagedList<T> {
-  final T items;
+  final List<T> items;
   final int pageSize;
   final int totalItems;
   final int totalPages;
@@ -15,5 +15,7 @@ class PagedList<T> {
       : pageSize = json["pageSize"],
         totalItems = json["totalItems"],
         totalPages = json["totalPages"],
-        items = (parser(json["items"] as dynamic));
+        items = (json["items"] as List)
+            .map((e) => parser.call(e as dynamic))
+            .toList();
 }
