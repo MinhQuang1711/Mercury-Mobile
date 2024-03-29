@@ -5,7 +5,8 @@ import 'package:mercury/feature/data/model/paged_list/paged_list.dart';
 import 'package:mercury/feature/data/repository_path/path.dart';
 import 'package:mercury/feature/domain/enum/method.dart';
 import 'package:mercury/feature/domain/repositories/i_ingredient.dart';
-import 'package:mercury/feature/domain/repositories/search_by_name/search_by_name.dart';
+
+import '../../domain/model/search_by_name/search_by_name.dart';
 
 class IngredientRepository extends IIngredientRepository {
   @override
