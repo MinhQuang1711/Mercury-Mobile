@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:mercury/config/const/padding.dart';
 
@@ -46,6 +48,7 @@ class AppTextField extends StatefulWidget {
 
 class _AppTextFieldState extends State<AppTextField> {
   bool hasValue = false;
+  Timer? timer;
   TextEditingController controller = TextEditingController();
   @override
   void initState() {
@@ -68,13 +71,19 @@ class _AppTextFieldState extends State<AppTextField> {
     });
   }
 
+  void onChanged(String? val) {
+    timer?.cancel();
+    timer = Timer(
+        const Duration(milliseconds: 500), () => widget.onChanged?.call(val));
+  }
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: widget.obs ?? false,
       onTap: widget.onTap,
+      onChanged: onChanged,
       controller: controller,
-      onChanged: widget.onChanged,
       validator: widget.validator,
       readOnly: widget.readOnly ?? false,
       keyboardType: widget.textInputType,
