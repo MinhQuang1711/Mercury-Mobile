@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mercury/config/const/padding.dart';
-import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/feature/data/model/ingredinent/ingredient.dart';
 
@@ -42,14 +41,14 @@ class IngredientCard extends StatelessWidget {
       children: [
         Text(
           ingredient.name,
-          style: bodyBold.copyWith(color: AppColor.grey5),
+          style: bodyBold,
         ),
         const SizedBox(height: 5),
         Row(
           children: [
             Text(
               "Tồn kho: ${ingredient.weight} gram",
-              style: captionRegular.copyWith(color: AppColor.grey4),
+              style: captionRegular.copyWith(color: Colors.black87),
             )
           ],
         )
