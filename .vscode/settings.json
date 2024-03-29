@@ -1,0 +1,39 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "explorer.fileNesting.enabled": true,
+"explorer.fileNesting.expand": false,
+"explorer.fileNesting.patterns": {
+  "pubspec.yaml": ".metadata, pubspec.lock, analysis_options.yaml",
+},
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": "off",
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        },
+    },
+    "dart.previewFlutterUiGuides": true,
+    "dart.previewFlutterUiGuidesCustomTracking": true,
+    "codeium.enableConfig": {
+        "*": true,
+        "properties": true
+    },
+    "dart.debugExternalPackageLibraries": true,
+    "dart.debugSdkLibraries": true,
+    "dart.openDevTools": "flutter",
+    "git.openRepositoryInParentFolders": "never",
+    "workbench.editorAssociations": {
+        "*.plist": "default"
+    },
+    "vscode-pets.petSize": "medium",
+    "vscode-pets.theme": "beach",
+ 
+}
