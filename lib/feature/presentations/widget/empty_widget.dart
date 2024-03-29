@@ -35,7 +35,7 @@ class EmptyWidget extends StatelessWidget {
             margin: AppPadding.padding16,
             width: MediaQuery.of(context).size.width / 2,
             child: AppButton(
-              label: label ?? "",
+              label: label ?? "Làm mới trang",
               buttonSize: ButtonSize.SIZE_32,
               borderRadius: BorderRadius.circular(10),
             ),
