@@ -21,6 +21,7 @@ class AppTextField extends StatefulWidget {
     this.prefWidget,
     this.borderColor,
     this.validator,
+    this.contentPadding,
     this.textInputType,
     this.backgroundColor,
     this.onTapClearButton,
@@ -35,10 +36,10 @@ class AppTextField extends StatefulWidget {
   final Function()? onTap;
   final Color? borderColor;
   final Color? backgroundColor;
-
   final TextInputType? textInputType;
   final Function()? onTapClearButton;
   final TextEditingController? controller;
+  final EdgeInsetsGeometry? contentPadding;
   final String? Function(String?)? validator;
   final Function(String? onChaned)? onChanged;
 
@@ -103,10 +104,19 @@ class _AppTextFieldState extends State<AppTextField> {
         hintText: widget.hintText,
         prefWidget: widget.prefWidget,
         borderColor: widget.borderColor,
+        contentPadding: widget.contentPadding,
         backgroundColor: widget.backgroundColor,
-        sufWidget: (hasValue && widget.canDelete == true)
-            ? _closeButton()
-            : widget.sufWidget,
+        sufWidget: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (hasValue && widget.canDelete == true) _closeButton(),
+            if (widget.sufWidget != null)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 13),
+                child: widget.sufWidget!,
+              ),
+          ],
+        ),
       ),
     );
   }
@@ -131,6 +141,7 @@ class TextFieldProperties {
     Color? backgroundColor,
     Widget? sufWidget,
     Widget? prefWidget,
+    EdgeInsetsGeometry? contentPadding,
   }) {
     return InputDecoration(
       filled: true,
@@ -140,7 +151,7 @@ class TextFieldProperties {
       prefixIcon: prefWidget,
       border: getBorder(borderColor),
       disabledBorder: getBorder(null),
-      contentPadding: AppPadding.padding16,
+      contentPadding: contentPadding ?? AppPadding.padding16,
       enabledBorder: getBorder(borderColor),
       fillColor: backgroundColor ?? AppColor.grey3,
       errorBorder: getBorder(borderColor ?? AppColor.red),

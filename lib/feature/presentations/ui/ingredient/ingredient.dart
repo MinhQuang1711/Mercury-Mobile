@@ -10,6 +10,7 @@ import 'package:mercury/feature/presentations/ui/ingredient/widget/list_view.dar
 import '../../../../core/utils/injection/get_it.dart';
 import '../../../data/model/ingredinent/ingredient.dart';
 import '../../../data/model/paged_list/paged_list.dart';
+import 'widget/search_bar.dart';
 
 class IngredientScreen extends StatelessWidget {
   const IngredientScreen({super.key});
@@ -51,6 +52,8 @@ class IngredientPage extends StatelessWidget {
       ),
       child: const Column(
         children: [
+          IngredientSearchBar(),
+          // SizedBox(height: 10),
           IngredientList(),
         ],
       ),
