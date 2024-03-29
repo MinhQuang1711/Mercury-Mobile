@@ -18,6 +18,7 @@ class AppButton extends StatelessWidget {
     this.textColor,
     this.buttonSize,
     this.buttonType,
+    this.borderRadius,
     this.backgroundColor,
     required this.label,
   });
@@ -30,6 +31,7 @@ class AppButton extends StatelessWidget {
   final ButtonType? buttonType;
   final Color? backgroundColor;
   final ButtonSize? buttonSize;
+  final BorderRadiusGeometry? borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +54,7 @@ class AppButton extends StatelessWidget {
       child: Container(
         padding: currentButtonSize.getPadding(),
         decoration: BoxDecoration(
-          borderRadius: currentButtonSize.getBorderRadius(),
+          borderRadius: borderRadius ?? currentButtonSize.getBorderRadius(),
           color: currentButtonType.getBackgroundColor(color: backgroundColor),
         ),
         child: Center(
