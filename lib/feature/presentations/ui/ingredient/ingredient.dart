@@ -53,7 +53,7 @@ class IngredientPage extends StatelessWidget {
       child: const Column(
         children: [
           IngredientSearchBar(),
-          // SizedBox(height: 10),
+          SizedBox(height: 10),
           IngredientList(),
         ],
       ),

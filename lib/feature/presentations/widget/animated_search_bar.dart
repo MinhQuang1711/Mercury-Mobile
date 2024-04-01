@@ -52,7 +52,7 @@ class _AnimationSearchFieldState extends State<AnimationSearchField> {
           sufWidget: widget.sufWidget,
           onChanged: widget.onChanged,
           onTapClearButton: widget.onTapClearButton,
-          contentPadding: AppPadding.padding8,
+          contentPadding: AppPadding.padding8.copyWith(left: 15, right: 15),
         ),
       ),
     );

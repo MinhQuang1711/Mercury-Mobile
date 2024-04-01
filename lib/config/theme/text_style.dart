@@ -28,7 +28,7 @@ const bodyItalic = TextStyle(fontWeight: FontWeight.w400, fontSize: 17);
 
 // CAPTION
 const captionBold = TextStyle(fontWeight: FontWeight.w700, fontSize: 15);
-const captionMedium = TextStyle(fontWeight: FontWeight.w500, fontSize: 15);
+const captionMedium = TextStyle(fontWeight: FontWeight.w500, fontSize: 16);
 const captionRegular = TextStyle(fontWeight: FontWeight.w400, fontSize: 15);
 const captionItalic = TextStyle(fontWeight: FontWeight.w400, fontSize: 15);
 

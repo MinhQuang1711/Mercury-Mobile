@@ -153,7 +153,7 @@ class TextFieldProperties {
       disabledBorder: getBorder(null),
       contentPadding: contentPadding ?? AppPadding.padding16,
       enabledBorder: getBorder(borderColor),
-      fillColor: backgroundColor ?? AppColor.grey3,
+      fillColor: backgroundColor ?? AppColor.grey2,
       errorBorder: getBorder(borderColor ?? AppColor.red),
       focusedBorder: getBorder(borderColor ?? AppColor.blue),
       hintStyle:
