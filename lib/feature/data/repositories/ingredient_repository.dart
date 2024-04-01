@@ -1,4 +1,3 @@
-import 'package:mercury/config/router/path.dart';
 import 'package:mercury/core/network/request/param_payload.dart';
 import 'package:mercury/core/network/request/payload/payload.dart';
 import 'package:mercury/core/network/response/data_response.dart';
@@ -32,7 +31,7 @@ class IngredientRepository extends IIngredientRepository {
       paramRequest: ParamRequest(
         method: Method.POST,
         payload: Payload.json(dto.toJson()),
-        endPoint: AppPath.createIngredient,
+        endPoint: AppRepositoryPath.createIngredient,
       ),
       parser: (data) {},
     );

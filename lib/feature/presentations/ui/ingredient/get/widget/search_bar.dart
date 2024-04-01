@@ -1,10 +1,14 @@
 // ignore_for_file: unused_element
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/const/radius.dart';
 import 'package:mercury/config/router/path.dart';
 import 'package:mercury/config/router/route.dart';
+import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart';
+import 'package:mercury/feature/presentations/bloc/ingredient/bloc/bloc.dart';
+import 'package:mercury/feature/presentations/bloc/ingredient/bloc/event/event.dart';
 
 import '../../../../../../config/theme/color.dart';
 import '../../../../widget/animated_search_bar.dart';
@@ -20,15 +24,22 @@ class IngredientSearchBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _searchField(),
-          _createButton(),
+          _createButton(context),
         ],
       ),
     );
   }
 
-  GestureDetector _createButton() {
+  GestureDetector _createButton(BuildContext context) {
     return GestureDetector(
-      onTap: () => AppRouter.router.push(AppPath.createIngredient),
+      onTap: () =>
+          AppRouter.router.push(AppPath.createIngredient).then((value) {
+        if (value != null) {
+          context
+              .read<IngredientBloc>()
+              .add(const IngredientEvent.get(searchByName: SearchByName()));
+        }
+      }),
       child: Container(
         margin: const EdgeInsets.only(left: 15),
         padding: AppPadding.padding15,

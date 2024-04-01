@@ -20,6 +20,7 @@ mixin _$IngredientState {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loading,
+    required TResult Function() created,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -30,6 +31,7 @@ mixin _$IngredientState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loading,
+    TResult? Function()? created,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -40,6 +42,7 @@ mixin _$IngredientState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loading,
+    TResult Function()? created,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -51,6 +54,7 @@ mixin _$IngredientState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Created value) created,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
   }) =>
@@ -59,6 +63,7 @@ mixin _$IngredientState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Created value)? created,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
   }) =>
@@ -67,6 +72,7 @@ mixin _$IngredientState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Created value)? created,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
     required TResult orElse(),
@@ -131,6 +137,7 @@ class _$InitImpl implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loading,
+    required TResult Function() created,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -144,6 +151,7 @@ class _$InitImpl implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loading,
+    TResult? Function()? created,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -157,6 +165,7 @@ class _$InitImpl implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loading,
+    TResult Function()? created,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -174,6 +183,7 @@ class _$InitImpl implements _Init {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Created value) created,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
   }) {
@@ -185,6 +195,7 @@ class _$InitImpl implements _Init {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Created value)? created,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
   }) {
@@ -196,6 +207,7 @@ class _$InitImpl implements _Init {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Created value)? created,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
     required TResult orElse(),
@@ -251,6 +263,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loading,
+    required TResult Function() created,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -264,6 +277,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loading,
+    TResult? Function()? created,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -277,6 +291,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loading,
+    TResult Function()? created,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -294,6 +309,7 @@ class _$LoadingImpl implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Created value) created,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
   }) {
@@ -305,6 +321,7 @@ class _$LoadingImpl implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Created value)? created,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
   }) {
@@ -316,6 +333,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Created value)? created,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
     required TResult orElse(),
@@ -329,6 +347,132 @@ class _$LoadingImpl implements _Loading {
 
 abstract class _Loading implements IngredientState {
   const factory _Loading() = _$LoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$CreatedImplCopyWith<$Res> {
+  factory _$$CreatedImplCopyWith(
+          _$CreatedImpl value, $Res Function(_$CreatedImpl) then) =
+      __$$CreatedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CreatedImplCopyWithImpl<$Res>
+    extends _$IngredientStateCopyWithImpl<$Res, _$CreatedImpl>
+    implements _$$CreatedImplCopyWith<$Res> {
+  __$$CreatedImplCopyWithImpl(
+      _$CreatedImpl _value, $Res Function(_$CreatedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CreatedImpl implements _Created {
+  const _$CreatedImpl();
+
+  @override
+  String toString() {
+    return 'IngredientState.created()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CreatedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() loading,
+    required TResult Function() created,
+    required TResult Function(String msg) failure,
+    required TResult Function(
+            SearchByName searchByName, PagedList<Ingredient> pagedList)
+        got,
+  }) {
+    return created();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? loading,
+    TResult? Function()? created,
+    TResult? Function(String msg)? failure,
+    TResult? Function(
+            SearchByName searchByName, PagedList<Ingredient> pagedList)?
+        got,
+  }) {
+    return created?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? loading,
+    TResult Function()? created,
+    TResult Function(String msg)? failure,
+    TResult Function(
+            SearchByName searchByName, PagedList<Ingredient> pagedList)?
+        got,
+    required TResult orElse(),
+  }) {
+    if (created != null) {
+      return created();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Created value) created,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_Got value) got,
+  }) {
+    return created(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Created value)? created,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_Got value)? got,
+  }) {
+    return created?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Created value)? created,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_Got value)? got,
+    required TResult orElse(),
+  }) {
+    if (created != null) {
+      return created(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Created implements IngredientState {
+  const factory _Created() = _$CreatedImpl;
 }
 
 /// @nodoc
@@ -397,6 +541,7 @@ class _$FailureImpl implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loading,
+    required TResult Function() created,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -410,6 +555,7 @@ class _$FailureImpl implements _Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loading,
+    TResult? Function()? created,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -423,6 +569,7 @@ class _$FailureImpl implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loading,
+    TResult Function()? created,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -440,6 +587,7 @@ class _$FailureImpl implements _Failure {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Created value) created,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
   }) {
@@ -451,6 +599,7 @@ class _$FailureImpl implements _Failure {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Created value)? created,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
   }) {
@@ -462,6 +611,7 @@ class _$FailureImpl implements _Failure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Created value)? created,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
     required TResult orElse(),
@@ -566,6 +716,7 @@ class _$GotImpl implements _Got {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loading,
+    required TResult Function() created,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -579,6 +730,7 @@ class _$GotImpl implements _Got {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loading,
+    TResult? Function()? created,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -592,6 +744,7 @@ class _$GotImpl implements _Got {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loading,
+    TResult Function()? created,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -609,6 +762,7 @@ class _$GotImpl implements _Got {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Created value) created,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
   }) {
@@ -620,6 +774,7 @@ class _$GotImpl implements _Got {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Created value)? created,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
   }) {
@@ -631,6 +786,7 @@ class _$GotImpl implements _Got {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Created value)? created,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
     required TResult orElse(),

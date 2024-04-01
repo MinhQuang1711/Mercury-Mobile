@@ -9,6 +9,7 @@ part 'state.freezed.dart';
 class IngredientState with _$IngredientState {
   const factory IngredientState.init() = _Init;
   const factory IngredientState.loading() = _Loading;
+  const factory IngredientState.created() = _Created;
   const factory IngredientState.failure(String msg) = _Failure;
   const factory IngredientState.got({
     required SearchByName searchByName,

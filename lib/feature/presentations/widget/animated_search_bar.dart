@@ -33,8 +33,8 @@ class _AnimationSearchFieldState extends State<AnimationSearchField> {
 
   @override
   void dispose() {
-    super.dispose();
     controller.dispose();
+    super.dispose();
   }
 
   @override
