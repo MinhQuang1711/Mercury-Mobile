@@ -4,6 +4,6 @@ import 'package:mercury/feature/presentations/widget/app_bar/factory_app_bar/fac
 
 class CreateAppBar extends FactoryAppBar {
   @override
-  Widget create(BuildContext context) =>
+  CustomAppBar create(BuildContext context) =>
       const CustomAppBar(labelTitle: "Chi tiết");
 }

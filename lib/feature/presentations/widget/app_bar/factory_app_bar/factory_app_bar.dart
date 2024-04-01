@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../app_bar.dart';
+
 abstract class FactoryAppBar {
-  Widget create(BuildContext context);
+  CustomAppBar create(BuildContext context);
 }

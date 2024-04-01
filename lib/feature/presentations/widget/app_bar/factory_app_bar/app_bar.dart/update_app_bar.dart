@@ -5,6 +5,6 @@ import '../factory_app_bar.dart';
 
 class UpdateAppBar extends FactoryAppBar {
   @override
-  Widget create(BuildContext context) =>
+  CustomAppBar create(BuildContext context) =>
       const CustomAppBar(labelTitle: "Cập nhật");
 }
