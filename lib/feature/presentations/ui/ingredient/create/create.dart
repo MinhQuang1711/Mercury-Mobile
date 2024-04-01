@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/theme/color.dart';
+import 'package:mercury/core/utils/injection/get_it.dart';
+import 'package:mercury/feature/presentations/bloc/ingredient/bloc/bloc.dart';
+import 'package:mercury/feature/presentations/bloc/ingredient/cubit/create/cubit.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/create/widget/create_button.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/widget/name_field.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/widget/weight_field.dart';
@@ -14,7 +18,13 @@ class CreateIngredientScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CreateIngredientPage();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => getIt.get<IngredientBloc>()),
+        BlocProvider(create: (_) => getIt.get<CreateIngredientCubit>()),
+      ],
+      child: const CreateIngredientPage(),
+    );
   }
 }
 
@@ -23,22 +33,32 @@ class CreateIngredientPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
+    final cubit = getIt.get<CreateIngredientCubit>();
     final FactoryScreen factoryAppBar = CreateScreen();
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: factoryAppBar.createAppBar(context),
       body: AppStack(
-        backgroundWidget: const Column(
+        formKey: formKey,
+        backgroundWidget: Column(
           children: [
-            IngredientNameField(),
-            SizedBox(height: 15),
-            IngredientPriceField(),
-            SizedBox(height: 15),
-            IngredientWeightField(),
-            SizedBox(height: 100),
+            IngredientNameField(
+              onChanged: cubit.changedName,
+            ),
+            const SizedBox(height: 15),
+            IngredientPriceField(
+              onChanged: cubit.changedCost,
+            ),
+            const SizedBox(height: 15),
+            const IngredientWeightField(),
+            const SizedBox(height: 100),
           ],
         ),
-        bottomWidget: CreateIngredientButton(label: factoryAppBar.getTitle()),
+        bottomWidget: CreateIngredientButton(
+          formKey: formKey,
+          label: factoryAppBar.getTitle(),
+        ),
       ),
     );
   }

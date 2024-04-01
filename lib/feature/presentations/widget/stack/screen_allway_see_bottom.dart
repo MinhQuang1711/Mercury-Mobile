@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:mercury/config/const/padding.dart';
 
 class AppStack extends StatelessWidget {
-  const AppStack(
-      {super.key, required this.bottomWidget, required this.backgroundWidget});
+  const AppStack({
+    super.key,
+    required this.bottomWidget,
+    required this.backgroundWidget,
+    required this.formKey,
+  });
   final Widget bottomWidget;
   final Widget backgroundWidget;
+  final GlobalKey<FormState> formKey;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,13 @@ class AppStack extends StatelessWidget {
       child: Stack(
         children: [
           Positioned.fill(
-              child: SingleChildScrollView(child: backgroundWidget)),
+            child: SingleChildScrollView(
+              child: Form(
+                key: formKey,
+                child: backgroundWidget,
+              ),
+            ),
+          ),
           Positioned(
             left: 0,
             right: 0,
