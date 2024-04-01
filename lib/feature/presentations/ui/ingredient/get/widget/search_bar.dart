@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/const/radius.dart';
 
-import '../../../../../config/theme/color.dart';
-import '../../../widget/animated_search_bar.dart';
+import '../../../../../../config/theme/color.dart';
+import '../../../../widget/animated_search_bar.dart';
 
 class IngredientSearchBar extends StatelessWidget {
   const IngredientSearchBar({super.key});

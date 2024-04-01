@@ -5,11 +5,11 @@ import 'package:mercury/feature/presentations/bloc/ingredient/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/state/state.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/cubit/get/cubit.dart';
-import 'package:mercury/feature/presentations/ui/ingredient/widget/list_view.dart';
+import 'package:mercury/feature/presentations/ui/ingredient/get/widget/list_view.dart';
 
-import '../../../../core/utils/injection/get_it.dart';
-import '../../../data/model/ingredinent/ingredient.dart';
-import '../../../data/model/paged_list/paged_list.dart';
+import '../../../../../core/utils/injection/get_it.dart';
+import '../../../../data/model/ingredinent/ingredient.dart';
+import '../../../../data/model/paged_list/paged_list.dart';
 import 'widget/search_bar.dart';
 
 class IngredientScreen extends StatelessWidget {
