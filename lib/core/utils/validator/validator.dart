@@ -20,4 +20,12 @@ class Validator {
     }
     return null;
   }
+
+  static String? doubleOrNull(String? val) {
+    final result = double.tryParse(val ?? "");
+    if (result == null) {
+      return "Không đúng định dạng số";
+    }
+    return null;
+  }
 }

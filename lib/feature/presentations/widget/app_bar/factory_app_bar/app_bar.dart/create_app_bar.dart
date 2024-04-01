@@ -7,4 +7,7 @@ class CreateAppBar extends FactoryAppBar {
   @override
   CustomAppBar create(BuildContext context) =>
       const CustomAppBar(labelTitle: "Thêm mới");
+
+  @override
+  String getTitle() => "Thêm mới";
 }
