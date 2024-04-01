@@ -3,8 +3,8 @@ import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/create/widget/create_button.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/widget/name_field.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/widget/weight_field.dart';
-import 'package:mercury/feature/presentations/widget/app_bar/factory_app_bar/app_bar.dart/create_app_bar.dart';
-import 'package:mercury/feature/presentations/widget/app_bar/factory_app_bar/factory_app_bar.dart';
+import 'package:mercury/feature/presentations/widget/factory/screen/create_screen.dart';
+import 'package:mercury/feature/presentations/widget/factory/screen/factory_screen.dart';
 
 import '../../../widget/stack/screen_allway_see_bottom.dart';
 import '../widget/price_field.dart';
@@ -23,10 +23,10 @@ class CreateIngredientPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final FactoryAppBar factoryAppBar = CreateAppBar();
+    final FactoryScreen factoryAppBar = CreateScreen();
     return Scaffold(
       backgroundColor: AppColor.white,
-      appBar: factoryAppBar.create(context),
+      appBar: factoryAppBar.createAppBar(context),
       body: AppStack(
         backgroundWidget: const Column(
           children: [
