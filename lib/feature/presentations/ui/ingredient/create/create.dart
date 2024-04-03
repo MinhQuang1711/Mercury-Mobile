@@ -37,10 +37,10 @@ class CreateIngredientPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
     final cubit = context.read<CreateIngredientCubit>();
-    final factoryAppBar = CreateScreen();
+    final factoryScreen = CreateScreen();
     void handleSuccess() {
-      context.pop(factoryAppBar.getMessage());
-      context.showSuccesSnackBar(factoryAppBar.getMessage());
+      context.pop(factoryScreen.getMessage());
+      context.showSuccesSnackBar(factoryScreen.getMessage());
     }
 
     return BlocListener<IngredientBloc, IngredientState>(
@@ -50,7 +50,7 @@ class CreateIngredientPage extends StatelessWidget {
       ),
       child: Scaffold(
         backgroundColor: AppColor.white,
-        appBar: factoryAppBar.createAppBar(context),
+        appBar: factoryScreen.createAppBar(context),
         body: AppStack(
           formKey: formKey,
           backgroundWidget: Column(
@@ -69,7 +69,7 @@ class CreateIngredientPage extends StatelessWidget {
           ),
           bottomWidget: CreateIngredientButton(
             formKey: formKey,
-            label: factoryAppBar.getTitle(),
+            label: factoryScreen.getTitle(),
           ),
         ),
       ),
