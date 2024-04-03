@@ -3,4 +3,5 @@ class AppPath {
   static String login = "/login";
   static String splash = "/splash";
   static String createIngredient = "/createIngredient";
+  static String detailIngredient = "/detailIngredient";
 }
