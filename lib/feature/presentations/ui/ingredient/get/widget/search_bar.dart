@@ -19,9 +19,9 @@ class IngredientSearchBar extends StatelessWidget {
     return Padding(
       padding: AppPadding.padding12.copyWith(top: 0, bottom: 0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _searchBar(context),
+          const SizedBox(width: 10),
           _createButton(context),
         ],
       ),
@@ -29,33 +29,24 @@ class IngredientSearchBar extends StatelessWidget {
   }
 
   Widget _createButton(BuildContext context) {
-    void handleWhenHasValue() {
-      context
-          .read<IngredientBloc>()
-          .add(const IngredientEvent.get(searchByName: SearchByName()));
-    }
+    void handleWhenHasValue() => context
+        .read<IngredientBloc>()
+        .add(const IngredientEvent.get(searchByName: SearchByName()));
 
-    void navigateToCreateScreen() {
-      context.pushAndListen(
-        location: AppPath.createIngredient,
-        handleWhenHasValue: handleWhenHasValue,
-      );
-    }
+    void navigateToCreateScreen() => context.pushAndListen(
+          location: AppPath.createIngredient,
+          handleWhenHasValue: handleWhenHasValue,
+        );
 
     return CreateSquareButton(onTap: navigateToCreateScreen);
   }
 
   Widget _searchBar(BuildContext context) {
     final bloc = context.read<IngredientBloc>();
-    void onSearch({String? name}) {
-      bloc.add(
-        IngredientEvent.get(searchByName: SearchByName(name: name ?? "")),
-      );
-    }
+    void onSearch({String? name}) => bloc
+        .add(IngredientEvent.get(searchByName: SearchByName(name: name ?? "")));
 
-    void onChanged(String? val) {
-      onSearch(name: val);
-    }
+    void onChanged(String? val) => onSearch(name: val);
 
     return Expanded(
       child: AppTextField(
