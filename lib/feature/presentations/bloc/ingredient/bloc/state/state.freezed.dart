@@ -20,7 +20,7 @@ mixin _$IngredientState {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loading,
-    required TResult Function() created,
+    required TResult Function(String msg) created,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -31,7 +31,7 @@ mixin _$IngredientState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loading,
-    TResult? Function()? created,
+    TResult? Function(String msg)? created,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -42,7 +42,7 @@ mixin _$IngredientState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loading,
-    TResult Function()? created,
+    TResult Function(String msg)? created,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -137,7 +137,7 @@ class _$InitImpl implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loading,
-    required TResult Function() created,
+    required TResult Function(String msg) created,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -151,7 +151,7 @@ class _$InitImpl implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loading,
-    TResult? Function()? created,
+    TResult? Function(String msg)? created,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -165,7 +165,7 @@ class _$InitImpl implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loading,
-    TResult Function()? created,
+    TResult Function(String msg)? created,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -263,7 +263,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loading,
-    required TResult Function() created,
+    required TResult Function(String msg) created,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -277,7 +277,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loading,
-    TResult? Function()? created,
+    TResult? Function(String msg)? created,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -291,7 +291,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loading,
-    TResult Function()? created,
+    TResult Function(String msg)? created,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -354,6 +354,8 @@ abstract class _$$CreatedImplCopyWith<$Res> {
   factory _$$CreatedImplCopyWith(
           _$CreatedImpl value, $Res Function(_$CreatedImpl) then) =
       __$$CreatedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String msg});
 }
 
 /// @nodoc
@@ -363,39 +365,63 @@ class __$$CreatedImplCopyWithImpl<$Res>
   __$$CreatedImplCopyWithImpl(
       _$CreatedImpl _value, $Res Function(_$CreatedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? msg = null,
+  }) {
+    return _then(_$CreatedImpl(
+      null == msg
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$CreatedImpl implements _Created {
-  const _$CreatedImpl();
+  const _$CreatedImpl(this.msg);
+
+  @override
+  final String msg;
 
   @override
   String toString() {
-    return 'IngredientState.created()';
+    return 'IngredientState.created(msg: $msg)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CreatedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$CreatedImpl &&
+            (identical(other.msg, msg) || other.msg == msg));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, msg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CreatedImplCopyWith<_$CreatedImpl> get copyWith =>
+      __$$CreatedImplCopyWithImpl<_$CreatedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loading,
-    required TResult Function() created,
+    required TResult Function(String msg) created,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
         got,
   }) {
-    return created();
+    return created(msg);
   }
 
   @override
@@ -403,13 +429,13 @@ class _$CreatedImpl implements _Created {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loading,
-    TResult? Function()? created,
+    TResult? Function(String msg)? created,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
         got,
   }) {
-    return created?.call();
+    return created?.call(msg);
   }
 
   @override
@@ -417,7 +443,7 @@ class _$CreatedImpl implements _Created {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loading,
-    TResult Function()? created,
+    TResult Function(String msg)? created,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -425,7 +451,7 @@ class _$CreatedImpl implements _Created {
     required TResult orElse(),
   }) {
     if (created != null) {
-      return created();
+      return created(msg);
     }
     return orElse();
   }
@@ -472,7 +498,12 @@ class _$CreatedImpl implements _Created {
 }
 
 abstract class _Created implements IngredientState {
-  const factory _Created() = _$CreatedImpl;
+  const factory _Created(final String msg) = _$CreatedImpl;
+
+  String get msg;
+  @JsonKey(ignore: true)
+  _$$CreatedImplCopyWith<_$CreatedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -541,7 +572,7 @@ class _$FailureImpl implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loading,
-    required TResult Function() created,
+    required TResult Function(String msg) created,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -555,7 +586,7 @@ class _$FailureImpl implements _Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loading,
-    TResult? Function()? created,
+    TResult? Function(String msg)? created,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -569,7 +600,7 @@ class _$FailureImpl implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loading,
-    TResult Function()? created,
+    TResult Function(String msg)? created,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -716,7 +747,7 @@ class _$GotImpl implements _Got {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loading,
-    required TResult Function() created,
+    required TResult Function(String msg) created,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -730,7 +761,7 @@ class _$GotImpl implements _Got {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loading,
-    TResult? Function()? created,
+    TResult? Function(String msg)? created,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -744,7 +775,7 @@ class _$GotImpl implements _Got {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loading,
-    TResult Function()? created,
+    TResult Function(String msg)? created,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?

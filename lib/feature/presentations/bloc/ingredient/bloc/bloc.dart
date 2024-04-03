@@ -4,6 +4,7 @@ import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart'
 import 'package:mercury/feature/domain/repositories/i_ingredient.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/state/state.dart';
+import 'package:mercury/feature/presentations/widget/factory/screen/create_screen.dart';
 
 import '../../../../domain/model/ingredient/create_and_update.dart';
 
@@ -37,7 +38,8 @@ class IngredientBloc extends Bloc<IngredientEvent, IngredientState> {
     emitter(const IngredientState.loading());
     (await repo.create(dto: dto)).on(
       whenFaild: (msg) => emitter(IngredientState.failure(msg)),
-      whenSuccess: (data) => emitter(const IngredientState.created()),
+      whenSuccess: (data) =>
+          emitter(IngredientState.created(CreateScreen().getMessage())),
     );
   }
 }

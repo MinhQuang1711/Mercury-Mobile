@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
@@ -35,16 +34,13 @@ class CreateIngredientPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final factoryScreen = CreateScreen();
     final formKey = GlobalKey<FormState>();
     final cubit = context.read<CreateIngredientCubit>();
-    final factoryScreen = CreateScreen();
-    void handleSuccess() {
-      context.pop(factoryScreen.getMessage());
-    }
 
     return BlocListener<IngredientBloc, IngredientState>(
       listener: (context, state) => state.whenOrNull(
-        created: handleSuccess,
+        created: context.showSuccesSnackBar,
         failure: context.showFailureSnackBar,
       ),
       child: Scaffold(
