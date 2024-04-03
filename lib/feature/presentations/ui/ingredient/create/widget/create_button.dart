@@ -22,18 +22,14 @@ class CreateIngredientButton extends StatelessWidget {
       }
     }
 
+    final createButton = AppButton(label: label, onTap: onTap);
+
     return BlocBuilder<IngredientBloc, IngredientState>(
       builder: (context, state) {
         return state.maybeWhen(
-          orElse: () => AppButton(
-            label: label,
-            onTap: onTap,
-          ),
-          loading: () => AppButton(
-            label: label,
-            isLoading: true,
-          ),
-        );
+            orElse: () => createButton,
+            loading: () =>
+                createButton.coppyWith(isLoading: true, onTap: () {}));
       },
     );
   }

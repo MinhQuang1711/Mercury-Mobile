@@ -33,6 +33,24 @@ class AppButton extends StatelessWidget {
   final ButtonSize? buttonSize;
   final BorderRadiusGeometry? borderRadius;
 
+  Widget coppyWith({
+    String? label,
+    bool? isLoading,
+    Function()? onTap,
+  }) {
+    return AppButton(
+      textColor: textColor,
+      buttonType: buttonType,
+      buttonSize: buttonSize,
+      borderColor: borderColor,
+      label: label ?? this.label,
+      borderRadius: borderRadius,
+      onTap: onTap ?? this.onTap,
+      backgroundColor: backgroundColor,
+      isLoading: isLoading ?? this.isLoading,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final currentButtonType = buttonType ?? ButtonType.FILL;
