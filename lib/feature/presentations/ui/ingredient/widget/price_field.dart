@@ -10,8 +10,9 @@ class IngredientPriceField extends StatelessWidget {
     this.initValue,
     this.onChanged,
     this.onTapClearButton,
+    this.readOnly,
   });
-
+  final bool? readOnly;
   final String? initValue;
   final Function(String?)? onChanged;
   final Function()? onTapClearButton;
@@ -22,6 +23,7 @@ class IngredientPriceField extends StatelessWidget {
       titleLabel: "Giá cost",
       bottomWidget: AppTextField(
         canDelete: true,
+        readOnly: readOnly,
         initValue: initValue,
         onChanged: onChanged,
         hintText: "Giá nhập nguyên liệu",

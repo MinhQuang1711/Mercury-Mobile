@@ -4,13 +4,13 @@ import 'package:mercury/config/const/padding.dart';
 class AppStack extends StatelessWidget {
   const AppStack({
     super.key,
+    this.formKey,
     required this.bottomWidget,
     required this.backgroundWidget,
-    required this.formKey,
   });
   final Widget bottomWidget;
   final Widget backgroundWidget;
-  final GlobalKey<FormState> formKey;
+  final GlobalKey<FormState>? formKey;
 
   @override
   Widget build(BuildContext context) {

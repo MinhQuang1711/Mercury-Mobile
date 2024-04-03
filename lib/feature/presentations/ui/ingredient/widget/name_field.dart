@@ -7,10 +7,12 @@ import '../../../widget/textfield/textfield.dart';
 class IngredientNameField extends StatelessWidget {
   const IngredientNameField({
     super.key,
+    this.readOnly,
     this.initValue,
     this.onChanged,
     this.onTapClearButton,
   });
+  final bool? readOnly;
   final String? initValue;
   final Function(String?)? onChanged;
   final Function()? onTapClearButton;
@@ -22,6 +24,7 @@ class IngredientNameField extends StatelessWidget {
       titleLabel: "Tên nguyên liệu",
       bottomWidget: AppTextField(
         canDelete: true,
+        readOnly: readOnly,
         onChanged: onChanged,
         validator: Validator.required,
         hintText: "Nhập tên nguyên liệu",
