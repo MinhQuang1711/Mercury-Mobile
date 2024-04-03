@@ -3,15 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/const/padding.dart';
-import 'package:mercury/config/const/radius.dart';
 import 'package:mercury/config/router/path.dart';
 import 'package:mercury/config/router/route.dart';
 import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/event/event.dart';
-
-import '../../../../../../config/theme/color.dart';
-import '../../../../widget/animated_search_bar.dart';
+import 'package:mercury/feature/presentations/widget/button/create_square_button.dart';
+import 'package:mercury/feature/presentations/widget/textfield/textfield.dart';
 
 class IngredientSearchBar extends StatelessWidget {
   const IngredientSearchBar({super.key});
@@ -23,43 +21,45 @@ class IngredientSearchBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _searchField(),
+          _searchBar(context),
           _createButton(context),
         ],
       ),
     );
   }
 
-  GestureDetector _createButton(BuildContext context) {
-    return GestureDetector(
-      onTap: () =>
-          AppRouter.router.push(AppPath.createIngredient).then((value) {
+  Widget _createButton(BuildContext context) {
+    void navigateToCreateScreen() {
+      AppRouter.router.push(AppPath.createIngredient).then((value) {
         if (value != null) {
           context
               .read<IngredientBloc>()
               .add(const IngredientEvent.get(searchByName: SearchByName()));
         }
-      }),
-      child: Container(
-        margin: const EdgeInsets.only(left: 15),
-        padding: AppPadding.padding15,
-        decoration: BoxDecoration(
-          borderRadius: AppContainerBorder.radius8,
-          color: AppColor.blue.withOpacity(0.1),
-        ),
-        child: const Icon(
-          Icons.add,
-          size: 20,
-          color: AppColor.blue,
-        ),
-      ),
-    );
+      });
+    }
+
+    return CreateSquareButton(onTap: navigateToCreateScreen);
   }
 
-  Flexible _searchField() {
-    return const Flexible(
-      child: AnimationSearchField(
-        hint: "Tìm kiếm theo tên...",
+  Widget _searchBar(BuildContext context) {
+    final bloc = context.read<IngredientBloc>();
+    void onSearch({String? name}) {
+      bloc.add(
+        IngredientEvent.get(searchByName: SearchByName(name: name ?? "")),
+      );
+    }
+
+    void onChanged(String? val) {
+      onSearch(name: val);
+    }
+
+    return Expanded(
+      child: AppTextField(
+        onChanged: onChanged,
+        onTapClearButton: onSearch,
+        hintText: "Tìm kiếm theo tên...",
+        prefWidget: const Icon(Icons.search),
       ),
     );
   }
