@@ -40,7 +40,6 @@ class CreateIngredientPage extends StatelessWidget {
     final factoryScreen = CreateScreen();
     void handleSuccess() {
       context.pop(factoryScreen.getMessage());
-      context.showSuccesSnackBar(factoryScreen.getMessage());
     }
 
     return BlocListener<IngredientBloc, IngredientState>(

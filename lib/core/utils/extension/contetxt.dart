@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../feature/presentations/widget/snack_bar.dart';
 
@@ -22,4 +23,16 @@ extension ContextEx on BuildContext {
       ),
     );
   }
+
+  void pushAndListen<T>({
+    T? object,
+    required String location,
+    required Function() handleWhenHasValue,
+  }) =>
+      push<String>(location, extra: object).then((msg) {
+        if (msg != null) {
+          showSuccesSnackBar(msg);
+          handleWhenHasValue.call();
+        }
+      });
 }

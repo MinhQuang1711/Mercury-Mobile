@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/router/path.dart';
-import 'package:mercury/config/router/route.dart';
+import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/event/event.dart';
@@ -29,14 +29,17 @@ class IngredientSearchBar extends StatelessWidget {
   }
 
   Widget _createButton(BuildContext context) {
+    void handleWhenHasValue() {
+      context
+          .read<IngredientBloc>()
+          .add(const IngredientEvent.get(searchByName: SearchByName()));
+    }
+
     void navigateToCreateScreen() {
-      AppRouter.router.push(AppPath.createIngredient).then((value) {
-        if (value != null) {
-          context
-              .read<IngredientBloc>()
-              .add(const IngredientEvent.get(searchByName: SearchByName()));
-        }
-      });
+      context.pushAndListen(
+        location: AppPath.createIngredient,
+        handleWhenHasValue: handleWhenHasValue,
+      );
     }
 
     return CreateSquareButton(onTap: navigateToCreateScreen);
