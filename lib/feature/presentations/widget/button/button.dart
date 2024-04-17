@@ -33,7 +33,7 @@ class AppButton extends StatelessWidget {
   final ButtonSize? buttonSize;
   final BorderRadiusGeometry? borderRadius;
 
-  Widget coppyWith({
+  Widget copyWith({
     String? label,
     bool? isLoading,
     Function()? onTap,

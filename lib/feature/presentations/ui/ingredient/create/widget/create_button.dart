@@ -29,7 +29,7 @@ class CreateIngredientButton extends StatelessWidget {
         return state.maybeWhen(
             orElse: () => createButton,
             loading: () =>
-                createButton.coppyWith(isLoading: true, onTap: () {}));
+                createButton.copyWith(isLoading: true, onTap: () {}));
       },
     );
   }

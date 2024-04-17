@@ -27,12 +27,27 @@ extension ContextEx on BuildContext {
   void pushAndListen<T>({
     T? object,
     required String location,
-    required Function() handleWhenHasValue,
+    Function()? handleWhenHasValue,
   }) =>
       push<String>(location, extra: object).then((msg) {
         if (msg != null) {
           showSuccesSnackBar(msg);
-          handleWhenHasValue.call();
+          handleWhenHasValue?.call();
         }
       });
+
+  void showDialogAndListen({
+    required Widget child,
+    Function()? handleWhenHasValue,
+  }) {
+    showDialog<String>(
+      context: this,
+      builder: (_) => child,
+    ).then((msg) {
+      if (msg != null) {
+        showSuccesSnackBar(msg);
+        handleWhenHasValue?.call();
+      }
+    });
+  }
 }
