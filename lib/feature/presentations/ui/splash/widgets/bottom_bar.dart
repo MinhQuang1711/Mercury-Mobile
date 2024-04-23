@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/core/utils/singleton/splash_singleton.dart';
 
@@ -12,11 +13,17 @@ class SplashBottomBar extends StatelessWidget {
       _tab(iconData: Icons.account_circle_rounded, label: "Tài khoản"),
     ];
     return Container(
-      height: 50,
       decoration: const BoxDecoration(
-        border: Border(top: BorderSide(width: 0.1)),
+        color: AppColor.white,
+        boxShadow: [
+          BoxShadow(
+            color: AppColor.grey3,
+            spreadRadius: 7,
+            blurRadius: 7,
+            offset: Offset(0, 3),
+          )
+        ],
       ),
-      margin: const EdgeInsets.symmetric(vertical: 3),
       child: TabBar(
         tabs: tabs,
         padding: EdgeInsets.zero,
