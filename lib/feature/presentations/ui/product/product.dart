@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/get/ingredient.dart';
-import 'package:mercury/feature/presentations/ui/sale_product/sale_product.dart';
+import 'package:mercury/feature/presentations/ui/sale_product/get/sale_product.dart';
 import 'package:mercury/feature/presentations/widget/tab_bar/tab_bar.dart';
 
 class ProductScreen extends StatelessWidget {

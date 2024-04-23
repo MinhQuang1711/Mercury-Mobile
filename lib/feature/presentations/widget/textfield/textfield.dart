@@ -151,7 +151,7 @@ class TextFieldProperties {
       prefixIcon: prefWidget,
       border: getBorder(borderColor),
       disabledBorder: getBorder(null),
-      contentPadding: contentPadding ?? AppPadding.padding16,
+      contentPadding: contentPadding ?? AppPadding.padding15,
       enabledBorder: getBorder(borderColor),
       fillColor: backgroundColor ?? AppColor.grey2,
       errorBorder: getBorder(borderColor ?? AppColor.red),
@@ -162,7 +162,7 @@ class TextFieldProperties {
 
   static OutlineInputBorder getBorder(Color? color) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(6),
+      borderRadius: BorderRadius.circular(8),
       borderSide: BorderSide(width: 0.7, color: color ?? AppColor.grey3),
     );
   }

@@ -21,14 +21,14 @@ class CreateSquareButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: const EdgeInsets.only(left: 15),
-        padding: padding ?? AppPadding.padding15,
+        padding: padding ?? AppPadding.padding16,
         decoration: BoxDecoration(
           borderRadius: AppContainerBorder.radius8,
-          color: AppColor.blue.withOpacity(0.1),
+          color: AppColor.blue.withOpacity(0.3),
         ),
         child: Icon(
           iconData ?? Icons.add,
-          size: 20,
+          size: 22,
           color: AppColor.blue,
         ),
       ),
