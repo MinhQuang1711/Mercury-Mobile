@@ -75,7 +75,7 @@ class _AppTextFieldState extends State<AppTextField> {
   void onChanged(String? val) {
     timer?.cancel();
     timer = Timer(
-        const Duration(milliseconds: 200), () => widget.onChanged?.call(val));
+        const Duration(milliseconds: 500), () => widget.onChanged?.call(val));
   }
 
   @override

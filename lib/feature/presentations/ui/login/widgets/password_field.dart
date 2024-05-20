@@ -16,11 +16,13 @@ class PasswordField extends StatelessWidget {
       buildWhen: (previous, current) => previous.isHiden != current.isHiden,
       builder: (context, state) => AppTextField(
         obs: state.isHiden,
+        canDelete: true,
         hintText: "Nhập mật khẩu",
         prefWidget: _emailIcon(),
         validator: Validator.password,
         onChanged: cubit.changedPassword,
         sufWidget: _showPasswordButton(state.isHiden),
+        onTapClearButton: () => cubit.changedPassword(''),
       ),
     );
   }
