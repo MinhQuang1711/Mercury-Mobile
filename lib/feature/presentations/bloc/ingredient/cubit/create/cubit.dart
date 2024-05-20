@@ -1,10 +1,20 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/feature/data/model/ingredinent/ingredient.dart';
 import 'package:mercury/feature/domain/model/ingredient/create_and_update.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/cubit/create/state/state.dart';
 
 class CreateIngredientCubit extends Cubit<CreateIngredientState> {
   CreateIngredientCubit()
       : super(const CreateIngredientState(dto: CreateAndUpdateIngredient()));
+
+  void initDto(Ingredient ingredient) {
+    final dto = CreateAndUpdateIngredient(
+      cost: ingredient.cost,
+      name: ingredient.name,
+      weight: ingredient.weight,
+    );
+    emit(state.copyWith(dto: dto));
+  }
 
   void changedName(String? val) {
     emit(state.copyWith(dto: state.dto.copyWith(name: val ?? "")));

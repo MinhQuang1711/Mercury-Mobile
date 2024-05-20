@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/theme/color.dart';
 
 import '../../../../config/theme/text_style.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar(
-      {super.key, this.labelTitle, this.actionWidget, this.labelColor});
+      {super.key,
+      this.labelTitle,
+      this.actionWidget,
+      this.labelColor,
+      this.backgroundColor});
   final String? labelTitle;
   final Widget? actionWidget;
   final Color? labelColor;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: AppPadding.padding8,
-      child: Center(
-        child: Text(
-          labelTitle ?? "",
-          style: h6Medium.copyWith(color: AppColor.white),
-        ),
+    return AppBar(
+      centerTitle: true,
+      backgroundColor: backgroundColor ?? AppColor.blue,
+      title: Text(
+        labelTitle ?? "",
+        style: h6Medium.copyWith(color: labelColor ?? AppColor.white),
       ),
     );
   }
