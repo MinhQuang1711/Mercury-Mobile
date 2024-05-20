@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CreateAndUpdateIngredient {
   String get name => throw _privateConstructorUsedError;
   double get cost => throw _privateConstructorUsedError;
+  double get weight => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -31,7 +32,7 @@ abstract class $CreateAndUpdateIngredientCopyWith<$Res> {
           $Res Function(CreateAndUpdateIngredient) then) =
       _$CreateAndUpdateIngredientCopyWithImpl<$Res, CreateAndUpdateIngredient>;
   @useResult
-  $Res call({String name, double cost});
+  $Res call({String name, double cost, double weight});
 }
 
 /// @nodoc
@@ -50,6 +51,7 @@ class _$CreateAndUpdateIngredientCopyWithImpl<$Res,
   $Res call({
     Object? name = null,
     Object? cost = null,
+    Object? weight = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -59,6 +61,10 @@ class _$CreateAndUpdateIngredientCopyWithImpl<$Res,
       cost: null == cost
           ? _value.cost
           : cost // ignore: cast_nullable_to_non_nullable
+              as double,
+      weight: null == weight
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
               as double,
     ) as $Val);
   }
@@ -73,7 +79,7 @@ abstract class _$$CreateAndUpdateIngredientImplCopyWith<$Res>
       __$$CreateAndUpdateIngredientImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, double cost});
+  $Res call({String name, double cost, double weight});
 }
 
 /// @nodoc
@@ -91,6 +97,7 @@ class __$$CreateAndUpdateIngredientImplCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? cost = null,
+    Object? weight = null,
   }) {
     return _then(_$CreateAndUpdateIngredientImpl(
       name: null == name
@@ -101,6 +108,10 @@ class __$$CreateAndUpdateIngredientImplCopyWithImpl<$Res>
           ? _value.cost
           : cost // ignore: cast_nullable_to_non_nullable
               as double,
+      weight: null == weight
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -108,7 +119,8 @@ class __$$CreateAndUpdateIngredientImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable(createFactory: false)
 class _$CreateAndUpdateIngredientImpl implements _CreateAndUpdateIngredient {
-  const _$CreateAndUpdateIngredientImpl({this.name = "", this.cost = 0});
+  const _$CreateAndUpdateIngredientImpl(
+      {this.name = "", this.cost = 0, this.weight = 0});
 
   @override
   @JsonKey()
@@ -116,10 +128,13 @@ class _$CreateAndUpdateIngredientImpl implements _CreateAndUpdateIngredient {
   @override
   @JsonKey()
   final double cost;
+  @override
+  @JsonKey()
+  final double weight;
 
   @override
   String toString() {
-    return 'CreateAndUpdateIngredient(name: $name, cost: $cost)';
+    return 'CreateAndUpdateIngredient(name: $name, cost: $cost, weight: $weight)';
   }
 
   @override
@@ -128,12 +143,13 @@ class _$CreateAndUpdateIngredientImpl implements _CreateAndUpdateIngredient {
         (other.runtimeType == runtimeType &&
             other is _$CreateAndUpdateIngredientImpl &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.cost, cost) || other.cost == cost));
+            (identical(other.cost, cost) || other.cost == cost) &&
+            (identical(other.weight, weight) || other.weight == weight));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, cost);
+  int get hashCode => Object.hash(runtimeType, name, cost, weight);
 
   @JsonKey(ignore: true)
   @override
@@ -152,12 +168,16 @@ class _$CreateAndUpdateIngredientImpl implements _CreateAndUpdateIngredient {
 
 abstract class _CreateAndUpdateIngredient implements CreateAndUpdateIngredient {
   const factory _CreateAndUpdateIngredient(
-      {final String name, final double cost}) = _$CreateAndUpdateIngredientImpl;
+      {final String name,
+      final double cost,
+      final double weight}) = _$CreateAndUpdateIngredientImpl;
 
   @override
   String get name;
   @override
   double get cost;
+  @override
+  double get weight;
   @override
   @JsonKey(ignore: true)
   _$$CreateAndUpdateIngredientImplCopyWith<_$CreateAndUpdateIngredientImpl>

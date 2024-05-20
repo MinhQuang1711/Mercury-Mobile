@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/theme/color.dart';
+import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/state/state.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/cubit/create/cubit.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/create/widget/create_button.dart';
+import 'package:mercury/feature/presentations/ui/ingredient/create/widget/note.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/widget/name_field.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/widget/weight_field.dart';
 import 'package:mercury/feature/presentations/widget/factory/screen/create_screen.dart';
@@ -45,7 +47,7 @@ class CreateIngredientPage extends StatelessWidget {
       ),
       child: Scaffold(
         backgroundColor: AppColor.white,
-        appBar: factoryScreen.createAppBar(context),
+        appBar: _appBar(),
         body: AppStack(
           formKey: formKey,
           backgroundWidget: Column(
@@ -58,8 +60,9 @@ class CreateIngredientPage extends StatelessWidget {
                 onChanged: cubit.changedCost,
               ),
               const SizedBox(height: 15),
-              const IngredientWeightField(),
-              const SizedBox(height: 100),
+              IngredientWeightField(onChanged: cubit.changedWeight),
+              const SizedBox(height: 25),
+              const IngredientNote(),
             ],
           ),
           bottomWidget: CreateIngredientButton(
@@ -67,6 +70,16 @@ class CreateIngredientPage extends StatelessWidget {
             label: factoryScreen.getTitle(),
           ),
         ),
+      ),
+    );
+  }
+
+  AppBar _appBar() {
+    return AppBar(
+      centerTitle: true,
+      title: Text(
+        "Thêm mới",
+        style: h6Bold.copyWith(fontSize: 19),
       ),
     );
   }

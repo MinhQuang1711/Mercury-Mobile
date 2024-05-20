@@ -18,7 +18,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: Center(
         child: Text(
           labelTitle ?? "",
-          style: h6Medium.copyWith(color: labelColor ?? AppColor.white),
+          style: h6Medium.copyWith(color: AppColor.white),
         ),
       ),
     );

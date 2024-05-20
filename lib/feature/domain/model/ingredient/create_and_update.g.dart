@@ -11,4 +11,5 @@ Map<String, dynamic> _$$CreateAndUpdateIngredientImplToJson(
     <String, dynamic>{
       'name': instance.name,
       'cost': instance.cost,
+      'weight': instance.weight,
     };

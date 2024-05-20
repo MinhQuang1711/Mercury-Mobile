@@ -6,6 +6,7 @@ import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/event/event.dart';
+import 'package:mercury/feature/presentations/ui/ingredient/get/widget/create_button.dart';
 import 'package:mercury/feature/presentations/widget/search_icon.dart';
 import 'package:mercury/feature/presentations/widget/textfield/textfield.dart';
 
@@ -35,6 +36,7 @@ class IngredientSearchBar extends StatelessWidget {
         onTapClearButton: onSearch,
         hintText: "Tìm kiếm theo tên...",
         prefWidget: const SearchIcon(),
+        sufWidget: const CreateIngredientButton(),
       ),
     );
   }

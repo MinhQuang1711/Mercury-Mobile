@@ -9,5 +9,6 @@ class CreateAndUpdateIngredient with _$CreateAndUpdateIngredient {
   const factory CreateAndUpdateIngredient({
     @Default("") String name,
     @Default(0) double cost,
+    @Default(0) double weight,
   }) = _CreateAndUpdateIngredient;
 }

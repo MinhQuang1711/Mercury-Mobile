@@ -14,4 +14,9 @@ class CreateIngredientCubit extends Cubit<CreateIngredientState> {
     final cost = double.tryParse(val ?? "") ?? 0;
     emit(state.copyWith(dto: state.dto.copyWith(cost: cost)));
   }
+
+  void changedWeight(String? val) {
+    final weight = double.tryParse(val ?? "") ?? 0;
+    emit(state.copyWith(dto: state.dto.copyWith(weight: weight)));
+  }
 }
