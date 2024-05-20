@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mercury/config/const/padding.dart';
+import 'package:mercury/config/theme/color.dart';
 
 import '../../../../config/theme/text_style.dart';
 
@@ -9,21 +11,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      centerTitle: true,
-      backgroundColor: Colors.white,
-      actions: [actionWidget ?? const SizedBox()],
-      title: Padding(
-        padding: const EdgeInsets.all(8),
+    return Padding(
+      padding: AppPadding.padding8,
+      child: Center(
         child: Text(
           labelTitle ?? "",
-          style: h6Bold,
+          style: h6Medium.copyWith(color: AppColor.white),
         ),
       ),
     );
   }
 
-  final double _defaultAppbarHeight = 50;
+  final double _defaultAppbarHeight = 45;
   @override
   Size get preferredSize => Size.fromHeight(_defaultAppbarHeight);
 }

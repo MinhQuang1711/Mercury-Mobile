@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mercury/config/const/padding.dart';
+import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/get/ingredient.dart';
 import 'package:mercury/feature/presentations/ui/sale_product/get/sale_product.dart';
+import 'package:mercury/feature/presentations/widget/app_bar/app_bar.dart';
 import 'package:mercury/feature/presentations/widget/tab_bar/tab_bar.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -31,8 +32,24 @@ class ProductPage extends StatelessWidget {
       length: tabs.length,
       child: Column(
         children: [
-          Padding(padding: AppPadding.padding12, child: appTabBar.tabBar),
+          _topBar(appTabBar),
+          const SizedBox(height: 15),
           Expanded(child: appTabBar.tabBarView),
+        ],
+      ),
+    );
+  }
+
+  Container _topBar(AppTabBar appTabBar) {
+    return Container(
+      color: AppColor.blue,
+      child: Column(
+        children: [
+          const CustomAppBar(
+            labelTitle: "Quản lý",
+          ),
+          appTabBar.tabBar,
+          const SizedBox(height: 10)
         ],
       ),
     );

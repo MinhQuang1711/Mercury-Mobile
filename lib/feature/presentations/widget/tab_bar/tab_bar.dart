@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mercury/config/const/padding.dart';
+import 'package:mercury/config/const/radius.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
 
@@ -8,18 +10,28 @@ class AppTabBar {
   final List<Widget> children;
   late final TabBarView tabBarView;
   AppTabBar({required this.tabs, required this.children}) {
-    tabBar = TabBar(
-      tabs: tabs,
-      labelStyle: captionMedium,
-      padding: EdgeInsets.zero,
-      labelColor: AppColor.blue,
-      labelPadding: EdgeInsets.zero,
-      dividerColor: AppColor.grey3,
-      indicatorSize: TabBarIndicatorSize.tab,
-      // indicator: BoxDecoration(
-      //   color: AppColor.blue,
-      //   borderRadius: BorderRadius.circular(8),
-      // ),
+    tabBar = Container(
+      height: 40,
+      decoration: BoxDecoration(
+        borderRadius: AppContainerBorder.radius8,
+        color: AppColor.blueTint.withOpacity(0.2),
+      ),
+      margin: AppPadding.padding12,
+      child: TabBar(
+        tabs: tabs,
+        labelStyle: captionMedium,
+        padding: EdgeInsets.zero,
+        labelColor: AppColor.blue,
+        labelPadding: EdgeInsets.zero,
+        dividerColor: AppColor.blue,
+        unselectedLabelStyle: captionRegular,
+        unselectedLabelColor: Colors.white,
+        indicatorSize: TabBarIndicatorSize.tab,
+        indicator: BoxDecoration(
+          color: AppColor.white,
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
     );
     tabBarView = TabBarView(children: children);
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/core/utils/singleton/splash_singleton.dart';
 import 'package:mercury/feature/presentations/ui/splash/widgets/bottom_bar.dart';
 import 'package:mercury/feature/presentations/ui/splash/widgets/tab_view.dart';
@@ -35,11 +36,15 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
+    return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 1,
+        backgroundColor: AppColor.blue,
+      ),
+      body: const SafeArea(
         child: SplashTabView(),
       ),
-      bottomNavigationBar: SplashBottomBar(),
+      bottomNavigationBar: const SplashBottomBar(),
     );
   }
 }
