@@ -4,7 +4,7 @@ import 'package:mercury/feature/data/model/ingredinent/ingredient.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/create/create.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/detail/detail.dart';
 import 'package:mercury/feature/presentations/ui/login/login.dart';
-// import 'package:mercury/feature/presentations/ui/logo/logo_screen.dart';
+import 'package:mercury/feature/presentations/ui/logo/logo_screen.dart';
 import 'package:mercury/feature/presentations/ui/splash/splash.dart';
 
 class AppRouter {
@@ -13,7 +13,7 @@ class AppRouter {
     routes: [
       GoRoute(
         path: AppPath.initLocation,
-        builder: (context, state) => const Login(),
+        builder: (context, state) => const LogoScreen(),
       ),
       GoRoute(
         path: AppPath.login,
