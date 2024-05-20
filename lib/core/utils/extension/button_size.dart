@@ -7,11 +7,11 @@ extension ButtonSizeEx on ButtonSize {
   EdgeInsets getPadding() {
     switch (this) {
       case ButtonSize.SIZE_24:
-        return const EdgeInsets.symmetric(horizontal: 10, vertical: 8);
+        return const EdgeInsets.symmetric(horizontal: 10, vertical: 10);
       case ButtonSize.SIZE_32:
-        return const EdgeInsets.symmetric(horizontal: 12, vertical: 10);
+        return const EdgeInsets.symmetric(horizontal: 12, vertical: 11);
       case ButtonSize.SIZE_40:
-        return const EdgeInsets.symmetric(horizontal: 14, vertical: 10);
+        return const EdgeInsets.symmetric(horizontal: 14, vertical: 12);
     }
   }
 

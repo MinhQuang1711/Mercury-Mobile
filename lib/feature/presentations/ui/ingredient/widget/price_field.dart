@@ -22,7 +22,6 @@ class IngredientPriceField extends StatelessWidget {
     return ColumnInput(
       titleLabel: "Giá cost",
       bottomWidget: AppTextField(
-        canDelete: true,
         readOnly: readOnly,
         initValue: initValue,
         onChanged: onChanged,

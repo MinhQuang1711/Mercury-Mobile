@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:mercury/config/router/path.dart';
+import 'package:mercury/core/utils/extension/contetxt.dart';
+import 'package:mercury/feature/presentations/ui/ingredient/detail/detail.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/get/widget/card.dart';
 
 import '../../../../bloc/ingredient/cubit/get/cubit.dart';
@@ -22,10 +22,8 @@ class IngredientList extends StatelessWidget {
               itemCount: state.list.length,
               itemBuilder: (context, index) => IngredientCard(
                 ingredient: state.list[index],
-                onTap: (val) => context.push(
-                  AppPath.detailIngredient,
-                  extra: val,
-                ),
+                onTap: (val) => context.showDialogAndListen(
+                    child: DetailIngredientScreen(ingredient: val)),
               ),
             ),
           );

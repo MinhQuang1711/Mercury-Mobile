@@ -23,9 +23,9 @@ class IngredientNameField extends StatelessWidget {
       isRequied: true,
       titleLabel: "Tên nguyên liệu",
       bottomWidget: AppTextField(
-        canDelete: true,
         readOnly: readOnly,
         onChanged: onChanged,
+        initValue: initValue,
         validator: Validator.required,
         hintText: "Nhập tên nguyên liệu",
       ),

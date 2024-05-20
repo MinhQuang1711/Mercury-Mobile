@@ -20,7 +20,7 @@ class IngredientWeightField extends StatelessWidget {
     return ColumnInput(
       titleLabel: "Trọng lượng",
       bottomWidget: AppTextField(
-        initValue: "0",
+        initValue: initValue ?? "0",
         readOnly: true,
         onChanged: onChanged,
         hintText: "nhập trọng lượng",

@@ -5,9 +5,11 @@ import 'package:mercury/config/theme/color.dart';
 import '../../../../config/theme/text_style.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key, this.labelTitle, this.actionWidget});
+  const CustomAppBar(
+      {super.key, this.labelTitle, this.actionWidget, this.labelColor});
   final String? labelTitle;
   final Widget? actionWidget;
+  final Color? labelColor;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: Center(
         child: Text(
           labelTitle ?? "",
-          style: h6Medium.copyWith(color: AppColor.white),
+          style: h6Medium.copyWith(color: labelColor ?? AppColor.white),
         ),
       ),
     );

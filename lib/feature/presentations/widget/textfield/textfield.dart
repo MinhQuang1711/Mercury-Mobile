@@ -151,7 +151,7 @@ class TextFieldProperties {
       prefixIcon: prefWidget,
       border: getBorder(borderColor),
       disabledBorder: getBorder(null),
-      contentPadding: contentPadding ?? AppPadding.padding15,
+      contentPadding: contentPadding ?? AppPadding.padding12,
       enabledBorder: getBorder(borderColor),
       fillColor: backgroundColor ?? AppColor.grey3,
       errorBorder: getBorder(borderColor ?? AppColor.red),

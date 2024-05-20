@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mercury/config/const/radius.dart';
 
 import '../../../feature/presentations/widget/snack_bar.dart';
 
@@ -42,7 +43,12 @@ extension ContextEx on BuildContext {
   }) {
     showDialog<String>(
       context: this,
-      builder: (_) => child,
+      builder: (_) => Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: AppContainerBorder.radius8,
+        ),
+        child: child,
+      ),
     ).then((msg) {
       if (msg != null) {
         showSuccesSnackBar(msg);
