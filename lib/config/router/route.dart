@@ -13,7 +13,7 @@ class AppRouter {
     routes: [
       GoRoute(
         path: AppPath.initLocation,
-        builder: (context, state) => const SplashScreen(),
+        builder: (context, state) => const Login(),
       ),
       GoRoute(
         path: AppPath.login,

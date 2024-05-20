@@ -153,7 +153,7 @@ class TextFieldProperties {
       disabledBorder: getBorder(null),
       contentPadding: contentPadding ?? AppPadding.padding15,
       enabledBorder: getBorder(borderColor),
-      fillColor: backgroundColor ?? AppColor.grey2,
+      fillColor: backgroundColor ?? AppColor.grey3,
       errorBorder: getBorder(borderColor ?? AppColor.red),
       focusedBorder: getBorder(borderColor ?? AppColor.blue),
       hintStyle: captionRegular.copyWith(color: AppColor.grey4, fontSize: 16),
@@ -163,7 +163,7 @@ class TextFieldProperties {
   static OutlineInputBorder getBorder(Color? color) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(width: 0.7, color: color ?? AppColor.grey3),
+      borderSide: BorderSide(width: 0.8, color: color ?? AppColor.grey3),
     );
   }
 }
