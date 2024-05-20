@@ -27,10 +27,10 @@ const bodyRegular = TextStyle(fontWeight: FontWeight.w400, fontSize: 17);
 const bodyItalic = TextStyle(fontWeight: FontWeight.w400, fontSize: 17);
 
 // CAPTION
-const captionBold = TextStyle(fontWeight: FontWeight.w700, fontSize: 15);
-const captionMedium = TextStyle(fontWeight: FontWeight.w500, fontSize: 16);
-const captionRegular = TextStyle(fontWeight: FontWeight.w400, fontSize: 15);
-const captionItalic = TextStyle(fontWeight: FontWeight.w400, fontSize: 15);
+const captionBold = TextStyle(fontWeight: FontWeight.w700, fontSize: 14);
+const captionMedium = TextStyle(fontWeight: FontWeight.w500, fontSize: 14);
+const captionRegular = TextStyle(fontWeight: FontWeight.w400, fontSize: 14);
+const captionItalic = TextStyle(fontWeight: FontWeight.w400, fontSize: 14);
 
 // DETAIL
 const detailBold = TextStyle(fontWeight: FontWeight.w700, fontSize: 12);

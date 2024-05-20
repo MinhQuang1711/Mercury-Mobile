@@ -3,6 +3,7 @@ import 'package:mercury/config/const/box_shadow.dart';
 import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/const/radius.dart';
 
+import '../../../config/const/margin.dart';
 import '../../../config/theme/color.dart';
 
 class ContainerCard extends StatelessWidget {
@@ -16,7 +17,7 @@ class ContainerCard extends StatelessWidget {
       onTap: onTap,
       behavior: HitTestBehavior.translucent,
       child: Container(
-        // margin: defaultMargin,
+        margin: defaultMargin,
         padding: AppPadding.padding16,
         decoration: BoxDecoration(
           color: AppColor.white,
