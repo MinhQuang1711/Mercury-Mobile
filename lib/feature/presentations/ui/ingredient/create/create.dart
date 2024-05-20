@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
@@ -42,7 +43,7 @@ class CreateIngredientPage extends StatelessWidget {
 
     return BlocListener<IngredientBloc, IngredientState>(
       listener: (context, state) => state.whenOrNull(
-        created: context.showSuccesSnackBar,
+        created: (msg) => context.pop(msg),
         failure: context.showFailureSnackBar,
       ),
       child: Scaffold(

@@ -3,5 +3,5 @@ class AppRepositoryPath {
   static String getUser = "/api/authen/owner";
   static String refreshToken = "/api/authen/refresh-token";
   static String getIngredient = "/api/ingredient";
-  static String createIngredient = "/api/ingredients/create";
+  static String createIngredient = "/api/ingredient/create";
 }

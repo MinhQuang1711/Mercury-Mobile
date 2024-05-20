@@ -7,10 +7,12 @@ import '../../../widget/textfield/textfield.dart';
 class IngredientWeightField extends StatelessWidget {
   const IngredientWeightField({
     super.key,
+    this.readOnly,
     this.initValue,
     this.onChanged,
     this.onTapClearButton,
   });
+  final bool? readOnly;
   final String? initValue;
   final Function(String?)? onChanged;
   final Function()? onTapClearButton;
@@ -20,12 +22,13 @@ class IngredientWeightField extends StatelessWidget {
     return ColumnInput(
       titleLabel: "Trọng lượng",
       bottomWidget: AppTextField(
+        readOnly: readOnly,
         initValue: initValue ?? "0",
-        readOnly: true,
         onChanged: onChanged,
         hintText: "nhập trọng lượng",
         sufWidget: const Text("gram"),
         validator: Validator.doubleOrNull,
+        textInputType: TextInputType.number,
       ),
     );
   }
