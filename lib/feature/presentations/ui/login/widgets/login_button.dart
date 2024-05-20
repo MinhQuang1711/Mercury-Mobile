@@ -26,9 +26,7 @@ class LoginButton extends StatelessWidget {
     return BlocConsumer<AuthenBloc, AuthenState>(
       listener: (context, state) => state.whenOrNull(
         failure: context.showFailureSnackBar,
-        loginSuccess: () => context.go(
-          AppPath.splash,
-        ),
+        loginSuccess: () => context.go(AppPath.splash),
       ),
       builder: (context, state) => state.maybeMap(
         orElse: () => _button(onSubmit),
