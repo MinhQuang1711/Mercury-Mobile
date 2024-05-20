@@ -12,6 +12,9 @@ import '../../../../data/model/ingredinent/ingredient.dart';
 import '../../../../data/model/paged_list/paged_list.dart';
 import 'widget/search_bar.dart';
 
+var defaultIngredientEvent =
+    const IngredientEvent.get(searchByName: SearchByName());
+
 class IngredientScreen extends StatelessWidget {
   const IngredientScreen({super.key});
 
@@ -20,8 +23,8 @@ class IngredientScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-            create: (_) => getIt.get<IngredientBloc>()
-              ..add(const IngredientEvent.get(searchByName: SearchByName()))),
+            create: (_) =>
+                getIt.get<IngredientBloc>()..add(defaultIngredientEvent)),
         BlocProvider(create: (_) => getIt.get<GetIngredientCubit>())
       ],
       child: const IngredientPage(),

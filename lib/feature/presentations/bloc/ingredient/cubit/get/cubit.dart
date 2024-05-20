@@ -6,8 +6,7 @@ import 'package:mercury/feature/presentations/bloc/ingredient/cubit/get/state/st
 
 class GetIngredientCubit extends Cubit<GetIngredientState> {
   GetIngredientCubit()
-      : super(GetIngredientState(
-            list: mockIngredients, searchByName: const SearchByName()));
+      : super(const GetIngredientState(list: [], searchByName: SearchByName()));
 
   void handleList({
     required SearchByName searchByName,
@@ -25,14 +24,3 @@ class GetIngredientCubit extends Cubit<GetIngredientState> {
     );
   }
 }
-
-var mockIngredients = [
-  const Ingredient(id: "id", name: "Mango", cost: 250, weight: 1000),
-  const Ingredient(id: "id", name: "Melon", cost: 265, weight: 1000),
-  const Ingredient(id: "id", name: "Jasmine tea", cost: 155, weight: 1000),
-  const Ingredient(id: "id", name: "Suger", cost: 50, weight: 2000),
-  const Ingredient(id: "id", name: "Fresh milk", cost: 250, weight: 1000),
-  const Ingredient(id: "id", name: "Arabica", cost: 265, weight: 1000),
-  const Ingredient(id: "id", name: "Black tea", cost: 155, weight: 1000),
-  const Ingredient(id: "id", name: "Berry", cost: 50, weight: 2000),
-];
