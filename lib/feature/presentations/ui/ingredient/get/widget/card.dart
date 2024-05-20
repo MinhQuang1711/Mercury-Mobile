@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/feature/data/model/ingredinent/ingredient.dart';
+import 'package:mercury/feature/presentations/widget/card_container.dart';
 
 class IngredientCard extends StatelessWidget {
   const IngredientCard({
@@ -16,21 +16,17 @@ class IngredientCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return ContainerCard(
       onTap: () => onTap?.call(ingredient),
-      behavior: HitTestBehavior.translucent,
-      child: Container(
-        padding: AppPadding.padding12,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            _infoWidget(),
-            GestureDetector(
-              child: const Icon(Icons.more_vert_sharp),
-              onTap: () => onTapMoreButton?.call(ingredient),
-            )
-          ],
-        ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _infoWidget(),
+          GestureDetector(
+            child: const Icon(Icons.more_vert_sharp),
+            onTap: () => onTapMoreButton?.call(ingredient),
+          )
+        ],
       ),
     );
   }

@@ -9,7 +9,7 @@ class SaleProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CardContainer(
+    return ContainerCard(
       child: Row(
         children: [
           CircleAvatar(
