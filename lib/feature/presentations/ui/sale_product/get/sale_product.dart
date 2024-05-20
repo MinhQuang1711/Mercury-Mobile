@@ -23,9 +23,6 @@ class SaleProductPage extends StatelessWidget {
         SaleProductCard(),
         SaleProductCard(),
         SaleProductCard(),
-        SaleProductCard(),
-        SaleProductCard(),
-        SaleProductCard(),
       ],
     );
   }

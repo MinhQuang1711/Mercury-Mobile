@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
+import 'package:mercury/feature/presentations/widget/card_container.dart';
 import 'package:mercury/gen/assets.gen.dart';
 
 class SaleProductCard extends StatelessWidget {
@@ -9,9 +9,7 @@ class SaleProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // margin: const EdgeInsets.symmetric(vertical: 4),
-      padding: AppPadding.padding12,
+    return CardContainer(
       child: Row(
         children: [
           CircleAvatar(
@@ -27,12 +25,12 @@ class SaleProductCard extends StatelessWidget {
                 children: [
                   const Text(
                     "Coldbrew Apricot",
-                    style: bodyMedium,
+                    style: bodyBold,
                   ),
                   const SizedBox(height: 5),
                   Text(
                     "50000 Vnd",
-                    style: bodyRegular.copyWith(color: AppColor.grey4),
+                    style: bodyRegular.copyWith(color: AppColor.black),
                   )
                 ],
               ),
