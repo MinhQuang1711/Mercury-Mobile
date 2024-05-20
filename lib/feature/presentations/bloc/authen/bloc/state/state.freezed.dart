@@ -22,7 +22,7 @@ mixin _$AuthenState {
     required TResult Function() loading,
     required TResult Function() gotUser,
     required TResult Function(String msg) failure,
-    required TResult Function() loginSuccess,
+    required TResult Function(Token token) loginSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$AuthenState {
     TResult? Function()? loading,
     TResult? Function()? gotUser,
     TResult? Function(String msg)? failure,
-    TResult? Function()? loginSuccess,
+    TResult? Function(Token token)? loginSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$AuthenState {
     TResult Function()? loading,
     TResult Function()? gotUser,
     TResult Function(String msg)? failure,
-    TResult Function()? loginSuccess,
+    TResult Function(Token token)? loginSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,7 +133,7 @@ class _$INITImpl implements INIT {
     required TResult Function() loading,
     required TResult Function() gotUser,
     required TResult Function(String msg) failure,
-    required TResult Function() loginSuccess,
+    required TResult Function(Token token) loginSuccess,
   }) {
     return init();
   }
@@ -145,7 +145,7 @@ class _$INITImpl implements INIT {
     TResult? Function()? loading,
     TResult? Function()? gotUser,
     TResult? Function(String msg)? failure,
-    TResult? Function()? loginSuccess,
+    TResult? Function(Token token)? loginSuccess,
   }) {
     return init?.call();
   }
@@ -157,7 +157,7 @@ class _$INITImpl implements INIT {
     TResult Function()? loading,
     TResult Function()? gotUser,
     TResult Function(String msg)? failure,
-    TResult Function()? loginSuccess,
+    TResult Function(Token token)? loginSuccess,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -253,7 +253,7 @@ class _$LOADINGImpl implements LOADING {
     required TResult Function() loading,
     required TResult Function() gotUser,
     required TResult Function(String msg) failure,
-    required TResult Function() loginSuccess,
+    required TResult Function(Token token) loginSuccess,
   }) {
     return loading();
   }
@@ -265,7 +265,7 @@ class _$LOADINGImpl implements LOADING {
     TResult? Function()? loading,
     TResult? Function()? gotUser,
     TResult? Function(String msg)? failure,
-    TResult? Function()? loginSuccess,
+    TResult? Function(Token token)? loginSuccess,
   }) {
     return loading?.call();
   }
@@ -277,7 +277,7 @@ class _$LOADINGImpl implements LOADING {
     TResult Function()? loading,
     TResult Function()? gotUser,
     TResult Function(String msg)? failure,
-    TResult Function()? loginSuccess,
+    TResult Function(Token token)? loginSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -373,7 +373,7 @@ class _$GOT_USERImpl implements GOT_USER {
     required TResult Function() loading,
     required TResult Function() gotUser,
     required TResult Function(String msg) failure,
-    required TResult Function() loginSuccess,
+    required TResult Function(Token token) loginSuccess,
   }) {
     return gotUser();
   }
@@ -385,7 +385,7 @@ class _$GOT_USERImpl implements GOT_USER {
     TResult? Function()? loading,
     TResult? Function()? gotUser,
     TResult? Function(String msg)? failure,
-    TResult? Function()? loginSuccess,
+    TResult? Function(Token token)? loginSuccess,
   }) {
     return gotUser?.call();
   }
@@ -397,7 +397,7 @@ class _$GOT_USERImpl implements GOT_USER {
     TResult Function()? loading,
     TResult Function()? gotUser,
     TResult Function(String msg)? failure,
-    TResult Function()? loginSuccess,
+    TResult Function(Token token)? loginSuccess,
     required TResult orElse(),
   }) {
     if (gotUser != null) {
@@ -519,7 +519,7 @@ class _$FAILDImpl implements FAILD {
     required TResult Function() loading,
     required TResult Function() gotUser,
     required TResult Function(String msg) failure,
-    required TResult Function() loginSuccess,
+    required TResult Function(Token token) loginSuccess,
   }) {
     return failure(msg);
   }
@@ -531,7 +531,7 @@ class _$FAILDImpl implements FAILD {
     TResult? Function()? loading,
     TResult? Function()? gotUser,
     TResult? Function(String msg)? failure,
-    TResult? Function()? loginSuccess,
+    TResult? Function(Token token)? loginSuccess,
   }) {
     return failure?.call(msg);
   }
@@ -543,7 +543,7 @@ class _$FAILDImpl implements FAILD {
     TResult Function()? loading,
     TResult Function()? gotUser,
     TResult Function(String msg)? failure,
-    TResult Function()? loginSuccess,
+    TResult Function(Token token)? loginSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -607,6 +607,10 @@ abstract class _$$LOGIN_SUCCESSImplCopyWith<$Res> {
   factory _$$LOGIN_SUCCESSImplCopyWith(
           _$LOGIN_SUCCESSImpl value, $Res Function(_$LOGIN_SUCCESSImpl) then) =
       __$$LOGIN_SUCCESSImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Token token});
+
+  $TokenCopyWith<$Res> get token;
 }
 
 /// @nodoc
@@ -616,26 +620,58 @@ class __$$LOGIN_SUCCESSImplCopyWithImpl<$Res>
   __$$LOGIN_SUCCESSImplCopyWithImpl(
       _$LOGIN_SUCCESSImpl _value, $Res Function(_$LOGIN_SUCCESSImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? token = null,
+  }) {
+    return _then(_$LOGIN_SUCCESSImpl(
+      null == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as Token,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TokenCopyWith<$Res> get token {
+    return $TokenCopyWith<$Res>(_value.token, (value) {
+      return _then(_value.copyWith(token: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$LOGIN_SUCCESSImpl implements LOGIN_SUCCESS {
-  const _$LOGIN_SUCCESSImpl();
+  const _$LOGIN_SUCCESSImpl(this.token);
+
+  @override
+  final Token token;
 
   @override
   String toString() {
-    return 'AuthenState.loginSuccess()';
+    return 'AuthenState.loginSuccess(token: $token)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LOGIN_SUCCESSImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$LOGIN_SUCCESSImpl &&
+            (identical(other.token, token) || other.token == token));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, token);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LOGIN_SUCCESSImplCopyWith<_$LOGIN_SUCCESSImpl> get copyWith =>
+      __$$LOGIN_SUCCESSImplCopyWithImpl<_$LOGIN_SUCCESSImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -644,9 +680,9 @@ class _$LOGIN_SUCCESSImpl implements LOGIN_SUCCESS {
     required TResult Function() loading,
     required TResult Function() gotUser,
     required TResult Function(String msg) failure,
-    required TResult Function() loginSuccess,
+    required TResult Function(Token token) loginSuccess,
   }) {
-    return loginSuccess();
+    return loginSuccess(token);
   }
 
   @override
@@ -656,9 +692,9 @@ class _$LOGIN_SUCCESSImpl implements LOGIN_SUCCESS {
     TResult? Function()? loading,
     TResult? Function()? gotUser,
     TResult? Function(String msg)? failure,
-    TResult? Function()? loginSuccess,
+    TResult? Function(Token token)? loginSuccess,
   }) {
-    return loginSuccess?.call();
+    return loginSuccess?.call(token);
   }
 
   @override
@@ -668,11 +704,11 @@ class _$LOGIN_SUCCESSImpl implements LOGIN_SUCCESS {
     TResult Function()? loading,
     TResult Function()? gotUser,
     TResult Function(String msg)? failure,
-    TResult Function()? loginSuccess,
+    TResult Function(Token token)? loginSuccess,
     required TResult orElse(),
   }) {
     if (loginSuccess != null) {
-      return loginSuccess();
+      return loginSuccess(token);
     }
     return orElse();
   }
@@ -719,5 +755,10 @@ class _$LOGIN_SUCCESSImpl implements LOGIN_SUCCESS {
 }
 
 abstract class LOGIN_SUCCESS implements AuthenState {
-  const factory LOGIN_SUCCESS() = _$LOGIN_SUCCESSImpl;
+  const factory LOGIN_SUCCESS(final Token token) = _$LOGIN_SUCCESSImpl;
+
+  Token get token;
+  @JsonKey(ignore: true)
+  _$$LOGIN_SUCCESSImplCopyWith<_$LOGIN_SUCCESSImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

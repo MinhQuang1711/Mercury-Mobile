@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:mercury/config/router/path.dart';
-import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/state/state.dart';
@@ -23,11 +20,7 @@ class LoginButton extends StatelessWidget {
       }
     }
 
-    return BlocConsumer<AuthenBloc, AuthenState>(
-      listener: (context, state) => state.whenOrNull(
-        failure: context.showFailureSnackBar,
-        loginSuccess: () => context.go(AppPath.splash),
-      ),
+    return BlocBuilder<AuthenBloc, AuthenState>(
       builder: (context, state) => state.maybeMap(
         orElse: () => _button(onSubmit),
         loading: (value) => _button(() {}, isLoading: true),

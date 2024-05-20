@@ -1,9 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/core/utils/extension/network.dart';
-import 'package:mercury/core/utils/singleton/token_singleton.dart';
 import 'package:mercury/core/utils/singleton/user_singleton.dart';
-import 'package:mercury/core/utils/storage/token_storage.dart';
-import 'package:mercury/feature/data/model/token/token.dart';
 import 'package:mercury/feature/data/model/user/user.dart';
 import 'package:mercury/feature/domain/repositories/i_authen.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/event/event.dart';
@@ -25,11 +22,8 @@ class AuthenBloc extends Bloc<AuthenEvent, AuthenState> {
   Future _login(LOGIN event, Emitter emitter) async {
     emitter(const AuthenState.loading());
     (await repo.login(event.dto)).on(
-      whenSuccess: (data) {
-        _saveTokenAndUser(data);
-        emitter(const AuthenState.loginSuccess());
-      },
       whenFaild: (msg) => emitter(AuthenState.failure(msg)),
+      whenSuccess: (data) => emitter(AuthenState.loginSuccess(data)),
     );
   }
 
@@ -46,11 +40,5 @@ class AuthenBloc extends Bloc<AuthenEvent, AuthenState> {
 
   void _saveUser(User? user) {
     UserSingleton.instance.saveUser(user);
-  }
-
-  void _saveTokenAndUser(Token token) {
-    TokenSingleton.instance.saveToken(token);
-    UserSingleton.instance.saveUser(token.user);
-    TokenStorage.instance.saveToken(token: token);
   }
 }

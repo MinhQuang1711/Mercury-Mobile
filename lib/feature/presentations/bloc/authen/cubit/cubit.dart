@@ -1,6 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/feature/domain/model/login_dto/login_dto.dart';
 
+import '../../../../../core/utils/singleton/token_singleton.dart';
+import '../../../../../core/utils/singleton/user_singleton.dart';
+import '../../../../../core/utils/storage/token_storage.dart';
+import '../../../../data/model/token/token.dart';
 import 'state/state.dart';
 
 class AuthenCubit extends Cubit<AuthenCubitState> {
@@ -24,5 +28,11 @@ class AuthenCubit extends Cubit<AuthenCubitState> {
 
   void changedIsHiden() {
     emit(state.copyWith(isHiden: !state.isHiden));
+  }
+
+  void saveTokenAndUser(Token token) {
+    TokenSingleton.instance.saveToken(token);
+    UserSingleton.instance.saveUser(token.user);
+    TokenStorage.instance.saveToken(token: token);
   }
 }
