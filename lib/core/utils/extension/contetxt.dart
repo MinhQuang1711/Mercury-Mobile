@@ -5,6 +5,11 @@ import 'package:mercury/config/const/radius.dart';
 import '../../../feature/presentations/widget/snack_bar.dart';
 
 extension ContextEx on BuildContext {
+  void _handleSuccess(String msg, Function()? handleWhenHasValue) {
+    showSuccesSnackBar(msg);
+    handleWhenHasValue?.call();
+  }
+
   void showSuccesSnackBar(String msg) {
     ScaffoldMessenger.of(this).showSnackBar(
       AppSnackbar(
@@ -32,8 +37,7 @@ extension ContextEx on BuildContext {
   }) =>
       push<String>(location, extra: object).then((msg) {
         if (msg != null) {
-          showSuccesSnackBar(msg);
-          handleWhenHasValue?.call();
+          _handleSuccess(msg, handleWhenHasValue);
         }
       });
 
@@ -51,8 +55,27 @@ extension ContextEx on BuildContext {
       ),
     ).then((msg) {
       if (msg != null) {
-        showSuccesSnackBar(msg);
-        handleWhenHasValue?.call();
+        _handleSuccess(msg, handleWhenHasValue);
+      }
+    });
+  }
+
+  void showBottomSheetAndListen({
+    Widget? child,
+    Function()? handleWhenHasValue,
+  }) {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      backgroundColor: Colors.white,
+      context: this,
+      builder: (_) => Container(
+        padding: const EdgeInsets.only(bottom: 20),
+        decoration: BoxDecoration(borderRadius: AppContainerBorder.radius8),
+        child: child,
+      ),
+    ).then((msg) {
+      if (msg != null) {
+        _handleSuccess(msg, handleWhenHasValue);
       }
     });
   }
