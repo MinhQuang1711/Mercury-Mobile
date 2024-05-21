@@ -5,7 +5,10 @@ import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart'
 import 'package:mercury/feature/presentations/bloc/product/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/product/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/product/cubit/get/cubit.dart';
+import 'package:mercury/feature/presentations/ui/sale_product/get/widget/list_view.dart';
 import 'package:mercury/feature/presentations/ui/sale_product/get/widget/search_bar.dart';
+
+import 'widget/bloc_listen.dart';
 
 const defaultProductEvent = ProductEvent.get(SearchByName());
 
@@ -31,11 +34,14 @@ class SaleProductPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        SaleProductSearchBar(),
-        SizedBox(height: 20),
-      ],
+    return const ProductBlocListenWidget(
+      child: Column(
+        children: [
+          SaleProductSearchBar(),
+          SizedBox(height: 10),
+          ProductList(),
+        ],
+      ),
     );
   }
 }
