@@ -68,9 +68,9 @@ extension ContextEx on BuildContext {
       isScrollControlled: true,
       backgroundColor: Colors.white,
       context: this,
+      shape: RoundedRectangleBorder(borderRadius: AppContainerBorder.radius12),
       builder: (_) => Container(
-        padding: const EdgeInsets.only(bottom: 20),
-        decoration: BoxDecoration(borderRadius: AppContainerBorder.radius8),
+        padding: const EdgeInsets.symmetric(vertical: 20),
         child: child,
       ),
     ).then((msg) {
