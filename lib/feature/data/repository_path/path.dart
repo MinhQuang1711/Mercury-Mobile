@@ -11,4 +11,5 @@ class AppRepositoryPath {
 
   // Product
   static String getProduct = "/api/product";
+  static String createProduct = "/api/product/create";
 }
