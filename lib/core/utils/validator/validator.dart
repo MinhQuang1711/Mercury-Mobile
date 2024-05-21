@@ -28,4 +28,12 @@ class Validator {
     }
     return null;
   }
+
+  static String? doubleNotNull(String? val) {
+    final result = double.tryParse(val ?? "");
+    if (result == null) {
+      return "Không đúng định dạng số";
+    }
+    return null;
+  }
 }
