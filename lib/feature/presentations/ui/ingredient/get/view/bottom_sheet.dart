@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mercury/config/router/path.dart';
+import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/feature/data/model/ingredinent/ingredient.dart';
 
 import '../../../../../../config/const/padding.dart';
@@ -18,12 +21,12 @@ class IngredietnBottomSheet extends StatelessWidget {
       children: [
         _title(),
         const SizedBox(height: 10),
-        _options(),
+        _options(context),
       ],
     );
   }
 
-  Container _options() {
+  Container _options(BuildContext context) {
     return Container(
       margin: AppPadding.padding12,
       padding: AppPadding.padding12,
@@ -34,24 +37,33 @@ class IngredietnBottomSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          _edit(),
+          _edit(context),
           const Divider(height: 2),
-          _delete(),
+          _delete(context),
         ],
       ),
     );
   }
 
-  BottomSheetItem _delete() {
+  BottomSheetItem _delete(BuildContext context) {
     return const BottomSheetItem(
       label: "Xóa",
     );
   }
 
-  BottomSheetItem _edit() {
-    return const BottomSheetItem(
-      iconData: Icons.settings,
+  BottomSheetItem _edit(BuildContext context) {
+    void onTap() {
+      context.pop();
+      context.pushAndListen(
+        object: ingredient,
+        location: AppPath.updateIngredient,
+      );
+    }
+
+    return BottomSheetItem(
+      onTap: onTap,
       label: "Chỉnh sửa",
+      iconData: Icons.settings,
     );
   }
 
