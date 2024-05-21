@@ -12,4 +12,7 @@ class AppRepositoryPath {
   // Product
   static String getProduct = "/api/product";
   static String createProduct = "/api/product/create";
+
+  // ComboBox
+  static String ingredientComboBox = "/api/ingredient/combo-box";
 }
