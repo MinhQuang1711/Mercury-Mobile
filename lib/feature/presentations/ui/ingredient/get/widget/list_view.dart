@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/feature/data/model/ingredinent/ingredient.dart';
+import 'package:mercury/feature/presentations/bloc/ingredient/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/detail/detail.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/get/widget/card.dart';
 
@@ -15,9 +16,10 @@ class IngredientList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<IngredientBloc>();
     void onTapMoreButton(Ingredient ingredient) {
       context.showBottomSheetAndListen(
-        child: IngredietnBottomSheet(ingredient: ingredient),
+        child: IngredietnBottomSheet(ingredient: ingredient, bloc: bloc),
       );
     }
 

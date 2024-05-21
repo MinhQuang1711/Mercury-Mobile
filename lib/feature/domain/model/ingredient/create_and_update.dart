@@ -7,6 +7,7 @@ part 'create_and_update.g.dart';
 @Freezed(fromJson: false, toJson: true)
 class CreateAndUpdateIngredient with _$CreateAndUpdateIngredient {
   const factory CreateAndUpdateIngredient({
+    String? id,
     @Default("") String name,
     @Default(0) double cost,
     @Default(0) double weight,

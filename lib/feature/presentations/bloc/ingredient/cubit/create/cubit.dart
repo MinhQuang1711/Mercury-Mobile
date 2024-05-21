@@ -9,6 +9,7 @@ class CreateIngredientCubit extends Cubit<CreateIngredientState> {
 
   void initDto(Ingredient ingredient) {
     final dto = CreateAndUpdateIngredient(
+      id: ingredient.id,
       cost: ingredient.cost,
       name: ingredient.name,
       weight: ingredient.weight,

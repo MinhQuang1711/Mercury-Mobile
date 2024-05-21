@@ -36,4 +36,16 @@ class IngredientRepository extends IIngredientRepository {
       parser: (data) {},
     );
   }
+
+  @override
+  Future<DataRespone> update({required CreateAndUpdateIngredient dto}) async {
+    return await excuter(
+      paramRequest: ParamRequest(
+        method: Method.PUT,
+        endPoint: AppRepositoryPath.updateIngredient,
+        payload: Payload.json(dto.toJson()),
+      ),
+      parser: (data) {},
+    );
+  }
 }

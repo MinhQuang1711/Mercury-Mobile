@@ -10,4 +10,6 @@ class IngredientEvent with _$IngredientEvent {
       _Get;
   const factory IngredientEvent.create(
       {required CreateAndUpdateIngredient dto}) = _Create;
+  const factory IngredientEvent.update(
+      {required CreateAndUpdateIngredient dto}) = _Update;
 }

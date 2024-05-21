@@ -5,6 +5,7 @@ import 'package:mercury/feature/domain/repositories/i_ingredient.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/state/state.dart';
 import 'package:mercury/feature/presentations/widget/factory/screen/create_screen.dart';
+import 'package:mercury/feature/presentations/widget/factory/screen/update_screen.dart';
 
 import '../../../../domain/model/ingredient/create_and_update.dart';
 
@@ -18,6 +19,7 @@ class IngredientBloc extends Bloc<IngredientEvent, IngredientState> {
     await event.when(
       get: (dto) async => await _get(dto, emitter),
       create: (dto) async => await _create(dto, emitter),
+      update: (dto) async => await _update(dto, emitter),
     );
   }
 
@@ -40,6 +42,15 @@ class IngredientBloc extends Bloc<IngredientEvent, IngredientState> {
       whenFaild: (msg) => emitter(IngredientState.failure(msg)),
       whenSuccess: (data) =>
           emitter(IngredientState.created(CreateScreen().getMessage())),
+    );
+  }
+
+  Future _update(CreateAndUpdateIngredient dto, Emitter emitter) async {
+    emitter(const IngredientState.loading());
+    (await repo.update(dto: dto)).on(
+      whenFaild: (msg) => emitter(IngredientState.failure(msg)),
+      whenSuccess: (data) =>
+          emitter(IngredientState.updated(UpdateScreen().getMessage())),
     );
   }
 }

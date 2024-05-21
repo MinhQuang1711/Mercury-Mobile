@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CreateAndUpdateIngredient {
+  String? get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   double get cost => throw _privateConstructorUsedError;
   double get weight => throw _privateConstructorUsedError;
@@ -32,7 +33,7 @@ abstract class $CreateAndUpdateIngredientCopyWith<$Res> {
           $Res Function(CreateAndUpdateIngredient) then) =
       _$CreateAndUpdateIngredientCopyWithImpl<$Res, CreateAndUpdateIngredient>;
   @useResult
-  $Res call({String name, double cost, double weight});
+  $Res call({String? id, String name, double cost, double weight});
 }
 
 /// @nodoc
@@ -49,11 +50,16 @@ class _$CreateAndUpdateIngredientCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = null,
     Object? cost = null,
     Object? weight = null,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -79,7 +85,7 @@ abstract class _$$CreateAndUpdateIngredientImplCopyWith<$Res>
       __$$CreateAndUpdateIngredientImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, double cost, double weight});
+  $Res call({String? id, String name, double cost, double weight});
 }
 
 /// @nodoc
@@ -95,11 +101,16 @@ class __$$CreateAndUpdateIngredientImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = null,
     Object? cost = null,
     Object? weight = null,
   }) {
     return _then(_$CreateAndUpdateIngredientImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -120,8 +131,10 @@ class __$$CreateAndUpdateIngredientImplCopyWithImpl<$Res>
 @JsonSerializable(createFactory: false)
 class _$CreateAndUpdateIngredientImpl implements _CreateAndUpdateIngredient {
   const _$CreateAndUpdateIngredientImpl(
-      {this.name = "", this.cost = 0, this.weight = 0});
+      {this.id, this.name = "", this.cost = 0, this.weight = 0});
 
+  @override
+  final String? id;
   @override
   @JsonKey()
   final String name;
@@ -134,7 +147,7 @@ class _$CreateAndUpdateIngredientImpl implements _CreateAndUpdateIngredient {
 
   @override
   String toString() {
-    return 'CreateAndUpdateIngredient(name: $name, cost: $cost, weight: $weight)';
+    return 'CreateAndUpdateIngredient(id: $id, name: $name, cost: $cost, weight: $weight)';
   }
 
   @override
@@ -142,6 +155,7 @@ class _$CreateAndUpdateIngredientImpl implements _CreateAndUpdateIngredient {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateAndUpdateIngredientImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.cost, cost) || other.cost == cost) &&
             (identical(other.weight, weight) || other.weight == weight));
@@ -149,7 +163,7 @@ class _$CreateAndUpdateIngredientImpl implements _CreateAndUpdateIngredient {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, cost, weight);
+  int get hashCode => Object.hash(runtimeType, id, name, cost, weight);
 
   @JsonKey(ignore: true)
   @override
@@ -168,10 +182,13 @@ class _$CreateAndUpdateIngredientImpl implements _CreateAndUpdateIngredient {
 
 abstract class _CreateAndUpdateIngredient implements CreateAndUpdateIngredient {
   const factory _CreateAndUpdateIngredient(
-      {final String name,
+      {final String? id,
+      final String name,
       final double cost,
       final double weight}) = _$CreateAndUpdateIngredientImpl;
 
+  @override
+  String? get id;
   @override
   String get name;
   @override

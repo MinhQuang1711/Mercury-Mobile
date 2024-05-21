@@ -13,6 +13,7 @@ import '../../../../../config/theme/text_style.dart';
 import '../../../../../core/utils/injection/get_it.dart';
 import '../../../bloc/ingredient/bloc/bloc.dart';
 import '../../../bloc/ingredient/cubit/create/cubit.dart';
+import 'widget/bloc_listen.dart';
 
 class UpdateIngredientScreen extends StatelessWidget {
   const UpdateIngredientScreen({super.key, required this.ingredient});
@@ -38,21 +39,27 @@ class UpdateIngredientPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<CreateIngredientCubit>();
-    return Scaffold(
-      appBar: _appBar(),
-      body: AppStack(
-        backgroundWidget: Column(
-          children: [
-            _nameField(cubit),
-            const SizedBox(height: 15),
-            _costField(cubit),
-            const SizedBox(height: 15),
-            _weightField(cubit),
-            const SizedBox(height: 25),
-            const IngredientNote(),
-          ],
+    final formKey = GlobalKey<FormState>();
+    return IngredientListen(
+      child: Scaffold(
+        appBar: _appBar(),
+        body: AppStack(
+          backgroundWidget: Form(
+            key: formKey,
+            child: Column(
+              children: [
+                _nameField(cubit),
+                const SizedBox(height: 15),
+                _costField(cubit),
+                const SizedBox(height: 15),
+                _weightField(cubit),
+                const SizedBox(height: 25),
+                const IngredientNote(),
+              ],
+            ),
+          ),
+          bottomWidget: UpdateIngredientButton(formKey: formKey),
         ),
-        bottomWidget: const UpdateIngredientButton(),
       ),
     );
   }

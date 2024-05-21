@@ -11,4 +11,5 @@ abstract class IIngredientRepository extends UseCaseNetwork {
     required SearchByName searchByName,
   });
   Future<DataRespone> create({required CreateAndUpdateIngredient dto});
+  Future<DataRespone> update({required CreateAndUpdateIngredient dto});
 }

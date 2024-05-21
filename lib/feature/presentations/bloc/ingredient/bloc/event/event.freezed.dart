@@ -20,18 +20,21 @@ mixin _$IngredientEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(SearchByName searchByName) get,
     required TResult Function(CreateAndUpdateIngredient dto) create,
+    required TResult Function(CreateAndUpdateIngredient dto) update,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SearchByName searchByName)? get,
     TResult? Function(CreateAndUpdateIngredient dto)? create,
+    TResult? Function(CreateAndUpdateIngredient dto)? update,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SearchByName searchByName)? get,
     TResult Function(CreateAndUpdateIngredient dto)? create,
+    TResult Function(CreateAndUpdateIngredient dto)? update,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$IngredientEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
+    required TResult Function(_Update value) update,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
+    TResult? Function(_Update value)? update,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
+    TResult Function(_Update value)? update,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,6 +155,7 @@ class _$GetImpl implements _Get {
   TResult when<TResult extends Object?>({
     required TResult Function(SearchByName searchByName) get,
     required TResult Function(CreateAndUpdateIngredient dto) create,
+    required TResult Function(CreateAndUpdateIngredient dto) update,
   }) {
     return get(searchByName);
   }
@@ -158,6 +165,7 @@ class _$GetImpl implements _Get {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SearchByName searchByName)? get,
     TResult? Function(CreateAndUpdateIngredient dto)? create,
+    TResult? Function(CreateAndUpdateIngredient dto)? update,
   }) {
     return get?.call(searchByName);
   }
@@ -167,6 +175,7 @@ class _$GetImpl implements _Get {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SearchByName searchByName)? get,
     TResult Function(CreateAndUpdateIngredient dto)? create,
+    TResult Function(CreateAndUpdateIngredient dto)? update,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -180,6 +189,7 @@ class _$GetImpl implements _Get {
   TResult map<TResult extends Object?>({
     required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
+    required TResult Function(_Update value) update,
   }) {
     return get(this);
   }
@@ -189,6 +199,7 @@ class _$GetImpl implements _Get {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
+    TResult? Function(_Update value)? update,
   }) {
     return get?.call(this);
   }
@@ -198,6 +209,7 @@ class _$GetImpl implements _Get {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
+    TResult Function(_Update value)? update,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -292,6 +304,7 @@ class _$CreateImpl implements _Create {
   TResult when<TResult extends Object?>({
     required TResult Function(SearchByName searchByName) get,
     required TResult Function(CreateAndUpdateIngredient dto) create,
+    required TResult Function(CreateAndUpdateIngredient dto) update,
   }) {
     return create(dto);
   }
@@ -301,6 +314,7 @@ class _$CreateImpl implements _Create {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SearchByName searchByName)? get,
     TResult? Function(CreateAndUpdateIngredient dto)? create,
+    TResult? Function(CreateAndUpdateIngredient dto)? update,
   }) {
     return create?.call(dto);
   }
@@ -310,6 +324,7 @@ class _$CreateImpl implements _Create {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SearchByName searchByName)? get,
     TResult Function(CreateAndUpdateIngredient dto)? create,
+    TResult Function(CreateAndUpdateIngredient dto)? update,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -323,6 +338,7 @@ class _$CreateImpl implements _Create {
   TResult map<TResult extends Object?>({
     required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
+    required TResult Function(_Update value) update,
   }) {
     return create(this);
   }
@@ -332,6 +348,7 @@ class _$CreateImpl implements _Create {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
+    TResult? Function(_Update value)? update,
   }) {
     return create?.call(this);
   }
@@ -341,6 +358,7 @@ class _$CreateImpl implements _Create {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
+    TResult Function(_Update value)? update,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -357,5 +375,155 @@ abstract class _Create implements IngredientEvent {
   CreateAndUpdateIngredient get dto;
   @JsonKey(ignore: true)
   _$$CreateImplCopyWith<_$CreateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateImplCopyWith<$Res> {
+  factory _$$UpdateImplCopyWith(
+          _$UpdateImpl value, $Res Function(_$UpdateImpl) then) =
+      __$$UpdateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CreateAndUpdateIngredient dto});
+
+  $CreateAndUpdateIngredientCopyWith<$Res> get dto;
+}
+
+/// @nodoc
+class __$$UpdateImplCopyWithImpl<$Res>
+    extends _$IngredientEventCopyWithImpl<$Res, _$UpdateImpl>
+    implements _$$UpdateImplCopyWith<$Res> {
+  __$$UpdateImplCopyWithImpl(
+      _$UpdateImpl _value, $Res Function(_$UpdateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? dto = null,
+  }) {
+    return _then(_$UpdateImpl(
+      dto: null == dto
+          ? _value.dto
+          : dto // ignore: cast_nullable_to_non_nullable
+              as CreateAndUpdateIngredient,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CreateAndUpdateIngredientCopyWith<$Res> get dto {
+    return $CreateAndUpdateIngredientCopyWith<$Res>(_value.dto, (value) {
+      return _then(_value.copyWith(dto: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UpdateImpl implements _Update {
+  const _$UpdateImpl({required this.dto});
+
+  @override
+  final CreateAndUpdateIngredient dto;
+
+  @override
+  String toString() {
+    return 'IngredientEvent.update(dto: $dto)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateImpl &&
+            (identical(other.dto, dto) || other.dto == dto));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, dto);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateImplCopyWith<_$UpdateImpl> get copyWith =>
+      __$$UpdateImplCopyWithImpl<_$UpdateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SearchByName searchByName) get,
+    required TResult Function(CreateAndUpdateIngredient dto) create,
+    required TResult Function(CreateAndUpdateIngredient dto) update,
+  }) {
+    return update(dto);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(SearchByName searchByName)? get,
+    TResult? Function(CreateAndUpdateIngredient dto)? create,
+    TResult? Function(CreateAndUpdateIngredient dto)? update,
+  }) {
+    return update?.call(dto);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SearchByName searchByName)? get,
+    TResult Function(CreateAndUpdateIngredient dto)? create,
+    TResult Function(CreateAndUpdateIngredient dto)? update,
+    required TResult orElse(),
+  }) {
+    if (update != null) {
+      return update(dto);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Get value) get,
+    required TResult Function(_Create value) create,
+    required TResult Function(_Update value) update,
+  }) {
+    return update(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Get value)? get,
+    TResult? Function(_Create value)? create,
+    TResult? Function(_Update value)? update,
+  }) {
+    return update?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Get value)? get,
+    TResult Function(_Create value)? create,
+    TResult Function(_Update value)? update,
+    required TResult orElse(),
+  }) {
+    if (update != null) {
+      return update(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Update implements IngredientEvent {
+  const factory _Update({required final CreateAndUpdateIngredient dto}) =
+      _$UpdateImpl;
+
+  CreateAndUpdateIngredient get dto;
+  @JsonKey(ignore: true)
+  _$$UpdateImplCopyWith<_$UpdateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
