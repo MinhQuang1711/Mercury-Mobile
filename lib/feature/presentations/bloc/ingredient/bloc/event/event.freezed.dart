@@ -21,6 +21,7 @@ mixin _$IngredientEvent {
     required TResult Function(SearchByName searchByName) get,
     required TResult Function(CreateAndUpdateIngredient dto) create,
     required TResult Function(CreateAndUpdateIngredient dto) update,
+    required TResult Function(String id) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$IngredientEvent {
     TResult? Function(SearchByName searchByName)? get,
     TResult? Function(CreateAndUpdateIngredient dto)? create,
     TResult? Function(CreateAndUpdateIngredient dto)? update,
+    TResult? Function(String id)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$IngredientEvent {
     TResult Function(SearchByName searchByName)? get,
     TResult Function(CreateAndUpdateIngredient dto)? create,
     TResult Function(CreateAndUpdateIngredient dto)? update,
+    TResult Function(String id)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$IngredientEvent {
     required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
     required TResult Function(_Update value) update,
+    required TResult Function(_Delete value) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$IngredientEvent {
     TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
     TResult? Function(_Update value)? update,
+    TResult? Function(_Delete value)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$IngredientEvent {
     TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
     TResult Function(_Update value)? update,
+    TResult Function(_Delete value)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -156,6 +162,7 @@ class _$GetImpl implements _Get {
     required TResult Function(SearchByName searchByName) get,
     required TResult Function(CreateAndUpdateIngredient dto) create,
     required TResult Function(CreateAndUpdateIngredient dto) update,
+    required TResult Function(String id) delete,
   }) {
     return get(searchByName);
   }
@@ -166,6 +173,7 @@ class _$GetImpl implements _Get {
     TResult? Function(SearchByName searchByName)? get,
     TResult? Function(CreateAndUpdateIngredient dto)? create,
     TResult? Function(CreateAndUpdateIngredient dto)? update,
+    TResult? Function(String id)? delete,
   }) {
     return get?.call(searchByName);
   }
@@ -176,6 +184,7 @@ class _$GetImpl implements _Get {
     TResult Function(SearchByName searchByName)? get,
     TResult Function(CreateAndUpdateIngredient dto)? create,
     TResult Function(CreateAndUpdateIngredient dto)? update,
+    TResult Function(String id)? delete,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -190,6 +199,7 @@ class _$GetImpl implements _Get {
     required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
     required TResult Function(_Update value) update,
+    required TResult Function(_Delete value) delete,
   }) {
     return get(this);
   }
@@ -200,6 +210,7 @@ class _$GetImpl implements _Get {
     TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
     TResult? Function(_Update value)? update,
+    TResult? Function(_Delete value)? delete,
   }) {
     return get?.call(this);
   }
@@ -210,6 +221,7 @@ class _$GetImpl implements _Get {
     TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
     TResult Function(_Update value)? update,
+    TResult Function(_Delete value)? delete,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -305,6 +317,7 @@ class _$CreateImpl implements _Create {
     required TResult Function(SearchByName searchByName) get,
     required TResult Function(CreateAndUpdateIngredient dto) create,
     required TResult Function(CreateAndUpdateIngredient dto) update,
+    required TResult Function(String id) delete,
   }) {
     return create(dto);
   }
@@ -315,6 +328,7 @@ class _$CreateImpl implements _Create {
     TResult? Function(SearchByName searchByName)? get,
     TResult? Function(CreateAndUpdateIngredient dto)? create,
     TResult? Function(CreateAndUpdateIngredient dto)? update,
+    TResult? Function(String id)? delete,
   }) {
     return create?.call(dto);
   }
@@ -325,6 +339,7 @@ class _$CreateImpl implements _Create {
     TResult Function(SearchByName searchByName)? get,
     TResult Function(CreateAndUpdateIngredient dto)? create,
     TResult Function(CreateAndUpdateIngredient dto)? update,
+    TResult Function(String id)? delete,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -339,6 +354,7 @@ class _$CreateImpl implements _Create {
     required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
     required TResult Function(_Update value) update,
+    required TResult Function(_Delete value) delete,
   }) {
     return create(this);
   }
@@ -349,6 +365,7 @@ class _$CreateImpl implements _Create {
     TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
     TResult? Function(_Update value)? update,
+    TResult? Function(_Delete value)? delete,
   }) {
     return create?.call(this);
   }
@@ -359,6 +376,7 @@ class _$CreateImpl implements _Create {
     TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
     TResult Function(_Update value)? update,
+    TResult Function(_Delete value)? delete,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -455,6 +473,7 @@ class _$UpdateImpl implements _Update {
     required TResult Function(SearchByName searchByName) get,
     required TResult Function(CreateAndUpdateIngredient dto) create,
     required TResult Function(CreateAndUpdateIngredient dto) update,
+    required TResult Function(String id) delete,
   }) {
     return update(dto);
   }
@@ -465,6 +484,7 @@ class _$UpdateImpl implements _Update {
     TResult? Function(SearchByName searchByName)? get,
     TResult? Function(CreateAndUpdateIngredient dto)? create,
     TResult? Function(CreateAndUpdateIngredient dto)? update,
+    TResult? Function(String id)? delete,
   }) {
     return update?.call(dto);
   }
@@ -475,6 +495,7 @@ class _$UpdateImpl implements _Update {
     TResult Function(SearchByName searchByName)? get,
     TResult Function(CreateAndUpdateIngredient dto)? create,
     TResult Function(CreateAndUpdateIngredient dto)? update,
+    TResult Function(String id)? delete,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -489,6 +510,7 @@ class _$UpdateImpl implements _Update {
     required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
     required TResult Function(_Update value) update,
+    required TResult Function(_Delete value) delete,
   }) {
     return update(this);
   }
@@ -499,6 +521,7 @@ class _$UpdateImpl implements _Update {
     TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
     TResult? Function(_Update value)? update,
+    TResult? Function(_Delete value)? delete,
   }) {
     return update?.call(this);
   }
@@ -509,6 +532,7 @@ class _$UpdateImpl implements _Update {
     TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
     TResult Function(_Update value)? update,
+    TResult Function(_Delete value)? delete,
     required TResult orElse(),
   }) {
     if (update != null) {
@@ -525,5 +549,150 @@ abstract class _Update implements IngredientEvent {
   CreateAndUpdateIngredient get dto;
   @JsonKey(ignore: true)
   _$$UpdateImplCopyWith<_$UpdateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteImplCopyWith<$Res> {
+  factory _$$DeleteImplCopyWith(
+          _$DeleteImpl value, $Res Function(_$DeleteImpl) then) =
+      __$$DeleteImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$DeleteImplCopyWithImpl<$Res>
+    extends _$IngredientEventCopyWithImpl<$Res, _$DeleteImpl>
+    implements _$$DeleteImplCopyWith<$Res> {
+  __$$DeleteImplCopyWithImpl(
+      _$DeleteImpl _value, $Res Function(_$DeleteImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$DeleteImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteImpl implements _Delete {
+  const _$DeleteImpl({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'IngredientEvent.delete(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
+      __$$DeleteImplCopyWithImpl<_$DeleteImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SearchByName searchByName) get,
+    required TResult Function(CreateAndUpdateIngredient dto) create,
+    required TResult Function(CreateAndUpdateIngredient dto) update,
+    required TResult Function(String id) delete,
+  }) {
+    return delete(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(SearchByName searchByName)? get,
+    TResult? Function(CreateAndUpdateIngredient dto)? create,
+    TResult? Function(CreateAndUpdateIngredient dto)? update,
+    TResult? Function(String id)? delete,
+  }) {
+    return delete?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SearchByName searchByName)? get,
+    TResult Function(CreateAndUpdateIngredient dto)? create,
+    TResult Function(CreateAndUpdateIngredient dto)? update,
+    TResult Function(String id)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Get value) get,
+    required TResult Function(_Create value) create,
+    required TResult Function(_Update value) update,
+    required TResult Function(_Delete value) delete,
+  }) {
+    return delete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Get value)? get,
+    TResult? Function(_Create value)? create,
+    TResult? Function(_Update value)? update,
+    TResult? Function(_Delete value)? delete,
+  }) {
+    return delete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Get value)? get,
+    TResult Function(_Create value)? create,
+    TResult Function(_Update value)? update,
+    TResult Function(_Delete value)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Delete implements IngredientEvent {
+  const factory _Delete({required final String id}) = _$DeleteImpl;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

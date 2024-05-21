@@ -20,6 +20,7 @@ class IngredientBloc extends Bloc<IngredientEvent, IngredientState> {
       get: (dto) async => await _get(dto, emitter),
       create: (dto) async => await _create(dto, emitter),
       update: (dto) async => await _update(dto, emitter),
+      delete: (id) async => await _delete(id, emitter),
     );
   }
 
@@ -51,6 +52,15 @@ class IngredientBloc extends Bloc<IngredientEvent, IngredientState> {
       whenFaild: (msg) => emitter(IngredientState.failure(msg)),
       whenSuccess: (data) =>
           emitter(IngredientState.updated(UpdateScreen().getMessage())),
+    );
+  }
+
+  Future _delete(String id, Emitter emitter) async {
+    emitter(const IngredientState.loading());
+    (await repo.delete(id: id)).on(
+      whenFaild: (msg) => emitter(IngredientState.failure(msg)),
+      whenSuccess: (data) =>
+          emitter(const IngredientState.deleted("Xoá thành công")),
     );
   }
 }

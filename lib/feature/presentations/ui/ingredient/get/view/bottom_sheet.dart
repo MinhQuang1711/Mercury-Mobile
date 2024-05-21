@@ -58,7 +58,9 @@ class IngredietnBottomSheet extends StatelessWidget {
     void onTap() {
       context.pop();
       parentContext.showDialogAndListen(
-          child: DeleteIngredientScreen(ingredient: ingredient));
+        handleWhenHasValue: refreshIngredient,
+        child: DeleteIngredientScreen(ingredient: ingredient),
+      );
     }
 
     return BottomSheetItem(

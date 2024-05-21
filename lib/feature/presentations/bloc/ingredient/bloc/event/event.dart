@@ -12,4 +12,5 @@ class IngredientEvent with _$IngredientEvent {
       {required CreateAndUpdateIngredient dto}) = _Create;
   const factory IngredientEvent.update(
       {required CreateAndUpdateIngredient dto}) = _Update;
+  const factory IngredientEvent.delete({required String id}) = _Delete;
 }

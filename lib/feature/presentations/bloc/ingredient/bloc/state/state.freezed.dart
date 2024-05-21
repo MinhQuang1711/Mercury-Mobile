@@ -22,6 +22,7 @@ mixin _$IngredientState {
     required TResult Function() loading,
     required TResult Function(String msg) created,
     required TResult Function(String msg) updated,
+    required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -34,6 +35,7 @@ mixin _$IngredientState {
     TResult? Function()? loading,
     TResult? Function(String msg)? created,
     TResult? Function(String msg)? updated,
+    TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -46,6 +48,7 @@ mixin _$IngredientState {
     TResult Function()? loading,
     TResult Function(String msg)? created,
     TResult Function(String msg)? updated,
+    TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -59,6 +62,7 @@ mixin _$IngredientState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Created value) created,
     required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
   }) =>
@@ -69,6 +73,7 @@ mixin _$IngredientState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Created value)? created,
     TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
   }) =>
@@ -79,6 +84,7 @@ mixin _$IngredientState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Created value)? created,
     TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
     required TResult orElse(),
@@ -145,6 +151,7 @@ class _$InitImpl implements _Init {
     required TResult Function() loading,
     required TResult Function(String msg) created,
     required TResult Function(String msg) updated,
+    required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -160,6 +167,7 @@ class _$InitImpl implements _Init {
     TResult? Function()? loading,
     TResult? Function(String msg)? created,
     TResult? Function(String msg)? updated,
+    TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -175,6 +183,7 @@ class _$InitImpl implements _Init {
     TResult Function()? loading,
     TResult Function(String msg)? created,
     TResult Function(String msg)? updated,
+    TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -194,6 +203,7 @@ class _$InitImpl implements _Init {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Created value) created,
     required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
   }) {
@@ -207,6 +217,7 @@ class _$InitImpl implements _Init {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Created value)? created,
     TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
   }) {
@@ -220,6 +231,7 @@ class _$InitImpl implements _Init {
     TResult Function(_Loading value)? loading,
     TResult Function(_Created value)? created,
     TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
     required TResult orElse(),
@@ -277,6 +289,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() loading,
     required TResult Function(String msg) created,
     required TResult Function(String msg) updated,
+    required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -292,6 +305,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? loading,
     TResult? Function(String msg)? created,
     TResult? Function(String msg)? updated,
+    TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -307,6 +321,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? loading,
     TResult Function(String msg)? created,
     TResult Function(String msg)? updated,
+    TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -326,6 +341,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Created value) created,
     required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
   }) {
@@ -339,6 +355,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Created value)? created,
     TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
   }) {
@@ -352,6 +369,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Created value)? created,
     TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
     required TResult orElse(),
@@ -435,6 +453,7 @@ class _$CreatedImpl implements _Created {
     required TResult Function() loading,
     required TResult Function(String msg) created,
     required TResult Function(String msg) updated,
+    required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -450,6 +469,7 @@ class _$CreatedImpl implements _Created {
     TResult? Function()? loading,
     TResult? Function(String msg)? created,
     TResult? Function(String msg)? updated,
+    TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -465,6 +485,7 @@ class _$CreatedImpl implements _Created {
     TResult Function()? loading,
     TResult Function(String msg)? created,
     TResult Function(String msg)? updated,
+    TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -484,6 +505,7 @@ class _$CreatedImpl implements _Created {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Created value) created,
     required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
   }) {
@@ -497,6 +519,7 @@ class _$CreatedImpl implements _Created {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Created value)? created,
     TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
   }) {
@@ -510,6 +533,7 @@ class _$CreatedImpl implements _Created {
     TResult Function(_Loading value)? loading,
     TResult Function(_Created value)? created,
     TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
     required TResult orElse(),
@@ -598,6 +622,7 @@ class _$UpdatedImpl implements _Updated {
     required TResult Function() loading,
     required TResult Function(String msg) created,
     required TResult Function(String msg) updated,
+    required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -613,6 +638,7 @@ class _$UpdatedImpl implements _Updated {
     TResult? Function()? loading,
     TResult? Function(String msg)? created,
     TResult? Function(String msg)? updated,
+    TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -628,6 +654,7 @@ class _$UpdatedImpl implements _Updated {
     TResult Function()? loading,
     TResult Function(String msg)? created,
     TResult Function(String msg)? updated,
+    TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -647,6 +674,7 @@ class _$UpdatedImpl implements _Updated {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Created value) created,
     required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
   }) {
@@ -660,6 +688,7 @@ class _$UpdatedImpl implements _Updated {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Created value)? created,
     TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
   }) {
@@ -673,6 +702,7 @@ class _$UpdatedImpl implements _Updated {
     TResult Function(_Loading value)? loading,
     TResult Function(_Created value)? created,
     TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
     required TResult orElse(),
@@ -690,6 +720,175 @@ abstract class _Updated implements IngredientState {
   String get msg;
   @JsonKey(ignore: true)
   _$$UpdatedImplCopyWith<_$UpdatedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeletedImplCopyWith<$Res> {
+  factory _$$DeletedImplCopyWith(
+          _$DeletedImpl value, $Res Function(_$DeletedImpl) then) =
+      __$$DeletedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String msg});
+}
+
+/// @nodoc
+class __$$DeletedImplCopyWithImpl<$Res>
+    extends _$IngredientStateCopyWithImpl<$Res, _$DeletedImpl>
+    implements _$$DeletedImplCopyWith<$Res> {
+  __$$DeletedImplCopyWithImpl(
+      _$DeletedImpl _value, $Res Function(_$DeletedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? msg = null,
+  }) {
+    return _then(_$DeletedImpl(
+      null == msg
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeletedImpl implements _Deleted {
+  const _$DeletedImpl(this.msg);
+
+  @override
+  final String msg;
+
+  @override
+  String toString() {
+    return 'IngredientState.deleted(msg: $msg)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeletedImpl &&
+            (identical(other.msg, msg) || other.msg == msg));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, msg);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeletedImplCopyWith<_$DeletedImpl> get copyWith =>
+      __$$DeletedImplCopyWithImpl<_$DeletedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() loading,
+    required TResult Function(String msg) created,
+    required TResult Function(String msg) updated,
+    required TResult Function(String msg) deleted,
+    required TResult Function(String msg) failure,
+    required TResult Function(
+            SearchByName searchByName, PagedList<Ingredient> pagedList)
+        got,
+  }) {
+    return deleted(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? loading,
+    TResult? Function(String msg)? created,
+    TResult? Function(String msg)? updated,
+    TResult? Function(String msg)? deleted,
+    TResult? Function(String msg)? failure,
+    TResult? Function(
+            SearchByName searchByName, PagedList<Ingredient> pagedList)?
+        got,
+  }) {
+    return deleted?.call(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? loading,
+    TResult Function(String msg)? created,
+    TResult Function(String msg)? updated,
+    TResult Function(String msg)? deleted,
+    TResult Function(String msg)? failure,
+    TResult Function(
+            SearchByName searchByName, PagedList<Ingredient> pagedList)?
+        got,
+    required TResult orElse(),
+  }) {
+    if (deleted != null) {
+      return deleted(msg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Created value) created,
+    required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_Got value) got,
+  }) {
+    return deleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Created value)? created,
+    TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_Got value)? got,
+  }) {
+    return deleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Created value)? created,
+    TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_Got value)? got,
+    required TResult orElse(),
+  }) {
+    if (deleted != null) {
+      return deleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Deleted implements IngredientState {
+  const factory _Deleted(final String msg) = _$DeletedImpl;
+
+  String get msg;
+  @JsonKey(ignore: true)
+  _$$DeletedImplCopyWith<_$DeletedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -761,6 +960,7 @@ class _$FailureImpl implements _Failure {
     required TResult Function() loading,
     required TResult Function(String msg) created,
     required TResult Function(String msg) updated,
+    required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -776,6 +976,7 @@ class _$FailureImpl implements _Failure {
     TResult? Function()? loading,
     TResult? Function(String msg)? created,
     TResult? Function(String msg)? updated,
+    TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -791,6 +992,7 @@ class _$FailureImpl implements _Failure {
     TResult Function()? loading,
     TResult Function(String msg)? created,
     TResult Function(String msg)? updated,
+    TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -810,6 +1012,7 @@ class _$FailureImpl implements _Failure {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Created value) created,
     required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
   }) {
@@ -823,6 +1026,7 @@ class _$FailureImpl implements _Failure {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Created value)? created,
     TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
   }) {
@@ -836,6 +1040,7 @@ class _$FailureImpl implements _Failure {
     TResult Function(_Loading value)? loading,
     TResult Function(_Created value)? created,
     TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
     required TResult orElse(),
@@ -942,6 +1147,7 @@ class _$GotImpl implements _Got {
     required TResult Function() loading,
     required TResult Function(String msg) created,
     required TResult Function(String msg) updated,
+    required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)
@@ -957,6 +1163,7 @@ class _$GotImpl implements _Got {
     TResult? Function()? loading,
     TResult? Function(String msg)? created,
     TResult? Function(String msg)? updated,
+    TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
     TResult? Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -972,6 +1179,7 @@ class _$GotImpl implements _Got {
     TResult Function()? loading,
     TResult Function(String msg)? created,
     TResult Function(String msg)? updated,
+    TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
     TResult Function(
             SearchByName searchByName, PagedList<Ingredient> pagedList)?
@@ -991,6 +1199,7 @@ class _$GotImpl implements _Got {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Created value) created,
     required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
   }) {
@@ -1004,6 +1213,7 @@ class _$GotImpl implements _Got {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Created value)? created,
     TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
   }) {
@@ -1017,6 +1227,7 @@ class _$GotImpl implements _Got {
     TResult Function(_Loading value)? loading,
     TResult Function(_Created value)? created,
     TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
     required TResult orElse(),

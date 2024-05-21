@@ -11,6 +11,7 @@ class IngredientState with _$IngredientState {
   const factory IngredientState.loading() = _Loading;
   const factory IngredientState.created(String msg) = _Created;
   const factory IngredientState.updated(String msg) = _Updated;
+  const factory IngredientState.deleted(String msg) = _Deleted;
   const factory IngredientState.failure(String msg) = _Failure;
   const factory IngredientState.got({
     required SearchByName searchByName,
