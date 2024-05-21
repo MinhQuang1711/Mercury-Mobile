@@ -48,4 +48,16 @@ class IngredientRepository extends IIngredientRepository {
       parser: (data) {},
     );
   }
+
+  @override
+  Future<DataRespone> delete({required String id}) async {
+    return await excuter(
+      paramRequest: ParamRequest(
+        method: Method.DELETE,
+        query: {"id": id},
+        endPoint: AppRepositoryPath.deleteIngredient,
+      ),
+      parser: (data) {},
+    );
+  }
 }

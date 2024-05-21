@@ -5,4 +5,5 @@ class AppRepositoryPath {
   static String getIngredient = "/api/ingredient";
   static String createIngredient = "/api/ingredient/create";
   static String updateIngredient = "/api/ingredient/update";
+  static String deleteIngredient = "/api/ingredient/delete";
 }

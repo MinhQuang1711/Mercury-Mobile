@@ -7,6 +7,7 @@ import 'package:mercury/feature/domain/model/ingredient/create_and_update.dart';
 import '../model/search_by_name/search_by_name.dart';
 
 abstract class IIngredientRepository extends UseCaseNetwork {
+  Future<DataRespone> delete({required String id});
   Future<DataRespone<PagedList<Ingredient>>> get({
     required SearchByName searchByName,
   });
