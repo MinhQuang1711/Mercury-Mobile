@@ -17,7 +17,9 @@ class ProductList extends StatelessWidget {
           items: state.list,
           child: ListView.builder(
             itemCount: state.list.length,
-            itemBuilder: (context, index) => const SaleProductCard(),
+            itemBuilder: (context, index) => SaleProductCard(
+              product: state.list[index],
+            ),
           ),
         ),
       ),

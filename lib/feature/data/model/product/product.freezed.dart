@@ -22,6 +22,7 @@ Product _$ProductFromJson(Map<String, dynamic> json) {
 mixin _$Product {
   String? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
+  double? get sumCost => throw _privateConstructorUsedError;
   double? get salePrice => throw _privateConstructorUsedError;
   String? get imagePath => throw _privateConstructorUsedError;
   String? get ownerName => throw _privateConstructorUsedError;
@@ -40,6 +41,7 @@ abstract class $ProductCopyWith<$Res> {
   $Res call(
       {String? id,
       String? name,
+      double? sumCost,
       double? salePrice,
       String? imagePath,
       String? ownerName,
@@ -62,6 +64,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? sumCost = freezed,
     Object? salePrice = freezed,
     Object? imagePath = freezed,
     Object? ownerName = freezed,
@@ -77,6 +80,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      sumCost: freezed == sumCost
+          ? _value.sumCost
+          : sumCost // ignore: cast_nullable_to_non_nullable
+              as double?,
       salePrice: freezed == salePrice
           ? _value.salePrice
           : salePrice // ignore: cast_nullable_to_non_nullable
@@ -111,6 +118,7 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
   $Res call(
       {String? id,
       String? name,
+      double? sumCost,
       double? salePrice,
       String? imagePath,
       String? ownerName,
@@ -131,6 +139,7 @@ class __$$ProductImplCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? sumCost = freezed,
     Object? salePrice = freezed,
     Object? imagePath = freezed,
     Object? ownerName = freezed,
@@ -146,6 +155,10 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
+      sumCost: freezed == sumCost
+          ? _value.sumCost
+          : sumCost // ignore: cast_nullable_to_non_nullable
+              as double?,
       salePrice: freezed == salePrice
           ? _value.salePrice
           : salePrice // ignore: cast_nullable_to_non_nullable
@@ -176,6 +189,7 @@ class _$ProductImpl implements _Product {
   const _$ProductImpl(
       {this.id,
       this.name,
+      this.sumCost,
       this.salePrice,
       this.imagePath,
       this.ownerName,
@@ -190,6 +204,8 @@ class _$ProductImpl implements _Product {
   @override
   final String? name;
   @override
+  final double? sumCost;
+  @override
   final double? salePrice;
   @override
   final String? imagePath;
@@ -202,7 +218,7 @@ class _$ProductImpl implements _Product {
 
   @override
   String toString() {
-    return 'Product(id: $id, name: $name, salePrice: $salePrice, imagePath: $imagePath, ownerName: $ownerName, createDate: $createDate, createdByName: $createdByName)';
+    return 'Product(id: $id, name: $name, sumCost: $sumCost, salePrice: $salePrice, imagePath: $imagePath, ownerName: $ownerName, createDate: $createDate, createdByName: $createdByName)';
   }
 
   @override
@@ -212,6 +228,7 @@ class _$ProductImpl implements _Product {
             other is _$ProductImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.sumCost, sumCost) || other.sumCost == sumCost) &&
             (identical(other.salePrice, salePrice) ||
                 other.salePrice == salePrice) &&
             (identical(other.imagePath, imagePath) ||
@@ -226,8 +243,8 @@ class _$ProductImpl implements _Product {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, salePrice, imagePath,
-      ownerName, createDate, createdByName);
+  int get hashCode => Object.hash(runtimeType, id, name, sumCost, salePrice,
+      imagePath, ownerName, createDate, createdByName);
 
   @JsonKey(ignore: true)
   @override
@@ -240,6 +257,7 @@ abstract class _Product implements Product {
   const factory _Product(
       {final String? id,
       final String? name,
+      final double? sumCost,
       final double? salePrice,
       final String? imagePath,
       final String? ownerName,
@@ -252,6 +270,8 @@ abstract class _Product implements Product {
   String? get id;
   @override
   String? get name;
+  @override
+  double? get sumCost;
   @override
   double? get salePrice;
   @override

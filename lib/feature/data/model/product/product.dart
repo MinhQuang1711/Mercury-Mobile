@@ -8,6 +8,7 @@ class Product with _$Product {
   const factory Product({
     String? id,
     String? name,
+    double? sumCost,
     double? salePrice,
     String? imagePath,
     String? ownerName,

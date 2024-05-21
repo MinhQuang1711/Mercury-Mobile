@@ -10,6 +10,7 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
     _$ProductImpl(
       id: json['id'] as String?,
       name: json['name'] as String?,
+      sumCost: (json['sumCost'] as num?)?.toDouble(),
       salePrice: (json['salePrice'] as num?)?.toDouble(),
       imagePath: json['imagePath'] as String?,
       ownerName: json['ownerName'] as String?,
