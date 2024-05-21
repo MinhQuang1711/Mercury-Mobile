@@ -6,6 +6,7 @@ import 'package:mercury/feature/presentations/ui/ingredient/detail/detail.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/update/update_ingredient.dart';
 import 'package:mercury/feature/presentations/ui/login/login.dart';
 import 'package:mercury/feature/presentations/ui/logo/logo_screen.dart';
+import 'package:mercury/feature/presentations/ui/sale_product/create/create.dart';
 import 'package:mercury/feature/presentations/ui/splash/splash.dart';
 
 class AppRouter {
@@ -37,6 +38,10 @@ class AppRouter {
         path: AppPath.updateIngredient,
         builder: (context, state) =>
             UpdateIngredientScreen(ingredient: state.extra as Ingredient),
+      ),
+      GoRoute(
+        path: AppPath.createProduct,
+        builder: (context, state) => const CreateProductScreen(),
       ),
     ],
   );

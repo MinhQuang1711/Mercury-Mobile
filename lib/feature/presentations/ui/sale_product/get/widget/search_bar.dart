@@ -5,8 +5,9 @@ import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart'
 import 'package:mercury/feature/presentations/bloc/product/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/product/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/widget/search_icon.dart';
-import 'package:mercury/feature/presentations/widget/square_create_button.dart';
 import 'package:mercury/feature/presentations/widget/textfield/textfield.dart';
+
+import 'create_product_button.dart';
 
 class SaleProductSearchBar extends StatelessWidget {
   const SaleProductSearchBar({super.key});
@@ -36,7 +37,7 @@ class SaleProductSearchBar extends StatelessWidget {
           onChanged: onChanged,
           onTapClearButton: onClear,
           prefWidget: const SearchIcon(),
-          sufWidget: const SquareCreateButton(),
+          sufWidget: const CreateProductButton(),
           hintText: "Tìm kiếm theo tên sản phẩm",
         ),
       ),

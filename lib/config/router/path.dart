@@ -5,4 +5,5 @@ class AppPath {
   static String createIngredient = "/createIngredient";
   static String detailIngredient = "/detailIngredient";
   static String updateIngredient = "/updateIngredient";
+  static String createProduct = "/createProduct";
 }
