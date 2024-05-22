@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/theme/color.dart';
+import 'package:mercury/core/utils/validator/validator.dart';
 import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
 import 'package:mercury/feature/presentations/widget/button/button.dart';
 import 'package:mercury/feature/presentations/widget/column_input/column_input.dart';
@@ -20,6 +21,7 @@ class DialogAddDetailProduct extends StatefulWidget {
 
 class _DialogAddDetailProductState extends State<DialogAddDetailProduct> {
   ComboBox _detailProduct = const ComboBox();
+  final _formKey = GlobalKey<FormState>();
   void _changedWeight(String? val) {
     final weight = double.tryParse(val ?? "0");
     _detailProduct = _detailProduct.copyWith(value: weight ?? 0);
@@ -30,22 +32,27 @@ class _DialogAddDetailProductState extends State<DialogAddDetailProduct> {
   }
 
   void _onSubmit() {
-    context.pop(_detailProduct);
+    if (_formKey.currentState?.validate() == true) {
+      context.pop(_detailProduct);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: AppPadding.padding14,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          _ingredientField(),
-          const SizedBox(height: 15),
-          _weightField(),
-          const SizedBox(height: 45),
-          _submitButton(),
-        ],
+      child: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _ingredientField(),
+            const SizedBox(height: 15),
+            _weightField(),
+            const SizedBox(height: 45),
+            _submitButton(),
+          ],
+        ),
       ),
     );
   }
@@ -67,6 +74,7 @@ class _DialogAddDetailProductState extends State<DialogAddDetailProduct> {
         onChanged: _changedWeight,
         hintText: "Nhập định lượng",
         sufWidget: const Text("| gram"),
+        validator: Validator.doubleNotNull,
         textInputType: TextInputType.number,
       ),
     );
@@ -80,6 +88,7 @@ class _DialogAddDetailProductState extends State<DialogAddDetailProduct> {
         hint: "Chọn nguyên liệu",
         onTap: _changedIngredientId,
         appItemFields: AppItemField.comboBox,
+        validator: (val) => Validator.required(_detailProduct.id),
       ),
     );
   }
