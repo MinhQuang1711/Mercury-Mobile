@@ -55,19 +55,29 @@ class SaleProductCard extends StatelessWidget {
   Row _nameAndPercentCost() {
     return Row(
       children: [
-        Text(
-          product.name ?? "",
-          style: h6Bold.copyWith(color: AppColor.blueShade2),
+        Expanded(
+          child: Text(
+            product.name ?? "",
+            style: h6Bold.copyWith(color: AppColor.blueShade2),
+          ),
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          child: Text("|"),
-        ),
-        Icon(Icons.bar_chart_rounded, color: product.getColorOfPercenCost()),
-        Text(
-          " ${product.caculatePercentCost().formatNumber()} %",
-          style: captionMedium.copyWith(color: product.getColorOfPercenCost()),
-        )
+        Expanded(
+            flex: 2,
+            child: Row(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: Text("|"),
+                ),
+                Icon(Icons.bar_chart_rounded,
+                    color: product.getColorOfPercenCost()),
+                Text(
+                  " ${product.caculatePercentCost().formatNumber()} %",
+                  style: captionMedium.copyWith(
+                      color: product.getColorOfPercenCost()),
+                )
+              ],
+            ))
       ],
     );
   }
