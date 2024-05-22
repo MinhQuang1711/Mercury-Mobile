@@ -17,6 +17,7 @@ import '../widget/info_title.dart';
 import '../widget/listview.dart';
 import 'widget/add_detail_button.dart';
 import 'widget/create_button.dart';
+import 'widget/image.dart';
 import 'widget/product_bloc_listen.dart';
 import 'widget/product_cubit_listen.dart';
 
@@ -70,6 +71,8 @@ class CreateProductPage extends StatelessWidget {
         const ProductInfoTitle(),
         ProductNameField(onChanged: cubit.changedName),
         ProductPriceField(onChanged: cubit.changedPrice),
+        const SizedBox(height: 8),
+        const ProductImage(),
         const SizedBox(height: 25),
         const AddDetailButton(),
         const SizedBox(height: 15),

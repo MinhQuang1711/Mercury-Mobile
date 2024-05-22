@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/core/utils/extension/combo_box.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
+import 'package:mercury/core/utils/extension/platformfile.dart';
+import 'package:mercury/core/utils/service/file_picker.dart';
 import 'package:mercury/feature/domain/model/product/product_request.dart';
 import 'package:mercury/feature/presentations/bloc/product/cubit/create_and_update/state/state.dart';
 
@@ -35,6 +37,14 @@ class ProductCubit extends Cubit<ProductCubitState> {
     final combobox = initList.getById(val.id ?? "");
     _addComboBox(combobox);
     _removeDetailProduct(val);
+  }
+
+  void selectImage() async {
+    var image = await FilePickerService.pickSingleFile();
+    if (image != null) {
+      emit(state.copyWith(
+          dto: state.dto.copyWith(attachFile: image.toBase64())));
+    }
   }
 
   void validateDetailProduct(BuildContext context) {

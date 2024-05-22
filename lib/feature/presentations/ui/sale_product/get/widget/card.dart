@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
@@ -5,7 +7,6 @@ import 'package:mercury/core/utils/extension/number.dart';
 import 'package:mercury/core/utils/extension/product.dart';
 import 'package:mercury/feature/data/model/product/product.dart';
 import 'package:mercury/feature/presentations/widget/card_container.dart';
-import 'package:mercury/gen/assets.gen.dart';
 
 class SaleProductCard extends StatelessWidget {
   const SaleProductCard({super.key, required this.product});
@@ -74,7 +75,7 @@ class SaleProductCard extends StatelessWidget {
   CircleAvatar _image() {
     return CircleAvatar(
       radius: 28,
-      backgroundImage: AssetImage(Assets.image.defaultAvatar.keyName),
+      backgroundImage: MemoryImage(base64Decode(product.imageByte ?? "")),
     );
   }
 }
