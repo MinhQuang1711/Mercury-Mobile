@@ -22,8 +22,8 @@ ComboBox _$ComboBoxFromJson(Map<String, dynamic> json) {
 mixin _$ComboBox {
   String? get name => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
-  int? get value => throw _privateConstructorUsedError;
-  int? get price => throw _privateConstructorUsedError;
+  double? get value => throw _privateConstructorUsedError;
+  double? get price => throw _privateConstructorUsedError;
   int? get quantity => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +37,8 @@ abstract class $ComboBoxCopyWith<$Res> {
   factory $ComboBoxCopyWith(ComboBox value, $Res Function(ComboBox) then) =
       _$ComboBoxCopyWithImpl<$Res, ComboBox>;
   @useResult
-  $Res call({String? name, String? id, int? value, int? price, int? quantity});
+  $Res call(
+      {String? name, String? id, double? value, double? price, int? quantity});
 }
 
 /// @nodoc
@@ -71,11 +72,11 @@ class _$ComboBoxCopyWithImpl<$Res, $Val extends ComboBox>
       value: freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       quantity: freezed == quantity
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
@@ -92,7 +93,8 @@ abstract class _$$ComboBoxImplCopyWith<$Res>
       __$$ComboBoxImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? name, String? id, int? value, int? price, int? quantity});
+  $Res call(
+      {String? name, String? id, double? value, double? price, int? quantity});
 }
 
 /// @nodoc
@@ -124,11 +126,11 @@ class __$$ComboBoxImplCopyWithImpl<$Res>
       value: freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       quantity: freezed == quantity
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
@@ -151,9 +153,9 @@ class _$ComboBoxImpl implements _ComboBox {
   @override
   final String? id;
   @override
-  final int? value;
+  final double? value;
   @override
-  final int? price;
+  final double? price;
   @override
   final int? quantity;
 
@@ -198,8 +200,8 @@ abstract class _ComboBox implements ComboBox {
   const factory _ComboBox(
       {final String? name,
       final String? id,
-      final int? value,
-      final int? price,
+      final double? value,
+      final double? price,
       final int? quantity}) = _$ComboBoxImpl;
 
   factory _ComboBox.fromJson(Map<String, dynamic> json) =
@@ -210,9 +212,9 @@ abstract class _ComboBox implements ComboBox {
   @override
   String? get id;
   @override
-  int? get value;
+  double? get value;
   @override
-  int? get price;
+  double? get price;
   @override
   int? get quantity;
   @override

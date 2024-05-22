@@ -8,8 +8,8 @@ class ComboBox with _$ComboBox {
   const factory ComboBox({
     String? name,
     String? id,
-    int? value,
-    int? price,
+    double? value,
+    double? price,
     int? quantity,
   }) = _ComboBox;
 

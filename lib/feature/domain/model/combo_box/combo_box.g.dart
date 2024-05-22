@@ -10,8 +10,8 @@ _$ComboBoxImpl _$$ComboBoxImplFromJson(Map<String, dynamic> json) =>
     _$ComboBoxImpl(
       name: json['name'] as String?,
       id: json['id'] as String?,
-      value: json['value'] as int?,
-      price: json['price'] as int?,
+      value: (json['value'] as num?)?.toDouble(),
+      price: (json['price'] as num?)?.toDouble(),
       quantity: json['quantity'] as int?,
     );
 

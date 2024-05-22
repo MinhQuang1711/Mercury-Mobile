@@ -18,7 +18,7 @@ extension ButtonSizeEx on ButtonSize {
   TextStyle getTextstyle({Color? color}) {
     switch (this) {
       case ButtonSize.SIZE_24:
-        return captionRegular.copyWith(color: color);
+        return captionMedium.copyWith(color: color);
       case ButtonSize.SIZE_32:
         return bodyRegular.copyWith(color: color);
       case ButtonSize.SIZE_40:
