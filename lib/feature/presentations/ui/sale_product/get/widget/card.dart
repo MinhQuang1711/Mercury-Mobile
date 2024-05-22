@@ -63,33 +63,22 @@ class SaleProductCard extends StatelessWidget {
           ),
         ),
         Expanded(
-            flex: 2,
             child: Row(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Text("|"),
-                ),
-                Icon(Icons.bar_chart_rounded,
-                    color: product.getColorOfPercenCost()),
-                Text(
-                  " ${product.caculatePercentCost().formatNumber()} %",
-                  style: captionMedium.copyWith(
-                      color: product.getColorOfPercenCost()),
-                )
-              ],
-            ))
+          children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Text("|"),
+            ),
+            Icon(Icons.bar_chart_rounded,
+                color: product.getColorOfPercenCost()),
+            Text(
+              " ${product.caculatePercentCost().formatNumber()} %",
+              style:
+                  captionMedium.copyWith(color: product.getColorOfPercenCost()),
+            )
+          ],
+        ))
       ],
-    );
-  }
-
-  Widget _image() {
-    return CircleAvatar(
-      radius: 28,
-      child: Image(
-          image: MemoryImage(base64Decode(product.imageByte ?? "")),
-          errorBuilder: (context, error, stackTrace) =>
-              Image(image: AssetImage(Assets.image.coffeeCup.keyName))),
     );
   }
 }
