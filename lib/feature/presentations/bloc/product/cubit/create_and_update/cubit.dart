@@ -54,6 +54,6 @@ class ProductCubit extends Cubit<ProductCubitState> {
   void _removeDetailProduct(ComboBox val) {
     final oldList = List<ComboBox>.from(state.dto.detailProducts ?? []);
     emit(state.copyWith(
-        dto: state.dto.copyWith(detailProducts: oldList..add(val))));
+        dto: state.dto.copyWith(detailProducts: oldList..remove(val))));
   }
 }

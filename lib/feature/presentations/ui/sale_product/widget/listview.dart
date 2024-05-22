@@ -8,8 +8,11 @@ import 'package:mercury/feature/presentations/bloc/product/cubit/create_and_upda
 import 'package:mercury/feature/presentations/ui/sale_product/widget/detail_product_card.dart';
 import 'package:mercury/feature/presentations/widget/empty_widget.dart';
 
+import '../../../../domain/model/combo_box/combo_box.dart';
+
 class ListDetailProduct extends StatelessWidget {
-  const ListDetailProduct({super.key});
+  const ListDetailProduct({super.key, this.onTapRemove});
+  final Function(ComboBox)? onTapRemove;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,7 @@ class ListDetailProduct extends StatelessWidget {
       children: state.dto.detailProducts!
           .map((e) => DetailProductCard(
                 comboBox: e,
-                onTapRemove: (val) {},
+                onTapRemove: onTapRemove,
               ))
           .toList(),
     );

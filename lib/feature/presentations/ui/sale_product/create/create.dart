@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
+import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
 import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/product/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/product/cubit/create_and_update/cubit.dart';
@@ -40,28 +41,38 @@ class CreateProductPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
+    final cubit = context.read<ProductCubit>();
+    void onTapRemove(ComboBox val) {
+      final initList = context.read<ComboBoxCubit>().state.comboBoxes;
+      cubit.removeIngredient(val, initList);
+    }
+
     return Scaffold(
       appBar: _appBar(context),
       body: ProductCubitListen(
         child: AppStack(
-          backgroundWidget: _formInput(),
-          bottomWidget: const CreateProductButton(),
+          formKey: formKey,
+          backgroundWidget: _formInput(onTapRemove),
+          bottomWidget: CreateProductButton(formKey: formKey),
         ),
       ),
     );
   }
 
-  Column _formInput() {
-    return const Column(
+  Column _formInput(Function(ComboBox)? onTapRemove) {
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ProductInfoTitle(),
-        ProductNameField(),
-        ProductPriceField(),
-        SizedBox(height: 25),
-        AddDetailButton(),
-        SizedBox(height: 15),
-        ListDetailProduct(),
+        const ProductInfoTitle(),
+        const ProductNameField(),
+        const ProductPriceField(),
+        const SizedBox(height: 25),
+        const AddDetailButton(),
+        const SizedBox(height: 15),
+        ListDetailProduct(
+          onTapRemove: onTapRemove,
+        ),
       ],
     );
   }
