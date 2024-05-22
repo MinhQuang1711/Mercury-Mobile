@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
 
