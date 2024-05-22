@@ -8,7 +8,7 @@ part 'product_request.g.dart';
 class ProductRequest with _$ProductRequest {
   const factory ProductRequest({
     String? id,
-    int? price,
+    double? price,
     String? name,
     String? attachFile,
     List<ComboBox>? detailProducts,

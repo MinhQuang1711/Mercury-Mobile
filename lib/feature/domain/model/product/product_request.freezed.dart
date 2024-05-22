@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ProductRequest {
   String? get id => throw _privateConstructorUsedError;
-  int? get price => throw _privateConstructorUsedError;
+  double? get price => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get attachFile => throw _privateConstructorUsedError;
   List<ComboBox>? get detailProducts => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ abstract class $ProductRequestCopyWith<$Res> {
   @useResult
   $Res call(
       {String? id,
-      int? price,
+      double? price,
       String? name,
       String? attachFile,
       List<ComboBox>? detailProducts});
@@ -69,7 +69,7 @@ class _$ProductRequestCopyWithImpl<$Res, $Val extends ProductRequest>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -96,7 +96,7 @@ abstract class _$$ProductRequestImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? id,
-      int? price,
+      double? price,
       String? name,
       String? attachFile,
       List<ComboBox>? detailProducts});
@@ -127,7 +127,7 @@ class __$$ProductRequestImplCopyWithImpl<$Res>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ class _$ProductRequestImpl implements _ProductRequest {
   @override
   final String? id;
   @override
-  final int? price;
+  final double? price;
   @override
   final String? name;
   @override
@@ -215,7 +215,7 @@ class _$ProductRequestImpl implements _ProductRequest {
 abstract class _ProductRequest implements ProductRequest {
   const factory _ProductRequest(
       {final String? id,
-      final int? price,
+      final double? price,
       final String? name,
       final String? attachFile,
       final List<ComboBox>? detailProducts}) = _$ProductRequestImpl;
@@ -223,7 +223,7 @@ abstract class _ProductRequest implements ProductRequest {
   @override
   String? get id;
   @override
-  int? get price;
+  double? get price;
   @override
   String? get name;
   @override
