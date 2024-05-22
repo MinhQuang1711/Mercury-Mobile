@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/feature/presentations/bloc/product/cubit/create_and_update/cubit.dart';
 import 'package:mercury/feature/presentations/widget/button/button.dart';
 
 class CreateProductButton extends StatelessWidget {
@@ -8,7 +10,10 @@ class CreateProductButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void onTap() {
-      if (formKey.currentState?.validate() == true) {
+      final cubit = context.read<ProductCubit>()
+        ..validateDetailProduct(context);
+      if (formKey.currentState?.validate() == true &&
+          (cubit.state.dto.detailProducts ?? []).isNotEmpty) {
         //TODO
       }
     }
