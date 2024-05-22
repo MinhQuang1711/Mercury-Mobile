@@ -12,6 +12,7 @@ class Product with _$Product {
     double? salePrice,
     String? imagePath,
     String? ownerName,
+    String? imageByte,
     DateTime? createDate,
     String? createdByName,
   }) = _Product;

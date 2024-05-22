@@ -26,6 +26,7 @@ mixin _$Product {
   double? get salePrice => throw _privateConstructorUsedError;
   String? get imagePath => throw _privateConstructorUsedError;
   String? get ownerName => throw _privateConstructorUsedError;
+  String? get imageByte => throw _privateConstructorUsedError;
   DateTime? get createDate => throw _privateConstructorUsedError;
   String? get createdByName => throw _privateConstructorUsedError;
 
@@ -45,6 +46,7 @@ abstract class $ProductCopyWith<$Res> {
       double? salePrice,
       String? imagePath,
       String? ownerName,
+      String? imageByte,
       DateTime? createDate,
       String? createdByName});
 }
@@ -68,6 +70,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? salePrice = freezed,
     Object? imagePath = freezed,
     Object? ownerName = freezed,
+    Object? imageByte = freezed,
     Object? createDate = freezed,
     Object? createdByName = freezed,
   }) {
@@ -96,6 +99,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.ownerName
           : ownerName // ignore: cast_nullable_to_non_nullable
               as String?,
+      imageByte: freezed == imageByte
+          ? _value.imageByte
+          : imageByte // ignore: cast_nullable_to_non_nullable
+              as String?,
       createDate: freezed == createDate
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
@@ -122,6 +129,7 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       double? salePrice,
       String? imagePath,
       String? ownerName,
+      String? imageByte,
       DateTime? createDate,
       String? createdByName});
 }
@@ -143,6 +151,7 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? salePrice = freezed,
     Object? imagePath = freezed,
     Object? ownerName = freezed,
+    Object? imageByte = freezed,
     Object? createDate = freezed,
     Object? createdByName = freezed,
   }) {
@@ -171,6 +180,10 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.ownerName
           : ownerName // ignore: cast_nullable_to_non_nullable
               as String?,
+      imageByte: freezed == imageByte
+          ? _value.imageByte
+          : imageByte // ignore: cast_nullable_to_non_nullable
+              as String?,
       createDate: freezed == createDate
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
@@ -193,6 +206,7 @@ class _$ProductImpl implements _Product {
       this.salePrice,
       this.imagePath,
       this.ownerName,
+      this.imageByte,
       this.createDate,
       this.createdByName});
 
@@ -212,13 +226,15 @@ class _$ProductImpl implements _Product {
   @override
   final String? ownerName;
   @override
+  final String? imageByte;
+  @override
   final DateTime? createDate;
   @override
   final String? createdByName;
 
   @override
   String toString() {
-    return 'Product(id: $id, name: $name, sumCost: $sumCost, salePrice: $salePrice, imagePath: $imagePath, ownerName: $ownerName, createDate: $createDate, createdByName: $createdByName)';
+    return 'Product(id: $id, name: $name, sumCost: $sumCost, salePrice: $salePrice, imagePath: $imagePath, ownerName: $ownerName, imageByte: $imageByte, createDate: $createDate, createdByName: $createdByName)';
   }
 
   @override
@@ -235,6 +251,8 @@ class _$ProductImpl implements _Product {
                 other.imagePath == imagePath) &&
             (identical(other.ownerName, ownerName) ||
                 other.ownerName == ownerName) &&
+            (identical(other.imageByte, imageByte) ||
+                other.imageByte == imageByte) &&
             (identical(other.createDate, createDate) ||
                 other.createDate == createDate) &&
             (identical(other.createdByName, createdByName) ||
@@ -244,7 +262,7 @@ class _$ProductImpl implements _Product {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, sumCost, salePrice,
-      imagePath, ownerName, createDate, createdByName);
+      imagePath, ownerName, imageByte, createDate, createdByName);
 
   @JsonKey(ignore: true)
   @override
@@ -261,6 +279,7 @@ abstract class _Product implements Product {
       final double? salePrice,
       final String? imagePath,
       final String? ownerName,
+      final String? imageByte,
       final DateTime? createDate,
       final String? createdByName}) = _$ProductImpl;
 
@@ -278,6 +297,8 @@ abstract class _Product implements Product {
   String? get imagePath;
   @override
   String? get ownerName;
+  @override
+  String? get imageByte;
   @override
   DateTime? get createDate;
   @override

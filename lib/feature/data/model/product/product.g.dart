@@ -14,6 +14,7 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
       salePrice: (json['salePrice'] as num?)?.toDouble(),
       imagePath: json['imagePath'] as String?,
       ownerName: json['ownerName'] as String?,
+      imageByte: json['imageByte'] as String?,
       createDate: json['createDate'] == null
           ? null
           : DateTime.parse(json['createDate'] as String),
