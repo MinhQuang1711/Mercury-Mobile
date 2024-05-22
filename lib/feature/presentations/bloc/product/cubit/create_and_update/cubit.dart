@@ -7,7 +7,8 @@ import '../../../../../domain/model/combo_box/combo_box.dart';
 
 class ProductCubit extends Cubit<ProductCubitState> {
   ProductCubit()
-      : super(const ProductCubitState(dto: ProductRequest(), comboBoxes: []));
+      : super(const ProductCubitState(
+            dto: ProductRequest(detailProducts: []), comboBoxes: []));
 
   void initComboBoxes(List<ComboBox> val) {
     emit(state.copyWith(comboBoxes: val));

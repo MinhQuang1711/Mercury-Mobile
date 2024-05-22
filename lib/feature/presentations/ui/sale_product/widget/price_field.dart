@@ -17,6 +17,13 @@ class ProductPriceField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: _priceField(),
+    );
+  }
+
+  ColumnInput _priceField() {
     return ColumnInput(
       isRequied: true,
       titleLabel: "Giá sản phẩm",

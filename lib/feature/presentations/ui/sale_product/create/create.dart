@@ -11,7 +11,9 @@ import 'package:mercury/feature/presentations/widget/factory/screen/create_scree
 import 'package:mercury/feature/presentations/widget/stack/screen_allway_see_bottom.dart';
 
 import '../widget/info_title.dart';
+import '../widget/listview.dart';
 import 'widget/add_detail_button.dart';
+import 'widget/create_button.dart';
 import 'widget/product_cubit_listen.dart';
 
 class CreateProductScreen extends StatelessWidget {
@@ -38,24 +40,27 @@ class CreateProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
-      body: const ProductCubitListen(
+      body: ProductCubitListen(
         child: AppStack(
-          backgroundWidget: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ProductInfoTitle(),
-              SizedBox(height: 15),
-              ProductNameField(),
-              SizedBox(height: 15),
-              ProductPriceField(),
-              SizedBox(height: 25),
-              AddDetailButton(),
-              SizedBox(height: 15),
-            ],
-          ),
-          bottomWidget: SizedBox(),
+          backgroundWidget: _formInput(),
+          bottomWidget: const CreateProductButton(),
         ),
       ),
+    );
+  }
+
+  Column _formInput() {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ProductInfoTitle(),
+        ProductNameField(),
+        ProductPriceField(),
+        SizedBox(height: 25),
+        AddDetailButton(),
+        SizedBox(height: 15),
+        ListDetailProduct(),
+      ],
     );
   }
 
