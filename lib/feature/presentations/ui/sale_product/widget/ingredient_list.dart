@@ -27,7 +27,7 @@ class TitleListIngredientOfProduct extends StatelessWidget {
       onTap: onTap,
       child: const Icon(
         Icons.add_box_rounded,
-        color: AppColor.pink,
+        color: AppColor.blue,
         size: 30,
       ),
     );

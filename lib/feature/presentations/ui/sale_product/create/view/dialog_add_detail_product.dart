@@ -62,9 +62,9 @@ class _DialogAddDetailProductState extends State<DialogAddDetailProduct> {
     return AppButton(
       label: "Xác nhận",
       onTap: _onSubmit,
-      textColor: AppColor.blue,
+      textColor: AppColor.white,
       buttonSize: ButtonSize.SIZE_24,
-      backgroundColor: AppColor.yellow,
+      backgroundColor: AppColor.blue,
     );
   }
 
