@@ -27,8 +27,11 @@ class $AssetsImageGen {
   AssetGenImage get defaultAvatar =>
       const AssetGenImage('assets/image/default-avatar.jpg');
 
+  /// File path: assets/image/empty.png
+  AssetGenImage get empty => const AssetGenImage('assets/image/empty.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [defaultAvatar];
+  List<AssetGenImage> get values => [defaultAvatar, empty];
 }
 
 class Assets {

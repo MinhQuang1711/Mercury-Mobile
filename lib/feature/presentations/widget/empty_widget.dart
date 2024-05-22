@@ -23,12 +23,12 @@ class EmptyWidget extends StatelessWidget {
         SizedBox(
           width: 100,
           height: 100,
-          child: Image.asset(Assets.icon.emptyBox.keyName),
+          child: Image.asset(Assets.image.empty.keyName),
         ),
         const SizedBox(height: 20),
         Text(
           "Danh sách trống !!!!",
-          style: captionMedium.copyWith(color: AppColor.black),
+          style: captionMedium.copyWith(color: AppColor.blueShade2),
         ),
         if (onTap != null)
           Container(
