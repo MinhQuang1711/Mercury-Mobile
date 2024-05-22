@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/router/path.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
+import 'package:mercury/feature/presentations/bloc/product/bloc/bloc.dart';
+import 'package:mercury/feature/presentations/ui/sale_product/get/sale_product.dart';
 import 'package:mercury/feature/presentations/widget/square_create_button.dart';
 
 class CreateProductButton extends StatelessWidget {
@@ -9,7 +12,11 @@ class CreateProductButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void onTap() {
-      context.pushAndListen(location: AppPath.createProduct);
+      context.pushAndListen(
+        location: AppPath.createProduct,
+        handleWhenHasValue: () =>
+            context.read<ProductBloc>()..add(defaultProductEvent),
+      );
     }
 
     return SquareCreateButton(
