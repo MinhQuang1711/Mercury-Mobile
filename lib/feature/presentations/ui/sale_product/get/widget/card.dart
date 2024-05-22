@@ -7,6 +7,7 @@ import 'package:mercury/core/utils/extension/number.dart';
 import 'package:mercury/core/utils/extension/product.dart';
 import 'package:mercury/feature/data/model/product/product.dart';
 import 'package:mercury/feature/presentations/widget/card_container.dart';
+import 'package:mercury/gen/assets.gen.dart';
 
 class SaleProductCard extends StatelessWidget {
   const SaleProductCard({super.key, required this.product});
@@ -17,7 +18,7 @@ class SaleProductCard extends StatelessWidget {
     return ContainerCard(
       child: Row(
         children: [
-          _image(),
+          CircleImage(base64: product.imageByte ?? ""),
           const SizedBox(width: 25),
           _info(),
         ],
@@ -82,10 +83,46 @@ class SaleProductCard extends StatelessWidget {
     );
   }
 
-  CircleAvatar _image() {
+  Widget _image() {
     return CircleAvatar(
       radius: 28,
-      backgroundImage: MemoryImage(base64Decode(product.imageByte ?? "")),
+      child: Image(
+          image: MemoryImage(base64Decode(product.imageByte ?? "")),
+          errorBuilder: (context, error, stackTrace) =>
+              Image(image: AssetImage(Assets.image.coffeeCup.keyName))),
     );
+  }
+}
+
+class CircleImage extends StatefulWidget {
+  const CircleImage({super.key, required this.base64});
+  final String base64;
+
+  @override
+  State<CircleImage> createState() => _CircleImageState();
+}
+
+class _CircleImageState extends State<CircleImage> {
+  bool isBuildImageSuccess = true;
+  void changedStateBuild() {
+    isBuildImageSuccess = !isBuildImageSuccess;
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return isBuildImageSuccess
+        ? CircleAvatar(
+            radius: 30,
+            onBackgroundImageError: (exception, stackTrace) =>
+                changedStateBuild(),
+            backgroundImage: MemoryImage(
+              base64Decode(widget.base64),
+            ),
+          )
+        : CircleAvatar(
+            radius: 30,
+            backgroundColor: AppColor.white,
+            backgroundImage: AssetImage(Assets.image.coffeeCup.keyName));
   }
 }
