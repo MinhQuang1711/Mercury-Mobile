@@ -15,7 +15,7 @@ class ProductInfoTitle extends StatelessWidget {
         children: [
           Text(
             "Thông tin chung",
-            style: bodyBold.copyWith(color: AppColor.blue),
+            style: bodyBold.copyWith(color: AppColor.blueShade2),
           ),
           const Divider(),
         ],

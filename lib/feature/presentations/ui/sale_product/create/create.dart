@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
@@ -39,7 +41,7 @@ class CreateProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBar(),
+      appBar: _appBar(context),
       body: ProductCubitListen(
         child: AppStack(
           backgroundWidget: _formInput(),
@@ -64,12 +66,20 @@ class CreateProductPage extends StatelessWidget {
     );
   }
 
-  AppBar _appBar() {
+  AppBar _appBar(BuildContext context) {
     return AppBar(
       centerTitle: true,
+      leading: GestureDetector(
+        onTap: () => context.pop(),
+        child: const Icon(
+          Icons.arrow_back_sharp,
+          color: AppColor.white,
+        ),
+      ),
+      backgroundColor: AppColor.blue,
       title: Text(
         CreateScreen().getTitle(),
-        style: h6Bold,
+        style: h6Bold.copyWith(color: AppColor.white),
       ),
     );
   }

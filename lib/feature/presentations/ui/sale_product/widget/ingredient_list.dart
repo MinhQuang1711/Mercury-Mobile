@@ -27,7 +27,7 @@ class TitleListIngredientOfProduct extends StatelessWidget {
       onTap: onTap,
       child: const Icon(
         Icons.add_box_rounded,
-        color: AppColor.yellow,
+        color: AppColor.pink,
         size: 30,
       ),
     );
@@ -37,7 +37,7 @@ class TitleListIngredientOfProduct extends StatelessWidget {
     return Expanded(
       child: Text(
         "Danh sách nguyên liệu",
-        style: bodyBold.copyWith(color: AppColor.blue),
+        style: bodyBold.copyWith(color: AppColor.blueShade2),
       ),
     );
   }

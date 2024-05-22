@@ -50,6 +50,8 @@ extension ContextEx on BuildContext {
     showDialog<String>(
       context: this,
       builder: (_) => Dialog(
+        surfaceTintColor: Colors.white,
+        backgroundColor: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: AppContainerBorder.radius8,
         ),
@@ -68,6 +70,8 @@ extension ContextEx on BuildContext {
     return await showDialog<T>(
       context: this,
       builder: (_) => Dialog(
+        surfaceTintColor: Colors.white,
+        backgroundColor: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: AppContainerBorder.radius8,
         ),

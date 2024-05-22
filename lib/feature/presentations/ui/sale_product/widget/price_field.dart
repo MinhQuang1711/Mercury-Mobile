@@ -35,7 +35,7 @@ class ProductPriceField extends StatelessWidget {
         initValue: initValue,
         sufWidget: Text(
           "| vnd",
-          style: captionMedium.copyWith(color: AppColor.blue),
+          style: captionMedium.copyWith(color: AppColor.blueShade2),
         ),
         hintText: "Nhập giá sản phẩm",
         validator: Validator.doubleNotNull,

@@ -25,7 +25,10 @@ class ListDetailProduct extends StatelessWidget {
   Column _listCard(ProductCubitState state) {
     return Column(
       children: state.dto.detailProducts!
-          .map((e) => DetailProductCard(comboBox: e))
+          .map((e) => DetailProductCard(
+                comboBox: e,
+                onTapRemove: (val) {},
+              ))
           .toList(),
     );
   }
@@ -35,7 +38,7 @@ class ListDetailProduct extends StatelessWidget {
       width: double.infinity,
       padding: AppPadding.padding12,
       decoration: BoxDecoration(
-        color: AppColor.grey1,
+        color: AppColor.grey2,
         borderRadius: AppContainerBorder.radius8,
       ),
       child: child,

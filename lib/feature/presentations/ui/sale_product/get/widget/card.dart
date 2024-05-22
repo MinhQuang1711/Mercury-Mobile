@@ -56,7 +56,7 @@ class SaleProductCard extends StatelessWidget {
       children: [
         Text(
           product.name ?? "",
-          style: h6Bold.copyWith(color: AppColor.blue),
+          style: h6Bold.copyWith(color: AppColor.blueShade2),
         ),
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 10),

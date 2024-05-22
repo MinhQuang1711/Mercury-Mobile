@@ -17,6 +17,7 @@ class DetailProductCard extends StatelessWidget {
     final weight = comboBox.value ?? 0;
     final cost = comboBox.price ?? 0;
     return Container(
+      margin: const EdgeInsets.symmetric(vertical: 5),
       padding: AppPadding.padding12,
       decoration: BoxDecoration(
         color: AppColor.white,
@@ -74,7 +75,7 @@ class DetailProductCard extends StatelessWidget {
   Text _name() {
     return Text(
       comboBox.name ?? "",
-      style: bodyBold.copyWith(color: AppColor.blue),
+      style: bodyBold.copyWith(color: AppColor.blueShade2),
     );
   }
 }
