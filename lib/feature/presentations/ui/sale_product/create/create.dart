@@ -17,6 +17,7 @@ import '../widget/info_title.dart';
 import '../widget/listview.dart';
 import 'widget/add_detail_button.dart';
 import 'widget/create_button.dart';
+import 'widget/product_bloc_listen.dart';
 import 'widget/product_cubit_listen.dart';
 
 class CreateProductScreen extends StatelessWidget {
@@ -50,23 +51,25 @@ class CreateProductPage extends StatelessWidget {
 
     return Scaffold(
       appBar: _appBar(context),
-      body: ProductCubitListen(
-        child: AppStack(
-          formKey: formKey,
-          backgroundWidget: _formInput(onTapRemove),
-          bottomWidget: CreateProductButton(formKey: formKey),
+      body: ProductBlocListen(
+        child: ProductCubitListen(
+          child: AppStack(
+            formKey: formKey,
+            backgroundWidget: _formInput(onTapRemove, cubit),
+            bottomWidget: CreateProductButton(formKey: formKey),
+          ),
         ),
       ),
     );
   }
 
-  Column _formInput(Function(ComboBox)? onTapRemove) {
+  Column _formInput(Function(ComboBox)? onTapRemove, ProductCubit cubit) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const ProductInfoTitle(),
-        const ProductNameField(),
-        const ProductPriceField(),
+        ProductNameField(onChanged: cubit.changedName),
+        ProductPriceField(onChanged: cubit.changedPrice),
         const SizedBox(height: 25),
         const AddDetailButton(),
         const SizedBox(height: 15),
