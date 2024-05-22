@@ -28,7 +28,8 @@ class _DialogAddDetailProductState extends State<DialogAddDetailProduct> {
   }
 
   void _changedIngredientId(SearchFieldListItem<ComboBox>? val) {
-    _detailProduct = _detailProduct.copyWith(id: val?.item?.id);
+    _detailProduct =
+        _detailProduct.copyWith(id: val?.item?.id, name: val?.item?.name);
   }
 
   void _onSubmit() {

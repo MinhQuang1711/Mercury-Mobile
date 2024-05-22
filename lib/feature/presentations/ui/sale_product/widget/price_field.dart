@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mercury/config/theme/color.dart';
+import 'package:mercury/config/theme/text_style.dart';
 
 import '../../../../../core/utils/validator/validator.dart';
 import '../../../widget/column_input/column_input.dart';
@@ -31,6 +33,10 @@ class ProductPriceField extends StatelessWidget {
         readOnly: readOnly,
         onChanged: onChanged,
         initValue: initValue,
+        sufWidget: Text(
+          "| vnd",
+          style: captionMedium.copyWith(color: AppColor.blue),
+        ),
         hintText: "Nhập giá sản phẩm",
         validator: Validator.doubleNotNull,
         textInputType: TextInputType.number,

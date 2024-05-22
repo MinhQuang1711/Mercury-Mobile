@@ -1,30 +1,80 @@
 import 'package:flutter/material.dart';
+import 'package:mercury/config/const/padding.dart';
+import 'package:mercury/config/const/radius.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/core/utils/extension/number.dart';
 import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
-import 'package:mercury/feature/presentations/widget/card_container.dart';
 
 class DetailProductCard extends StatelessWidget {
-  const DetailProductCard({super.key, required this.comboBox});
+  const DetailProductCard(
+      {super.key, required this.comboBox, this.onTapRemove});
   final ComboBox comboBox;
+  final Function(ComboBox)? onTapRemove;
 
   @override
   Widget build(BuildContext context) {
-    return ContainerCard(
-      child: Column(
+    final weight = comboBox.value ?? 0;
+    final cost = comboBox.price ?? 0;
+    return Container(
+      padding: AppPadding.padding12,
+      decoration: BoxDecoration(
+        color: AppColor.white,
+        borderRadius: AppContainerBorder.radius8,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text(
-            comboBox.name ?? "",
-            style: bodyBold.copyWith(color: AppColor.blue),
+          _nameAndWeight(),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              if (onTapRemove != null) _removeButton(),
+              const SizedBox(height: 10),
+              _totalPrice(weight, cost),
+            ],
           ),
-          const SizedBox(height: 10),
-          Text(
-            (comboBox.value ?? 0).formatNumber(),
-            style: captionMedium.copyWith(color: AppColor.black),
-          )
         ],
       ),
+    );
+  }
+
+  GestureDetector _removeButton() {
+    return GestureDetector(
+      onTap: () => onTapRemove?.call(comboBox),
+      child: const Icon(
+        Icons.highlight_remove_outlined,
+        color: AppColor.red,
+      ),
+    );
+  }
+
+  Text _totalPrice(double weight, double cost) {
+    return Text(
+      "| Thành tiền: ${(weight * cost).formatNumber()} vnd",
+      style: captionMedium,
+    );
+  }
+
+  Expanded _nameAndWeight() {
+    return Expanded(
+        child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [_name(), const SizedBox(height: 10), _weight()],
+    ));
+  }
+
+  Text _weight() {
+    return Text(
+      "Định lượng: ${(comboBox.value ?? 0).formatNumber()} g",
+      style: captionRegular,
+    );
+  }
+
+  Text _name() {
+    return Text(
+      comboBox.name ?? "",
+      style: bodyBold.copyWith(color: AppColor.blue),
     );
   }
 }
