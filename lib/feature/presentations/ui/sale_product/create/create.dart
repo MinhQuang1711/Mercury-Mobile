@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/theme/text_style.dart';
-import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/product/bloc/bloc.dart';
@@ -12,8 +11,7 @@ import 'package:mercury/feature/presentations/widget/factory/screen/create_scree
 import 'package:mercury/feature/presentations/widget/stack/screen_allway_see_bottom.dart';
 
 import '../widget/info_title.dart';
-import '../widget/ingredient_list.dart';
-import 'view/dialog_add_detail_product.dart';
+import 'widget/add_detail_button.dart';
 import 'widget/product_cubit_listen.dart';
 
 class CreateProductScreen extends StatelessWidget {
@@ -40,28 +38,22 @@ class CreateProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
-      body: ProductCubitListen(
+      body: const ProductCubitListen(
         child: AppStack(
           backgroundWidget: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const ProductInfoTitle(),
-              const SizedBox(height: 15),
-              const ProductNameField(),
-              const SizedBox(height: 15),
-              const ProductPriceField(),
-              const SizedBox(height: 25),
-              TitleListIngredientOfProduct(
-                onTap: () => context.showDialogAndListen(
-                  child: DialogAddDetailProduct(
-                    comboBoxes: context.read<ProductCubit>().state.comboBoxes,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 15),
+              ProductInfoTitle(),
+              SizedBox(height: 15),
+              ProductNameField(),
+              SizedBox(height: 15),
+              ProductPriceField(),
+              SizedBox(height: 25),
+              AddDetailButton(),
+              SizedBox(height: 15),
             ],
           ),
-          bottomWidget: const SizedBox(),
+          bottomWidget: SizedBox(),
         ),
       ),
     );

@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mercury/config/const/radius.dart';
@@ -58,6 +60,20 @@ extension ContextEx on BuildContext {
         _handleSuccess(msg, handleWhenHasValue);
       }
     });
+  }
+
+  Future<T?> showAppDialog<T>({
+    required Widget child,
+  }) async {
+    return await showDialog<T>(
+      context: this,
+      builder: (_) => Dialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: AppContainerBorder.radius8,
+        ),
+        child: child,
+      ),
+    );
   }
 
   void showBottomSheetAndListen({
