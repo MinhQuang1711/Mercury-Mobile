@@ -1,13 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'invoice_request.dart';
+part of 'invoice_query.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Map<String, dynamic> _$$InvoiceRequestImplToJson(
-        _$InvoiceRequestImpl instance) =>
+Map<String, dynamic> _$$InvoiceQueryImplToJson(_$InvoiceQueryImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'pageSize': instance.pageSize,
