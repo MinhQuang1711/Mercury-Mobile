@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/core/utils/extension/contetxt.dart';
+import 'package:mercury/feature/data/model/product/product.dart';
 import 'package:mercury/feature/presentations/bloc/product/cubit/get/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/product/cubit/get/state/state.dart';
+import 'package:mercury/feature/presentations/ui/sale_product/get/view/action_button.dart';
 import 'package:mercury/feature/presentations/ui/sale_product/get/widget/card.dart';
 import 'package:mercury/feature/presentations/widget/list_view/list_view.dart';
 
@@ -10,6 +13,15 @@ class ProductList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void onTapMoreButton(Product product) {
+      context.showBottomSheetAndListen(
+        child: ProductActionBottom(
+          product: product,
+          parentContext: context,
+        ),
+      );
+    }
+
     return Expanded(
       child: BlocBuilder<GetProductCubit, GetProductState>(
         buildWhen: (previous, current) => previous.list != current.list,
@@ -19,6 +31,7 @@ class ProductList extends StatelessWidget {
             itemCount: state.list.length,
             itemBuilder: (context, index) => SaleProductCard(
               product: state.list[index],
+              onTapMoreButton: onTapMoreButton,
             ),
           ),
         ),

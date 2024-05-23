@@ -10,8 +10,10 @@ import 'package:mercury/feature/presentations/widget/card_container.dart';
 import 'package:mercury/gen/assets.gen.dart';
 
 class SaleProductCard extends StatelessWidget {
-  const SaleProductCard({super.key, required this.product});
+  const SaleProductCard(
+      {super.key, required this.product, this.onTapMoreButton});
   final Product product;
+  final Function(Product)? onTapMoreButton;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,9 @@ class SaleProductCard extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 10),
-        const Icon(Icons.more_vert)
+        GestureDetector(
+            onTap: () => onTapMoreButton?.call(product),
+            child: const Icon(Icons.more_vert))
       ],
     ));
   }

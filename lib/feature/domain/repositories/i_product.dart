@@ -7,6 +7,7 @@ import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart'
 import '../../../core/use_case/use_case.dart';
 
 abstract class IProductRepository extends UseCaseNetwork {
+  Future<DataRespone> delete(String id);
   Future<DataRespone> create(ProductRequest productRequest);
   Future<DataRespone<PagedList<Product>>> getProducts(SearchByName searchDto);
 }

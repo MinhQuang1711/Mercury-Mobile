@@ -33,4 +33,16 @@ class ProductRepository extends IProductRepository {
       parser: (data) {},
     );
   }
+
+  @override
+  Future<DataRespone> delete(String id) async {
+    return await excuter(
+      paramRequest: ParamRequest(
+        method: Method.DELETE,
+        query: {"id": id},
+        endPoint: AppRepositoryPath.deleteProduct,
+      ),
+      parser: (data) {},
+    );
+  }
 }

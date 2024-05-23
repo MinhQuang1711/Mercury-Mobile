@@ -17,6 +17,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     await event.when(
       get: (dto) async => await _get(dto, emitter),
       create: (dto) async => await _create(dto, emitter),
+      delete: (String id) async => await _delete(id, emitter),
     );
   }
 
@@ -34,6 +35,15 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     (await repo.create(dto)).on(
       whenSuccess: (data) =>
           emitter(ProductState.created(CreateScreen().getMessage())),
+      whenFaild: (msg) => emitter(ProductState.failure(msg)),
+    );
+  }
+
+  Future _delete(String id, Emitter emitter) async {
+    emitter(const ProductState.loading());
+    (await repo.delete(id)).on(
+      whenSuccess: (data) =>
+          emitter(const ProductState.deleted("Xóa thành công")),
       whenFaild: (msg) => emitter(ProductState.failure(msg)),
     );
   }

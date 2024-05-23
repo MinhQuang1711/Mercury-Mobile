@@ -20,18 +20,21 @@ mixin _$ProductEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(SearchByName searchByName) get,
     required TResult Function(ProductRequest dto) create,
+    required TResult Function(String id) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SearchByName searchByName)? get,
     TResult? Function(ProductRequest dto)? create,
+    TResult? Function(String id)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SearchByName searchByName)? get,
     TResult Function(ProductRequest dto)? create,
+    TResult Function(String id)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$ProductEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
+    required TResult Function(_Delete value) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
+    TResult? Function(_Delete value)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
+    TResult Function(_Delete value)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,6 +155,7 @@ class _$GetImpl implements _Get {
   TResult when<TResult extends Object?>({
     required TResult Function(SearchByName searchByName) get,
     required TResult Function(ProductRequest dto) create,
+    required TResult Function(String id) delete,
   }) {
     return get(searchByName);
   }
@@ -158,6 +165,7 @@ class _$GetImpl implements _Get {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SearchByName searchByName)? get,
     TResult? Function(ProductRequest dto)? create,
+    TResult? Function(String id)? delete,
   }) {
     return get?.call(searchByName);
   }
@@ -167,6 +175,7 @@ class _$GetImpl implements _Get {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SearchByName searchByName)? get,
     TResult Function(ProductRequest dto)? create,
+    TResult Function(String id)? delete,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -180,6 +189,7 @@ class _$GetImpl implements _Get {
   TResult map<TResult extends Object?>({
     required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
+    required TResult Function(_Delete value) delete,
   }) {
     return get(this);
   }
@@ -189,6 +199,7 @@ class _$GetImpl implements _Get {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
+    TResult? Function(_Delete value)? delete,
   }) {
     return get?.call(this);
   }
@@ -198,6 +209,7 @@ class _$GetImpl implements _Get {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
+    TResult Function(_Delete value)? delete,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -292,6 +304,7 @@ class _$CreateImpl implements _Create {
   TResult when<TResult extends Object?>({
     required TResult Function(SearchByName searchByName) get,
     required TResult Function(ProductRequest dto) create,
+    required TResult Function(String id) delete,
   }) {
     return create(dto);
   }
@@ -301,6 +314,7 @@ class _$CreateImpl implements _Create {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SearchByName searchByName)? get,
     TResult? Function(ProductRequest dto)? create,
+    TResult? Function(String id)? delete,
   }) {
     return create?.call(dto);
   }
@@ -310,6 +324,7 @@ class _$CreateImpl implements _Create {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SearchByName searchByName)? get,
     TResult Function(ProductRequest dto)? create,
+    TResult Function(String id)? delete,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -323,6 +338,7 @@ class _$CreateImpl implements _Create {
   TResult map<TResult extends Object?>({
     required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
+    required TResult Function(_Delete value) delete,
   }) {
     return create(this);
   }
@@ -332,6 +348,7 @@ class _$CreateImpl implements _Create {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
+    TResult? Function(_Delete value)? delete,
   }) {
     return create?.call(this);
   }
@@ -341,6 +358,7 @@ class _$CreateImpl implements _Create {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
+    TResult Function(_Delete value)? delete,
     required TResult orElse(),
   }) {
     if (create != null) {
@@ -356,5 +374,144 @@ abstract class _Create implements ProductEvent {
   ProductRequest get dto;
   @JsonKey(ignore: true)
   _$$CreateImplCopyWith<_$CreateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteImplCopyWith<$Res> {
+  factory _$$DeleteImplCopyWith(
+          _$DeleteImpl value, $Res Function(_$DeleteImpl) then) =
+      __$$DeleteImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$DeleteImplCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res, _$DeleteImpl>
+    implements _$$DeleteImplCopyWith<$Res> {
+  __$$DeleteImplCopyWithImpl(
+      _$DeleteImpl _value, $Res Function(_$DeleteImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$DeleteImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteImpl implements _Delete {
+  const _$DeleteImpl(this.id);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'ProductEvent.delete(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
+      __$$DeleteImplCopyWithImpl<_$DeleteImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SearchByName searchByName) get,
+    required TResult Function(ProductRequest dto) create,
+    required TResult Function(String id) delete,
+  }) {
+    return delete(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(SearchByName searchByName)? get,
+    TResult? Function(ProductRequest dto)? create,
+    TResult? Function(String id)? delete,
+  }) {
+    return delete?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SearchByName searchByName)? get,
+    TResult Function(ProductRequest dto)? create,
+    TResult Function(String id)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Get value) get,
+    required TResult Function(_Create value) create,
+    required TResult Function(_Delete value) delete,
+  }) {
+    return delete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Get value)? get,
+    TResult? Function(_Create value)? create,
+    TResult? Function(_Delete value)? delete,
+  }) {
+    return delete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Get value)? get,
+    TResult Function(_Create value)? create,
+    TResult Function(_Delete value)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Delete implements ProductEvent {
+  const factory _Delete(final String id) = _$DeleteImpl;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

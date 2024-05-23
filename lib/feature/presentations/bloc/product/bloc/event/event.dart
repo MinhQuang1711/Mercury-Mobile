@@ -8,4 +8,5 @@ part 'event.freezed.dart';
 class ProductEvent with _$ProductEvent {
   const factory ProductEvent.get(SearchByName searchByName) = _Get;
   const factory ProductEvent.create(ProductRequest dto) = _Create;
+  const factory ProductEvent.delete(String id) = _Delete;
 }
