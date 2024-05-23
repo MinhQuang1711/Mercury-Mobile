@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mercury/config/const/box_shadow.dart';
 import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/const/radius.dart';
 
@@ -18,10 +17,10 @@ class ContainerCard extends StatelessWidget {
       behavior: HitTestBehavior.translucent,
       child: Container(
         margin: defaultMargin,
-        padding: AppPadding.padding16,
+        padding: AppPadding.padding14,
         decoration: BoxDecoration(
           color: AppColor.white,
-          boxShadow: defaultBoxShadow,
+          // boxShadow: defaultBoxShadow,
           borderRadius: AppContainerBorder.radius8,
         ),
         child: child,

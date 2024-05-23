@@ -41,14 +41,10 @@ class ProductImageField extends StatelessWidget {
     );
   }
 
-  SizedBox _image(ProductCubitState state) {
-    return SizedBox(
-      width: double.infinity,
-      height: 200,
-      child: Image.memory(
-        base64Decode(state.dto.attachFile!),
-        fit: BoxFit.fill,
-      ),
+  Widget _image(ProductCubitState state) {
+    return Image.memory(
+      base64Decode(state.dto.attachFile!),
+      fit: BoxFit.fill,
     );
   }
 
