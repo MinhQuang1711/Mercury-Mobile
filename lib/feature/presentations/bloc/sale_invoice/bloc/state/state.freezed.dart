@@ -21,11 +21,10 @@ mixin _$SaleInvoiceState {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(String msg) created,
-    required TResult Function(String msg) updated,
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)
+            InvoiceQuery query, PagedList<SaleInvoice> pagedList)
         got,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,11 +33,9 @@ mixin _$SaleInvoiceState {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(String msg)? created,
-    TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
-    TResult? Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
+    TResult? Function(InvoiceQuery query, PagedList<SaleInvoice> pagedList)?
         got,
   }) =>
       throw _privateConstructorUsedError;
@@ -47,12 +44,9 @@ mixin _$SaleInvoiceState {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(String msg)? created,
-    TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
-    TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
-        got,
+    TResult Function(InvoiceQuery query, PagedList<SaleInvoice> pagedList)? got,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +55,6 @@ mixin _$SaleInvoiceState {
     required TResult Function(_Init value) init,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Created value) created,
-    required TResult Function(_Updated value) updated,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
@@ -72,7 +65,6 @@ mixin _$SaleInvoiceState {
     TResult? Function(_Init value)? init,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Created value)? created,
-    TResult? Function(_Updated value)? updated,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
@@ -83,7 +75,6 @@ mixin _$SaleInvoiceState {
     TResult Function(_Init value)? init,
     TResult Function(_Loading value)? loading,
     TResult Function(_Created value)? created,
-    TResult Function(_Updated value)? updated,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
@@ -150,11 +141,10 @@ class _$InitImpl implements _Init {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(String msg) created,
-    required TResult Function(String msg) updated,
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)
+            InvoiceQuery query, PagedList<SaleInvoice> pagedList)
         got,
   }) {
     return init();
@@ -166,11 +156,9 @@ class _$InitImpl implements _Init {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(String msg)? created,
-    TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
-    TResult? Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
+    TResult? Function(InvoiceQuery query, PagedList<SaleInvoice> pagedList)?
         got,
   }) {
     return init?.call();
@@ -182,12 +170,9 @@ class _$InitImpl implements _Init {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(String msg)? created,
-    TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
-    TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
-        got,
+    TResult Function(InvoiceQuery query, PagedList<SaleInvoice> pagedList)? got,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -202,7 +187,6 @@ class _$InitImpl implements _Init {
     required TResult Function(_Init value) init,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Created value) created,
-    required TResult Function(_Updated value) updated,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
@@ -216,7 +200,6 @@ class _$InitImpl implements _Init {
     TResult? Function(_Init value)? init,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Created value)? created,
-    TResult? Function(_Updated value)? updated,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
@@ -230,7 +213,6 @@ class _$InitImpl implements _Init {
     TResult Function(_Init value)? init,
     TResult Function(_Loading value)? loading,
     TResult Function(_Created value)? created,
-    TResult Function(_Updated value)? updated,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
@@ -288,11 +270,10 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(String msg) created,
-    required TResult Function(String msg) updated,
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)
+            InvoiceQuery query, PagedList<SaleInvoice> pagedList)
         got,
   }) {
     return loading();
@@ -304,11 +285,9 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(String msg)? created,
-    TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
-    TResult? Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
+    TResult? Function(InvoiceQuery query, PagedList<SaleInvoice> pagedList)?
         got,
   }) {
     return loading?.call();
@@ -320,12 +299,9 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(String msg)? created,
-    TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
-    TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
-        got,
+    TResult Function(InvoiceQuery query, PagedList<SaleInvoice> pagedList)? got,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -340,7 +316,6 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Init value) init,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Created value) created,
-    required TResult Function(_Updated value) updated,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
@@ -354,7 +329,6 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Init value)? init,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Created value)? created,
-    TResult? Function(_Updated value)? updated,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
@@ -368,7 +342,6 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Init value)? init,
     TResult Function(_Loading value)? loading,
     TResult Function(_Created value)? created,
-    TResult Function(_Updated value)? updated,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
@@ -452,11 +425,10 @@ class _$CreatedImpl implements _Created {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(String msg) created,
-    required TResult Function(String msg) updated,
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)
+            InvoiceQuery query, PagedList<SaleInvoice> pagedList)
         got,
   }) {
     return created(msg);
@@ -468,11 +440,9 @@ class _$CreatedImpl implements _Created {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(String msg)? created,
-    TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
-    TResult? Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
+    TResult? Function(InvoiceQuery query, PagedList<SaleInvoice> pagedList)?
         got,
   }) {
     return created?.call(msg);
@@ -484,12 +454,9 @@ class _$CreatedImpl implements _Created {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(String msg)? created,
-    TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
-    TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
-        got,
+    TResult Function(InvoiceQuery query, PagedList<SaleInvoice> pagedList)? got,
     required TResult orElse(),
   }) {
     if (created != null) {
@@ -504,7 +471,6 @@ class _$CreatedImpl implements _Created {
     required TResult Function(_Init value) init,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Created value) created,
-    required TResult Function(_Updated value) updated,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
@@ -518,7 +484,6 @@ class _$CreatedImpl implements _Created {
     TResult? Function(_Init value)? init,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Created value)? created,
-    TResult? Function(_Updated value)? updated,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
@@ -532,7 +497,6 @@ class _$CreatedImpl implements _Created {
     TResult Function(_Init value)? init,
     TResult Function(_Loading value)? loading,
     TResult Function(_Created value)? created,
-    TResult Function(_Updated value)? updated,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
@@ -551,175 +515,6 @@ abstract class _Created implements SaleInvoiceState {
   String get msg;
   @JsonKey(ignore: true)
   _$$CreatedImplCopyWith<_$CreatedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UpdatedImplCopyWith<$Res> {
-  factory _$$UpdatedImplCopyWith(
-          _$UpdatedImpl value, $Res Function(_$UpdatedImpl) then) =
-      __$$UpdatedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String msg});
-}
-
-/// @nodoc
-class __$$UpdatedImplCopyWithImpl<$Res>
-    extends _$SaleInvoiceStateCopyWithImpl<$Res, _$UpdatedImpl>
-    implements _$$UpdatedImplCopyWith<$Res> {
-  __$$UpdatedImplCopyWithImpl(
-      _$UpdatedImpl _value, $Res Function(_$UpdatedImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? msg = null,
-  }) {
-    return _then(_$UpdatedImpl(
-      null == msg
-          ? _value.msg
-          : msg // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$UpdatedImpl implements _Updated {
-  const _$UpdatedImpl(this.msg);
-
-  @override
-  final String msg;
-
-  @override
-  String toString() {
-    return 'SaleInvoiceState.updated(msg: $msg)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UpdatedImpl &&
-            (identical(other.msg, msg) || other.msg == msg));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, msg);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UpdatedImplCopyWith<_$UpdatedImpl> get copyWith =>
-      __$$UpdatedImplCopyWithImpl<_$UpdatedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() init,
-    required TResult Function() loading,
-    required TResult Function(String msg) created,
-    required TResult Function(String msg) updated,
-    required TResult Function(String msg) deleted,
-    required TResult Function(String msg) failure,
-    required TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)
-        got,
-  }) {
-    return updated(msg);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
-    TResult? Function()? loading,
-    TResult? Function(String msg)? created,
-    TResult? Function(String msg)? updated,
-    TResult? Function(String msg)? deleted,
-    TResult? Function(String msg)? failure,
-    TResult? Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
-        got,
-  }) {
-    return updated?.call(msg);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function()? loading,
-    TResult Function(String msg)? created,
-    TResult Function(String msg)? updated,
-    TResult Function(String msg)? deleted,
-    TResult Function(String msg)? failure,
-    TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
-        got,
-    required TResult orElse(),
-  }) {
-    if (updated != null) {
-      return updated(msg);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Init value) init,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Created value) created,
-    required TResult Function(_Updated value) updated,
-    required TResult Function(_Deleted value) deleted,
-    required TResult Function(_Failure value) failure,
-    required TResult Function(_Got value) got,
-  }) {
-    return updated(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Init value)? init,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Created value)? created,
-    TResult? Function(_Updated value)? updated,
-    TResult? Function(_Deleted value)? deleted,
-    TResult? Function(_Failure value)? failure,
-    TResult? Function(_Got value)? got,
-  }) {
-    return updated?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Init value)? init,
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Created value)? created,
-    TResult Function(_Updated value)? updated,
-    TResult Function(_Deleted value)? deleted,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_Got value)? got,
-    required TResult orElse(),
-  }) {
-    if (updated != null) {
-      return updated(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Updated implements SaleInvoiceState {
-  const factory _Updated(final String msg) = _$UpdatedImpl;
-
-  String get msg;
-  @JsonKey(ignore: true)
-  _$$UpdatedImplCopyWith<_$UpdatedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -790,11 +585,10 @@ class _$DeletedImpl implements _Deleted {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(String msg) created,
-    required TResult Function(String msg) updated,
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)
+            InvoiceQuery query, PagedList<SaleInvoice> pagedList)
         got,
   }) {
     return deleted(msg);
@@ -806,11 +600,9 @@ class _$DeletedImpl implements _Deleted {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(String msg)? created,
-    TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
-    TResult? Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
+    TResult? Function(InvoiceQuery query, PagedList<SaleInvoice> pagedList)?
         got,
   }) {
     return deleted?.call(msg);
@@ -822,12 +614,9 @@ class _$DeletedImpl implements _Deleted {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(String msg)? created,
-    TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
-    TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
-        got,
+    TResult Function(InvoiceQuery query, PagedList<SaleInvoice> pagedList)? got,
     required TResult orElse(),
   }) {
     if (deleted != null) {
@@ -842,7 +631,6 @@ class _$DeletedImpl implements _Deleted {
     required TResult Function(_Init value) init,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Created value) created,
-    required TResult Function(_Updated value) updated,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
@@ -856,7 +644,6 @@ class _$DeletedImpl implements _Deleted {
     TResult? Function(_Init value)? init,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Created value)? created,
-    TResult? Function(_Updated value)? updated,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
@@ -870,7 +657,6 @@ class _$DeletedImpl implements _Deleted {
     TResult Function(_Init value)? init,
     TResult Function(_Loading value)? loading,
     TResult Function(_Created value)? created,
-    TResult Function(_Updated value)? updated,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
@@ -959,11 +745,10 @@ class _$FailureImpl implements _Failure {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(String msg) created,
-    required TResult Function(String msg) updated,
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)
+            InvoiceQuery query, PagedList<SaleInvoice> pagedList)
         got,
   }) {
     return failure(msg);
@@ -975,11 +760,9 @@ class _$FailureImpl implements _Failure {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(String msg)? created,
-    TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
-    TResult? Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
+    TResult? Function(InvoiceQuery query, PagedList<SaleInvoice> pagedList)?
         got,
   }) {
     return failure?.call(msg);
@@ -991,12 +774,9 @@ class _$FailureImpl implements _Failure {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(String msg)? created,
-    TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
-    TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
-        got,
+    TResult Function(InvoiceQuery query, PagedList<SaleInvoice> pagedList)? got,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -1011,7 +791,6 @@ class _$FailureImpl implements _Failure {
     required TResult Function(_Init value) init,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Created value) created,
-    required TResult Function(_Updated value) updated,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
@@ -1025,7 +804,6 @@ class _$FailureImpl implements _Failure {
     TResult? Function(_Init value)? init,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Created value)? created,
-    TResult? Function(_Updated value)? updated,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
@@ -1039,7 +817,6 @@ class _$FailureImpl implements _Failure {
     TResult Function(_Init value)? init,
     TResult Function(_Loading value)? loading,
     TResult Function(_Created value)? created,
-    TResult Function(_Updated value)? updated,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
@@ -1066,9 +843,9 @@ abstract class _$$GotImplCopyWith<$Res> {
   factory _$$GotImplCopyWith(_$GotImpl value, $Res Function(_$GotImpl) then) =
       __$$GotImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList});
+  $Res call({InvoiceQuery query, PagedList<SaleInvoice> pagedList});
 
-  $InvoiceQueryCopyWith<$Res> get searchByName;
+  $InvoiceQueryCopyWith<$Res> get query;
 }
 
 /// @nodoc
@@ -1081,13 +858,13 @@ class __$$GotImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? searchByName = null,
+    Object? query = null,
     Object? pagedList = null,
   }) {
     return _then(_$GotImpl(
-      searchByName: null == searchByName
-          ? _value.searchByName
-          : searchByName // ignore: cast_nullable_to_non_nullable
+      query: null == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
               as InvoiceQuery,
       pagedList: null == pagedList
           ? _value.pagedList
@@ -1098,9 +875,9 @@ class __$$GotImplCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
-  $InvoiceQueryCopyWith<$Res> get searchByName {
-    return $InvoiceQueryCopyWith<$Res>(_value.searchByName, (value) {
-      return _then(_value.copyWith(searchByName: value));
+  $InvoiceQueryCopyWith<$Res> get query {
+    return $InvoiceQueryCopyWith<$Res>(_value.query, (value) {
+      return _then(_value.copyWith(query: value));
     });
   }
 }
@@ -1108,16 +885,16 @@ class __$$GotImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$GotImpl implements _Got {
-  const _$GotImpl({required this.searchByName, required this.pagedList});
+  const _$GotImpl({required this.query, required this.pagedList});
 
   @override
-  final InvoiceQuery searchByName;
+  final InvoiceQuery query;
   @override
   final PagedList<SaleInvoice> pagedList;
 
   @override
   String toString() {
-    return 'SaleInvoiceState.got(searchByName: $searchByName, pagedList: $pagedList)';
+    return 'SaleInvoiceState.got(query: $query, pagedList: $pagedList)';
   }
 
   @override
@@ -1125,14 +902,13 @@ class _$GotImpl implements _Got {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GotImpl &&
-            (identical(other.searchByName, searchByName) ||
-                other.searchByName == searchByName) &&
+            (identical(other.query, query) || other.query == query) &&
             (identical(other.pagedList, pagedList) ||
                 other.pagedList == pagedList));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, searchByName, pagedList);
+  int get hashCode => Object.hash(runtimeType, query, pagedList);
 
   @JsonKey(ignore: true)
   @override
@@ -1146,14 +922,13 @@ class _$GotImpl implements _Got {
     required TResult Function() init,
     required TResult Function() loading,
     required TResult Function(String msg) created,
-    required TResult Function(String msg) updated,
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)
+            InvoiceQuery query, PagedList<SaleInvoice> pagedList)
         got,
   }) {
-    return got(searchByName, pagedList);
+    return got(query, pagedList);
   }
 
   @override
@@ -1162,14 +937,12 @@ class _$GotImpl implements _Got {
     TResult? Function()? init,
     TResult? Function()? loading,
     TResult? Function(String msg)? created,
-    TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
-    TResult? Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
+    TResult? Function(InvoiceQuery query, PagedList<SaleInvoice> pagedList)?
         got,
   }) {
-    return got?.call(searchByName, pagedList);
+    return got?.call(query, pagedList);
   }
 
   @override
@@ -1178,16 +951,13 @@ class _$GotImpl implements _Got {
     TResult Function()? init,
     TResult Function()? loading,
     TResult Function(String msg)? created,
-    TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
-    TResult Function(
-            InvoiceQuery searchByName, PagedList<SaleInvoice> pagedList)?
-        got,
+    TResult Function(InvoiceQuery query, PagedList<SaleInvoice> pagedList)? got,
     required TResult orElse(),
   }) {
     if (got != null) {
-      return got(searchByName, pagedList);
+      return got(query, pagedList);
     }
     return orElse();
   }
@@ -1198,7 +968,6 @@ class _$GotImpl implements _Got {
     required TResult Function(_Init value) init,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Created value) created,
-    required TResult Function(_Updated value) updated,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
     required TResult Function(_Got value) got,
@@ -1212,7 +981,6 @@ class _$GotImpl implements _Got {
     TResult? Function(_Init value)? init,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Created value)? created,
-    TResult? Function(_Updated value)? updated,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_Got value)? got,
@@ -1226,7 +994,6 @@ class _$GotImpl implements _Got {
     TResult Function(_Init value)? init,
     TResult Function(_Loading value)? loading,
     TResult Function(_Created value)? created,
-    TResult Function(_Updated value)? updated,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
     TResult Function(_Got value)? got,
@@ -1241,10 +1008,10 @@ class _$GotImpl implements _Got {
 
 abstract class _Got implements SaleInvoiceState {
   const factory _Got(
-      {required final InvoiceQuery searchByName,
+      {required final InvoiceQuery query,
       required final PagedList<SaleInvoice> pagedList}) = _$GotImpl;
 
-  InvoiceQuery get searchByName;
+  InvoiceQuery get query;
   PagedList<SaleInvoice> get pagedList;
   @JsonKey(ignore: true)
   _$$GotImplCopyWith<_$GotImpl> get copyWith =>

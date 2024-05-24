@@ -26,7 +26,7 @@ class SaleInvoiceBloc extends Bloc<SaleInvoiceEvent, SaleInvoiceState> {
     emitter(const SaleInvoiceState.loading());
     (await repo.get(query)).on(
       whenSuccess: (data) =>
-          emitter(SaleInvoiceState.got(searchByName: query, pagedList: data)),
+          emitter(SaleInvoiceState.got(query: query, pagedList: data)),
       whenFaild: (msg) => emitter(SaleInvoiceState.failure(msg)),
     );
   }

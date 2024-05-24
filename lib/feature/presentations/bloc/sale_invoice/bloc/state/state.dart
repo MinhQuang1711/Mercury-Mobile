@@ -13,7 +13,7 @@ class SaleInvoiceState with _$SaleInvoiceState {
   const factory SaleInvoiceState.deleted(String msg) = _Deleted;
   const factory SaleInvoiceState.failure(String msg) = _Failure;
   const factory SaleInvoiceState.got({
-    required InvoiceQuery searchByName,
+    required InvoiceQuery query,
     required PagedList<SaleInvoice> pagedList,
   }) = _Got;
 }
