@@ -6,6 +6,8 @@ import 'package:mercury/feature/presentations/bloc/ingredient/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/product/bloc/bloc.dart';
 
 import '../../../feature/domain/repositories/i_authen.dart';
+import '../../../feature/domain/repositories/i_sale_invoice.dart';
+import '../../../feature/presentations/bloc/sale_invoice/bloc/bloc.dart';
 
 void registerBloc() {
   getIt.registerFactory<AuthenBloc>(
@@ -14,4 +16,6 @@ void registerBloc() {
       () => IngredientBloc(getIt.get<IIngredientRepository>()));
   getIt.registerFactory<ProductBloc>(
       () => ProductBloc(getIt.get<IProductRepository>()));
+  getIt.registerFactory<SaleInvoiceBloc>(
+      () => SaleInvoiceBloc(getIt.get<ISaleInvoiceRepository>()));
 }
