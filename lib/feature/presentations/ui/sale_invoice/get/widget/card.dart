@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/core/utils/extension/datetime_ex.dart';
 import 'package:mercury/core/utils/extension/number.dart';
@@ -16,14 +17,33 @@ class SaleInvoiceCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _invoiceId(),
-          const SizedBox(height: 10),
-          _valueOfBill(),
-          _totalDiscount(valueDiscount),
+          Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _invoiceId(),
+                    const SizedBox(height: 10),
+                    _valueOfBill(),
+                    _totalDiscount(valueDiscount),
+                  ],
+                ),
+              ),
+              _valueAfterDiscount(valueDiscount)
+            ],
+          ),
           const Divider(),
           _createDate(),
         ],
       ),
+    );
+  }
+
+  Text _valueAfterDiscount(double valueDiscount) {
+    return Text(
+      "${(saleInvoice.totalPrice ?? 0 - valueDiscount).formatNumber()} VND",
+      style: captionMedium.copyWith(color: AppColor.blue),
     );
   }
 
