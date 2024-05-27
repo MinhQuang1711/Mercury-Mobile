@@ -13,9 +13,10 @@ class GetSaleInvoiceCubit extends Cubit<GetSaleInvoiceState> {
     required PagedList<SaleInvoice> pagedList,
   }) {
     final oldList = List<SaleInvoice>.from(state.list);
-    if (query.pageNumber == 1) {
+    if (query.pageNumber == 1 || query.pageNumber == null) {
       oldList.clear();
     }
+
     emit(
       state.copyWith(
         list: oldList..addAll(pagedList.items),
