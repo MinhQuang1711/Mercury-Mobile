@@ -34,7 +34,6 @@ class MangageInvoicePage extends StatelessWidget {
       child: Column(
         children: [
           _topBar(appTabBar),
-          const SizedBox(height: 15),
           Expanded(child: appTabBar.tabBarView),
         ],
       ),
