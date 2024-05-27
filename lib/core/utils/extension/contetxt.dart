@@ -99,4 +99,24 @@ extension ContextEx on BuildContext {
       }
     });
   }
+
+  Future<DateTimeRange?> showAppDateRangePicker({
+    DateTime? firstDate,
+    DateTime? lastDate,
+    DateTimeRange? initDateRange,
+  }) async {
+    return await showAppDialog<DateTimeRange?>(
+      child: SizedBox(
+        height: MediaQuery.of(this).size.width,
+        child: DateRangePickerDialog(
+          saveText: "Xác nhận",
+          helpText: "Chọn khoảng ngày",
+          initialDateRange: initDateRange,
+          lastDate: lastDate ?? DateTime(2030),
+          firstDate: firstDate ?? DateTime.now(),
+          initialEntryMode: DatePickerEntryMode.calendarOnly,
+        ),
+      ),
+    );
+  }
 }

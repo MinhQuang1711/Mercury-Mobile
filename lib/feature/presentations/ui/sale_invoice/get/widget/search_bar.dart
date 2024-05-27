@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/const/padding.dart';
+import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/feature/domain/model/invoice_query/invoice_query.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/event/event.dart';
@@ -30,7 +31,10 @@ class _SaleInvoiceSearchBarState extends State<SaleInvoiceSearchBar> {
   }
 
   void _onTapFilter() {
-    // TODO: show dialog to select date range
+    context.showAppDateRangePicker();
+    // context.showAppDialog(
+    //   child: SaleInvoiceDialogFilter(bloc: _bloc),
+    // );
   }
 
   @override
