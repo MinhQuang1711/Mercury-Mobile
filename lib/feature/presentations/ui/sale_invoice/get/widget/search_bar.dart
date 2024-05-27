@@ -5,6 +5,7 @@ import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/feature/domain/model/invoice_query/invoice_query.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/event/event.dart';
+import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/state/state.dart';
 import 'package:mercury/feature/presentations/widget/search_icon.dart';
 import 'package:mercury/feature/presentations/widget/textfield/textfield.dart';
 
@@ -19,10 +20,22 @@ class SaleInvoiceSearchBar extends StatefulWidget {
 
 class _SaleInvoiceSearchBarState extends State<SaleInvoiceSearchBar> {
   late final SaleInvoiceBloc _bloc;
+  final _controller = TextEditingController();
   @override
   void initState() {
     _bloc = context.read<SaleInvoiceBloc>();
+    _bloc.stream.listen(_listenWhenSearchWithOutId);
     super.initState();
+  }
+
+  void _listenWhenSearchWithOutId(SaleInvoiceState state) {
+    state.whenOrNull(
+      got: (query, pagedList) {
+        if (query.id == null) {
+          _controller.clear();
+        }
+      },
+    );
   }
 
   void _onChanged(String? val) {
@@ -43,7 +56,9 @@ class _SaleInvoiceSearchBarState extends State<SaleInvoiceSearchBar> {
     return Container(
       padding: AppPadding.padding12,
       child: AppTextField(
+        canDelete: true,
         onChanged: _onChanged,
+        controller: _controller,
         prefWidget: const SearchIcon(),
         hintText: "Tìm kiếm theo mã hóa đơn",
         onTapClearButton: () => _onChanged(null),
