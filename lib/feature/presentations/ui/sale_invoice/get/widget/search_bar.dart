@@ -30,11 +30,12 @@ class _SaleInvoiceSearchBarState extends State<SaleInvoiceSearchBar> {
     _bloc.add(SaleInvoiceEvent.get(dto));
   }
 
-  void _onTapFilter() {
-    context.showAppDateRangePicker();
-    // context.showAppDialog(
-    //   child: SaleInvoiceDialogFilter(bloc: _bloc),
-    // );
+  void _onTapFilter() async {
+    var result = await context.showAppDateRangePicker();
+    if (result != null) {
+      var dto = InvoiceQuery(startTime: result.start, endTime: result.end);
+      _bloc.add(SaleInvoiceEvent.get(dto));
+    }
   }
 
   @override

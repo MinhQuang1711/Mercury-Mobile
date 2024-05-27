@@ -113,7 +113,7 @@ extension ContextEx on BuildContext {
           helpText: "Chọn khoảng ngày",
           initialDateRange: initDateRange,
           lastDate: lastDate ?? DateTime(2030),
-          firstDate: firstDate ?? DateTime.now(),
+          firstDate: firstDate ?? DateTime(2020),
           initialEntryMode: DatePickerEntryMode.calendarOnly,
         ),
       ),

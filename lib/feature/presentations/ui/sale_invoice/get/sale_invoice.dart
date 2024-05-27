@@ -7,6 +7,7 @@ import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/event/event
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/get_sale_invoice/cubit.dart';
 
 import 'widget/bloc_listen.dart';
+import 'widget/item_filter.dart';
 import 'widget/listview.dart';
 import 'widget/search_bar.dart';
 
@@ -38,7 +39,7 @@ class SaleInvoicePage extends StatelessWidget {
       child: Column(
         children: [
           SaleInvoiceSearchBar(),
-          SizedBox(height: 10),
+          ItemFilterOfSaleInvoice(),
           ListSaleInvoice(),
         ],
       ),
