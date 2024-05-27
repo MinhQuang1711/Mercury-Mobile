@@ -17,24 +17,29 @@ class SaleInvoiceCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          _invoiceId(),
+          const SizedBox(height: 8),
           Row(
             children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _invoiceId(),
-                    const SizedBox(height: 10),
-                    _valueOfBill(),
-                    _totalDiscount(valueDiscount),
-                  ],
-                ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _valueOfBill(),
+                  const SizedBox(height: 5),
+                  _totalDiscount(valueDiscount),
+                ],
               ),
-              _valueAfterDiscount(valueDiscount)
+              const Spacer(),
+              Column(
+                children: [
+                  _valueAfterDiscount(valueDiscount),
+                  Text(saleInvoice.customer?.fullName ?? "Khách lẻ")
+                ],
+              )
             ],
           ),
           const Divider(),
-          _createDate(),
+          _createDate()
         ],
       ),
     );

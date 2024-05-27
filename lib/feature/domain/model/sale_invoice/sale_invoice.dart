@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../data/model/customer/customer.dart';
+
 part 'sale_invoice.freezed.dart';
 part 'sale_invoice.g.dart';
 
@@ -14,6 +16,7 @@ class SaleInvoice with _$SaleInvoice {
     String? createdByName,
     String? ownerName,
     String? id,
+    Customer? customer,
   }) = _SaleInvoice;
 
   factory SaleInvoice.fromJson(Map<String, dynamic> json) =>

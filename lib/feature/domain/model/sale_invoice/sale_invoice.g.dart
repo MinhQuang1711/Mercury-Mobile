@@ -18,4 +18,7 @@ _$SaleInvoiceImpl _$$SaleInvoiceImplFromJson(Map<String, dynamic> json) =>
       createdByName: json['createdByName'] as String?,
       ownerName: json['ownerName'] as String?,
       id: json['id'] as String?,
+      customer: json['customer'] == null
+          ? null
+          : Customer.fromJson(json['customer'] as Map<String, dynamic>),
     );

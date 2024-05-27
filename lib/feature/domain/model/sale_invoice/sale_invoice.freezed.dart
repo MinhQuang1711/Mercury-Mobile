@@ -28,6 +28,7 @@ mixin _$SaleInvoice {
   String? get createdByName => throw _privateConstructorUsedError;
   String? get ownerName => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
+  Customer? get customer => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SaleInvoiceCopyWith<SaleInvoice> get copyWith =>
@@ -48,7 +49,10 @@ abstract class $SaleInvoiceCopyWith<$Res> {
       DateTime? createDate,
       String? createdByName,
       String? ownerName,
-      String? id});
+      String? id,
+      Customer? customer});
+
+  $CustomerCopyWith<$Res>? get customer;
 }
 
 /// @nodoc
@@ -72,6 +76,7 @@ class _$SaleInvoiceCopyWithImpl<$Res, $Val extends SaleInvoice>
     Object? createdByName = freezed,
     Object? ownerName = freezed,
     Object? id = freezed,
+    Object? customer = freezed,
   }) {
     return _then(_value.copyWith(
       totalPrice: freezed == totalPrice
@@ -106,7 +111,23 @@ class _$SaleInvoiceCopyWithImpl<$Res, $Val extends SaleInvoice>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      customer: freezed == customer
+          ? _value.customer
+          : customer // ignore: cast_nullable_to_non_nullable
+              as Customer?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CustomerCopyWith<$Res>? get customer {
+    if (_value.customer == null) {
+      return null;
+    }
+
+    return $CustomerCopyWith<$Res>(_value.customer!, (value) {
+      return _then(_value.copyWith(customer: value) as $Val);
+    });
   }
 }
 
@@ -126,7 +147,11 @@ abstract class _$$SaleInvoiceImplCopyWith<$Res>
       DateTime? createDate,
       String? createdByName,
       String? ownerName,
-      String? id});
+      String? id,
+      Customer? customer});
+
+  @override
+  $CustomerCopyWith<$Res>? get customer;
 }
 
 /// @nodoc
@@ -148,6 +173,7 @@ class __$$SaleInvoiceImplCopyWithImpl<$Res>
     Object? createdByName = freezed,
     Object? ownerName = freezed,
     Object? id = freezed,
+    Object? customer = freezed,
   }) {
     return _then(_$SaleInvoiceImpl(
       totalPrice: freezed == totalPrice
@@ -182,6 +208,10 @@ class __$$SaleInvoiceImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      customer: freezed == customer
+          ? _value.customer
+          : customer // ignore: cast_nullable_to_non_nullable
+              as Customer?,
     ));
   }
 }
@@ -197,7 +227,8 @@ class _$SaleInvoiceImpl implements _SaleInvoice {
       this.createDate,
       this.createdByName,
       this.ownerName,
-      this.id});
+      this.id,
+      this.customer});
 
   factory _$SaleInvoiceImpl.fromJson(Map<String, dynamic> json) =>
       _$$SaleInvoiceImplFromJson(json);
@@ -218,10 +249,12 @@ class _$SaleInvoiceImpl implements _SaleInvoice {
   final String? ownerName;
   @override
   final String? id;
+  @override
+  final Customer? customer;
 
   @override
   String toString() {
-    return 'SaleInvoice(totalPrice: $totalPrice, dicount: $dicount, voucherId: $voucherId, customerId: $customerId, createDate: $createDate, createdByName: $createdByName, ownerName: $ownerName, id: $id)';
+    return 'SaleInvoice(totalPrice: $totalPrice, dicount: $dicount, voucherId: $voucherId, customerId: $customerId, createDate: $createDate, createdByName: $createdByName, ownerName: $ownerName, id: $id, customer: $customer)';
   }
 
   @override
@@ -242,13 +275,15 @@ class _$SaleInvoiceImpl implements _SaleInvoice {
                 other.createdByName == createdByName) &&
             (identical(other.ownerName, ownerName) ||
                 other.ownerName == ownerName) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.customer, customer) ||
+                other.customer == customer));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, totalPrice, dicount, voucherId,
-      customerId, createDate, createdByName, ownerName, id);
+      customerId, createDate, createdByName, ownerName, id, customer);
 
   @JsonKey(ignore: true)
   @override
@@ -266,7 +301,8 @@ abstract class _SaleInvoice implements SaleInvoice {
       final DateTime? createDate,
       final String? createdByName,
       final String? ownerName,
-      final String? id}) = _$SaleInvoiceImpl;
+      final String? id,
+      final Customer? customer}) = _$SaleInvoiceImpl;
 
   factory _SaleInvoice.fromJson(Map<String, dynamic> json) =
       _$SaleInvoiceImpl.fromJson;
@@ -287,6 +323,8 @@ abstract class _SaleInvoice implements SaleInvoice {
   String? get ownerName;
   @override
   String? get id;
+  @override
+  Customer? get customer;
   @override
   @JsonKey(ignore: true)
   _$$SaleInvoiceImplCopyWith<_$SaleInvoiceImpl> get copyWith =>
