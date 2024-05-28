@@ -19,4 +19,5 @@ class AppRepositoryPath {
 
   // ComboBox
   static String ingredientComboBox = "/api/ingredient/combo-box";
+    static String productComboBox = "/api/product/combo-box";
 }
