@@ -20,18 +20,21 @@ mixin _$SaleInvoiceEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String id) delete,
     required TResult Function(InvoiceQuery query) get,
+    required TResult Function(SaleInvoiceRequest request) create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? delete,
     TResult? Function(InvoiceQuery query)? get,
+    TResult? Function(SaleInvoiceRequest request)? create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? delete,
     TResult Function(InvoiceQuery query)? get,
+    TResult Function(SaleInvoiceRequest request)? create,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$SaleInvoiceEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Delete value) delete,
     required TResult Function(_Get value) get,
+    required TResult Function(_Create value) create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Delete value)? delete,
     TResult? Function(_Get value)? get,
+    TResult? Function(_Create value)? create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Delete value)? delete,
     TResult Function(_Get value)? get,
+    TResult Function(_Create value)? create,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -140,6 +146,7 @@ class _$DeleteImpl implements _Delete {
   TResult when<TResult extends Object?>({
     required TResult Function(String id) delete,
     required TResult Function(InvoiceQuery query) get,
+    required TResult Function(SaleInvoiceRequest request) create,
   }) {
     return delete(id);
   }
@@ -149,6 +156,7 @@ class _$DeleteImpl implements _Delete {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? delete,
     TResult? Function(InvoiceQuery query)? get,
+    TResult? Function(SaleInvoiceRequest request)? create,
   }) {
     return delete?.call(id);
   }
@@ -158,6 +166,7 @@ class _$DeleteImpl implements _Delete {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? delete,
     TResult Function(InvoiceQuery query)? get,
+    TResult Function(SaleInvoiceRequest request)? create,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -171,6 +180,7 @@ class _$DeleteImpl implements _Delete {
   TResult map<TResult extends Object?>({
     required TResult Function(_Delete value) delete,
     required TResult Function(_Get value) get,
+    required TResult Function(_Create value) create,
   }) {
     return delete(this);
   }
@@ -180,6 +190,7 @@ class _$DeleteImpl implements _Delete {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Delete value)? delete,
     TResult? Function(_Get value)? get,
+    TResult? Function(_Create value)? create,
   }) {
     return delete?.call(this);
   }
@@ -189,6 +200,7 @@ class _$DeleteImpl implements _Delete {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Delete value)? delete,
     TResult Function(_Get value)? get,
+    TResult Function(_Create value)? create,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -281,6 +293,7 @@ class _$GetImpl implements _Get {
   TResult when<TResult extends Object?>({
     required TResult Function(String id) delete,
     required TResult Function(InvoiceQuery query) get,
+    required TResult Function(SaleInvoiceRequest request) create,
   }) {
     return get(query);
   }
@@ -290,6 +303,7 @@ class _$GetImpl implements _Get {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? delete,
     TResult? Function(InvoiceQuery query)? get,
+    TResult? Function(SaleInvoiceRequest request)? create,
   }) {
     return get?.call(query);
   }
@@ -299,6 +313,7 @@ class _$GetImpl implements _Get {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? delete,
     TResult Function(InvoiceQuery query)? get,
+    TResult Function(SaleInvoiceRequest request)? create,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -312,6 +327,7 @@ class _$GetImpl implements _Get {
   TResult map<TResult extends Object?>({
     required TResult Function(_Delete value) delete,
     required TResult Function(_Get value) get,
+    required TResult Function(_Create value) create,
   }) {
     return get(this);
   }
@@ -321,6 +337,7 @@ class _$GetImpl implements _Get {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Delete value)? delete,
     TResult? Function(_Get value)? get,
+    TResult? Function(_Create value)? create,
   }) {
     return get?.call(this);
   }
@@ -330,6 +347,7 @@ class _$GetImpl implements _Get {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Delete value)? delete,
     TResult Function(_Get value)? get,
+    TResult Function(_Create value)? create,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -345,5 +363,154 @@ abstract class _Get implements SaleInvoiceEvent {
   InvoiceQuery get query;
   @JsonKey(ignore: true)
   _$$GetImplCopyWith<_$GetImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CreateImplCopyWith<$Res> {
+  factory _$$CreateImplCopyWith(
+          _$CreateImpl value, $Res Function(_$CreateImpl) then) =
+      __$$CreateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({SaleInvoiceRequest request});
+
+  $SaleInvoiceRequestCopyWith<$Res> get request;
+}
+
+/// @nodoc
+class __$$CreateImplCopyWithImpl<$Res>
+    extends _$SaleInvoiceEventCopyWithImpl<$Res, _$CreateImpl>
+    implements _$$CreateImplCopyWith<$Res> {
+  __$$CreateImplCopyWithImpl(
+      _$CreateImpl _value, $Res Function(_$CreateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? request = null,
+  }) {
+    return _then(_$CreateImpl(
+      null == request
+          ? _value.request
+          : request // ignore: cast_nullable_to_non_nullable
+              as SaleInvoiceRequest,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SaleInvoiceRequestCopyWith<$Res> get request {
+    return $SaleInvoiceRequestCopyWith<$Res>(_value.request, (value) {
+      return _then(_value.copyWith(request: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$CreateImpl implements _Create {
+  const _$CreateImpl(this.request);
+
+  @override
+  final SaleInvoiceRequest request;
+
+  @override
+  String toString() {
+    return 'SaleInvoiceEvent.create(request: $request)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CreateImpl &&
+            (identical(other.request, request) || other.request == request));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, request);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CreateImplCopyWith<_$CreateImpl> get copyWith =>
+      __$$CreateImplCopyWithImpl<_$CreateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) delete,
+    required TResult Function(InvoiceQuery query) get,
+    required TResult Function(SaleInvoiceRequest request) create,
+  }) {
+    return create(request);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? delete,
+    TResult? Function(InvoiceQuery query)? get,
+    TResult? Function(SaleInvoiceRequest request)? create,
+  }) {
+    return create?.call(request);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? delete,
+    TResult Function(InvoiceQuery query)? get,
+    TResult Function(SaleInvoiceRequest request)? create,
+    required TResult orElse(),
+  }) {
+    if (create != null) {
+      return create(request);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Delete value) delete,
+    required TResult Function(_Get value) get,
+    required TResult Function(_Create value) create,
+  }) {
+    return create(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Delete value)? delete,
+    TResult? Function(_Get value)? get,
+    TResult? Function(_Create value)? create,
+  }) {
+    return create?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Delete value)? delete,
+    TResult Function(_Get value)? get,
+    TResult Function(_Create value)? create,
+    required TResult orElse(),
+  }) {
+    if (create != null) {
+      return create(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Create implements SaleInvoiceEvent {
+  const factory _Create(final SaleInvoiceRequest request) = _$CreateImpl;
+
+  SaleInvoiceRequest get request;
+  @JsonKey(ignore: true)
+  _$$CreateImplCopyWith<_$CreateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
