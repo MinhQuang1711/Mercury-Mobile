@@ -53,16 +53,18 @@ class _SaleInvoiceSearchBarState extends State<SaleInvoiceSearchBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: AppPadding.padding12,
-      child: AppTextField(
-        canDelete: true,
-        onChanged: _onChanged,
-        controller: _controller,
-        prefWidget: const SearchIcon(),
-        hintText: "Tìm kiếm theo mã hóa đơn",
-        onTapClearButton: () => _onChanged(null),
-        sufWidget: SquareFilterIcon(onTap: _onTapFilter),
+    return Expanded(
+      child: Container(
+        padding: AppPadding.padding12,
+        child: AppTextField(
+          canDelete: true,
+          onChanged: _onChanged,
+          controller: _controller,
+          prefWidget: const SearchIcon(),
+          hintText: "Tìm kiếm theo mã hóa đơn",
+          onTapClearButton: () => _onChanged(null),
+          sufWidget: SquareFilterIcon(onTap: _onTapFilter),
+        ),
       ),
     );
   }

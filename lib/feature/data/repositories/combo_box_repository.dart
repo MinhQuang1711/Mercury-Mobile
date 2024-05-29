@@ -29,4 +29,16 @@ class ComboBoxRepository extends IComboBoxRepository {
           (data as List).map((e) => ComboBox.fromJson(e)).toList(),
     );
   }
+
+  @override
+  Future<DataRespone<List<ComboBox>>> getCustomer() {
+    // TODO: implement getCustomer
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<DataRespone<List<ComboBox>>> getVouchers() {
+    // TODO: implement getVouchers
+    throw UnimplementedError();
+  }
 }
