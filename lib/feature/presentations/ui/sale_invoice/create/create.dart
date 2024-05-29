@@ -11,14 +11,13 @@ import 'package:mercury/feature/presentations/widget/stack/screen_allway_see_bot
 import '../../../../../config/theme/color.dart';
 import '../../../../../config/theme/text_style.dart';
 import '../../../widget/factory/screen/create_screen.dart';
-import 'widget/customer_field.dart';
-import 'widget/final_price.dart';
+import '../widget/customer_field.dart';
+import '../widget/final_price.dart';
+import '../widget/price_of_product.dart';
+import '../widget/product_field.dart';
+import '../widget/total_discount.dart';
+import '../widget/vourcher_field.dart';
 import 'widget/list_product_selected.dart';
-import 'widget/price_of_product.dart';
-import 'widget/product_field.dart';
-import 'widget/total_discount.dart';
-import 'widget/value_of_voucher.dart';
-import 'widget/vourcher_field.dart';
 
 class CreateSaleInvoiceScreen extends StatelessWidget {
   const CreateSaleInvoiceScreen({super.key});
@@ -65,11 +64,10 @@ class CreateSaleInvoicePage extends StatelessWidget {
             padding: AppPadding.padding12,
             child: Column(
               children: [
-                PriceOfProduct(),
-                TotalDiscount(),
-                ValueOfVoucher(),
+                PriceOfProduct(price: 0),
+                TotalDiscount(price: 0),
                 Divider(),
-                FinalPrice(),
+                FinalPrice(price: 0),
               ],
             ),
           ),

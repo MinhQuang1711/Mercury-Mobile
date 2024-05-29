@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../config/theme/text_style.dart';
+import '../../../../../config/theme/text_style.dart';
 
 class SaleInvoiceInfo extends StatelessWidget {
   const SaleInvoiceInfo(

@@ -5,15 +5,17 @@ import 'package:mercury/feature/presentations/widget/search_field/search_field.d
 import 'package:mercury/feature/presentations/widget/search_field/search_item.dart';
 
 class VoucherField extends StatelessWidget {
-  const VoucherField({super.key});
+  const VoucherField({super.key, this.initValue});
+  final String? initValue;
 
   @override
   Widget build(BuildContext context) {
-    return const ColumnInput(
+    return ColumnInput(
       titleLabel: "Voucher",
       bottomWidget: AppSearchFiled<ComboBox>(
-        items: [],
+        items: const [],
         hint: "Chọn voucher",
+        initValue: initValue,
         appItemFields: AppItemField.comboBox,
       ),
     );
