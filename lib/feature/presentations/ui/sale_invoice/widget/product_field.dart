@@ -11,7 +11,7 @@ import 'package:searchfield/searchfield.dart';
 class ProductField extends StatelessWidget {
   const ProductField({super.key, this.prosuctSelcted, this.onTap});
   final List<ComboBox>? prosuctSelcted;
-  final Function(SearchFieldListItem)? onTap;
+  final Function(SearchFieldListItem<ComboBox>)? onTap;
 
   @override
   Widget build(BuildContext context) {

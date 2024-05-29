@@ -5,6 +5,7 @@ import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/cubit/create/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/cubit/get/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/product/cubit/get/cubit.dart';
+import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sale_invoice_cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/get_sale_invoice/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/splash/cubit.dart';
 
@@ -18,6 +19,7 @@ void registerCubit() {
   getIt.registerFactory<GetProductCubit>(() => GetProductCubit());
   getIt.registerFactory<ProductCubit>(() => ProductCubit());
   getIt.registerFactory<SplashCubit>(() => SplashCubit());
+  getIt.registerFactory<CommonSaleInvoiceCubit>(() => CommonSaleInvoiceCubit());
   getIt.registerFactory<ComboBoxCubit>(
       () => ComboBoxCubit(getIt.get<IComboBoxRepository>()));
 }
