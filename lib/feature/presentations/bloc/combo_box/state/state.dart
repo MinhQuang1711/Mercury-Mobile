@@ -5,5 +5,10 @@ part 'state.freezed.dart';
 
 @freezed
 class ComboBoxState with _$ComboBoxState {
-  const factory ComboBoxState({required List<ComboBox> comboBoxes}) = _State;
+  const factory ComboBoxState({
+    required List<ComboBox> users,
+    required List<ComboBox> voucher,
+    required List<ComboBox> products,
+    required List<ComboBox> ingredient,
+  }) = _State;
 }

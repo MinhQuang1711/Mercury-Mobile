@@ -46,7 +46,7 @@ class CreateProductPage extends StatelessWidget {
     final formKey = GlobalKey<FormState>();
     final cubit = context.read<ProductCubit>();
     void onTapRemove(ComboBox val) {
-      final initList = context.read<ComboBoxCubit>().state.comboBoxes;
+      final initList = context.read<ComboBoxCubit>().state.ingredient;
       cubit.removeIngredient(val, initList);
     }
 

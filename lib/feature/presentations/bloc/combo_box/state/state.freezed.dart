@@ -16,7 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ComboBoxState {
-  List<ComboBox> get comboBoxes => throw _privateConstructorUsedError;
+  List<ComboBox> get users => throw _privateConstructorUsedError;
+  List<ComboBox> get voucher => throw _privateConstructorUsedError;
+  List<ComboBox> get products => throw _privateConstructorUsedError;
+  List<ComboBox> get ingredient => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ComboBoxStateCopyWith<ComboBoxState> get copyWith =>
@@ -29,7 +32,11 @@ abstract class $ComboBoxStateCopyWith<$Res> {
           ComboBoxState value, $Res Function(ComboBoxState) then) =
       _$ComboBoxStateCopyWithImpl<$Res, ComboBoxState>;
   @useResult
-  $Res call({List<ComboBox> comboBoxes});
+  $Res call(
+      {List<ComboBox> users,
+      List<ComboBox> voucher,
+      List<ComboBox> products,
+      List<ComboBox> ingredient});
 }
 
 /// @nodoc
@@ -45,12 +52,27 @@ class _$ComboBoxStateCopyWithImpl<$Res, $Val extends ComboBoxState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? comboBoxes = null,
+    Object? users = null,
+    Object? voucher = null,
+    Object? products = null,
+    Object? ingredient = null,
   }) {
     return _then(_value.copyWith(
-      comboBoxes: null == comboBoxes
-          ? _value.comboBoxes
-          : comboBoxes // ignore: cast_nullable_to_non_nullable
+      users: null == users
+          ? _value.users
+          : users // ignore: cast_nullable_to_non_nullable
+              as List<ComboBox>,
+      voucher: null == voucher
+          ? _value.voucher
+          : voucher // ignore: cast_nullable_to_non_nullable
+              as List<ComboBox>,
+      products: null == products
+          ? _value.products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<ComboBox>,
+      ingredient: null == ingredient
+          ? _value.ingredient
+          : ingredient // ignore: cast_nullable_to_non_nullable
               as List<ComboBox>,
     ) as $Val);
   }
@@ -64,7 +86,11 @@ abstract class _$$StateImplCopyWith<$Res>
       __$$StateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ComboBox> comboBoxes});
+  $Res call(
+      {List<ComboBox> users,
+      List<ComboBox> voucher,
+      List<ComboBox> products,
+      List<ComboBox> ingredient});
 }
 
 /// @nodoc
@@ -78,12 +104,27 @@ class __$$StateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? comboBoxes = null,
+    Object? users = null,
+    Object? voucher = null,
+    Object? products = null,
+    Object? ingredient = null,
   }) {
     return _then(_$StateImpl(
-      comboBoxes: null == comboBoxes
-          ? _value._comboBoxes
-          : comboBoxes // ignore: cast_nullable_to_non_nullable
+      users: null == users
+          ? _value._users
+          : users // ignore: cast_nullable_to_non_nullable
+              as List<ComboBox>,
+      voucher: null == voucher
+          ? _value._voucher
+          : voucher // ignore: cast_nullable_to_non_nullable
+              as List<ComboBox>,
+      products: null == products
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<ComboBox>,
+      ingredient: null == ingredient
+          ? _value._ingredient
+          : ingredient // ignore: cast_nullable_to_non_nullable
               as List<ComboBox>,
     ));
   }
@@ -92,20 +133,51 @@ class __$$StateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StateImpl implements _State {
-  const _$StateImpl({required final List<ComboBox> comboBoxes})
-      : _comboBoxes = comboBoxes;
+  const _$StateImpl(
+      {required final List<ComboBox> users,
+      required final List<ComboBox> voucher,
+      required final List<ComboBox> products,
+      required final List<ComboBox> ingredient})
+      : _users = users,
+        _voucher = voucher,
+        _products = products,
+        _ingredient = ingredient;
 
-  final List<ComboBox> _comboBoxes;
+  final List<ComboBox> _users;
   @override
-  List<ComboBox> get comboBoxes {
-    if (_comboBoxes is EqualUnmodifiableListView) return _comboBoxes;
+  List<ComboBox> get users {
+    if (_users is EqualUnmodifiableListView) return _users;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_comboBoxes);
+    return EqualUnmodifiableListView(_users);
+  }
+
+  final List<ComboBox> _voucher;
+  @override
+  List<ComboBox> get voucher {
+    if (_voucher is EqualUnmodifiableListView) return _voucher;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_voucher);
+  }
+
+  final List<ComboBox> _products;
+  @override
+  List<ComboBox> get products {
+    if (_products is EqualUnmodifiableListView) return _products;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_products);
+  }
+
+  final List<ComboBox> _ingredient;
+  @override
+  List<ComboBox> get ingredient {
+    if (_ingredient is EqualUnmodifiableListView) return _ingredient;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_ingredient);
   }
 
   @override
   String toString() {
-    return 'ComboBoxState(comboBoxes: $comboBoxes)';
+    return 'ComboBoxState(users: $users, voucher: $voucher, products: $products, ingredient: $ingredient)';
   }
 
   @override
@@ -113,13 +185,20 @@ class _$StateImpl implements _State {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StateImpl &&
+            const DeepCollectionEquality().equals(other._users, _users) &&
+            const DeepCollectionEquality().equals(other._voucher, _voucher) &&
+            const DeepCollectionEquality().equals(other._products, _products) &&
             const DeepCollectionEquality()
-                .equals(other._comboBoxes, _comboBoxes));
+                .equals(other._ingredient, _ingredient));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_comboBoxes));
+      runtimeType,
+      const DeepCollectionEquality().hash(_users),
+      const DeepCollectionEquality().hash(_voucher),
+      const DeepCollectionEquality().hash(_products),
+      const DeepCollectionEquality().hash(_ingredient));
 
   @JsonKey(ignore: true)
   @override
@@ -129,11 +208,20 @@ class _$StateImpl implements _State {
 }
 
 abstract class _State implements ComboBoxState {
-  const factory _State({required final List<ComboBox> comboBoxes}) =
-      _$StateImpl;
+  const factory _State(
+      {required final List<ComboBox> users,
+      required final List<ComboBox> voucher,
+      required final List<ComboBox> products,
+      required final List<ComboBox> ingredient}) = _$StateImpl;
 
   @override
-  List<ComboBox> get comboBoxes;
+  List<ComboBox> get users;
+  @override
+  List<ComboBox> get voucher;
+  @override
+  List<ComboBox> get products;
+  @override
+  List<ComboBox> get ingredient;
   @override
   @JsonKey(ignore: true)
   _$$StateImplCopyWith<_$StateImpl> get copyWith =>

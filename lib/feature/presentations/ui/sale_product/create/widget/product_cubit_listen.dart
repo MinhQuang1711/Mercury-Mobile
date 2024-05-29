@@ -13,7 +13,7 @@ class ProductCubitListen extends StatelessWidget {
     final productCubit = context.read<ProductCubit>();
     return BlocListener<ComboBoxCubit, ComboBoxState>(
       listener: (context, state) {
-        productCubit.initComboBoxes(state.comboBoxes);
+        productCubit.initComboBoxes(state.ingredient);
       },
       child: child,
     );
