@@ -35,6 +35,7 @@ class ProductField extends StatelessWidget {
                 titleLabel: "Sản phẩm",
                 bottomWidget: AppSearchFiled(
                   onTap: onTap,
+                  autoClear: true,
                   items: allProducts,
                   hint: "Chọn sản phẩm",
                   appItemFields: AppItemField.comboBox,

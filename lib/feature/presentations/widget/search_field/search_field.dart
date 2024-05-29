@@ -19,7 +19,9 @@ class AppSearchFiled<T> extends StatefulWidget {
     this.suggestionDirection,
     required this.appItemFields,
     this.onTapClearButton,
+    this.autoClear,
   });
+  final bool? autoClear;
   final String? initValue;
   final Offset? offset;
   final String? hint;
@@ -71,7 +73,10 @@ class _AppSearchFiledState<T> extends State<AppSearchFiled<T>> {
           ? SearchFieldListItem(widget.initValue!)
           : null,
       controller: controller,
-      onSuggestionTap: onTap,
+      onSuggestionTap: (val) {
+        if (widget.autoClear == true) controller?.clear();
+        onTap(val);
+      },
       readOnly: widget.readOnly ?? false,
       validator: widget.validator,
       onTapOutside: (p0) {

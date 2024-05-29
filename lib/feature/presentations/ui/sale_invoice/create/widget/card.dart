@@ -6,8 +6,15 @@ import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
 import 'package:mercury/feature/presentations/widget/card_container.dart';
 
 class DetailSaleInvoiceCard extends StatelessWidget {
-  const DetailSaleInvoiceCard({super.key, required this.comboBox});
+  const DetailSaleInvoiceCard({
+    super.key,
+    required this.comboBox,
+    this.onAdd,
+    this.onRemove,
+  });
   final ComboBox comboBox;
+  final Function(ComboBox)? onAdd;
+  final Function(ComboBox)? onRemove;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +40,7 @@ class DetailSaleInvoiceCard extends StatelessWidget {
 
   IconButton _removeBtton() {
     return IconButton(
-        onPressed: () {},
+        onPressed: () => onRemove?.call(comboBox),
         icon: const Icon(
           Icons.remove_circle,
           color: AppColor.red,
@@ -42,7 +49,7 @@ class DetailSaleInvoiceCard extends StatelessWidget {
 
   IconButton _addButton() {
     return IconButton(
-      onPressed: () {},
+      onPressed: () => onAdd?.call(comboBox),
       icon: const Icon(Icons.add_circle_outlined),
       color: AppColor.blue,
     );

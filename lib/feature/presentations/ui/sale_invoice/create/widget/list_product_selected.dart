@@ -12,6 +12,8 @@ class ProductsSelected extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<CommonSaleInvoiceCubit>();
+
     return GreyContainer(
       child: BlocBuilder<CommonSaleInvoiceCubit, CommonSaleInvoiceState>(
         buildWhen: (previous, current) =>
@@ -25,6 +27,8 @@ class ProductsSelected extends StatelessWidget {
                   children: list
                       .map((e) => DetailSaleInvoiceCard(
                             comboBox: e,
+                            onAdd: cubit.addMoreDetailSaleInvoice,
+                            onRemove: cubit.removeDetailSaleInvoice,
                           ))
                       .toList(),
                 );
