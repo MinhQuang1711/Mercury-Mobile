@@ -13,20 +13,27 @@ import '../../../domain/model/combo_box/combo_box.dart';
 class AppItemField {
   static SearchFieldListItem<ComboBox> comboBox(ComboBox val) {
     return SearchFieldListItem<ComboBox>(val.name ?? "",
-        item: val, child: _item(val.name ?? ""));
+        item: val,
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 5),
+          child: _item(val.name ?? ""),
+        ));
   }
 
   static SearchFieldListItem<Voucher> voucher(Voucher val) {
     return SearchFieldListItem<Voucher>(val.name ?? "",
         item: val,
-        child: Row(
-          children: [
-            Expanded(child: _item(val.name ?? "")),
-            Text(
-              "Giá trị: ${val.discountType == DiscountType.PERCENT.index ? "${val.percentValue?.formatNumber()}%" : "${val.discountValue?.formatNumber()} VND"}",
-              style: captionMedium.copyWith(color: AppColor.green),
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 5),
+          child: Row(
+            children: [
+              Expanded(child: _item(val.name ?? "")),
+              Text(
+                "Giá trị: ${val.discountType == DiscountType.PERCENT.index ? "${val.percentValue?.formatNumber()}%" : "${val.discountValue?.formatNumber()} VND"}",
+                style: captionMedium.copyWith(color: AppColor.green),
+              ),
+            ],
+          ),
         ));
   }
 
