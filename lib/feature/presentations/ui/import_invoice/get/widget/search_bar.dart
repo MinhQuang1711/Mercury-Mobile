@@ -45,16 +45,18 @@ class _ImportInvoiceSearchBarState extends State<ImportInvoiceSearchBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: AppPadding.padding12,
-      child: AppTextField(
-        canDelete: true,
-        onChanged: _onChanged,
-        controller: _controller,
-        hintText: "Tìm theo mã hóa đơn",
-        prefWidget: const SearchIcon(),
-        onTapClearButton: () => _onChanged(null),
-        sufWidget: const SquareFilterIcon(),
+    return Expanded(
+      child: Padding(
+        padding: AppPadding.padding12,
+        child: AppTextField(
+          canDelete: true,
+          onChanged: _onChanged,
+          controller: _controller,
+          hintText: "Tìm theo mã hóa đơn",
+          prefWidget: const SearchIcon(),
+          onTapClearButton: () => _onChanged(null),
+          sufWidget: const SquareFilterIcon(),
+        ),
       ),
     );
   }

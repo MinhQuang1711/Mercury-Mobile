@@ -6,6 +6,7 @@ import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/bloc.dart
 import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/get_import_invoice/cubit.dart';
 import 'package:mercury/feature/presentations/ui/import_invoice/get/widget/listview.dart';
+import 'package:mercury/feature/presentations/widget/button/create_square_button.dart';
 
 import 'widget/listener.dart';
 import 'widget/search_bar.dart';
@@ -38,7 +39,12 @@ class ImportInvoicePage extends StatelessWidget {
     return const ImportBlocListenWidget(
       child: Column(
         children: [
-          ImportInvoiceSearchBar(),
+          Row(
+            children: [
+              CreateSquareButton(),
+              ImportInvoiceSearchBar(),
+            ],
+          ),
           ImportInvoiceList(),
         ],
       ),
