@@ -19,8 +19,8 @@ class ImportInvoiceBloc extends Bloc<ImportInvoiceEvent, ImportInvoiceState> {
     emitter(const ImportInvoiceState.loading());
     (await repo.get(query)).on(
       whenSuccess: (data) =>
-          ImportInvoiceState.getSuccess(query: query, pagedList: data),
-      whenFaild: (msg) => ImportInvoiceState.failure(msg),
+          emitter(ImportInvoiceState.getSuccess(query: query, pagedList: data)),
+      whenFaild: (msg) => emitter(ImportInvoiceState.failure(msg)),
     );
   }
 }
