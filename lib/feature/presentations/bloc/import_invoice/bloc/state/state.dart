@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mercury/feature/data/model/paged_list/paged_list.dart';
-import 'package:mercury/feature/domain/model/import_invoice/import_invoice.dart';
 import 'package:mercury/feature/domain/model/invoice_query/invoice_query.dart';
+
+import '../../../../../data/model/import_invoice/import_invoice.dart';
 
 part 'state.freezed.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/feature/domain/model/invoice_query/invoice_query.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/get_import_invoice/state/state.dart';
 
-import '../../../../../domain/model/import_invoice/import_invoice.dart';
+import '../../../../../data/model/import_invoice/import_invoice.dart';
 
 class GetImportInvoiceCubit extends Cubit<GetImportInvoiceState> {
   GetImportInvoiceCubit()

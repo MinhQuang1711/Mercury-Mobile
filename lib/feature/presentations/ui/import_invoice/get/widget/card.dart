@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/core/utils/extension/datetime_ex.dart';
 import 'package:mercury/core/utils/extension/number.dart';
-import 'package:mercury/feature/domain/model/import_invoice/import_invoice.dart';
 import 'package:mercury/feature/presentations/widget/card_container.dart';
 
 import '../../../../../../config/theme/color.dart';
+import '../../../../../data/model/import_invoice/import_invoice.dart';
 
 class ImportInvoiceCard extends StatelessWidget {
   const ImportInvoiceCard({super.key, required this.invoice});

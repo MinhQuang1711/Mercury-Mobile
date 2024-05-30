@@ -3,9 +3,10 @@ import 'package:mercury/core/network/response/data_response.dart';
 import 'package:mercury/feature/data/model/paged_list/paged_list.dart';
 import 'package:mercury/feature/data/repository_path/path.dart';
 import 'package:mercury/feature/domain/enum/method.dart';
-import 'package:mercury/feature/domain/model/import_invoice/import_invoice.dart';
 import 'package:mercury/feature/domain/model/invoice_query/invoice_query.dart';
 import 'package:mercury/feature/domain/repositories/i_import_invoice.dart';
+
+import '../model/import_invoice/import_invoice.dart';
 
 class ImportInvoiceRepository extends IImportInvoiceRepository {
   @override

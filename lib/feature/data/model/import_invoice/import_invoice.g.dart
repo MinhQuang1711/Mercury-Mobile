@@ -15,5 +15,8 @@ _$ImportInvoiceImpl _$$ImportInvoiceImplFromJson(Map<String, dynamic> json) =>
           : DateTime.parse(json['createDate'] as String),
       createdByName: json['createdByName'] as String?,
       ownerName: json['ownerName'] as String?,
+      detailImportInvoices: (json['detailImportInvoices'] as List<dynamic>?)
+          ?.map((e) => DetailImportInvoice.fromJson(e as Map<String, dynamic>))
+          .toList(),
       id: json['id'] as String?,
     );

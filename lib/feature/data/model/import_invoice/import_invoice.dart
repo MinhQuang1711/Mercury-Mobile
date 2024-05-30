@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:mercury/feature/data/model/detail_import_invoice/detail_import_invoice.dart';
 
 part 'import_invoice.freezed.dart';
 part 'import_invoice.g.dart';
@@ -11,6 +12,7 @@ class ImportInvoice with _$ImportInvoice {
     DateTime? createDate,
     String? createdByName,
     String? ownerName,
+    List<DetailImportInvoice>? detailImportInvoices,
     String? id,
   }) = _ImportInvoice;
 

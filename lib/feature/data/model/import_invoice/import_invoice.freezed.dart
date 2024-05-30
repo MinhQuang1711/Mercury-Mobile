@@ -25,6 +25,8 @@ mixin _$ImportInvoice {
   DateTime? get createDate => throw _privateConstructorUsedError;
   String? get createdByName => throw _privateConstructorUsedError;
   String? get ownerName => throw _privateConstructorUsedError;
+  List<DetailImportInvoice>? get detailImportInvoices =>
+      throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -44,6 +46,7 @@ abstract class $ImportInvoiceCopyWith<$Res> {
       DateTime? createDate,
       String? createdByName,
       String? ownerName,
+      List<DetailImportInvoice>? detailImportInvoices,
       String? id});
 }
 
@@ -65,6 +68,7 @@ class _$ImportInvoiceCopyWithImpl<$Res, $Val extends ImportInvoice>
     Object? createDate = freezed,
     Object? createdByName = freezed,
     Object? ownerName = freezed,
+    Object? detailImportInvoices = freezed,
     Object? id = freezed,
   }) {
     return _then(_value.copyWith(
@@ -88,6 +92,10 @@ class _$ImportInvoiceCopyWithImpl<$Res, $Val extends ImportInvoice>
           ? _value.ownerName
           : ownerName // ignore: cast_nullable_to_non_nullable
               as String?,
+      detailImportInvoices: freezed == detailImportInvoices
+          ? _value.detailImportInvoices
+          : detailImportInvoices // ignore: cast_nullable_to_non_nullable
+              as List<DetailImportInvoice>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -110,6 +118,7 @@ abstract class _$$ImportInvoiceImplCopyWith<$Res>
       DateTime? createDate,
       String? createdByName,
       String? ownerName,
+      List<DetailImportInvoice>? detailImportInvoices,
       String? id});
 }
 
@@ -129,6 +138,7 @@ class __$$ImportInvoiceImplCopyWithImpl<$Res>
     Object? createDate = freezed,
     Object? createdByName = freezed,
     Object? ownerName = freezed,
+    Object? detailImportInvoices = freezed,
     Object? id = freezed,
   }) {
     return _then(_$ImportInvoiceImpl(
@@ -152,6 +162,10 @@ class __$$ImportInvoiceImplCopyWithImpl<$Res>
           ? _value.ownerName
           : ownerName // ignore: cast_nullable_to_non_nullable
               as String?,
+      detailImportInvoices: freezed == detailImportInvoices
+          ? _value._detailImportInvoices
+          : detailImportInvoices // ignore: cast_nullable_to_non_nullable
+              as List<DetailImportInvoice>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -169,7 +183,9 @@ class _$ImportInvoiceImpl implements _ImportInvoice {
       this.createDate,
       this.createdByName,
       this.ownerName,
-      this.id});
+      final List<DetailImportInvoice>? detailImportInvoices,
+      this.id})
+      : _detailImportInvoices = detailImportInvoices;
 
   factory _$ImportInvoiceImpl.fromJson(Map<String, dynamic> json) =>
       _$$ImportInvoiceImplFromJson(json);
@@ -184,12 +200,23 @@ class _$ImportInvoiceImpl implements _ImportInvoice {
   final String? createdByName;
   @override
   final String? ownerName;
+  final List<DetailImportInvoice>? _detailImportInvoices;
+  @override
+  List<DetailImportInvoice>? get detailImportInvoices {
+    final value = _detailImportInvoices;
+    if (value == null) return null;
+    if (_detailImportInvoices is EqualUnmodifiableListView)
+      return _detailImportInvoices;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String? id;
 
   @override
   String toString() {
-    return 'ImportInvoice(description: $description, totalPrice: $totalPrice, createDate: $createDate, createdByName: $createdByName, ownerName: $ownerName, id: $id)';
+    return 'ImportInvoice(description: $description, totalPrice: $totalPrice, createDate: $createDate, createdByName: $createdByName, ownerName: $ownerName, detailImportInvoices: $detailImportInvoices, id: $id)';
   }
 
   @override
@@ -207,13 +234,22 @@ class _$ImportInvoiceImpl implements _ImportInvoice {
                 other.createdByName == createdByName) &&
             (identical(other.ownerName, ownerName) ||
                 other.ownerName == ownerName) &&
+            const DeepCollectionEquality()
+                .equals(other._detailImportInvoices, _detailImportInvoices) &&
             (identical(other.id, id) || other.id == id));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, description, totalPrice,
-      createDate, createdByName, ownerName, id);
+  int get hashCode => Object.hash(
+      runtimeType,
+      description,
+      totalPrice,
+      createDate,
+      createdByName,
+      ownerName,
+      const DeepCollectionEquality().hash(_detailImportInvoices),
+      id);
 
   @JsonKey(ignore: true)
   @override
@@ -229,6 +265,7 @@ abstract class _ImportInvoice implements ImportInvoice {
       final DateTime? createDate,
       final String? createdByName,
       final String? ownerName,
+      final List<DetailImportInvoice>? detailImportInvoices,
       final String? id}) = _$ImportInvoiceImpl;
 
   factory _ImportInvoice.fromJson(Map<String, dynamic> json) =
@@ -244,6 +281,8 @@ abstract class _ImportInvoice implements ImportInvoice {
   String? get createdByName;
   @override
   String? get ownerName;
+  @override
+  List<DetailImportInvoice>? get detailImportInvoices;
   @override
   String? get id;
   @override
