@@ -26,9 +26,10 @@ class ImportInvoiceCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      invoice.description ?? "",
+                      "Tổng loại nguyên liệu: ${invoice.detailImportInvoices?.length}",
                       style: captionRegular,
                     ),
+                    const SizedBox(height: 5),
                     Text(
                       invoice.description ?? "",
                       style: captionRegular,
