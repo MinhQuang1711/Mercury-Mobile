@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ComboBoxState {
   List<ComboBox> get users => throw _privateConstructorUsedError;
-  List<ComboBox> get voucher => throw _privateConstructorUsedError;
+  List<Voucher> get voucher => throw _privateConstructorUsedError;
   List<ComboBox> get products => throw _privateConstructorUsedError;
   List<ComboBox> get ingredient => throw _privateConstructorUsedError;
 
@@ -34,7 +34,7 @@ abstract class $ComboBoxStateCopyWith<$Res> {
   @useResult
   $Res call(
       {List<ComboBox> users,
-      List<ComboBox> voucher,
+      List<Voucher> voucher,
       List<ComboBox> products,
       List<ComboBox> ingredient});
 }
@@ -65,7 +65,7 @@ class _$ComboBoxStateCopyWithImpl<$Res, $Val extends ComboBoxState>
       voucher: null == voucher
           ? _value.voucher
           : voucher // ignore: cast_nullable_to_non_nullable
-              as List<ComboBox>,
+              as List<Voucher>,
       products: null == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,7 @@ abstract class _$$StateImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<ComboBox> users,
-      List<ComboBox> voucher,
+      List<Voucher> voucher,
       List<ComboBox> products,
       List<ComboBox> ingredient});
 }
@@ -117,7 +117,7 @@ class __$$StateImplCopyWithImpl<$Res>
       voucher: null == voucher
           ? _value._voucher
           : voucher // ignore: cast_nullable_to_non_nullable
-              as List<ComboBox>,
+              as List<Voucher>,
       products: null == products
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
@@ -135,7 +135,7 @@ class __$$StateImplCopyWithImpl<$Res>
 class _$StateImpl implements _State {
   const _$StateImpl(
       {required final List<ComboBox> users,
-      required final List<ComboBox> voucher,
+      required final List<Voucher> voucher,
       required final List<ComboBox> products,
       required final List<ComboBox> ingredient})
       : _users = users,
@@ -151,9 +151,9 @@ class _$StateImpl implements _State {
     return EqualUnmodifiableListView(_users);
   }
 
-  final List<ComboBox> _voucher;
+  final List<Voucher> _voucher;
   @override
-  List<ComboBox> get voucher {
+  List<Voucher> get voucher {
     if (_voucher is EqualUnmodifiableListView) return _voucher;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_voucher);
@@ -210,14 +210,14 @@ class _$StateImpl implements _State {
 abstract class _State implements ComboBoxState {
   const factory _State(
       {required final List<ComboBox> users,
-      required final List<ComboBox> voucher,
+      required final List<Voucher> voucher,
       required final List<ComboBox> products,
       required final List<ComboBox> ingredient}) = _$StateImpl;
 
   @override
   List<ComboBox> get users;
   @override
-  List<ComboBox> get voucher;
+  List<Voucher> get voucher;
   @override
   List<ComboBox> get products;
   @override

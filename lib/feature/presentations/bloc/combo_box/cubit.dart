@@ -25,4 +25,11 @@ class ComboBoxCubit extends Cubit<ComboBoxState> {
       whenFaild: (msg) {},
     );
   }
+
+  void getVouchers() async {
+    (await repo.getVouchers()).on(
+      whenSuccess: (data) => emit(state.copyWith(voucher: data)),
+      whenFaild: (msg) {},
+    );
+  }
 }
