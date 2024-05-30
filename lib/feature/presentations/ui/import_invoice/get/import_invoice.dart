@@ -8,6 +8,7 @@ import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/get_impo
 import 'package:mercury/feature/presentations/ui/import_invoice/get/widget/listview.dart';
 
 import 'widget/listener.dart';
+import 'widget/search_bar.dart';
 
 var defaultImportInvoiceEvent = const ImportInvoiceEvent.get(InvoiceQuery());
 
@@ -37,6 +38,7 @@ class ImportInvoicePage extends StatelessWidget {
     return const ImportBlocListenWidget(
       child: Column(
         children: [
+          ImportInvoiceSearchBar(),
           ImportInvoiceList(),
         ],
       ),

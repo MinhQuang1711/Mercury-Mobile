@@ -13,7 +13,7 @@ class GetImportInvoiceCubit extends Cubit<GetImportInvoiceState> {
     required List<ImportInvoice> list,
   }) {
     final oldList = List<ImportInvoice>.from(state.list);
-    if (query.pageNumber == 1) {
+    if (query.pageNumber == 1 || query.pageNumber == null) {
       oldList.clear();
     }
     emit(state.copyWith(
