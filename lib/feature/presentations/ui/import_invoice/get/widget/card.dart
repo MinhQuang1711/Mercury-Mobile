@@ -25,23 +25,14 @@ class ImportInvoiceCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Tổng loại nguyên liệu: ${invoice.detailImportInvoices?.length}",
-                      style: captionRegular,
-                    ),
+                    _totalKindOfIngredient(),
                     const SizedBox(height: 5),
-                    Text(
-                      invoice.description ?? "",
-                      style: captionRegular,
-                    ),
+                    if (invoice.description != null) _description(),
                   ],
                 ),
               ),
               const SizedBox(height: 10),
-              Text(
-                "${invoice.totalPrice?.formatNumber()} VND",
-                style: captionMedium.copyWith(color: AppColor.blue),
-              )
+              _totalPrice()
             ],
           ),
           const Divider(),
@@ -51,6 +42,27 @@ class ImportInvoiceCard extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  Text _totalPrice() {
+    return Text(
+      "${invoice.totalPrice?.formatNumber()} VND",
+      style: captionMedium.copyWith(color: AppColor.blue),
+    );
+  }
+
+  Text _description() {
+    return Text(
+      invoice.description!,
+      style: captionRegular,
+    );
+  }
+
+  Text _totalKindOfIngredient() {
+    return Text(
+      "Tổng loại nguyên liệu: ${invoice.detailImportInvoices?.length}",
+      style: captionRegular,
     );
   }
 
