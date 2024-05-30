@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/get_import_invoice/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/get_import_invoice/state/state.dart';
+import 'package:mercury/feature/presentations/ui/import_invoice/get/widget/card.dart';
 import 'package:mercury/feature/presentations/widget/list_view/list_view.dart';
 
 class ImportInvoiceList extends StatelessWidget {
@@ -16,7 +17,8 @@ class ImportInvoiceList extends StatelessWidget {
             items: state.list,
             child: ListView.builder(
               itemCount: state.list.length,
-              itemBuilder: (context, index) => Text(state.list[index].id ?? ""),
+              itemBuilder: (context, index) =>
+                  ImportInvoiceCard(invoice: state.list[index]),
             )),
       ),
     );
