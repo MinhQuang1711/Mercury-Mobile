@@ -10,7 +10,7 @@ Map<String, dynamic> _$$SaleInvoiceRequestImplToJson(
         _$SaleInvoiceRequestImpl instance) =>
     <String, dynamic>{
       'discount': instance.discount,
-      'voucherId': instance.voucherId,
+      'voucher': instance.voucher,
       'customerId': instance.customerId,
       'paymentType': instance.paymentType,
       'detailSaleInvoice': instance.detailSaleInvoice,

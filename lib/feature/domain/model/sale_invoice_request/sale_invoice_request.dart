@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:mercury/feature/data/model/voucher/voucher.dart';
 
 import '../combo_box/combo_box.dart';
 
@@ -9,7 +10,7 @@ part 'sale_invoice_request.g.dart';
 class SaleInvoiceRequest with _$SaleInvoiceRequest {
   const factory SaleInvoiceRequest({
     double? discount,
-    String? voucherId,
+    Voucher? voucher,
     String? customerId,
     @Default(0) int? paymentType,
     @Default([]) List<ComboBox>? detailSaleInvoice,

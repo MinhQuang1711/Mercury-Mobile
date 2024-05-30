@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$SaleInvoiceRequest {
   double? get discount => throw _privateConstructorUsedError;
-  String? get voucherId => throw _privateConstructorUsedError;
+  Voucher? get voucher => throw _privateConstructorUsedError;
   String? get customerId => throw _privateConstructorUsedError;
   int? get paymentType => throw _privateConstructorUsedError;
   List<ComboBox>? get detailSaleInvoice => throw _privateConstructorUsedError;
@@ -36,10 +36,12 @@ abstract class $SaleInvoiceRequestCopyWith<$Res> {
   @useResult
   $Res call(
       {double? discount,
-      String? voucherId,
+      Voucher? voucher,
       String? customerId,
       int? paymentType,
       List<ComboBox>? detailSaleInvoice});
+
+  $VoucherCopyWith<$Res>? get voucher;
 }
 
 /// @nodoc
@@ -56,7 +58,7 @@ class _$SaleInvoiceRequestCopyWithImpl<$Res, $Val extends SaleInvoiceRequest>
   @override
   $Res call({
     Object? discount = freezed,
-    Object? voucherId = freezed,
+    Object? voucher = freezed,
     Object? customerId = freezed,
     Object? paymentType = freezed,
     Object? detailSaleInvoice = freezed,
@@ -66,10 +68,10 @@ class _$SaleInvoiceRequestCopyWithImpl<$Res, $Val extends SaleInvoiceRequest>
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as double?,
-      voucherId: freezed == voucherId
-          ? _value.voucherId
-          : voucherId // ignore: cast_nullable_to_non_nullable
-              as String?,
+      voucher: freezed == voucher
+          ? _value.voucher
+          : voucher // ignore: cast_nullable_to_non_nullable
+              as Voucher?,
       customerId: freezed == customerId
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
@@ -84,6 +86,18 @@ class _$SaleInvoiceRequestCopyWithImpl<$Res, $Val extends SaleInvoiceRequest>
               as List<ComboBox>?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $VoucherCopyWith<$Res>? get voucher {
+    if (_value.voucher == null) {
+      return null;
+    }
+
+    return $VoucherCopyWith<$Res>(_value.voucher!, (value) {
+      return _then(_value.copyWith(voucher: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -96,10 +110,13 @@ abstract class _$$SaleInvoiceRequestImplCopyWith<$Res>
   @useResult
   $Res call(
       {double? discount,
-      String? voucherId,
+      Voucher? voucher,
       String? customerId,
       int? paymentType,
       List<ComboBox>? detailSaleInvoice});
+
+  @override
+  $VoucherCopyWith<$Res>? get voucher;
 }
 
 /// @nodoc
@@ -114,7 +131,7 @@ class __$$SaleInvoiceRequestImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? discount = freezed,
-    Object? voucherId = freezed,
+    Object? voucher = freezed,
     Object? customerId = freezed,
     Object? paymentType = freezed,
     Object? detailSaleInvoice = freezed,
@@ -124,10 +141,10 @@ class __$$SaleInvoiceRequestImplCopyWithImpl<$Res>
           ? _value.discount
           : discount // ignore: cast_nullable_to_non_nullable
               as double?,
-      voucherId: freezed == voucherId
-          ? _value.voucherId
-          : voucherId // ignore: cast_nullable_to_non_nullable
-              as String?,
+      voucher: freezed == voucher
+          ? _value.voucher
+          : voucher // ignore: cast_nullable_to_non_nullable
+              as Voucher?,
       customerId: freezed == customerId
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
@@ -149,7 +166,7 @@ class __$$SaleInvoiceRequestImplCopyWithImpl<$Res>
 class _$SaleInvoiceRequestImpl implements _SaleInvoiceRequest {
   const _$SaleInvoiceRequestImpl(
       {this.discount,
-      this.voucherId,
+      this.voucher,
       this.customerId,
       this.paymentType = 0,
       final List<ComboBox>? detailSaleInvoice = const []})
@@ -158,7 +175,7 @@ class _$SaleInvoiceRequestImpl implements _SaleInvoiceRequest {
   @override
   final double? discount;
   @override
-  final String? voucherId;
+  final Voucher? voucher;
   @override
   final String? customerId;
   @override
@@ -178,7 +195,7 @@ class _$SaleInvoiceRequestImpl implements _SaleInvoiceRequest {
 
   @override
   String toString() {
-    return 'SaleInvoiceRequest(discount: $discount, voucherId: $voucherId, customerId: $customerId, paymentType: $paymentType, detailSaleInvoice: $detailSaleInvoice)';
+    return 'SaleInvoiceRequest(discount: $discount, voucher: $voucher, customerId: $customerId, paymentType: $paymentType, detailSaleInvoice: $detailSaleInvoice)';
   }
 
   @override
@@ -188,8 +205,7 @@ class _$SaleInvoiceRequestImpl implements _SaleInvoiceRequest {
             other is _$SaleInvoiceRequestImpl &&
             (identical(other.discount, discount) ||
                 other.discount == discount) &&
-            (identical(other.voucherId, voucherId) ||
-                other.voucherId == voucherId) &&
+            (identical(other.voucher, voucher) || other.voucher == voucher) &&
             (identical(other.customerId, customerId) ||
                 other.customerId == customerId) &&
             (identical(other.paymentType, paymentType) ||
@@ -200,7 +216,7 @@ class _$SaleInvoiceRequestImpl implements _SaleInvoiceRequest {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, discount, voucherId, customerId,
+  int get hashCode => Object.hash(runtimeType, discount, voucher, customerId,
       paymentType, const DeepCollectionEquality().hash(_detailSaleInvoice));
 
   @JsonKey(ignore: true)
@@ -221,7 +237,7 @@ class _$SaleInvoiceRequestImpl implements _SaleInvoiceRequest {
 abstract class _SaleInvoiceRequest implements SaleInvoiceRequest {
   const factory _SaleInvoiceRequest(
       {final double? discount,
-      final String? voucherId,
+      final Voucher? voucher,
       final String? customerId,
       final int? paymentType,
       final List<ComboBox>? detailSaleInvoice}) = _$SaleInvoiceRequestImpl;
@@ -229,7 +245,7 @@ abstract class _SaleInvoiceRequest implements SaleInvoiceRequest {
   @override
   double? get discount;
   @override
-  String? get voucherId;
+  Voucher? get voucher;
   @override
   String? get customerId;
   @override
