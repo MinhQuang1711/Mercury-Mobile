@@ -8,17 +8,31 @@ import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sal
 
 class CommonSaleInvoiceCubit extends Cubit<CommonSaleInvoiceState> {
   CommonSaleInvoiceCubit()
-      : super(const CommonSaleInvoiceState(SaleInvoiceRequest(
-          detailSaleInvoice: [],
-        )));
+      : super(
+          const CommonSaleInvoiceState(
+            SaleInvoiceRequest(
+              detailSaleInvoice: [],
+            ),
+            totalDiscount: 0,
+            totalPrice: 0,
+          ),
+        );
+
+  double _calulateTotalPrice(List<ComboBox> list) {
+    return list.fold(0, (p, e) => p + (e.quantity ?? 1) * (e.price ?? 0));
+  }
 
   void selectDelailSaleInvoice(ComboBox val) {
     final oldList = List<ComboBox>.from(state.request.detailSaleInvoice ?? []);
+    final newList = oldList..add(val.copyWith(quantity: 1));
     emit(
       state.copyWith(
+        totalPrice: _calulateTotalPrice(newList),
         request: state.request.copyWith(
-          detailSaleInvoice: oldList..add(val.copyWith(quantity: 1)),
+          detailSaleInvoice: newList,
         ),
+        totalDiscount: _caculateVoucherValue(
+            state.request.voucher, _calulateTotalPrice(newList)),
       ),
     );
   }
@@ -32,7 +46,10 @@ class CommonSaleInvoiceCubit extends Cubit<CommonSaleInvoiceState> {
     oldList[index] = newDetail;
     emit(
       state.copyWith(
+        totalPrice: _calulateTotalPrice(oldList),
         request: state.request.copyWith(detailSaleInvoice: oldList),
+        totalDiscount: _caculateVoucherValue(
+            state.request.voucher, _calulateTotalPrice(oldList)),
       ),
     );
   }
@@ -51,12 +68,23 @@ class CommonSaleInvoiceCubit extends Cubit<CommonSaleInvoiceState> {
 
     emit(
       state.copyWith(
+        totalPrice: _calulateTotalPrice(oldList),
         request: state.request.copyWith(detailSaleInvoice: oldList),
+        totalDiscount: _caculateVoucherValue(
+            state.request.voucher, _calulateTotalPrice(oldList)),
       ),
     );
   }
 
-  void changedVoucher(Voucher val) {
-    emit(state.copyWith(request: state.request.copyWith(voucher: val)));
+  double _caculateVoucherValue(Voucher? voucher, double total) {
+    return (voucher?.discountValue ?? 0) +
+        ((voucher?.percentValue ?? 0) / 100) * total;
+  }
+
+  void changedVoucher(Voucher? val) {
+    emit(state.copyWith(
+      totalDiscount: _caculateVoucherValue(val, state.totalPrice),
+      request: state.request.copyWith(voucher: val),
+    ));
   }
 }

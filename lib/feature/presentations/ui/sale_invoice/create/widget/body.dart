@@ -46,7 +46,7 @@ class CreateSaleInvoiceBody extends StatelessWidget {
                 PriceOfProduct(price: 0),
                 TotalDiscount(price: 0),
                 Divider(),
-                FinalPrice(price: 0),
+                FinalPrice(),
               ],
             ),
           ),

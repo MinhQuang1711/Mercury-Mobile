@@ -17,6 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CommonSaleInvoiceState {
   SaleInvoiceRequest get request => throw _privateConstructorUsedError;
+  double get totalDiscount => throw _privateConstructorUsedError;
+  double get totalPrice => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CommonSaleInvoiceStateCopyWith<CommonSaleInvoiceState> get copyWith =>
@@ -29,7 +31,8 @@ abstract class $CommonSaleInvoiceStateCopyWith<$Res> {
           $Res Function(CommonSaleInvoiceState) then) =
       _$CommonSaleInvoiceStateCopyWithImpl<$Res, CommonSaleInvoiceState>;
   @useResult
-  $Res call({SaleInvoiceRequest request});
+  $Res call(
+      {SaleInvoiceRequest request, double totalDiscount, double totalPrice});
 
   $SaleInvoiceRequestCopyWith<$Res> get request;
 }
@@ -49,12 +52,22 @@ class _$CommonSaleInvoiceStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? request = null,
+    Object? totalDiscount = null,
+    Object? totalPrice = null,
   }) {
     return _then(_value.copyWith(
       request: null == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
               as SaleInvoiceRequest,
+      totalDiscount: null == totalDiscount
+          ? _value.totalDiscount
+          : totalDiscount // ignore: cast_nullable_to_non_nullable
+              as double,
+      totalPrice: null == totalPrice
+          ? _value.totalPrice
+          : totalPrice // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 
@@ -75,7 +88,8 @@ abstract class _$$StateImplCopyWith<$Res>
       __$$StateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({SaleInvoiceRequest request});
+  $Res call(
+      {SaleInvoiceRequest request, double totalDiscount, double totalPrice});
 
   @override
   $SaleInvoiceRequestCopyWith<$Res> get request;
@@ -93,12 +107,22 @@ class __$$StateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? request = null,
+    Object? totalDiscount = null,
+    Object? totalPrice = null,
   }) {
     return _then(_$StateImpl(
       null == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
               as SaleInvoiceRequest,
+      totalDiscount: null == totalDiscount
+          ? _value.totalDiscount
+          : totalDiscount // ignore: cast_nullable_to_non_nullable
+              as double,
+      totalPrice: null == totalPrice
+          ? _value.totalPrice
+          : totalPrice // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -106,14 +130,19 @@ class __$$StateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StateImpl implements _State {
-  const _$StateImpl(this.request);
+  const _$StateImpl(this.request,
+      {required this.totalDiscount, required this.totalPrice});
 
   @override
   final SaleInvoiceRequest request;
+  @override
+  final double totalDiscount;
+  @override
+  final double totalPrice;
 
   @override
   String toString() {
-    return 'CommonSaleInvoiceState(request: $request)';
+    return 'CommonSaleInvoiceState(request: $request, totalDiscount: $totalDiscount, totalPrice: $totalPrice)';
   }
 
   @override
@@ -121,11 +150,16 @@ class _$StateImpl implements _State {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StateImpl &&
-            (identical(other.request, request) || other.request == request));
+            (identical(other.request, request) || other.request == request) &&
+            (identical(other.totalDiscount, totalDiscount) ||
+                other.totalDiscount == totalDiscount) &&
+            (identical(other.totalPrice, totalPrice) ||
+                other.totalPrice == totalPrice));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, request);
+  int get hashCode =>
+      Object.hash(runtimeType, request, totalDiscount, totalPrice);
 
   @JsonKey(ignore: true)
   @override
@@ -135,10 +169,16 @@ class _$StateImpl implements _State {
 }
 
 abstract class _State implements CommonSaleInvoiceState {
-  const factory _State(final SaleInvoiceRequest request) = _$StateImpl;
+  const factory _State(final SaleInvoiceRequest request,
+      {required final double totalDiscount,
+      required final double totalPrice}) = _$StateImpl;
 
   @override
   SaleInvoiceRequest get request;
+  @override
+  double get totalDiscount;
+  @override
+  double get totalPrice;
   @override
   @JsonKey(ignore: true)
   _$$StateImplCopyWith<_$StateImpl> get copyWith =>

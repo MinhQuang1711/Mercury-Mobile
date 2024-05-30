@@ -17,9 +17,7 @@ class VoucherField extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = context.read<CommonSaleInvoiceCubit>();
     void onChanged(SearchFieldListItem<Voucher> val) {
-      if (val.item != null) {
-        cubit.changedVoucher(val.item!);
-      }
+      cubit.changedVoucher(val.item!);
     }
 
     return BlocBuilder<ComboBoxCubit, ComboBoxState>(
@@ -31,6 +29,7 @@ class VoucherField extends StatelessWidget {
           initValue: initValue,
           onTap: onChanged,
           appItemFields: AppItemField.voucher,
+          onTapClearButton: () => cubit.changedVoucher(null),
         ),
       ),
     );

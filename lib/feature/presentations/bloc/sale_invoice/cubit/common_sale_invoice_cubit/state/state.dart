@@ -5,5 +5,9 @@ part 'state.freezed.dart';
 
 @freezed
 class CommonSaleInvoiceState with _$CommonSaleInvoiceState {
-  const factory CommonSaleInvoiceState(SaleInvoiceRequest request) = _State;
+  const factory CommonSaleInvoiceState(
+    SaleInvoiceRequest request, {
+    required double totalDiscount,
+    required double totalPrice,
+  }) = _State;
 }

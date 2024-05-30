@@ -16,13 +16,8 @@ class PriceOfProduct extends StatelessWidget {
           previous.request.detailSaleInvoice !=
           current.request.detailSaleInvoice,
       builder: (context, state) {
-        final list = state.request.detailSaleInvoice ?? [];
         return SaleInvoiceInfo(
-            title: "Tiền sản phẩm",
-            content: list
-                .fold<double>(
-                    0.0, (p, c) => p + ((c.quantity ?? 1) * (c.price ?? 0)))
-                .formatNumber());
+            title: "Tiền sản phẩm", content: state.totalPrice.formatNumber());
       },
     );
   }
