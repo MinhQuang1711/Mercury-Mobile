@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/config/router/path.dart';
+import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/domain/model/invoice_query/invoice_query.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/bloc.dart';
@@ -36,16 +38,22 @@ class ImportInvoicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ImportBlocListenWidget(
+    void onTapCreate() {
+      context.pushAndListen(location: AppPath.createImportInvoice);
+    }
+
+    return ImportBlocListenWidget(
       child: Column(
         children: [
           Row(
             children: [
-              CreateSquareButton(),
-              ImportInvoiceSearchBar(),
+              CreateSquareButton(
+                onTap: onTapCreate,
+              ),
+              const ImportInvoiceSearchBar(),
             ],
           ),
-          ImportInvoiceList(),
+          const ImportInvoiceList(),
         ],
       ),
     );

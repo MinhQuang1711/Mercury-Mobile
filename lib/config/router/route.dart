@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:mercury/config/router/path.dart';
 import 'package:mercury/feature/data/model/ingredinent/ingredient.dart';
+import 'package:mercury/feature/presentations/ui/import_invoice/create/create_import_invoice.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/create/create.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/detail/detail.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/update/update_ingredient.dart';
@@ -47,6 +48,10 @@ class AppRouter {
       GoRoute(
         path: AppPath.createSaleInvoice,
         builder: (context, state) => const CreateSaleInvoiceScreen(),
+      ),
+      GoRoute(
+        path: AppPath.createImportInvoice,
+        builder: (context, state) => const CreateImportInvoiceScreen(),
       ),
     ],
   );
