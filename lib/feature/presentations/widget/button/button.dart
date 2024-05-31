@@ -13,6 +13,7 @@ class AppButton extends StatelessWidget {
   const AppButton({
     super.key,
     this.onTap,
+    this.sufWidget,
     this.borderColor,
     this.isLoading,
     this.textColor,
@@ -22,7 +23,7 @@ class AppButton extends StatelessWidget {
     this.backgroundColor,
     required this.label,
   });
-
+  final Widget? sufWidget;
   final String label;
   final bool? isLoading;
   final Color? textColor;
@@ -85,6 +86,10 @@ class AppButton extends StatelessWidget {
                 style: currentButtonSize.getTextstyle(
                     color: currentButtonType.getTextColor(color: textColor)),
               ),
+              if (sufWidget != null)
+                Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    child: sufWidget),
               if (isLoading == true) indicator()
             ],
           ),

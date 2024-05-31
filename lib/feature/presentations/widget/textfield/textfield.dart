@@ -11,6 +11,7 @@ class AppTextField extends StatefulWidget {
     super.key,
     this.obs,
     this.onTap,
+    this.maxLines,
     this.canDelete,
     this.initValue,
     this.readOnly,
@@ -27,6 +28,7 @@ class AppTextField extends StatefulWidget {
     this.onTapClearButton,
   });
   final bool? obs;
+  final int? maxLines;
   final bool? canDelete;
   final String? initValue;
   final bool? readOnly;
@@ -88,6 +90,7 @@ class _AppTextFieldState extends State<AppTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: widget.maxLines,
       obscureText: widget.obs ?? false,
       onTap: widget.onTap,
       onChanged: onChanged,
