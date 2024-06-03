@@ -8,9 +8,11 @@ class CommonImportInvoiceCubit extends Cubit<CommonImportInvoiceState> {
       : super(const CommonImportInvoiceState(SaleInvoiceRequest()));
   void addIngredient(ComboBox val) {
     final oldList = List<ComboBox>.from(state.request.detailSaleInvoice ?? []);
+    final newList = oldList..add(val);
+
     emit(
       state.copyWith(
-        request: state.request.copyWith(detailSaleInvoice: oldList..add(val)),
+        request: state.request.copyWith(detailSaleInvoice: newList),
       ),
     );
   }

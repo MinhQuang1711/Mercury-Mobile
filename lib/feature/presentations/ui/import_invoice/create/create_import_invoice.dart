@@ -3,11 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/bloc.dart';
+import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/common/cubit.dart';
 import 'package:mercury/feature/presentations/ui/import_invoice/create/widget/ingredient_field.dart';
 import 'package:mercury/feature/presentations/widget/app_bar.dart';
-import 'package:mercury/feature/presentations/widget/button/button.dart';
 import 'package:mercury/feature/presentations/widget/stack/screen_allway_see_bottom.dart';
 
+import 'widget/create_button.dart';
 import 'widget/description_field.dart';
 import 'widget/ingredient_selected.dart';
 
@@ -20,7 +21,8 @@ class CreateImportInvoiceScreen extends StatelessWidget {
       providers: [
         BlocProvider(
             create: (_) => getIt.get<ComboBoxCubit>()..getIngredients()),
-        BlocProvider(create: (_) => getIt.get<ImportInvoiceBloc>())
+        BlocProvider(create: (_) => getIt.get<ImportInvoiceBloc>()),
+        BlocProvider(create: (_) => getIt.get<CommonImportInvoiceCubit>()),
       ],
       child: const CreateImportInvoicePage(),
     );
@@ -35,7 +37,7 @@ class CreateImportInvoicePage extends StatelessWidget {
     return const Scaffold(
       appBar: ActionAppBar(),
       body: AppStack(
-        bottomWidget: AppButton(label: "Xác nhận"),
+        bottomWidget: CreateButton(),
         backgroundWidget: Column(
           children: [
             AddIngredientButton(),
