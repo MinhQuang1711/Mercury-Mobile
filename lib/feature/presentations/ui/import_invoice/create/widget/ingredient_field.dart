@@ -36,11 +36,10 @@ class AddIngredientButton extends StatelessWidget {
         builder: (context, comboBoxState) {
           return BlocBuilder<CommonImportInvoiceCubit,
               CommonImportInvoiceState>(
-            buildWhen: (p, c) =>
-                p.request.detailSaleInvoice != c.request.detailSaleInvoice,
+            buildWhen: (p, c) => p.request.ingredients != c.request.ingredients,
             builder: (context, state) {
               final ingredients = List<ComboBox>.from(comboBoxState.ingredient);
-              final ingredientSelected = state.request.detailSaleInvoice ?? [];
+              final ingredientSelected = state.request.ingredients ?? [];
               // Xoa tat ca ca nguyen lieu da chon
               ingredients.removeWhere(
                   (e) => ingredientSelected.any((e2) => e.id == e2.id));

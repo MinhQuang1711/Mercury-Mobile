@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CommonImportInvoiceState {
-  SaleInvoiceRequest get request => throw _privateConstructorUsedError;
+  ImportInvoiceRequest get request => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CommonImportInvoiceStateCopyWith<CommonImportInvoiceState> get copyWith =>
@@ -29,9 +29,9 @@ abstract class $CommonImportInvoiceStateCopyWith<$Res> {
           $Res Function(CommonImportInvoiceState) then) =
       _$CommonImportInvoiceStateCopyWithImpl<$Res, CommonImportInvoiceState>;
   @useResult
-  $Res call({SaleInvoiceRequest request});
+  $Res call({ImportInvoiceRequest request});
 
-  $SaleInvoiceRequestCopyWith<$Res> get request;
+  $ImportInvoiceRequestCopyWith<$Res> get request;
 }
 
 /// @nodoc
@@ -54,14 +54,14 @@ class _$CommonImportInvoiceStateCopyWithImpl<$Res,
       request: null == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
-              as SaleInvoiceRequest,
+              as ImportInvoiceRequest,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SaleInvoiceRequestCopyWith<$Res> get request {
-    return $SaleInvoiceRequestCopyWith<$Res>(_value.request, (value) {
+  $ImportInvoiceRequestCopyWith<$Res> get request {
+    return $ImportInvoiceRequestCopyWith<$Res>(_value.request, (value) {
       return _then(_value.copyWith(request: value) as $Val);
     });
   }
@@ -75,10 +75,10 @@ abstract class _$$StateImplCopyWith<$Res>
       __$$StateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({SaleInvoiceRequest request});
+  $Res call({ImportInvoiceRequest request});
 
   @override
-  $SaleInvoiceRequestCopyWith<$Res> get request;
+  $ImportInvoiceRequestCopyWith<$Res> get request;
 }
 
 /// @nodoc
@@ -98,7 +98,7 @@ class __$$StateImplCopyWithImpl<$Res>
       null == request
           ? _value.request
           : request // ignore: cast_nullable_to_non_nullable
-              as SaleInvoiceRequest,
+              as ImportInvoiceRequest,
     ));
   }
 }
@@ -109,7 +109,7 @@ class _$StateImpl implements _State {
   const _$StateImpl(this.request);
 
   @override
-  final SaleInvoiceRequest request;
+  final ImportInvoiceRequest request;
 
   @override
   String toString() {
@@ -135,10 +135,10 @@ class _$StateImpl implements _State {
 }
 
 abstract class _State implements CommonImportInvoiceState {
-  const factory _State(final SaleInvoiceRequest request) = _$StateImpl;
+  const factory _State(final ImportInvoiceRequest request) = _$StateImpl;
 
   @override
-  SaleInvoiceRequest get request;
+  ImportInvoiceRequest get request;
   @override
   @JsonKey(ignore: true)
   _$$StateImplCopyWith<_$StateImpl> get copyWith =>

@@ -15,10 +15,9 @@ class IngredientSelected extends StatelessWidget {
     final cubit = context.read<CommonImportInvoiceCubit>();
     return BlocBuilder<CommonImportInvoiceCubit, CommonImportInvoiceState>(
       buildWhen: (previous, current) =>
-          previous.request.detailSaleInvoice !=
-          current.request.detailSaleInvoice,
+          previous.request.ingredients != current.request.ingredients,
       builder: (context, state) {
-        var list = state.request.detailSaleInvoice ?? [];
+        var list = state.request.ingredients ?? [];
         return GreyContainer(
           child: list.isEmpty
               ? const EmptyWidget()

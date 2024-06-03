@@ -25,4 +25,5 @@ class AppRepositoryPath {
 
   // Import invoice
   static String getImportInvoice = "/api/import-invoice";
+  static String createImportInvoice = "/api/import-invoice/create";
 }

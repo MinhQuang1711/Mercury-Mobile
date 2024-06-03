@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ImportInvoiceEvent {
-  InvoiceQuery get query => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(InvoiceQuery query) get,
+    required TResult Function(ImportInvoiceRequest request) create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(InvoiceQuery query)? get,
+    TResult? Function(ImportInvoiceRequest request)? create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(InvoiceQuery query)? get,
+    TResult Function(ImportInvoiceRequest request)? create,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Get value) get,
+    required TResult Function(_Create value) create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Get value)? get,
+    TResult? Function(_Create value)? create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Get value)? get,
+    TResult Function(_Create value)? create,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ImportInvoiceEventCopyWith<ImportInvoiceEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,10 +61,6 @@ abstract class $ImportInvoiceEventCopyWith<$Res> {
   factory $ImportInvoiceEventCopyWith(
           ImportInvoiceEvent value, $Res Function(ImportInvoiceEvent) then) =
       _$ImportInvoiceEventCopyWithImpl<$Res, ImportInvoiceEvent>;
-  @useResult
-  $Res call({InvoiceQuery query});
-
-  $InvoiceQueryCopyWith<$Res> get query;
 }
 
 /// @nodoc
@@ -75,39 +72,15 @@ class _$ImportInvoiceEventCopyWithImpl<$Res, $Val extends ImportInvoiceEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? query = null,
-  }) {
-    return _then(_value.copyWith(
-      query: null == query
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as InvoiceQuery,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $InvoiceQueryCopyWith<$Res> get query {
-    return $InvoiceQueryCopyWith<$Res>(_value.query, (value) {
-      return _then(_value.copyWith(query: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$GetImplCopyWith<$Res>
-    implements $ImportInvoiceEventCopyWith<$Res> {
+abstract class _$$GetImplCopyWith<$Res> {
   factory _$$GetImplCopyWith(_$GetImpl value, $Res Function(_$GetImpl) then) =
       __$$GetImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({InvoiceQuery query});
 
-  @override
   $InvoiceQueryCopyWith<$Res> get query;
 }
 
@@ -129,6 +102,14 @@ class __$$GetImplCopyWithImpl<$Res>
           : query // ignore: cast_nullable_to_non_nullable
               as InvoiceQuery,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $InvoiceQueryCopyWith<$Res> get query {
+    return $InvoiceQueryCopyWith<$Res>(_value.query, (value) {
+      return _then(_value.copyWith(query: value));
+    });
   }
 }
 
@@ -166,6 +147,7 @@ class _$GetImpl implements _Get {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(InvoiceQuery query) get,
+    required TResult Function(ImportInvoiceRequest request) create,
   }) {
     return get(query);
   }
@@ -174,6 +156,7 @@ class _$GetImpl implements _Get {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(InvoiceQuery query)? get,
+    TResult? Function(ImportInvoiceRequest request)? create,
   }) {
     return get?.call(query);
   }
@@ -182,6 +165,7 @@ class _$GetImpl implements _Get {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(InvoiceQuery query)? get,
+    TResult Function(ImportInvoiceRequest request)? create,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -194,6 +178,7 @@ class _$GetImpl implements _Get {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Get value) get,
+    required TResult Function(_Create value) create,
   }) {
     return get(this);
   }
@@ -202,6 +187,7 @@ class _$GetImpl implements _Get {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Get value)? get,
+    TResult? Function(_Create value)? create,
   }) {
     return get?.call(this);
   }
@@ -210,6 +196,7 @@ class _$GetImpl implements _Get {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Get value)? get,
+    TResult Function(_Create value)? create,
     required TResult orElse(),
   }) {
     if (get != null) {
@@ -222,10 +209,151 @@ class _$GetImpl implements _Get {
 abstract class _Get implements ImportInvoiceEvent {
   const factory _Get(final InvoiceQuery query) = _$GetImpl;
 
-  @override
   InvoiceQuery get query;
-  @override
   @JsonKey(ignore: true)
   _$$GetImplCopyWith<_$GetImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CreateImplCopyWith<$Res> {
+  factory _$$CreateImplCopyWith(
+          _$CreateImpl value, $Res Function(_$CreateImpl) then) =
+      __$$CreateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ImportInvoiceRequest request});
+
+  $ImportInvoiceRequestCopyWith<$Res> get request;
+}
+
+/// @nodoc
+class __$$CreateImplCopyWithImpl<$Res>
+    extends _$ImportInvoiceEventCopyWithImpl<$Res, _$CreateImpl>
+    implements _$$CreateImplCopyWith<$Res> {
+  __$$CreateImplCopyWithImpl(
+      _$CreateImpl _value, $Res Function(_$CreateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? request = null,
+  }) {
+    return _then(_$CreateImpl(
+      null == request
+          ? _value.request
+          : request // ignore: cast_nullable_to_non_nullable
+              as ImportInvoiceRequest,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ImportInvoiceRequestCopyWith<$Res> get request {
+    return $ImportInvoiceRequestCopyWith<$Res>(_value.request, (value) {
+      return _then(_value.copyWith(request: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$CreateImpl implements _Create {
+  const _$CreateImpl(this.request);
+
+  @override
+  final ImportInvoiceRequest request;
+
+  @override
+  String toString() {
+    return 'ImportInvoiceEvent.create(request: $request)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CreateImpl &&
+            (identical(other.request, request) || other.request == request));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, request);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CreateImplCopyWith<_$CreateImpl> get copyWith =>
+      __$$CreateImplCopyWithImpl<_$CreateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(InvoiceQuery query) get,
+    required TResult Function(ImportInvoiceRequest request) create,
+  }) {
+    return create(request);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(InvoiceQuery query)? get,
+    TResult? Function(ImportInvoiceRequest request)? create,
+  }) {
+    return create?.call(request);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(InvoiceQuery query)? get,
+    TResult Function(ImportInvoiceRequest request)? create,
+    required TResult orElse(),
+  }) {
+    if (create != null) {
+      return create(request);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Get value) get,
+    required TResult Function(_Create value) create,
+  }) {
+    return create(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Get value)? get,
+    TResult? Function(_Create value)? create,
+  }) {
+    return create?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Get value)? get,
+    TResult Function(_Create value)? create,
+    required TResult orElse(),
+  }) {
+    if (create != null) {
+      return create(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Create implements ImportInvoiceEvent {
+  const factory _Create(final ImportInvoiceRequest request) = _$CreateImpl;
+
+  ImportInvoiceRequest get request;
+  @JsonKey(ignore: true)
+  _$$CreateImplCopyWith<_$CreateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

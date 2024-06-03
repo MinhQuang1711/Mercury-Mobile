@@ -14,7 +14,7 @@ class CreateButton extends StatelessWidget {
   Widget build(BuildContext context) {
     void onTap() {
       final cubit = context.read<CommonImportInvoiceCubit>();
-      if ((cubit.state.request.detailSaleInvoice ?? []).isEmpty) {
+      if ((cubit.state.request.ingredients ?? []).isEmpty) {
         context.showFailureSnackBar("Danh sách nguyên liệu nhập trống");
       } else {
         //final bloc = context.read<ImportInvoiceBloc>();
