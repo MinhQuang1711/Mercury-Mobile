@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ImportInvoiceRequest {
-  double? get description => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   List<ComboBox>? get ingredients => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -31,7 +31,7 @@ abstract class $ImportInvoiceRequestCopyWith<$Res> {
           $Res Function(ImportInvoiceRequest) then) =
       _$ImportInvoiceRequestCopyWithImpl<$Res, ImportInvoiceRequest>;
   @useResult
-  $Res call({double? description, List<ComboBox>? ingredients});
+  $Res call({String? description, List<ComboBox>? ingredients});
 }
 
 /// @nodoc
@@ -55,7 +55,7 @@ class _$ImportInvoiceRequestCopyWithImpl<$Res,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as String?,
       ingredients: freezed == ingredients
           ? _value.ingredients
           : ingredients // ignore: cast_nullable_to_non_nullable
@@ -72,7 +72,7 @@ abstract class _$$ImportInvoiceRequestImplCopyWith<$Res>
       __$$ImportInvoiceRequestImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double? description, List<ComboBox>? ingredients});
+  $Res call({String? description, List<ComboBox>? ingredients});
 }
 
 /// @nodoc
@@ -93,7 +93,7 @@ class __$$ImportInvoiceRequestImplCopyWithImpl<$Res>
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as String?,
       ingredients: freezed == ingredients
           ? _value._ingredients
           : ingredients // ignore: cast_nullable_to_non_nullable
@@ -110,7 +110,7 @@ class _$ImportInvoiceRequestImpl implements _ImportInvoiceRequest {
       : _ingredients = ingredients;
 
   @override
-  final double? description;
+  final String? description;
   final List<ComboBox>? _ingredients;
   @override
   @JsonKey()
@@ -161,11 +161,11 @@ class _$ImportInvoiceRequestImpl implements _ImportInvoiceRequest {
 
 abstract class _ImportInvoiceRequest implements ImportInvoiceRequest {
   const factory _ImportInvoiceRequest(
-      {final double? description,
+      {final String? description,
       final List<ComboBox>? ingredients}) = _$ImportInvoiceRequestImpl;
 
   @override
-  double? get description;
+  String? get description;
   @override
   List<ComboBox>? get ingredients;
   @override

@@ -38,8 +38,11 @@ class ImportInvoicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<ImportInvoiceBloc>();
     void onTapCreate() {
-      context.pushAndListen(location: AppPath.createImportInvoice);
+      context.pushAndListen(
+          location: AppPath.createImportInvoice,
+          handleWhenHasValue: () => bloc.add(defaultImportInvoiceEvent));
     }
 
     return ImportBlocListenWidget(

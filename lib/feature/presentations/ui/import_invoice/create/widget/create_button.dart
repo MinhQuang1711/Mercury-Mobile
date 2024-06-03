@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/bloc.dart';
+import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/state/state.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/common/cubit.dart';
 
@@ -17,8 +18,8 @@ class CreateButton extends StatelessWidget {
       if ((cubit.state.request.ingredients ?? []).isEmpty) {
         context.showFailureSnackBar("Danh sách nguyên liệu nhập trống");
       } else {
-        //final bloc = context.read<ImportInvoiceBloc>();
-        // Todo
+        final bloc = context.read<ImportInvoiceBloc>();
+        bloc.add(ImportInvoiceEvent.create(cubit.state.request));
       }
     }
 

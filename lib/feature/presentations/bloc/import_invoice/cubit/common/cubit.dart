@@ -25,4 +25,8 @@ class CommonImportInvoiceCubit extends Cubit<CommonImportInvoiceState> {
       ),
     );
   }
+
+  void changedDescription(String? val) {
+    emit(state.copyWith(request: state.request.copyWith(description: val)));
+  }
 }

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/bloc.dart';
+import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/state/state.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/common/cubit.dart';
 import 'package:mercury/feature/presentations/ui/import_invoice/create/widget/ingredient_field.dart';
 import 'package:mercury/feature/presentations/widget/app_bar.dart';
@@ -34,18 +37,24 @@ class CreateImportInvoicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: ActionAppBar(),
-      body: AppStack(
-        bottomWidget: CreateButton(),
-        backgroundWidget: Column(
-          children: [
-            AddIngredientButton(),
-            SizedBox(height: 10),
-            IngredientSelected(),
-            SizedBox(height: 20),
-            DescriptionField(),
-          ],
+    return BlocListener<ImportInvoiceBloc, ImportInvoiceState>(
+      listener: (context, state) => state.whenOrNull(
+        failure: (msg) => context.showFailureSnackBar(msg),
+        success: (msg) => context.pop(msg),
+      ),
+      child: const Scaffold(
+        appBar: ActionAppBar(),
+        body: AppStack(
+          bottomWidget: CreateButton(),
+          backgroundWidget: Column(
+            children: [
+              AddIngredientButton(),
+              SizedBox(height: 10),
+              IngredientSelected(),
+              SizedBox(height: 20),
+              DescriptionField(),
+            ],
+          ),
         ),
       ),
     );
