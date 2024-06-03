@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/core/utils/injection/get_it.dart';
+import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
+import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/ui/import_invoice/create/widget/ingredient_field.dart';
 import 'package:mercury/feature/presentations/widget/app_bar.dart';
 import 'package:mercury/feature/presentations/widget/button/button.dart';
@@ -12,7 +16,14 @@ class CreateImportInvoiceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CreateImportInvoicePage();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+            create: (_) => getIt.get<ComboBoxCubit>()..getIngredients()),
+        BlocProvider(create: (_) => getIt.get<ImportInvoiceBloc>())
+      ],
+      child: const CreateImportInvoicePage(),
+    );
   }
 }
 

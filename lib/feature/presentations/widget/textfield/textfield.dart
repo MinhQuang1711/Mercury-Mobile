@@ -90,7 +90,7 @@ class _AppTextFieldState extends State<AppTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      maxLines: widget.maxLines,
+      maxLines: widget.maxLines ?? 1,
       obscureText: widget.obs ?? false,
       onTap: widget.onTap,
       onChanged: onChanged,
