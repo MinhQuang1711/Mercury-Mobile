@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/core/utils/extension/number.dart';
+import 'package:mercury/feature/presentations/bloc/dashboard/cubit.dart';
+import 'package:mercury/feature/presentations/bloc/dashboard/state/state.dart';
 
 import '../../../../../config/theme/color.dart';
 import '../../../../../config/theme/text_style.dart';
@@ -9,26 +12,31 @@ class OverviewBarByDay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        _info(
-          value: 1000000,
-          title: "Doanh thu",
-          iconData: Icons.inventory_2_outlined,
-        ),
-        _info(
-          value: 1000000,
-          color: AppColor.green,
-          title: "Lãi sản phẩm",
-          iconData: Icons.attach_money_rounded,
-        ),
-        _info(
-          value: 1000000,
-          title: "Nhập hàng",
-          color: AppColor.darkRed,
-          iconData: Icons.download_rounded,
-        ),
-      ],
+    return BlocBuilder<DashboardCubit, DashboardState>(
+      buildWhen: (p, c) => p.financialRecordOfDay != c.financialRecordOfDay,
+      builder: (context, state) {
+        return Column(
+          children: [
+            _info(
+              title: "Doanh thu",
+              iconData: Icons.inventory_2_outlined,
+              value: state.financialRecordOfDay.revenue ?? 0,
+            ),
+            _info(
+              color: AppColor.green,
+              title: "Lãi sản phẩm",
+              iconData: Icons.attach_money_rounded,
+              value: state.financialRecordOfDay.profit ?? 0,
+            ),
+            _info(
+              title: "Nhập hàng",
+              color: AppColor.darkRed,
+              iconData: Icons.download_rounded,
+              value: state.financialRecordOfDay.importCost ?? 0,
+            ),
+          ],
+        );
+      },
     );
   }
 
