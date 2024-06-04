@@ -20,7 +20,7 @@ class DashboardScreen extends StatelessWidget {
             ),
           ),
           Positioned.fill(
-            top: 150,
+            top: 180,
             child: Container(
               height: MediaQuery.of(context).size.height,
               color: AppColor.white,
