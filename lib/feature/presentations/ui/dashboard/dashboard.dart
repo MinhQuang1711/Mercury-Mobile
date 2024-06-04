@@ -44,7 +44,7 @@ class DashboardPage extends StatelessWidget {
             padding: AppPadding.padding12,
             child: Text(
               "Mercury.Homebrew",
-              style: h6Medium.copyWith(color: AppColor.white),
+              style: h5Bold.copyWith(color: AppColor.white),
             ),
           ),
           const SizedBox(height: 30),

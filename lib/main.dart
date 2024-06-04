@@ -46,6 +46,7 @@ class MyApp extends StatelessWidget {
       routeInformationProvider: AppRouter.router.routeInformationProvider,
       theme: ThemeData(
         useMaterial3: true,
+        fontFamily: "Nunito-Medium",
         colorScheme: ColorScheme.fromSeed(seedColor: AppColor.blue),
       ),
     );
