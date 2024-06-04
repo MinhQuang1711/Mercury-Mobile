@@ -1,9 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/theme/color.dart';
+import 'package:mercury/core/utils/injection/get_it.dart';
+import 'package:mercury/feature/presentations/bloc/dashboard/cubit.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/overview_bar.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => getIt.get<DashboardCubit>()
+        ..getfinancialRecordOfDay()
+        ..getfinancialRecordOfMonth()
+        ..getChartOfDay()
+        ..getChartOfMonth(),
+      child: const DashboardPage(),
+    );
+  }
+}
+
+class DashboardPage extends StatelessWidget {
+  const DashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
