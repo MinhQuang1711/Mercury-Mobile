@@ -47,6 +47,7 @@ class DashboardPage extends StatelessWidget {
               style: h6Medium.copyWith(color: AppColor.white),
             ),
           ),
+          const SizedBox(height: 30),
           const OverViewBar(),
         ],
       ),
@@ -55,7 +56,7 @@ class DashboardPage extends StatelessWidget {
 
   Positioned _chartBar(BuildContext context) {
     return Positioned.fill(
-      top: 180,
+      top: 220,
       child: Container(
         padding: AppPadding.padding12,
         height: MediaQuery.of(context).size.height,
