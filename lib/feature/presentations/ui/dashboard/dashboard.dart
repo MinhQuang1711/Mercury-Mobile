@@ -24,57 +24,69 @@ class DashboardPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            // margin: AppPadding.padding12,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [AppColor.blue, AppColor.blueShade2],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight),
+          _gradientBackground(),
+          _chartBar(context),
+          _overviewBar(),
+        ],
+      ),
+    );
+  }
+
+  Positioned _overviewBar() {
+    return Positioned(
+      top: 20,
+      right: 0,
+      left: 0,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: AppPadding.padding12,
+            child: Text(
+              "Mercury.Homebrew",
+              style: h6Medium.copyWith(color: AppColor.white),
             ),
           ),
-          Positioned.fill(
-            top: 180,
-            child: Container(
-              padding: AppPadding.padding12,
-              height: MediaQuery.of(context).size.height,
-              color: AppColor.white,
-              child: Column(
-                children: [
-                  const SizedBox(height: 150),
-                  SingleChildScrollView(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: AppColor.white,
-                        borderRadius: AppContainerBorder.radius6,
-                        boxShadow: defaultBoxShadow,
-                      ),
-                      child: const Chart(),
-                    ),
-                  ),
-                ],
+          const OverViewBar(),
+        ],
+      ),
+    );
+  }
+
+  Positioned _chartBar(BuildContext context) {
+    return Positioned.fill(
+      top: 180,
+      child: Container(
+        padding: AppPadding.padding12,
+        height: MediaQuery.of(context).size.height,
+        color: AppColor.white,
+        child: Column(
+          children: [
+            const SizedBox(height: 150),
+            SingleChildScrollView(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: AppColor.white,
+                  borderRadius: AppContainerBorder.radius6,
+                  boxShadow: defaultBoxShadow,
+                ),
+                child: const Chart(),
               ),
             ),
-          ),
-          Positioned(
-            top: 20,
-            right: 0,
-            left: 0,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: AppPadding.padding12,
-                  child: Text(
-                    "Mercury.Homebrew",
-                    style: h6Medium.copyWith(color: AppColor.white),
-                  ),
-                ),
-                const OverViewBar(),
-              ],
-            ),
-          )
-        ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Container _gradientBackground() {
+    return Container(
+      // margin: AppPadding.padding12,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+            colors: [AppColor.blue, AppColor.blueShade2],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight),
       ),
     );
   }
