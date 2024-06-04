@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/const/box_shadow.dart';
 import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/const/radius.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
-import 'package:mercury/core/utils/injection/get_it.dart';
-import 'package:mercury/feature/presentations/bloc/dashboard/cubit.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/chart.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/overview_bar.dart';
 
@@ -15,14 +12,7 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => getIt.get<DashboardCubit>()
-        ..getfinancialRecordOfDay()
-        ..getfinancialRecordOfMonth()
-        ..getChartOfDay()
-        ..getChartOfMonth(),
-      child: const DashboardPage(),
-    );
+    return const DashboardPage();
   }
 }
 
@@ -31,15 +21,6 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var boxShadow = defaultBoxShadow
-      ..add(
-        BoxShadow(
-          blurRadius: 4,
-          spreadRadius: 2,
-          offset: const Offset(-2, -2),
-          color: Colors.black.withOpacity(0.2),
-        ),
-      );
     return Scaffold(
       body: Stack(
         children: [
@@ -66,7 +47,7 @@ class DashboardPage extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: AppColor.white,
                         borderRadius: AppContainerBorder.radius6,
-                        boxShadow: boxShadow,
+                        boxShadow: defaultBoxShadow,
                       ),
                       child: const Chart(),
                     ),
@@ -94,11 +75,6 @@ class DashboardPage extends StatelessWidget {
             ),
           )
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: AppColor.blue,
-        child: const Icon(Icons.add, color: AppColor.white),
       ),
     );
   }
