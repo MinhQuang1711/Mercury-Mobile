@@ -1,7 +1,9 @@
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/domain/repositories/i_combo_box.dart';
+import 'package:mercury/feature/domain/repositories/i_dashboard.dart';
 import 'package:mercury/feature/presentations/bloc/authen/cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
+import 'package:mercury/feature/presentations/bloc/dashboard/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/common/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/get_import_invoice/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/cubit/create/cubit.dart';
@@ -27,4 +29,6 @@ void registerCubit() {
   getIt.registerFactory<GetImportInvoiceCubit>(() => GetImportInvoiceCubit());
   getIt.registerFactory<CommonImportInvoiceCubit>(
       () => CommonImportInvoiceCubit());
+  getIt.registerLazySingleton<DashboardCubit>(
+      () => DashboardCubit(getIt.get<IDashboardRepository>()));
 }
