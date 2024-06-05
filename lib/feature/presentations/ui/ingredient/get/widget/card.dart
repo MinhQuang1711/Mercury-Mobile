@@ -40,7 +40,7 @@ class IngredientCard extends StatelessWidget {
       children: [
         Text(
           ingredient.name,
-          style: bodyBold.copyWith(color: AppColor.blueShade2),
+          style: bodyMedium.copyWith(color: AppColor.blueShade2),
         ),
         const SizedBox(height: 8),
         Text(
