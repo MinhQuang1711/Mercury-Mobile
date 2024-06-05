@@ -31,15 +31,22 @@ class SplashBottomBar extends StatelessWidget {
     ];
     return BlocBuilder<SplashCubit, SplashState>(
       builder: (context, state) {
-        return BottomNavigationBar(
-          items: items,
-          onTap: cubit.changedTab,
-          currentIndex: state.index,
-          selectedLabelStyle: captionMedium,
-          unselectedLabelStyle: miniRegular,
-          type: BottomNavigationBarType.shifting,
-          selectedItemColor: AppColor.blue,
-          unselectedItemColor: AppColor.grey5,
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Divider(),
+            BottomNavigationBar(
+              items: items,
+              backgroundColor: AppColor.blue,
+              onTap: cubit.changedTab,
+              currentIndex: state.index,
+              selectedLabelStyle: captionMedium,
+              unselectedLabelStyle: miniRegular,
+              type: BottomNavigationBarType.shifting,
+              selectedItemColor: AppColor.blue,
+              unselectedItemColor: AppColor.grey5,
+            ),
+          ],
         );
       },
     );
