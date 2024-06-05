@@ -10,10 +10,10 @@ class AppGradient {
         begin: _begin,
         end: _end,
       );
-  static LinearGradient getGreenGradient() => setGradient(
+  static LinearGradient getBlueGradient() => setGradient(
       [AppColor.blue.withOpacity(0.2), AppColor.blueShade2.withOpacity(0.2)]);
-  static LinearGradient getYellowGradient() =>
-      setGradient([AppColor.yellow, AppColor.yellowLight]);
+  static LinearGradient getGreenGradient() => setGradient(
+      [AppColor.green.withOpacity(0.2), AppColor.greenLight.withOpacity(0.2)]);
   static LinearGradient getRedGradient() => setGradient(
       [AppColor.darkRed.withOpacity(0.2), AppColor.red.withOpacity(0.2)]);
 }

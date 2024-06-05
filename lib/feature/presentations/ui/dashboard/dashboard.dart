@@ -58,19 +58,19 @@ class DashboardPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: _createInvoiceButton(
-                    color: AppColor.darkRed,
+                    color: AppColor.green,
                     title: "Thêm hóa đơn bán",
                     assetGenImage: Assets.icon.invoices,
-                    gradient: AppGradient.getRedGradient(),
+                    gradient: AppGradient.getGreenGradient(),
                   ),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
                   child: _createInvoiceButton(
-                    title: "Hóa đơn nhập",
+                    title: "Thêm hóa đơn nhập",
                     color: AppColor.blueShade2,
                     assetGenImage: Assets.icon.import,
-                    gradient: AppGradient.getGreenGradient(),
+                    gradient: AppGradient.getBlueGradient(),
                   ),
                 )
               ],
@@ -100,8 +100,6 @@ class DashboardPage extends StatelessWidget {
       padding: AppPadding.padding14,
       decoration: BoxDecoration(
         gradient: gradient,
-        boxShadow: defaultBoxShadow,
-        border: Border.all(color: color ?? AppColor.white, width: 0.8),
         borderRadius: AppContainerBorder.radius6,
       ),
       child: Column(
