@@ -16,8 +16,14 @@ class $AssetsIconGen {
   AssetGenImage get emptyBox =>
       const AssetGenImage('assets/icon/empty_box.png');
 
+  /// File path: assets/icon/import.png
+  AssetGenImage get import => const AssetGenImage('assets/icon/import.png');
+
+  /// File path: assets/icon/invoices.png
+  AssetGenImage get invoices => const AssetGenImage('assets/icon/invoices.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [emptyBox];
+  List<AssetGenImage> get values => [emptyBox, import, invoices];
 }
 
 class $AssetsImageGen {

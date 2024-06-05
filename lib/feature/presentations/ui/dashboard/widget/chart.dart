@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/chart_of_day.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/chart_of_month.dart';
 
@@ -14,29 +13,26 @@ class Chart extends StatelessWidget {
       const Tab(text: "Hôm nay"),
       const Tab(text: "Theo tháng"),
     ];
-    return Padding(
-      padding: AppPadding.padding12,
-      child: DefaultTabController(
-        length: 2,
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 250,
-              child: TabBarView(
-                children: [
-                  ChartOfDay(),
-                  ChartOfMonth(),
-                ],
-              ),
+    return DefaultTabController(
+      length: 2,
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 250,
+            child: TabBarView(
+              children: [
+                ChartOfDay(),
+                ChartOfMonth(),
+              ],
             ),
-            TabBar(
-              tabs: tabs,
-              labelStyle: bodyMedium,
-              unselectedLabelStyle: captionRegular,
-              indicatorSize: TabBarIndicatorSize.tab,
-            ),
-          ],
-        ),
+          ),
+          TabBar(
+            tabs: tabs,
+            labelStyle: bodyMedium,
+            unselectedLabelStyle: captionRegular,
+            indicatorSize: TabBarIndicatorSize.tab,
+          ),
+        ],
       ),
     );
   }
