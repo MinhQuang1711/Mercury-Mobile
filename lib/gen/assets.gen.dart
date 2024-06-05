@@ -40,8 +40,11 @@ class $AssetsImageGen {
   /// File path: assets/image/empty.png
   AssetGenImage get empty => const AssetGenImage('assets/image/empty.png');
 
+  /// File path: assets/image/flower.jpg
+  AssetGenImage get flower => const AssetGenImage('assets/image/flower.jpg');
+
   /// List of all assets
-  List<AssetGenImage> get values => [coffeeCup, defaultAvatar, empty];
+  List<AssetGenImage> get values => [coffeeCup, defaultAvatar, empty, flower];
 }
 
 class Assets {

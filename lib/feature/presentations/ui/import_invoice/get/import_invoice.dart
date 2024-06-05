@@ -4,12 +4,12 @@ import 'package:mercury/config/router/path.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/domain/model/invoice_query/invoice_query.dart';
-import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/get_import_invoice/cubit.dart';
 import 'package:mercury/feature/presentations/ui/import_invoice/get/widget/listview.dart';
 import 'package:mercury/feature/presentations/widget/button/create_square_button.dart';
 
+import '../../../bloc/import_invoice/bloc/bloc.dart';
 import 'widget/listener.dart';
 import 'widget/search_bar.dart';
 
@@ -20,12 +20,9 @@ class ImportInvoiceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<ImportInvoiceBloc>().add(defaultImportInvoiceEvent);
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (_) =>
-              getIt.get<ImportInvoiceBloc>()..add(defaultImportInvoiceEvent),
-        ),
         BlocProvider(create: (_) => getIt.get<GetImportInvoiceCubit>()),
       ],
       child: const ImportInvoicePage(),
@@ -38,11 +35,8 @@ class ImportInvoicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<ImportInvoiceBloc>();
     void onTapCreate() {
-      context.pushAndListen(
-          location: AppPath.createImportInvoice,
-          handleWhenHasValue: () => bloc.add(defaultImportInvoiceEvent));
+      context.pushAndListen(location: AppPath.createImportInvoice);
     }
 
     return ImportBlocListenWidget(

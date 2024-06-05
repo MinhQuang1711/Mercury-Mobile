@@ -7,10 +7,10 @@ import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/chart.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/overview_bar.dart';
-import 'package:mercury/feature/presentations/ui/dashboard/widget/white_background.dart';
 import 'package:mercury/gen/assets.gen.dart';
 
 import 'widget/gradient_background.dart';
+import 'widget/white_background.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -75,7 +75,7 @@ class DashboardPage extends StatelessWidget {
                 )
               ],
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             Container(
               decoration: BoxDecoration(
                 color: AppColor.white,

@@ -11,6 +11,9 @@ import 'package:mercury/core/utils/storage/token_storage.dart';
 import 'package:mercury/feature/presentations/bloc/dashboard/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/splash/cubit.dart';
 
+import 'feature/presentations/bloc/import_invoice/bloc/bloc.dart';
+import 'feature/presentations/bloc/sale_invoice/bloc/bloc.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   initInjection();
@@ -27,7 +30,11 @@ void main() async {
             ..getfinancialRecordOfMonth()
             ..getChartOfDay()
             ..getChartOfMonth(),
-        )
+        ),
+        BlocProvider(create: (_) => getIt.get<SaleInvoiceBloc>()),
+        BlocProvider(
+          create: (_) => getIt.get<ImportInvoiceBloc>(),
+        ),
       ],
       child: const MyApp(),
     ),

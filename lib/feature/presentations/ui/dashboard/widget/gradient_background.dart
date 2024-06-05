@@ -10,8 +10,10 @@ class GradientBackGround extends StatelessWidget {
     return Container(
       // margin: AppPadding.padding12,
       decoration: BoxDecoration(
+          // image: DecorationImage(
+          //     image: AssetImage(Assets.image.flower.keyName), fit: BoxFit.fill),
           gradient:
-              AppGradient.setGradient([AppColor.blue, AppColor.blueShade2])),
+              AppGradient.setGradient([AppColor.blue, AppColor.blueTint])),
     );
   }
 }

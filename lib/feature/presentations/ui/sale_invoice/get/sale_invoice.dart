@@ -4,12 +4,11 @@ import 'package:mercury/config/router/path.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/domain/model/invoice_query/invoice_query.dart';
-import 'package:mercury/feature/presentations/bloc/dashboard/cubit.dart';
-import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/get_sale_invoice/cubit.dart';
 import 'package:mercury/feature/presentations/widget/button/create_square_button.dart';
 
+import '../../../bloc/sale_invoice/bloc/bloc.dart';
 import 'widget/bloc_listen.dart';
 import 'widget/item_filter.dart';
 import 'widget/listview.dart';
@@ -22,12 +21,10 @@ class SaleInvoiceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<SaleInvoiceBloc>().add(defaultSaleInvoiceEvent);
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => getIt.get<GetSaleInvoiceCubit>()),
-        BlocProvider(
-            create: (_) =>
-                getIt.get<SaleInvoiceBloc>()..add(defaultSaleInvoiceEvent))
       ],
       child: const SaleInvoicePage(),
     );
@@ -39,17 +36,8 @@ class SaleInvoicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<SaleInvoiceBloc>();
-    final dashboardCubit = context.read<DashboardCubit>();
     void onTapCreateButton() {
-      context.pushAndListen(
-          location: AppPath.createSaleInvoice,
-          handleWhenHasValue: () {
-            bloc.add(defaultSaleInvoiceEvent);
-            dashboardCubit
-              ..getChartOfDay()
-              ..getChartOfMonth();
-          });
+      context.pushAndListen(location: AppPath.createSaleInvoice);
     }
 
     return SaleInvoiceBlocListenWidget(
