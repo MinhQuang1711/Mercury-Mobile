@@ -14,11 +14,11 @@ class AppColor {
   static const Color greenLight = Color(0XFFBFFEEA);
 
   static const Color yellow = Color(0XFFFFC355);
-  static const Color yellowLight = Color(0XFFFFF8E1);
+  static const Color yellowLight = Color(0XFFFFEABF);
   static const Color red = Color(0XFFED2E2E);
   static const Color darkRed = Color(0XFFAF0326);
 
-  static const Color redLight = Color(0XFFFCE8E8);
+  static const Color redLight = Color(0XFFEBB4BD);
 
   static const Color blueShade2 = Color(0XFF002456);
   static const Color blue = Color(0XFF024ADF);
