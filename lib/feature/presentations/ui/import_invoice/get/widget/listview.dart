@@ -4,6 +4,7 @@ import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/bloc.dart
 import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/get_import_invoice/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/get_import_invoice/state/state.dart';
+import 'package:mercury/feature/presentations/ui/import_invoice/get/import_invoice.dart';
 import 'package:mercury/feature/presentations/ui/import_invoice/get/widget/card.dart';
 import 'package:mercury/feature/presentations/widget/list_view/list_view.dart';
 import 'package:mercury/feature/presentations/widget/listen_scroll_widget.dart';
@@ -48,6 +49,7 @@ class _ImportInvoiceListState extends State<ImportInvoiceList> {
           handleScrollEndOfList: _loadMore,
           child: AppListView(
               items: state.list,
+              onRefreshing: () => _bloc.add(defaultImportInvoiceEvent),
               child: ListView.builder(
                 controller: _controller,
                 itemCount: state.list.length,

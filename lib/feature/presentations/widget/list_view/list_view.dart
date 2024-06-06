@@ -14,11 +14,9 @@ class AppListView<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (items.isEmpty) {
-      return EmptyWidget(
-        onTap: onRefreshing,
-      );
-    }
-    return child;
+    return RefreshIndicator(
+      child: items.isEmpty ? EmptyWidget(onTap: onRefreshing) : child,
+      onRefresh: () async => onRefreshing?.call(),
+    );
   }
 }

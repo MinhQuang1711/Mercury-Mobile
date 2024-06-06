@@ -11,6 +11,8 @@ import 'package:mercury/feature/presentations/ui/sale_product/get/widget/card.da
 import 'package:mercury/feature/presentations/widget/list_view/list_view.dart';
 import 'package:mercury/feature/presentations/widget/listen_scroll_widget.dart';
 
+import '../sale_product.dart';
+
 class ProductList extends StatefulWidget {
   const ProductList({super.key});
 
@@ -59,6 +61,7 @@ class _ProductListState extends State<ProductList> {
           handleScrollEndOfList: _loadMore,
           child: AppListView(
             items: state.list,
+            onRefreshing: () => _bloc.add(defaultProductEvent),
             child: ListView.builder(
               itemCount: state.list.length,
               itemBuilder: (context, index) => SaleProductCard(

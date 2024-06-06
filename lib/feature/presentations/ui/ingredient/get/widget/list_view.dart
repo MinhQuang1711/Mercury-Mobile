@@ -5,6 +5,7 @@ import 'package:mercury/feature/data/model/ingredinent/ingredient.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/detail/detail.dart';
+import 'package:mercury/feature/presentations/ui/ingredient/get/ingredient.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/get/widget/card.dart';
 import 'package:mercury/feature/presentations/widget/listen_scroll_widget.dart';
 
@@ -61,6 +62,7 @@ class _IngredientListState extends State<IngredientList> {
             controller: _controller,
             child: AppListView(
               items: state.list,
+              onRefreshing: () => _bloc.add(defaultIngredientEvent),
               child: ListView.builder(
                 controller: _controller,
                 itemCount: state.list.length,
