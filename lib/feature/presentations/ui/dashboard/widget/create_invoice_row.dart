@@ -29,10 +29,10 @@ class CreateInvoiceRow extends StatelessWidget {
           Expanded(
             child: _createInvoiceButton(
               onTap: createSaleInovice,
-              color: AppColor.green,
+              color: AppColor.darkRed,
               title: "Thêm hóa đơn bán",
               assetGenImage: Assets.icon.invoices,
-              gradient: AppGradient.getGreenGradient(),
+              gradient: AppGradient.getRedGradient(),
             ),
           ),
           const SizedBox(width: 10),
