@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
+import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/core/utils/extension/datetime_ex.dart';
 import 'package:mercury/core/utils/extension/number.dart';
 import 'package:mercury/feature/domain/model/sale_invoice/sale_invoice.dart';
+import 'package:mercury/feature/presentations/ui/sale_invoice/delete/delete.dart';
 import 'package:mercury/feature/presentations/widget/card_container.dart';
+import 'package:mercury/feature/presentations/widget/delete_icon.dart';
 
 class SaleInvoiceCard extends StatelessWidget {
   const SaleInvoiceCard({super.key, required this.saleInvoice});
@@ -13,6 +16,11 @@ class SaleInvoiceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double valueDiscount = (saleInvoice.dicount ?? 0);
+    void onTapDelete() {
+      context.showAppDialog(
+          child: DeleteSaleInvoiceScreen(saleInvoice: saleInvoice));
+    }
+
     return ContainerCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +47,15 @@ class SaleInvoiceCard extends StatelessWidget {
             ],
           ),
           const Divider(),
-          _createDate()
+          Row(
+            children: [
+              _createDate(),
+              const Spacer(),
+              DeleteIcon(
+                onTap: onTapDelete,
+              ),
+            ],
+          )
         ],
       ),
     );
