@@ -3,13 +3,15 @@ import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/core/utils/extension/datetime_ex.dart';
 import 'package:mercury/core/utils/extension/number.dart';
 import 'package:mercury/feature/presentations/widget/card_container.dart';
+import 'package:mercury/feature/presentations/widget/delete_icon.dart';
 
 import '../../../../../../config/theme/color.dart';
 import '../../../../../data/model/import_invoice/import_invoice.dart';
 
 class ImportInvoiceCard extends StatelessWidget {
-  const ImportInvoiceCard({super.key, required this.invoice});
+  const ImportInvoiceCard({super.key, required this.invoice, this.onDelete});
   final ImportInvoice invoice;
+  final Function(ImportInvoice)? onDelete;
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +38,17 @@ class ImportInvoiceCard extends StatelessWidget {
             ],
           ),
           const Divider(),
-          Text(
-            invoice.createDate?.toExtractTime() ?? "",
-            style: captionRegular,
+          Row(
+            children: [
+              Text(
+                invoice.createDate?.toExtractTime() ?? "",
+                style: captionRegular,
+              ),
+              const Spacer(),
+              DeleteIcon(
+                onTap: () => onDelete?.call(invoice),
+              )
+            ],
           )
         ],
       ),
