@@ -17,6 +17,7 @@ class AppRepositoryPath {
   // Sale invoice
   static String getSaleInvoice = "/api/sale-invoice";
   static String createSaleInvoice = "/api/sale-invoice/create";
+  static String deleteSaleInvoice = "/api/sale-invoice/delete";
 
   // ComboBox
   static String ingredientComboBox = "/api/ingredient/combo-box";

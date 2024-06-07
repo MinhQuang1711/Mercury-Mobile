@@ -8,4 +8,5 @@ import 'package:mercury/feature/domain/model/sale_invoice_request/sale_invoice_r
 abstract class ISaleInvoiceRepository extends UseCaseNetwork {
   Future<DataRespone<PagedList<SaleInvoice>>> get(InvoiceQuery query);
   Future<DataRespone> create(SaleInvoiceRequest request);
+  Future<DataRespone> delete(String id);
 }

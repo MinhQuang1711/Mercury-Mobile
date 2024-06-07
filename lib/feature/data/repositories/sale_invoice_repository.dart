@@ -32,4 +32,16 @@ class SaleInvoiceRepository extends ISaleInvoiceRepository {
         ),
         parser: (data) {});
   }
+
+  @override
+  Future<DataRespone> delete(String id) async {
+    return await excuter(
+      paramRequest: ParamRequest(
+        method: Method.DELETE,
+        query: {"id": id},
+        endPoint: AppRepositoryPath.deleteSaleInvoice,
+      ),
+      parser: (data) {},
+    );
+  }
 }

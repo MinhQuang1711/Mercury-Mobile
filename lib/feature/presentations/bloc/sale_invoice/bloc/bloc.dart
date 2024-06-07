@@ -31,7 +31,12 @@ class SaleInvoiceBloc extends Bloc<SaleInvoiceEvent, SaleInvoiceState> {
   }
 
   Future _delete(String id, Emitter emitter) async {
-    // TODO
+    emitter(const SaleInvoiceState.loading());
+    (await repo.delete(id)).on(
+      whenSuccess: (data) =>
+          emitter(const SaleInvoiceState.deleted("Xóa thành công")),
+      whenFaild: (msg) => emitter(SaleInvoiceState.failure(msg)),
+    );
   }
 
   Future _get(InvoiceQuery query, Emitter emitter) async {

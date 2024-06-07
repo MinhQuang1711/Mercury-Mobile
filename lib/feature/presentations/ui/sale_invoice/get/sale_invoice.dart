@@ -36,8 +36,12 @@ class SaleInvoicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<SaleInvoiceBloc>();
     void onTapCreateButton() {
-      context.pushAndListen(location: AppPath.createSaleInvoice);
+      context.pushAndListen(
+        location: AppPath.createSaleInvoice,
+        handleWhenHasValue: () => bloc.add(defaultSaleInvoiceEvent),
+      );
     }
 
     return SaleInvoiceBlocListenWidget(
