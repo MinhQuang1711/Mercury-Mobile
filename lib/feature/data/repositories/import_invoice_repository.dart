@@ -35,4 +35,16 @@ class ImportInvoiceRepository extends IImportInvoiceRepository {
       parser: (json) {},
     );
   }
+
+  @override
+  Future<DataRespone> delete(String id) async {
+    return await excuter(
+      paramRequest: ParamRequest(
+        method: Method.DELETE,
+        query: {"id": id},
+        endPoint: AppRepositoryPath.deleteImportInvoice,
+      ),
+      parser: (data) {},
+    );
+  }
 }

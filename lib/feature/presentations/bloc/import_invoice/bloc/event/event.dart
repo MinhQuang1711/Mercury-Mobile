@@ -6,6 +6,7 @@ part 'event.freezed.dart';
 
 @freezed
 class ImportInvoiceEvent with _$ImportInvoiceEvent {
+  const factory ImportInvoiceEvent.delete(String id) = _Delete;
   const factory ImportInvoiceEvent.get(InvoiceQuery query) = _Get;
   const factory ImportInvoiceEvent.create(ImportInvoiceRequest request) =
       _Create;

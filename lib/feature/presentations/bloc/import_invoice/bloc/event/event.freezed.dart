@@ -18,18 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ImportInvoiceEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String id) delete,
     required TResult Function(InvoiceQuery query) get,
     required TResult Function(ImportInvoiceRequest request) create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? delete,
     TResult? Function(InvoiceQuery query)? get,
     TResult? Function(ImportInvoiceRequest request)? create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? delete,
     TResult Function(InvoiceQuery query)? get,
     TResult Function(ImportInvoiceRequest request)? create,
     required TResult orElse(),
@@ -37,18 +40,21 @@ mixin _$ImportInvoiceEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Delete value) delete,
     required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Delete value)? delete,
     TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Delete value)? delete,
     TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
     required TResult orElse(),
@@ -72,6 +78,145 @@ class _$ImportInvoiceEventCopyWithImpl<$Res, $Val extends ImportInvoiceEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$DeleteImplCopyWith<$Res> {
+  factory _$$DeleteImplCopyWith(
+          _$DeleteImpl value, $Res Function(_$DeleteImpl) then) =
+      __$$DeleteImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$DeleteImplCopyWithImpl<$Res>
+    extends _$ImportInvoiceEventCopyWithImpl<$Res, _$DeleteImpl>
+    implements _$$DeleteImplCopyWith<$Res> {
+  __$$DeleteImplCopyWithImpl(
+      _$DeleteImpl _value, $Res Function(_$DeleteImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$DeleteImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteImpl implements _Delete {
+  const _$DeleteImpl(this.id);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'ImportInvoiceEvent.delete(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
+      __$$DeleteImplCopyWithImpl<_$DeleteImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) delete,
+    required TResult Function(InvoiceQuery query) get,
+    required TResult Function(ImportInvoiceRequest request) create,
+  }) {
+    return delete(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? delete,
+    TResult? Function(InvoiceQuery query)? get,
+    TResult? Function(ImportInvoiceRequest request)? create,
+  }) {
+    return delete?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? delete,
+    TResult Function(InvoiceQuery query)? get,
+    TResult Function(ImportInvoiceRequest request)? create,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Delete value) delete,
+    required TResult Function(_Get value) get,
+    required TResult Function(_Create value) create,
+  }) {
+    return delete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Delete value)? delete,
+    TResult? Function(_Get value)? get,
+    TResult? Function(_Create value)? create,
+  }) {
+    return delete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Delete value)? delete,
+    TResult Function(_Get value)? get,
+    TResult Function(_Create value)? create,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Delete implements ImportInvoiceEvent {
+  const factory _Delete(final String id) = _$DeleteImpl;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -146,6 +291,7 @@ class _$GetImpl implements _Get {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String id) delete,
     required TResult Function(InvoiceQuery query) get,
     required TResult Function(ImportInvoiceRequest request) create,
   }) {
@@ -155,6 +301,7 @@ class _$GetImpl implements _Get {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? delete,
     TResult? Function(InvoiceQuery query)? get,
     TResult? Function(ImportInvoiceRequest request)? create,
   }) {
@@ -164,6 +311,7 @@ class _$GetImpl implements _Get {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? delete,
     TResult Function(InvoiceQuery query)? get,
     TResult Function(ImportInvoiceRequest request)? create,
     required TResult orElse(),
@@ -177,6 +325,7 @@ class _$GetImpl implements _Get {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Delete value) delete,
     required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
   }) {
@@ -186,6 +335,7 @@ class _$GetImpl implements _Get {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Delete value)? delete,
     TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
   }) {
@@ -195,6 +345,7 @@ class _$GetImpl implements _Get {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Delete value)? delete,
     TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
     required TResult orElse(),
@@ -289,6 +440,7 @@ class _$CreateImpl implements _Create {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String id) delete,
     required TResult Function(InvoiceQuery query) get,
     required TResult Function(ImportInvoiceRequest request) create,
   }) {
@@ -298,6 +450,7 @@ class _$CreateImpl implements _Create {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? delete,
     TResult? Function(InvoiceQuery query)? get,
     TResult? Function(ImportInvoiceRequest request)? create,
   }) {
@@ -307,6 +460,7 @@ class _$CreateImpl implements _Create {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? delete,
     TResult Function(InvoiceQuery query)? get,
     TResult Function(ImportInvoiceRequest request)? create,
     required TResult orElse(),
@@ -320,6 +474,7 @@ class _$CreateImpl implements _Create {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Delete value) delete,
     required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
   }) {
@@ -329,6 +484,7 @@ class _$CreateImpl implements _Create {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Delete value)? delete,
     TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
   }) {
@@ -338,6 +494,7 @@ class _$CreateImpl implements _Create {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Delete value)? delete,
     TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
     required TResult orElse(),

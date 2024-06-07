@@ -9,4 +9,5 @@ import '../../data/model/import_invoice/import_invoice.dart';
 abstract class IImportInvoiceRepository extends UseCaseNetwork {
   Future<DataRespone<PagedList<ImportInvoice>>> get(InvoiceQuery query);
   Future<DataRespone> create(ImportInvoiceRequest request);
+  Future<DataRespone> delete(String id);
 }

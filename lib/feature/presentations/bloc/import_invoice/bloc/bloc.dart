@@ -17,6 +17,7 @@ class ImportInvoiceBloc extends Bloc<ImportInvoiceEvent, ImportInvoiceState> {
     await event.when(
       get: (query) async => await _get(query, emitter),
       create: (request) async => await _create(request, emitter),
+      delete: (id) async => await _delete(id, emitter),
     );
   }
 
@@ -34,6 +35,15 @@ class ImportInvoiceBloc extends Bloc<ImportInvoiceEvent, ImportInvoiceState> {
     (await repo.create(request)).on(
       whenSuccess: (data) =>
           emitter(ImportInvoiceState.success(CreateScreen().getMessage())),
+      whenFaild: (msg) => emitter(ImportInvoiceState.failure(msg)),
+    );
+  }
+
+  Future _delete(String id, Emitter emitter) async {
+    emitter(const ImportInvoiceState.loading());
+    (await repo.delete(id)).on(
+      whenSuccess: (data) =>
+          emitter(const ImportInvoiceState.success("Xóa thành công")),
       whenFaild: (msg) => emitter(ImportInvoiceState.failure(msg)),
     );
   }

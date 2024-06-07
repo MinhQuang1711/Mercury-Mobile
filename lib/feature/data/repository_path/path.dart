@@ -27,6 +27,7 @@ class AppRepositoryPath {
   // Import invoice
   static String getImportInvoice = "/api/import-invoice";
   static String createImportInvoice = "/api/import-invoice/create";
+  static String deleteImportInvoice = "/api/import-invoice/delete";
 
   // Dashboard
   static String chartOfDay = "/api/dashboard/statistical-product-of-day";
