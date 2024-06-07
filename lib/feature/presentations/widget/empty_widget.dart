@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
-import 'package:mercury/feature/presentations/widget/button/button.dart';
 import 'package:mercury/gen/assets.gen.dart';
 
 class EmptyWidget extends StatelessWidget {
@@ -30,16 +29,20 @@ class EmptyWidget extends StatelessWidget {
           "Danh sách trống !!!!",
           style: captionMedium.copyWith(color: AppColor.blueShade2),
         ),
+        const SizedBox(height: 10),
         if (onTap != null)
           Container(
-            margin: AppPadding.padding16,
-            width: MediaQuery.of(context).size.width / 2,
-            child: AppButton(
-              label: label ?? "Làm mới trang",
-              buttonSize: ButtonSize.SIZE_32,
-              borderRadius: BorderRadius.circular(10),
+            padding: AppPadding.padding12,
+            decoration: BoxDecoration(
+                shape: BoxShape.circle, color: AppColor.blue.withOpacity(0.2)),
+            child: GestureDetector(
+              onTap: onTap,
+              child: const Icon(
+                Icons.refresh,
+                color: AppColor.blueShade2,
+              ),
             ),
-          )
+          ),
       ],
     );
   }
