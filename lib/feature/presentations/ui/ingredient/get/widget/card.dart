@@ -40,17 +40,17 @@ class IngredientCard extends StatelessWidget {
       children: [
         Text(
           ingredient.name,
-          style: bodyMedium.copyWith(color: AppColor.blueShade2),
+          style: bodyBold.copyWith(color: AppColor.blueShade2),
         ),
         const SizedBox(height: 8),
         Text(
           "Tồn: ${ingredient.weight.formatNumber()} g",
-          style: captionRegular,
+          style: captionRegular.copyWith(color: AppColor.grey5),
         ),
         const SizedBox(height: 4),
         Text(
           "Giá trị: ${valueOfIngredient.formatNumber()} vnd",
-          style: captionRegular,
+          style: captionRegular.copyWith(color: AppColor.grey5),
         ),
       ],
     );

@@ -53,7 +53,7 @@ class SaleProductCard extends StatelessWidget {
   Text _salePrice() {
     return Text(
       "${product.salePrice?.formatNumber() ?? 0} Vnd",
-      style: captionRegular.copyWith(color: AppColor.black),
+      style: captionRegular.copyWith(color: AppColor.grey5),
     );
   }
 
@@ -63,7 +63,7 @@ class SaleProductCard extends StatelessWidget {
         Expanded(
           child: Text(
             product.name ?? "",
-            style: h6Bold.copyWith(color: AppColor.blueShade2),
+            style: bodyBold.copyWith(color: AppColor.blueShade2),
           ),
         ),
         Expanded(

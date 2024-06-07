@@ -62,14 +62,14 @@ class ImportInvoiceCard extends StatelessWidget {
   Text _totalKindOfIngredient() {
     return Text(
       "Tổng loại nguyên liệu: ${invoice.detailImportInvoices?.length}",
-      style: captionRegular,
+      style: captionRegular.copyWith(color: AppColor.grey5),
     );
   }
 
   Text _id() {
     return Text(
       invoice.id ?? "",
-      style: bodyMedium,
+      style: bodyBold.copyWith(color: AppColor.blueShade2),
     );
   }
 }
