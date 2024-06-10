@@ -24,6 +24,7 @@ class DetailSaleInvoiceCard extends StatelessWidget {
       child: Row(
         children: [
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [_name(), const SizedBox(height: 5), _price()],
           ),
           const Spacer(),
