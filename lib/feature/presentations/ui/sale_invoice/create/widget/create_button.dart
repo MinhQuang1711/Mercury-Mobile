@@ -24,10 +24,12 @@ class CreateButton extends StatelessWidget {
       label: "Xác nhận",
       onTap: onSubmit,
     );
-    return BlocBuilder<SaleInvoiceBloc, SaleInvoiceState>(
-      builder: (context, state) => state.maybeMap(
-        orElse: () => button,
-        loading: (value) => button.copyWith(isLoading: true, onTap: () {}),
+    return Expanded(
+      child: BlocBuilder<SaleInvoiceBloc, SaleInvoiceState>(
+        builder: (context, state) => state.maybeMap(
+          orElse: () => button,
+          loading: (value) => button.copyWith(isLoading: true, onTap: () {}),
+        ),
       ),
     );
   }

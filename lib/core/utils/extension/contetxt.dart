@@ -66,10 +66,12 @@ extension ContextEx on BuildContext {
 
   Future<T?> showAppDialog<T>({
     required Widget child,
+    EdgeInsets? insertPadding,
   }) async {
     return await showDialog<T>(
       context: this,
       builder: (_) => Dialog(
+        insetPadding: insertPadding,
         surfaceTintColor: Colors.white,
         backgroundColor: Colors.white,
         shape: RoundedRectangleBorder(

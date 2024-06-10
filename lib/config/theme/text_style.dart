@@ -12,10 +12,12 @@ const hMedium = TextStyle(fontWeight: FontWeight.w500, fontSize: 36);
 
 // HEADING 5
 const h5Bold = TextStyle(fontWeight: FontWeight.w700, fontSize: 24);
+const h5ExtraBold = TextStyle(fontWeight: FontWeight.w900, fontSize: 18);
 const h5Regular = TextStyle(fontWeight: FontWeight.w400, fontSize: 24);
 const h5Medium = TextStyle(fontWeight: FontWeight.w500, fontSize: 24);
 
 // HEADING 6
+const h6ExtraBold = TextStyle(fontWeight: FontWeight.w900, fontSize: 18);
 const h6Bold = TextStyle(fontWeight: FontWeight.w600, fontSize: 18);
 const h6Regular = TextStyle(fontWeight: FontWeight.w400, fontSize: 18);
 const h6Medium = TextStyle(fontWeight: FontWeight.w500, fontSize: 18);
@@ -33,7 +35,7 @@ const captionRegular = TextStyle(fontWeight: FontWeight.w400, fontSize: 15);
 const captionItalic = TextStyle(fontWeight: FontWeight.w400, fontSize: 15);
 
 // DETAIL
-const detailBold = TextStyle(fontWeight: FontWeight.w700, fontSize: 12);
+const detailBold = TextStyle(fontWeight: FontWeight.w800, fontSize: 12);
 const detailMedium = TextStyle(fontWeight: FontWeight.w500, fontSize: 12);
 const detailRegular = TextStyle(fontWeight: FontWeight.w400, fontSize: 12);
 const detailItalic = TextStyle(fontWeight: FontWeight.w400, fontSize: 12);

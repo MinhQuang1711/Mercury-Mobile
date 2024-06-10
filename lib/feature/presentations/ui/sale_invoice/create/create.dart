@@ -7,6 +7,7 @@ import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sale_invoice_cubit/cubit.dart';
 import 'package:mercury/feature/presentations/ui/sale_invoice/create/widget/body.dart';
 import 'package:mercury/feature/presentations/ui/sale_invoice/create/widget/create_button.dart';
+import 'package:mercury/feature/presentations/ui/sale_invoice/create/widget/save_invoice_button.dart';
 import 'package:mercury/feature/presentations/widget/stack/screen_allway_see_bottom.dart';
 
 import '../../../../../config/theme/color.dart';
@@ -43,7 +44,13 @@ class CreateSaleInvoicePage extends StatelessWidget {
         appBar: _appBar(context),
         body: const AppStack(
           backgroundWidget: CreateSaleInvoiceBody(),
-          bottomWidget: CreateButton(),
+          bottomWidget: Row(
+            children: [
+              SaveinvoiceButton(),
+              SizedBox(width: 10),
+              CreateButton(),
+            ],
+          ),
         ),
       ),
     );

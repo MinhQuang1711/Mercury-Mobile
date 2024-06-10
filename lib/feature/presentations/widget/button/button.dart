@@ -73,6 +73,8 @@ class AppButton extends StatelessWidget {
       child: Container(
         padding: currentButtonSize.getPadding(),
         decoration: BoxDecoration(
+          border: Border.all(
+              color: currentButtonType.getBorderColor(color: borderColor)),
           borderRadius: borderRadius ?? currentButtonSize.getBorderRadius(),
           color: currentButtonType.getBackgroundColor(color: backgroundColor),
         ),
