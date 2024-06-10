@@ -19,7 +19,8 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      color: AppColor.white,
       padding: EdgeInsets.symmetric(vertical: 30, horizontal: 16),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -76,7 +77,7 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
         SizedBox(height: 10),
         Text(
           "Giảm giá: ${discount.formatNumber()}",
-          style: captionRegular,
+          style: captionRegular.copyWith(color: AppColor.black),
         ),
         SizedBox(height: 10),
         RichText(
@@ -86,7 +87,7 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
             children: [
               TextSpan(
                 text: "${(total - discount).formatNumber()}",
-                style: captionBold,
+                style: captionBold.copyWith(color: AppColor.black),
               )
             ],
           ),
@@ -101,11 +102,17 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Thông tin chuyển khoản", style: captionBold),
+            Text("Thông tin chuyển khoản",
+                style: captionBold.copyWith(color: AppColor.black)),
             SizedBox(height: 10),
-            Text("Techcombank"),
-            Text("1903 4445 4860 11"),
-            Text("Le Thuy Ngan"),
+            Text(
+              "Techcombank",
+              style: captionRegular.copyWith(color: AppColor.black),
+            ),
+            Text("1903 4445 4860 11",
+                style: captionRegular.copyWith(color: AppColor.black)),
+            Text("Le Thuy Ngan",
+                style: captionRegular.copyWith(color: AppColor.black)),
           ],
         ));
   }
@@ -120,16 +127,21 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
             children: [
               Text(
                 e.name ?? "",
-                style: captionRegular,
+                style: captionRegular.copyWith(color: AppColor.black),
               ),
-              Text("x${e.quantity ?? 1}")
+              Text("x${e.quantity ?? 1}",
+                  style: captionRegular.copyWith(color: AppColor.black))
             ],
           ),
         ),
-        Expanded(child: Text("${(e.price ?? 0).formatNumber()}")),
+        Expanded(
+          child: Text("${(e.price ?? 0).formatNumber()}",
+              style: captionRegular.copyWith(color: AppColor.black)),
+        ),
         SizedBox(width: 10),
         Expanded(
-          child: Text("${((e.price ?? 0) * (e.quantity ?? 0)).formatNumber()}"),
+          child: Text("${((e.price ?? 0) * (e.quantity ?? 0)).formatNumber()}",
+              style: captionRegular.copyWith(color: AppColor.black)),
         ),
       ],
     );
@@ -140,15 +152,19 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
       children: [
         Expanded(
           flex: 2,
-          child: Text("Sản phẩm", style: captionBold.copyWith(fontFamily: "")),
+          child: Text("Sản phẩm",
+              style:
+                  captionBold.copyWith(fontFamily: "", color: AppColor.black)),
         ),
         Expanded(
-            child:
-                Text("Đơn giá", style: captionBold.copyWith(fontFamily: ""))),
+            child: Text("Đơn giá",
+                style: captionBold.copyWith(
+                    fontFamily: "", color: AppColor.black))),
         SizedBox(width: 10),
         Expanded(
             child: Text("Thành tiền",
-                style: captionBold.copyWith(fontFamily: ""))),
+                style: captionBold.copyWith(
+                    fontFamily: "", color: AppColor.black))),
       ],
     );
   }
@@ -157,24 +173,26 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
     return Align(
         child: Text(
       "HÓA ĐƠN BÁN",
-      style: h5ExtraBold.copyWith(fontFamily: ""),
+      style: h5ExtraBold.copyWith(fontFamily: "", color: AppColor.black),
     ));
   }
 
-  Text _createDate() =>
-      Text("Ngày: ${DateTime.now().toDateFormat()}", style: captionRegular);
+  Text _createDate() => Text("Ngày: ${DateTime.now().toDateFormat()}",
+      style: captionRegular.copyWith(color: AppColor.black));
 
   Text _phoneNumber() {
     return Text(
       "Điện thoại: ${UserSingleton.instance.user?.phoneNumber ?? ""}",
-      style: captionRegular,
+      style: captionRegular.copyWith(color: AppColor.black),
     );
   }
 
-  Text _address() => Text("Địa chỉ: $shopAddress", style: captionRegular);
+  Text _address() => Text("Địa chỉ: $shopAddress",
+      style: captionRegular.copyWith(color: AppColor.black));
 
-  Align _shopName() =>
-      Align(child: Text("Mercury.Homebrew", style: h5ExtraBold));
+  Align _shopName() => Align(
+      child: Text("Mercury.Homebrew",
+          style: h5ExtraBold.copyWith(color: AppColor.black)));
 }
 
 const String shopAddress =

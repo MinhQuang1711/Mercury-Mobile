@@ -1,7 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gal/gal.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/theme/color.dart';
@@ -9,9 +8,7 @@ import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sale_invoice_cubit/cubit.dart';
 import 'package:mercury/feature/presentations/widget/button/button.dart';
 import 'package:mercury/feature/presentations/widget/export_sale_invoice.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:screenshot/screenshot.dart';
-import 'package:uuid/v4.dart';
 
 class SaveinvoiceButton extends StatelessWidget {
   const SaveinvoiceButton({super.key});
@@ -44,10 +41,14 @@ class SaveinvoiceButton extends StatelessWidget {
                   ),
                 )
                     .then((bytes) async {
-                  var path = await getExternalStorageDirectories();
-                  var name = UuidV4().generate();
-                  final file = File("$path/$name");
-                  file.writeAsBytes(bytes).then((value) => context.pop());
+                  // var path = await getApplicationDocumentsDirectory();
+                  Gal.putImageBytes(bytes).then((value) => context.pop());
+                  // logError(path.path);
+                  // // GallerySaver.saveImage(path)
+                  // var name = UuidV4().generate();
+                  // final file = File("$path/$name");
+                  // file.writeAsBytesSync(bytes);
+                  // logError(file.readAsBytes());
                 }),
                 buttonType: ButtonType.OUTLINE,
               ),
