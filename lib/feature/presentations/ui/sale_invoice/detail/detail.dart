@@ -74,21 +74,6 @@ class DetailSaleInvoiceScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              GreyContainer(
-                child: Padding(
-                  padding: AppPadding.padding12,
-                  child: Column(
-                    children: [
-                      PriceOfProduct(price: totalPrice),
-                      TotalDiscount(price: totalDiscount),
-                      const Divider(),
-                      FinalPrice(
-                        initPrice: finalPrice,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
               const SizedBox(height: 100),
             ],
           ),
