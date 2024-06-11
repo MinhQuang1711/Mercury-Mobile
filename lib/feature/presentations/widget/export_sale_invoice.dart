@@ -3,6 +3,7 @@ import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/core/utils/extension/datetime_ex.dart';
 import 'package:mercury/core/utils/extension/number.dart';
+import 'package:mercury/core/utils/singleton/qr_code_singleton.dart';
 import 'package:mercury/core/utils/singleton/user_singleton.dart';
 import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
 import 'package:mercury/feature/domain/model/sale_invoice_request/sale_invoice_request.dart';
@@ -19,39 +20,55 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    QRCodeService.instance
+      ..setBankId("TCB")
+      ..setAccountNo("19034445486011")
+      ..setAmount((total - discount))
+      ..setAccountName("LE THUY NGAN");
     return Container(
       color: AppColor.white,
-      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 16),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _shopName(),
-          SizedBox(height: 30),
-          _address(),
-          SizedBox(height: 5),
-          _phoneNumber(),
-          Divider(thickness: 1, color: AppColor.grey5),
-          _createDate(),
-          SizedBox(height: 10),
-          _title(),
-          SizedBox(height: 10),
-          _rowTable(),
-          SizedBox(height: 10),
-          Column(
-            children: (saleInvoice.detailSaleInvoice ?? [])
-                .map((e) => _card(e))
-                .toList(),
-          ),
-          SizedBox(height: 50),
-          Row(
-            children: [
-              _infoTranfer(),
-              _infoBill(),
-            ],
-          ),
-          SizedBox(height: 50),
-        ],
+      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 16),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _shopName(),
+            const SizedBox(height: 30),
+            _address(),
+            const SizedBox(height: 5),
+            _phoneNumber(),
+            const Divider(thickness: 1, color: AppColor.grey5),
+            _createDate(),
+            const SizedBox(height: 10),
+            _title(),
+            const SizedBox(height: 10),
+            _rowTable(),
+            const SizedBox(height: 10),
+            Column(
+              children: (saleInvoice.detailSaleInvoice ?? [])
+                  .map((e) => _card(e))
+                  .toList(),
+            ),
+            const SizedBox(height: 50),
+            Row(
+              children: [
+                _infoTranfer(),
+                _infoBill(),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Align(
+              alignment: Alignment.center,
+              child: SizedBox(
+                height: 150,
+                width: 150,
+                child: Image.network(QRCodeService.instance.getQrCode),
+              ),
+            ),
+            // const SizedBox(height: 50),
+          ],
+        ),
       ),
     );
   }
@@ -67,26 +84,26 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
             style: captionRegular.copyWith(color: AppColor.black),
             children: [
               TextSpan(
-                text: "${total.formatNumber()}",
+                text: total.formatNumber(),
                 style: captionBold,
               )
             ],
           ),
         ),
         // Text("Tổng: ", style: captionBold),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Text(
           "Giảm giá: ${discount.formatNumber()}",
           style: captionRegular.copyWith(color: AppColor.black),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         RichText(
           text: TextSpan(
             text: "Tổng thu: ",
             style: captionRegular.copyWith(color: AppColor.black),
             children: [
               TextSpan(
-                text: "${(total - discount).formatNumber()}",
+                text: (total - discount).formatNumber(),
                 style: captionBold.copyWith(color: AppColor.black),
               )
             ],
@@ -104,7 +121,7 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
           children: [
             Text("Thông tin chuyển khoản",
                 style: captionBold.copyWith(color: AppColor.black)),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               "Techcombank",
               style: captionRegular.copyWith(color: AppColor.black),
@@ -135,12 +152,12 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: Text("${(e.price ?? 0).formatNumber()}",
+          child: Text((e.price ?? 0).formatNumber(),
               style: captionRegular.copyWith(color: AppColor.black)),
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Expanded(
-          child: Text("${((e.price ?? 0) * (e.quantity ?? 0)).formatNumber()}",
+          child: Text(((e.price ?? 0) * (e.quantity ?? 0)).formatNumber(),
               style: captionRegular.copyWith(color: AppColor.black)),
         ),
       ],
@@ -160,7 +177,7 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
             child: Text("Đơn giá",
                 style: captionBold.copyWith(
                     fontFamily: "", color: AppColor.black))),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Expanded(
             child: Text("Thành tiền",
                 style: captionBold.copyWith(
