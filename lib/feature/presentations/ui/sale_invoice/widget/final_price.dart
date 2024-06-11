@@ -8,7 +8,8 @@ import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sal
 import 'package:mercury/feature/presentations/ui/sale_invoice/widget/info.dart';
 
 class FinalPrice extends StatelessWidget {
-  const FinalPrice({super.key});
+  const FinalPrice({super.key, this.initPrice});
+  final double? initPrice;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class FinalPrice extends StatelessWidget {
         final double price = state.totalPrice - state.totalDiscount;
         return SaleInvoiceInfo(
           title: "Tổng sau giảm",
-          content: price.formatNumber(),
+          content: (initPrice ?? price).formatNumber(),
           contentStyle: bodyBold.copyWith(color: AppColor.blue),
         );
       },

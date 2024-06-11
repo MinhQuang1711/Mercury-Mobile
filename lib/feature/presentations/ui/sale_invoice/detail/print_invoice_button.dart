@@ -1,54 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gal/gal.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
-import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sale_invoice_cubit/cubit.dart';
+import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
+import 'package:mercury/feature/domain/model/sale_invoice/sale_invoice.dart';
+import 'package:mercury/feature/domain/model/sale_invoice_request/sale_invoice_request.dart';
 import 'package:mercury/feature/presentations/widget/button/button.dart';
 import 'package:mercury/feature/presentations/widget/export_sale_invoice.dart';
 import 'package:screenshot/screenshot.dart';
 
-class SaveinvoiceButton extends StatelessWidget {
-  const SaveinvoiceButton({super.key});
+class SaveInvoiceButton extends StatelessWidget {
+  const SaveInvoiceButton(
+      {super.key,
+      required this.saleInvoice,
+      required this.total,
+      required this.discount});
+  final SaleInvoice saleInvoice;
+  final double total;
+  final double discount;
 
   @override
   Widget build(BuildContext context) {
+    var detailSaleInvoice = (saleInvoice.detailSaleInvoices ?? [])
+        .map((e) => ComboBox(
+              quantity: e.quantity,
+              name: e.product?.name,
+              price: e.product?.salePrice,
+            ))
+        .toList();
+    var invoiceRequest =
+        SaleInvoiceRequest(detailSaleInvoice: detailSaleInvoice);
     void onTap() {
       ScreenshotController controller = ScreenshotController();
-      final cubit = context.read<CommonSaleInvoiceCubit>();
+
       context.showAppDialog(
         insertPadding: AppPadding.padding4,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             ExportSaleInvoiceScreen(
-              total: cubit.state.totalPrice,
-              saleInvoice: cubit.state.request,
-              discount: cubit.state.totalDiscount,
+              total: total,
+              discount: discount,
+              saleInvoice: invoiceRequest,
             ),
             Padding(
               padding: AppPadding.padding14,
               child: AppButton(
                 label: "Tải xuống",
                 onTap: () => controller
-                    .captureFromWidget(
-                  ExportSaleInvoiceScreen(
-                    total: cubit.state.totalPrice,
-                    saleInvoice: cubit.state.request,
-                    discount: cubit.state.totalDiscount,
-                  ),
-                )
+                    .captureFromWidget(ExportSaleInvoiceScreen(
+                        total: total,
+                        discount: discount,
+                        saleInvoice: invoiceRequest))
                     .then((bytes) async {
-                  // var path = await getApplicationDocumentsDirectory();
                   Gal.putImageBytes(bytes).then((value) => context.pop());
-                  // logError(path.path);
-                  // // GallerySaver.saveImage(path)
-                  // var name = UuidV4().generate();
-                  // final file = File("$path/$name");
-                  // file.writeAsBytesSync(bytes);
-                  // logError(file.readAsBytes());
                 }),
                 buttonType: ButtonType.OUTLINE,
               ),

@@ -43,8 +43,8 @@ class CreateSaleInvoiceBody extends StatelessWidget {
             padding: AppPadding.padding12,
             child: Column(
               children: [
-                PriceOfProduct(price: 0),
-                TotalDiscount(price: 0),
+                PriceOfProduct(),
+                TotalDiscount(),
                 Divider(),
                 FinalPrice(),
               ],

@@ -6,8 +6,8 @@ import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sal
 import 'package:mercury/feature/presentations/ui/sale_invoice/widget/info.dart';
 
 class PriceOfProduct extends StatelessWidget {
-  const PriceOfProduct({super.key, required this.price});
-  final double price;
+  const PriceOfProduct({super.key, this.price});
+  final double? price;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,8 @@ class PriceOfProduct extends StatelessWidget {
           current.request.detailSaleInvoice,
       builder: (context, state) {
         return SaleInvoiceInfo(
-            title: "Tiền sản phẩm", content: state.totalPrice.formatNumber());
+            title: "Tiền sản phẩm",
+            content: (price ?? state.totalPrice).formatNumber());
       },
     );
   }
