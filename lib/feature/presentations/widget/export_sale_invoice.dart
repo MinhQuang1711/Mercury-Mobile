@@ -28,47 +28,45 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
     return Container(
       color: AppColor.white,
       padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 16),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _shopName(),
-            const SizedBox(height: 30),
-            _address(),
-            const SizedBox(height: 5),
-            _phoneNumber(),
-            const Divider(thickness: 1, color: AppColor.grey5),
-            _createDate(),
-            const SizedBox(height: 10),
-            _title(),
-            const SizedBox(height: 10),
-            _rowTable(),
-            const SizedBox(height: 10),
-            Column(
-              children: (saleInvoice.detailSaleInvoice ?? [])
-                  .map((e) => _card(e))
-                  .toList(),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _shopName(),
+          const SizedBox(height: 30),
+          _address(),
+          const SizedBox(height: 5),
+          _phoneNumber(),
+          const Divider(thickness: 1, color: AppColor.grey5),
+          _createDate(),
+          const SizedBox(height: 10),
+          _title(),
+          const SizedBox(height: 10),
+          _rowTable(),
+          const SizedBox(height: 10),
+          Column(
+            children: (saleInvoice.detailSaleInvoice ?? [])
+                .map((e) => _card(e))
+                .toList(),
+          ),
+          const SizedBox(height: 50),
+          Row(
+            children: [
+              _infoTranfer(),
+              _infoBill(),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Align(
+            alignment: Alignment.center,
+            child: SizedBox(
+              height: 150,
+              width: 150,
+              child: Image.network(QRCodeService.instance.getQrCode),
             ),
-            const SizedBox(height: 50),
-            Row(
-              children: [
-                _infoTranfer(),
-                _infoBill(),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                height: 150,
-                width: 150,
-                child: Image.network(QRCodeService.instance.getQrCode),
-              ),
-            ),
-            // const SizedBox(height: 50),
-          ],
-        ),
+          ),
+          // const SizedBox(height: 50),
+        ],
       ),
     );
   }
