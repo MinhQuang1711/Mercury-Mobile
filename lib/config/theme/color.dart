@@ -21,7 +21,7 @@ class AppColor {
   static const Color redLight = Color(0XFFEBB4BD);
 
   static const Color blueShade2 = Color(0XFF002456);
-  static const Color blue = Color(0XFF024ADF);
+  static const Color blue = Color.fromARGB(255, 40, 111, 255);
   static const Color blueShade3 = Color(0XFF0240BF);
 
   static const Color pink = Color(0XFFFD3259);

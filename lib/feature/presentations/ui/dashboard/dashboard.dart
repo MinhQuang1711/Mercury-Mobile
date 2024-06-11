@@ -7,9 +7,7 @@ import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/chart.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/create_invoice_row.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/overview_bar.dart';
-
-import 'widget/gradient_background.dart';
-import 'widget/white_background.dart';
+import 'package:mercury/gen/assets.gen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -26,43 +24,51 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          const GradientBackGround(),
-          const WhiteBackground(),
-          _body(context),
-        ],
+      appBar: AppBar(
+        backgroundColor: AppColor.blue,
+        centerTitle: true,
+        title: Text(
+          "Mercury.Homebrew",
+          style: h6ExtraBold.copyWith(color: AppColor.white),
+        ),
+      ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(Assets.image.flower.keyName),
+                fit: BoxFit.fill)),
+        child: SingleChildScrollView(
+          child: Container(
+            child: _body(context),
+          ),
+        ),
       ),
     );
   }
 
-  Positioned _body(BuildContext context) {
-    return Positioned(
-      top: 20,
-      right: 0,
-      left: 0,
-      child: Padding(
-        padding: AppPadding.padding12,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Mercury.Homebrew",
-              style: h5Bold.copyWith(color: AppColor.white),
+  Widget _body(BuildContext context) {
+    return Padding(
+      padding: AppPadding.padding12,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Text(
+          //   "Mercury.Homebrew",
+          //   style: h5Bold.copyWith(color: AppColor.darkRed),
+          // ),
+          // const SizedBox(height: 20),
+          const OverViewBar(),
+          const CreateInvoiceRow(),
+          Container(
+            decoration: BoxDecoration(
+              color: AppColor.white,
+              borderRadius: AppContainerBorder.radius6,
+              boxShadow: defaultBoxShadow,
             ),
-            const SizedBox(height: 20),
-            const OverViewBar(),
-            const CreateInvoiceRow(),
-            Container(
-              decoration: BoxDecoration(
-                color: AppColor.white,
-                borderRadius: AppContainerBorder.radius6,
-                boxShadow: defaultBoxShadow,
-              ),
-              child: const Chart(),
-            ),
-          ],
-        ),
+            child: const Chart(),
+          ),
+        ],
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../config/const/padding.dart';
+import '../../../../../gen/assets.gen.dart';
 
 class WhiteBackground extends StatelessWidget {
   const WhiteBackground({super.key});
@@ -13,6 +14,7 @@ class WhiteBackground extends StatelessWidget {
         padding: AppPadding.padding12,
         height: MediaQuery.of(context).size.height,
         color: const Color.fromARGB(255, 241, 239, 235),
+        child: Image.asset(Assets.image.flower.keyName),
       ),
     );
   }
