@@ -8,9 +8,11 @@ import 'package:mercury/feature/presentations/widget/card_container.dart';
 import 'package:mercury/feature/presentations/widget/delete_icon.dart';
 
 class SaleInvoiceCard extends StatelessWidget {
-  const SaleInvoiceCard({super.key, required this.saleInvoice, this.onDelete});
+  const SaleInvoiceCard(
+      {super.key, required this.saleInvoice, this.onDelete, this.onTap});
   final SaleInvoice saleInvoice;
   final Function(SaleInvoice)? onDelete;
+  final Function(SaleInvoice)? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class SaleInvoiceCard extends StatelessWidget {
     void onTapDelete() => onDelete?.call(saleInvoice);
 
     return ContainerCard(
+      onTap: () => onTap?.call(saleInvoice),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

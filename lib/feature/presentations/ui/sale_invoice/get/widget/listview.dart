@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mercury/config/router/path.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/get_sale_invoice/cubit.dart';
@@ -30,6 +32,7 @@ class _ListSaleInvoiceState extends State<ListSaleInvoice> {
             itemCount: state.list.length,
             itemBuilder: (context, index) => SaleInvoiceCard(
               saleInvoice: state.list[index],
+              onTap: (p0) => context.push(AppPath.detailSaleInvoice, extra: p0),
               onDelete: (val) => context.showBottomSheetAndListen(
                 child: DeleteSaleInvoiceScreen(saleInvoice: val),
                 handleWhenHasValue: () => bloc.add(defaultSaleInvoiceEvent),
