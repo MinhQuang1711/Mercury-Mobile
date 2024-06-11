@@ -61,10 +61,16 @@ class ChartOfDay extends StatelessWidget {
 
 var chartColors = [
   const Color.fromARGB(255, 255, 219, 111),
-  Color.fromARGB(255, 112, 255, 117),
-  Color.fromARGB(255, 221, 76, 125),
-  Color.fromARGB(255, 25, 147, 247),
-  Color.fromARGB(255, 189, 122, 255),
-  Color.fromARGB(255, 253, 136, 136),
-  Color.fromARGB(255, 174, 216, 250),
+  const Color.fromARGB(255, 112, 255, 117),
+  const Color.fromARGB(255, 221, 76, 125),
+  const Color.fromARGB(255, 25, 147, 247),
+  const Color.fromARGB(255, 189, 122, 255),
+  const Color.fromARGB(255, 253, 136, 136),
+  const Color.fromARGB(255, 174, 216, 250),
+  const Color.fromARGB(255, 131, 81, 81),
+  const Color.fromARGB(255, 74, 95, 111),
+  const Color.fromARGB(255, 131, 81, 81),
+  const Color.fromARGB(255, 74, 95, 111),
+  const Color.fromARGB(255, 131, 81, 81),
+  const Color.fromARGB(255, 74, 95, 111),
 ];

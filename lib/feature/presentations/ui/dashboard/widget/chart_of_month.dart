@@ -45,16 +45,18 @@ class ChartOfMonth extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: state.chartOfMonth.map((e) {
-              int index = state.chartOfMonth.indexOf(e);
-              return ItemOfChart(
-                content: e.name,
-                color: chartColors[index],
-              );
-            }).toList(),
+          SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: state.chartOfMonth.map((e) {
+                int index = state.chartOfMonth.indexOf(e);
+                return ItemOfChart(
+                  content: e.name,
+                  color: chartColors[index],
+                );
+              }).toList(),
+            ),
           ),
         ],
       ),
