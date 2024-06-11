@@ -7,7 +7,7 @@ extension NumberEx on double {
     } else {
       // Sử dụng NumberFormat để định dạng số với 1-2 chữ số sau dấu phẩy
       var formatter = NumberFormat('#,###.##', 'vi');
-      return formatter.format(this).replaceAll('.', ',');
+      return formatter.format(this);
     }
   }
 }
