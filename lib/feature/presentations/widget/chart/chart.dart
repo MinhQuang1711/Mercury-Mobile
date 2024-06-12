@@ -1,14 +1,41 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/feature/data/model/chart_item/chart_item.dart';
 
 import '../../../../config/theme/color.dart';
-import '../../ui/dashboard/widget/chart_of_day.dart';
 
-class AppChart extends StatelessWidget {
+class AppChart extends StatefulWidget {
   const AppChart({super.key, this.maxY, this.items});
   final double? maxY;
   final List<ChartItem>? items;
+
+  @override
+  State<AppChart> createState() => _AppChartState();
+}
+
+class _AppChartState extends State<AppChart> {
+  int touchedIndex = -1;
+  int oldToucedIndex = -1;
+  void touchCallback(FlTouchEvent event, BarTouchResponse? barTouchResponse) {
+    setState(() {
+      if (!event.isInterestedForInteractions ||
+          barTouchResponse == null ||
+          barTouchResponse.spot == null) {
+        touchedIndex = oldToucedIndex;
+        return;
+      }
+      touchedIndex = barTouchResponse.spot!.touchedBarGroupIndex;
+      oldToucedIndex = touchedIndex;
+    });
+  }
+
+  Color getColor(ChartItem e) {
+    if (widget.items?.indexOf(e) == touchedIndex) {
+      return AppColor.blueShade2;
+    }
+    return AppColor.grey3;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +44,25 @@ class AppChart extends StatelessWidget {
       height: 300,
       child: BarChart(
         BarChartData(
-          maxY: maxY,
+          maxY: widget.maxY,
+          barTouchData: BarTouchData(
+              touchCallback: touchCallback,
+              touchTooltipData: BarTouchTooltipData(
+                getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                  int number = 0;
+                  String name = "";
+
+                  for (int i = 0; i < (widget.items ?? []).length; i++) {
+                    if (group.x == i) {
+                      name = (widget.items ?? [])[i].name ?? "";
+                      number = (widget.items ?? [])[i].numberSold ?? 0;
+                    }
+                  }
+                  return BarTooltipItem('$name\n$number',
+                      captionRegular.copyWith(color: AppColor.blueShade2));
+                },
+                getTooltipColor: (val) => AppColor.grey2.withOpacity(0.5),
+              )),
           gridData: const FlGridData(
             show: true,
             drawVerticalLine: false,
@@ -30,16 +75,16 @@ class AppChart extends StatelessWidget {
             bottomTitles: AxisTitles(),
             topTitles: AxisTitles(),
           ),
-          barGroups: items
+          barGroups: widget.items
               ?.map((e) => BarChartGroupData(
                     barRods: [
                       BarChartRodData(
-                          width: 20,
+                          width: 15,
+                          color: getColor(e),
                           borderRadius: BorderRadius.circular(2),
-                          color: chartColors[items?.indexOf(e) ?? 0],
                           toY: e.numberSold?.toDouble() ?? 1)
                     ],
-                    x: items?.indexOf(e) ?? 0,
+                    x: widget.items?.indexOf(e) ?? 0,
                   ))
               .toList(),
         ),
