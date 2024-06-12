@@ -46,7 +46,7 @@ class OverviewBarByDay extends StatelessWidget {
       required IconData iconData,
       Color? color}) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
         children: [
           Icon(iconData),

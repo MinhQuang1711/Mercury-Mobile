@@ -62,7 +62,8 @@ class CreateInvoiceRow extends StatelessWidget {
       child: Container(
         padding: AppPadding.padding14,
         decoration: BoxDecoration(
-          gradient: gradient,
+          // gradient: gradient,
+          border: Border.all(color: color ?? Colors.white),
           borderRadius: AppContainerBorder.radius6,
         ),
         child: Column(

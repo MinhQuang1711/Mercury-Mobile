@@ -28,10 +28,10 @@ class Chart extends StatelessWidget {
         child: Column(
           children: [
             Text("  Biểu đồ sản phẩm đã bán",
-                style: captionMedium.copyWith(color: AppColor.blue)),
+                style: captionBold.copyWith(color: AppColor.blue)),
             const SizedBox(
               // padding: const EdgeInsets.symmetric(vertical: 20),
-              height: 300,
+              height: 350,
               child: TabBarView(
                 children: [
                   ChartOfDay(),

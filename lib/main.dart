@@ -18,7 +18,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   initInjection();
   TokenSingleton.instance.saveToken(await TokenStorage.instance.getToken());
-  AppConfig.instance.configServer(ServerConfig.company());
+  AppConfig.instance.configServer(ServerConfig.home());
   HttpOverrides.global = MyHttpOverrides();
   runApp(
     MultiBlocProvider(

@@ -32,7 +32,7 @@ class _AppChartState extends State<AppChart> {
 
   Color getColor(ChartItem e) {
     if (widget.items?.indexOf(e) == touchedIndex) {
-      return AppColor.blueTint;
+      return AppColor.blueShade2;
     }
     return AppColor.grey3;
   }
@@ -48,6 +48,10 @@ class _AppChartState extends State<AppChart> {
           barTouchData: BarTouchData(
               touchCallback: touchCallback,
               touchTooltipData: BarTouchTooltipData(
+                tooltipPadding: const EdgeInsets.all(6),
+                tooltipBorder: const BorderSide(
+                  color: AppColor.blueShade2,
+                ),
                 getTooltipItem: (group, groupIndex, rod, rodIndex) {
                   int number = 0;
                   String name = "";
@@ -59,7 +63,7 @@ class _AppChartState extends State<AppChart> {
                     }
                   }
                   return BarTooltipItem('$name\n$number',
-                      captionRegular.copyWith(color: AppColor.blueShade2));
+                      captionMedium.copyWith(color: AppColor.blueShade2));
                 },
                 getTooltipColor: (val) => AppColor.grey2.withOpacity(0.5),
               )),

@@ -46,7 +46,7 @@ class OverviewBarByMonth extends StatelessWidget {
       required IconData iconData,
       Color? color}) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
         children: [
           Icon(iconData),
