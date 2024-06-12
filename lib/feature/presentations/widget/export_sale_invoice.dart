@@ -27,13 +27,13 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
       ..setAccountName("LE THUY NGAN");
     return Container(
       color: AppColor.white,
-      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _shopName(),
-          const SizedBox(height: 30),
+          const SizedBox(height: 20),
           _address(),
           const SizedBox(height: 5),
           _phoneNumber(),
@@ -49,7 +49,7 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
                 .map((e) => _card(e))
                 .toList(),
           ),
-          const SizedBox(height: 50),
+          const SizedBox(height: 30),
           Row(
             children: [
               _infoTranfer(),
@@ -60,8 +60,8 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: SizedBox(
-              height: 150,
-              width: 150,
+              height: 100,
+              width: 100,
               child: Image.network(QRCodeService.instance.getQrCode),
             ),
           ),
