@@ -1,9 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:mercury/config/const/box_shadow.dart';
 import 'package:mercury/feature/data/model/chart_item/chart_item.dart';
 
-import '../../../../config/const/radius.dart';
 import '../../../../config/theme/color.dart';
 import '../../ui/dashboard/widget/chart_of_day.dart';
 
@@ -17,11 +15,6 @@ class AppChart extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 30),
       height: 300,
-      decoration: BoxDecoration(
-        color: AppColor.white,
-        boxShadow: defaultBoxShadow,
-        borderRadius: AppContainerBorder.radius6,
-      ),
       child: BarChart(
         BarChartData(
           maxY: maxY,
