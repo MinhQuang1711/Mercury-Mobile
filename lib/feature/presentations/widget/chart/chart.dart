@@ -32,7 +32,7 @@ class _AppChartState extends State<AppChart> {
 
   Color getColor(ChartItem e) {
     if (widget.items?.indexOf(e) == touchedIndex) {
-      return AppColor.blueShade2;
+      return AppColor.blueTint;
     }
     return AppColor.grey3;
   }
@@ -40,7 +40,7 @@ class _AppChartState extends State<AppChart> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 30),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       height: 300,
       child: BarChart(
         BarChartData(
@@ -81,6 +81,8 @@ class _AppChartState extends State<AppChart> {
                       BarChartRodData(
                           width: 15,
                           color: getColor(e),
+                          backDrawRodData:
+                              BackgroundBarChartRodData(show: true),
                           borderRadius: BorderRadius.circular(2),
                           toY: e.numberSold?.toDouble() ?? 1)
                     ],

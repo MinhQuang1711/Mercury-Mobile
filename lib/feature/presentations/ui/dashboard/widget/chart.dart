@@ -26,10 +26,9 @@ class Chart extends StatelessWidget {
           boxShadow: defaultBoxShadow,
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("  Biểu đồ sản phẩm đã bán",
-                style: captionBold.copyWith(color: AppColor.grey4)),
+                style: captionMedium.copyWith(color: AppColor.blue)),
             const SizedBox(
               // padding: const EdgeInsets.symmetric(vertical: 20),
               height: 300,
@@ -40,14 +39,34 @@ class Chart extends StatelessWidget {
                 ],
               ),
             ),
-            TabBar(
-              tabs: tabs,
-              labelStyle: bodyMedium,
-              unselectedLabelStyle: captionRegular,
-              indicatorSize: TabBarIndicatorSize.tab,
-            ),
+            //  Text("  Biểu đồ sản phẩm đã bán",
+            //     style: captionBold.copyWith(color: AppColor.grey4)),
+            _tabBar(tabs),
           ],
         ),
+      ),
+    );
+  }
+
+  Container _tabBar(List<Tab> tabs) {
+    return Container(
+      height: 38,
+      margin: const EdgeInsets.symmetric(horizontal: 30),
+      padding: const EdgeInsets.all(4),
+      decoration: BoxDecoration(
+        color: AppColor.grey2,
+        borderRadius: AppContainerBorder.radius6,
+      ),
+      child: TabBar(
+        tabs: tabs,
+        indicator: BoxDecoration(
+          color: AppColor.blue,
+          borderRadius: BorderRadius.circular(4),
+        ),
+        labelStyle: captionMedium.copyWith(color: AppColor.white),
+        unselectedLabelStyle: detailRegular,
+        dividerColor: AppColor.grey2,
+        indicatorSize: TabBarIndicatorSize.tab,
       ),
     );
   }
