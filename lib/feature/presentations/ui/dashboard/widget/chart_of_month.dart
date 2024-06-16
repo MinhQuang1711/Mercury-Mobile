@@ -15,8 +15,8 @@ class ChartOfMonth extends StatelessWidget {
       buildWhen: (p, c) => p.chartOfMonth != c.chartOfMonth,
       builder: (context, state) {
         int max = 10;
-        if (state.chartOfDay.isNotEmpty) {
-          max = state.chartOfDay
+        if (state.chartOfMonth.isNotEmpty) {
+          max = state.chartOfMonth
                   .map((e) => e.numberSold ?? 1)
                   .reduce((a, b) => a > b ? a : b) +
               2;

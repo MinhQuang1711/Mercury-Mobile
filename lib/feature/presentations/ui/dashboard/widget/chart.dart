@@ -12,6 +12,7 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     final tabs = [
       const Tab(text: "Hôm nay"),
       const Tab(text: "Theo tháng"),
@@ -19,6 +20,7 @@ class Chart extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Container(
+        height: size.height / 1.5,
         padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
           borderRadius: AppContainerBorder.radius6,
@@ -26,13 +28,15 @@ class Chart extends StatelessWidget {
           boxShadow: defaultBoxShadow,
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("  Biểu đồ sản phẩm đã bán",
                 style: captionBold.copyWith(color: AppColor.blue)),
-            const SizedBox(
+            // const SizedBox(height: 30),
+            SizedBox(
               // padding: const EdgeInsets.symmetric(vertical: 20),
-              height: 350,
-              child: TabBarView(
+              height: size.height / 2,
+              child: const TabBarView(
                 children: [
                   ChartOfDay(),
                   ChartOfMonth(),

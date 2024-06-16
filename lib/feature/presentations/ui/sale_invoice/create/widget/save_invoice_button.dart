@@ -20,43 +20,38 @@ class SaveinvoiceButton extends StatelessWidget {
       final cubit = context.read<CommonSaleInvoiceCubit>();
       context.showAppDialog(
         insertPadding: AppPadding.padding4,
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height / 3,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ExportSaleInvoiceScreen(
+              total: cubit.state.totalPrice,
+              saleInvoice: cubit.state.request,
+              discount: cubit.state.totalDiscount,
+            ),
+            AppButton(
+              label: "Tải xuống",
+              buttonSize: ButtonSize.SIZE_24,
+              onTap: () => controller
+                  .captureFromWidget(
                 ExportSaleInvoiceScreen(
                   total: cubit.state.totalPrice,
                   saleInvoice: cubit.state.request,
                   discount: cubit.state.totalDiscount,
                 ),
-                AppButton(
-                  label: "Tải xuống",
-                  buttonSize: ButtonSize.SIZE_24,
-                  onTap: () => controller
-                      .captureFromWidget(
-                    ExportSaleInvoiceScreen(
-                      total: cubit.state.totalPrice,
-                      saleInvoice: cubit.state.request,
-                      discount: cubit.state.totalDiscount,
-                    ),
-                  )
-                      .then((bytes) async {
-                    // var path = await getApplicationDocumentsDirectory();
-                    Gal.putImageBytes(bytes).then((value) => context.pop());
-                    // logError(path.path);
-                    // // GallerySaver.saveImage(path)
-                    // var name = UuidV4().generate();
-                    // final file = File("$path/$name");
-                    // file.writeAsBytesSync(bytes);
-                    // logError(file.readAsBytes());
-                  }),
-                  buttonType: ButtonType.OUTLINE,
-                ),
-              ],
+              )
+                  .then((bytes) async {
+                // var path = await getApplicationDocumentsDirectory();
+                Gal.putImageBytes(bytes).then((value) => context.pop());
+                // logError(path.path);
+                // // GallerySaver.saveImage(path)
+                // var name = UuidV4().generate();
+                // final file = File("$path/$name");
+                // file.writeAsBytesSync(bytes);
+                // logError(file.readAsBytes());
+              }),
+              buttonType: ButtonType.OUTLINE,
             ),
-          ),
+          ],
         ),
       );
     }
