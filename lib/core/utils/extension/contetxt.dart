@@ -107,7 +107,7 @@ extension ContextEx on BuildContext {
     DateTime? lastDate,
     DateTimeRange? initDateRange,
   }) async {
-    return await showAppDialog<DateTimeRange?>(
+    var dateRanged = await showAppDialog<DateTimeRange?>(
       child: SizedBox(
         height: MediaQuery.of(this).size.width,
         child: DateRangePickerDialog(
@@ -120,5 +120,11 @@ extension ContextEx on BuildContext {
         ),
       ),
     );
+
+    return dateRanged != null
+        ? DateTimeRange(
+            start: dateRanged.start,
+            end: dateRanged.end.copyWith(hour: 23, minute: 59, second: 59))
+        : null;
   }
 }
