@@ -11,11 +11,13 @@ extension NumberEx on double {
     }
   }
 
-  String formatNumber() {
+  String formatNumber({bool? symbol}) {
     if (this >= 1000000) {
-      return '${(this / 1000000).toStringAsFixed(2)} triệu';
+      String formated = (this / 1000000).toStringAsFixed(2);
+      return symbol == false ? formated : '$formated triệu';
     } else {
-      final format = NumberFormat.currency(locale: 'vi_VN', symbol: 'VND');
+      final format = NumberFormat.currency(
+          locale: 'vi_VN', symbol: symbol == false ? "" : 'VND');
       return format.format(this);
     }
   }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
-import 'package:mercury/feature/presentations/ui/dashboard/widget/create_invoice_row.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/overview_bar.dart';
 
 import 'widget/chart.dart';
@@ -43,7 +42,8 @@ class DashboardPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           OverViewBar(),
-          CreateInvoiceRow(),
+          SizedBox(height: 10),
+          // CreateInvoiceRow(),
           Chart(),
         ],
       ),

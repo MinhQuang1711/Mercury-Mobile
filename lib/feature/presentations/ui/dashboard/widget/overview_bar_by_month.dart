@@ -17,16 +17,22 @@ class OverviewBarByMonth extends StatelessWidget {
       builder: (context, state) {
         return Column(
           children: [
-            _info(
-              title: "Doanh thu",
-              iconData: Icons.inventory_2_outlined,
-              value: state.financialRecordOfMonth.revenue ?? 0,
+            Row(
+              children: [
+                _bussinessInfo(
+                  title: "Doanh thu",
+                  value: state.financialRecordOfMonth.revenue ?? 0,
+                ),
+                _bussinessInfo(
+                  title: "Lợi nhuận",
+                  color: Colors.greenAccent.shade700,
+                  value: state.financialRecordOfMonth.profit ?? 0,
+                )
+              ],
             ),
-            _info(
-              title: "Lãi sản phẩm",
-              color: AppColor.green,
-              iconData: Icons.attach_money_rounded,
-              value: state.financialRecordOfMonth.profit ?? 0,
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 5),
+              child: Divider(),
             ),
             _info(
               title: "Nhập hàng",
@@ -40,34 +46,54 @@ class OverviewBarByMonth extends StatelessWidget {
     );
   }
 
+  Expanded _bussinessInfo(
+      {required String title, required double value, Color? color}) {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: captionRegular.copyWith(color: AppColor.grey5),
+          ),
+          const SizedBox(height: 5),
+          RichText(
+              text: TextSpan(
+                  text: value.formatNumber(symbol: false),
+                  style: h3Bold.copyWith(color: color ?? AppColor.blueShade2),
+                  children: [
+                TextSpan(
+                    text: value > 1000000 ? " triệu" : " VND",
+                    style: captionMedium.copyWith(color: AppColor.grey5))
+              ]))
+        ],
+      ),
+    );
+  }
+
   Widget _info(
       {required String title,
       required double value,
       required IconData iconData,
       Color? color}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        children: [
-          Icon(iconData),
-          const SizedBox(width: 10),
-          Expanded(
+    return Row(
+      children: [
+        Expanded(
+          child: Text(
+            title,
+            style: captionRegular.copyWith(color: AppColor.grey5),
+          ),
+        ),
+        Expanded(
+          child: Align(
+            alignment: Alignment.centerRight,
             child: Text(
-              title,
-              style: bodyRegular,
+              value.formatNumber(),
+              style: captionMedium.copyWith(color: color ?? AppColor.blue),
             ),
           ),
-          Expanded(
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                value.formatNumber(),
-                style: captionBold.copyWith(color: color ?? AppColor.blue),
-              ),
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 }

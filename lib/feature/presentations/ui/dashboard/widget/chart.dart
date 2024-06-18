@@ -20,7 +20,7 @@ class Chart extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Container(
-        height: size.height / 1.5,
+        height: size.height * (2 / 4),
         padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
           borderRadius: AppContainerBorder.radius6,
@@ -30,12 +30,10 @@ class Chart extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("  Biểu đồ sản phẩm đã bán",
+            Text("Biểu đồ sản phẩm đã bán",
                 style: captionBold.copyWith(color: AppColor.blue)),
-            // const SizedBox(height: 30),
             SizedBox(
-              // padding: const EdgeInsets.symmetric(vertical: 20),
-              height: size.height / 2,
+              height: size.height * (2 / 5),
               child: const TabBarView(
                 children: [
                   ChartOfDay(),
@@ -43,8 +41,6 @@ class Chart extends StatelessWidget {
                 ],
               ),
             ),
-            //  Text("  Biểu đồ sản phẩm đã bán",
-            //     style: captionBold.copyWith(color: AppColor.grey4)),
             _tabBar(tabs),
           ],
         ),
