@@ -60,7 +60,7 @@ class OverviewBarByMonth extends StatelessWidget {
           RichText(
               text: TextSpan(
                   text: value.formatNumber(symbol: false),
-                  style: h3Bold.copyWith(color: color ?? AppColor.blueShade2),
+                  style: h4Bold.copyWith(color: color ?? AppColor.blueShade2),
                   children: [
                 TextSpan(
                     text: value > 1000000 ? " triệu" : " VND",
@@ -88,7 +88,7 @@ class OverviewBarByMonth extends StatelessWidget {
           child: Align(
             alignment: Alignment.centerRight,
             child: Text(
-              value.formatNumber(),
+              value.formatNumber(symbol: false) + value.getUnit(),
               style: captionMedium.copyWith(color: color ?? AppColor.blue),
             ),
           ),

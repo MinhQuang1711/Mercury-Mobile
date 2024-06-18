@@ -1,6 +1,13 @@
 import 'package:intl/intl.dart';
 
 extension NumberEx on double {
+  String getUnit() {
+    if (this > 1000 && this < 1000000) {
+      return " nghìn";
+    }
+    return " triệu";
+  }
+
   String formatDouble() {
     if (this == roundToDouble()) {
       return NumberFormat('#,###', 'vi').format(this);
@@ -12,13 +19,15 @@ extension NumberEx on double {
   }
 
   String formatNumber({bool? symbol}) {
-    if (this >= 1000000) {
-      String formated = (this / 1000000).toStringAsFixed(2);
-      return symbol == false ? formated : '$formated triệu';
-    } else {
-      final format = NumberFormat.currency(
-          locale: 'vi_VN', symbol: symbol == false ? "" : 'VND');
-      return format.format(this);
+    double oneMilion = 1000000;
+    double oneThousand = 1000;
+    double oneHunderedThousand = 100000;
+    if (this >= oneThousand && this < oneHunderedThousand) {
+      String formated = (this / oneThousand).formatDouble();
+      return symbol == false ? formated : getUnit();
     }
+
+    String formated = (this / oneMilion).toStringAsFixed(2);
+    return symbol == false ? formated : '$formated triệu';
   }
 }
