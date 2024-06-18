@@ -6,10 +6,7 @@ extension NumberEx on double {
   static double tenThounsebd = 10000;
   static double oneHunderedThousand = 100000;
   String getUnit() {
-    if (this < oneMilion) {
-      return " nghìn";
-    }
-    return " triệu";
+    return this < oneMilion ? " nghìn" : " triệu";
   }
 
   String formatDouble() {
@@ -24,12 +21,7 @@ extension NumberEx on double {
 
   String formatNumber({bool? symbol}) {
     double number = this;
-    if (this < oneMilion) {
-      number = this / oneThounsand;
-    } else {
-      number = this / oneMilion;
-    }
-
+    this < oneMilion ? number = this / oneThounsand : number = this / oneMilion;
     return symbol == false
         ? number.formatDouble()
         : number.formatDouble() + getUnit();
