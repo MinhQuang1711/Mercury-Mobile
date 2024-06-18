@@ -1,9 +1,15 @@
 import 'package:intl/intl.dart';
 
 extension NumberEx on double {
+  static double oneThounsand = 1000;
+  static double oneMilion = 1000000;
+  static double tenThounsebd = 10000;
+  static double oneHunderedThousand = 100000;
   String getUnit() {
-    if (this > 1000 && this < 1000000) {
+    if (this < oneHunderedThousand) {
       return " nghìn";
+    } else if (this < oneMilion) {
+      return " trăm nghìn";
     }
     return " triệu";
   }
@@ -19,15 +25,17 @@ extension NumberEx on double {
   }
 
   String formatNumber({bool? symbol}) {
-    double oneMilion = 1000000;
-    double oneThousand = 1000;
-    double oneHunderedThousand = 100000;
-    if (this >= oneThousand && this < oneHunderedThousand) {
-      String formated = (this / oneThousand).formatDouble();
-      return symbol == false ? formated : getUnit();
+    double number = this;
+    if (this < oneHunderedThousand) {
+      number = this / oneThounsand;
+    } else if (this < oneMilion) {
+      number = this / oneThounsand;
+    } else {
+      number = this / oneMilion;
     }
 
-    String formated = (this / oneMilion).toStringAsFixed(2);
-    return symbol == false ? formated : '$formated triệu';
+    return symbol == false
+        ? number.formatDouble()
+        : number.formatDouble() + getUnit();
   }
 }

@@ -6,6 +6,7 @@ import 'package:mercury/feature/presentations/bloc/dashboard/state/state.dart';
 
 import '../../../../../config/theme/color.dart';
 import '../../../../../config/theme/text_style.dart';
+import 'bussiness_info.dart';
 
 class OverviewBarByDay extends StatelessWidget {
   const OverviewBarByDay({super.key});
@@ -17,16 +18,22 @@ class OverviewBarByDay extends StatelessWidget {
       builder: (context, state) {
         return Column(
           children: [
-            _info(
-              title: "Doanh thu",
-              iconData: Icons.inventory_2_outlined,
-              value: state.financialRecordOfDay.revenue ?? 0,
+            Row(
+              children: [
+                BussinessInfo(
+                  title: "Doanh thu",
+                  value: state.financialRecordOfDay.revenue ?? 0,
+                ),
+                BussinessInfo(
+                  title: "Lợi nhuận",
+                  color: Colors.greenAccent.shade700,
+                  value: state.financialRecordOfDay.profit ?? 0,
+                )
+              ],
             ),
-            _info(
-              color: AppColor.green,
-              title: "Lãi sản phẩm",
-              iconData: Icons.attach_money_rounded,
-              value: state.financialRecordOfDay.profit ?? 0,
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 5),
+              child: Divider(),
             ),
             _info(
               title: "Nhập hàng",
