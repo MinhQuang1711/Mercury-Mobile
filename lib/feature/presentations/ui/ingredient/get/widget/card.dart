@@ -49,7 +49,7 @@ class IngredientCard extends StatelessWidget {
         ),
         const SizedBox(height: 4),
         Text(
-          "Giá trị: ${valueOfIngredient.formatNumber()} vnd",
+          "Giá trị: ${valueOfIngredient.formatNumber()}",
           style: captionRegular.copyWith(color: AppColor.grey5),
         ),
       ],

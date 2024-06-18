@@ -57,7 +57,7 @@ class ImportInvoiceCard extends StatelessWidget {
 
   Text _totalPrice() {
     return Text(
-      "${invoice.totalPrice?.formatNumber()} VND",
+      "${invoice.totalPrice?.formatNumber()}",
       style: captionMedium.copyWith(color: AppColor.blue),
     );
   }

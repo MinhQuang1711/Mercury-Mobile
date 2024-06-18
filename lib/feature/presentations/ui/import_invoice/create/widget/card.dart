@@ -35,7 +35,7 @@ class IngredientCard extends StatelessWidget {
             ),
           ),
           Text(
-            "${comboBox.price?.formatNumber()} VND",
+            "${comboBox.price?.formatNumber()}",
             style: bodyMedium.copyWith(color: AppColor.blue),
           ),
         ],

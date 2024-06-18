@@ -61,7 +61,7 @@ class OverviewBarByDay extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerRight,
               child: Text(
-                "${value.formatNumber()} VND",
+                value.formatNumber(),
                 style: captionBold.copyWith(color: color ?? AppColor.blue),
               ),
             ),

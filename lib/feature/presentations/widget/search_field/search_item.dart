@@ -29,7 +29,7 @@ class AppItemField {
             children: [
               Expanded(child: _item(val.name ?? "")),
               Text(
-                "Giá trị: ${val.discountType == DiscountType.PERCENT.index ? "${val.percentValue?.formatNumber()}%" : "${val.discountValue?.formatNumber()} VND"}",
+                "Giá trị: ${val.discountType == DiscountType.PERCENT.index ? "${val.percentValue?.formatNumber()}%" : "${val.discountValue?.formatNumber()}"}",
                 style: captionMedium.copyWith(color: AppColor.green),
               ),
             ],

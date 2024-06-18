@@ -52,7 +52,7 @@ class SaleProductCard extends StatelessWidget {
 
   Text _salePrice() {
     return Text(
-      "${product.salePrice?.formatNumber() ?? 0} Vnd",
+      "${product.salePrice?.formatNumber() ?? 0}",
       style: captionRegular.copyWith(color: AppColor.grey5),
     );
   }
@@ -76,7 +76,7 @@ class SaleProductCard extends StatelessWidget {
             Icon(Icons.bar_chart_rounded,
                 color: product.getColorOfPercenCost()),
             Text(
-              " ${product.caculatePercentCost().formatNumber()} %",
+              " ${product.caculatePercentCost().formatDouble()} %",
               style:
                   captionMedium.copyWith(color: product.getColorOfPercenCost()),
             )
