@@ -3,9 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/domain/enum/discunt_type.dart';
+import 'package:mercury/feature/presentations/bloc/voucher/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/voucher/cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/voucher/cubit/state/state.dart';
 import 'package:mercury/feature/presentations/ui/voucher/create/widget/create_button.dart';
+import 'package:mercury/feature/presentations/ui/voucher/create/widget/listener.dart';
 import 'package:mercury/feature/presentations/ui/voucher/widget/discount_field.dart';
 import 'package:mercury/feature/presentations/ui/voucher/widget/discount_type_selection.dart';
 import 'package:mercury/feature/presentations/ui/voucher/widget/name_field.dart';
@@ -18,6 +20,7 @@ class CreateVoucherScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => getIt.get<CommonVoucherCubit>()),
+        BlocProvider(create: (_) => getIt.get<VoucherBloc>()),
       ],
       child: const CreateVoucherPage(),
     );
@@ -31,21 +34,23 @@ class CreateVoucherPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
     final cubit = context.read<CommonVoucherCubit>();
-    return Padding(
-      padding: AppPadding.padding12,
-      child: Form(
-        key: formKey,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            VoucherNameField(
-              onChanged: cubit.changedName,
-            ),
-            _discountSelection(cubit),
-            _discountField(cubit),
-            const SizedBox(height: 30),
-            CreateVoucherButton(formKey: formKey),
-          ],
+    return VoucherBlocListener(
+      child: Padding(
+        padding: AppPadding.padding12,
+        child: Form(
+          key: formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              VoucherNameField(
+                onChanged: cubit.changedName,
+              ),
+              _discountSelection(cubit),
+              _discountField(cubit),
+              const SizedBox(height: 30),
+              CreateVoucherButton(formKey: formKey),
+            ],
+          ),
         ),
       ),
     );

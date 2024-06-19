@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Voucher {
   String? get name => throw _privateConstructorUsedError;
+  @JsonKey(toJson: discountTypeToJson)
   DiscountType? get discountType => throw _privateConstructorUsedError;
   double? get percentValue => throw _privateConstructorUsedError;
   double? get discountValue => throw _privateConstructorUsedError;
@@ -33,7 +34,7 @@ abstract class $VoucherCopyWith<$Res> {
   @useResult
   $Res call(
       {String? name,
-      DiscountType? discountType,
+      @JsonKey(toJson: discountTypeToJson) DiscountType? discountType,
       double? percentValue,
       double? discountValue});
 }
@@ -86,7 +87,7 @@ abstract class _$$VoucherImplCopyWith<$Res> implements $VoucherCopyWith<$Res> {
   @useResult
   $Res call(
       {String? name,
-      DiscountType? discountType,
+      @JsonKey(toJson: discountTypeToJson) DiscountType? discountType,
       double? percentValue,
       double? discountValue});
 }
@@ -132,11 +133,15 @@ class __$$VoucherImplCopyWithImpl<$Res>
 @JsonSerializable(createFactory: false)
 class _$VoucherImpl implements _Voucher {
   const _$VoucherImpl(
-      {this.name, this.discountType, this.percentValue, this.discountValue});
+      {this.name,
+      @JsonKey(toJson: discountTypeToJson) this.discountType,
+      this.percentValue,
+      this.discountValue});
 
   @override
   final String? name;
   @override
+  @JsonKey(toJson: discountTypeToJson)
   final DiscountType? discountType;
   @override
   final double? percentValue;
@@ -184,13 +189,14 @@ class _$VoucherImpl implements _Voucher {
 abstract class _Voucher implements Voucher {
   const factory _Voucher(
       {final String? name,
-      final DiscountType? discountType,
+      @JsonKey(toJson: discountTypeToJson) final DiscountType? discountType,
       final double? percentValue,
       final double? discountValue}) = _$VoucherImpl;
 
   @override
   String? get name;
   @override
+  @JsonKey(toJson: discountTypeToJson)
   DiscountType? get discountType;
   @override
   double? get percentValue;

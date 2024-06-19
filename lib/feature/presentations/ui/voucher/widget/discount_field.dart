@@ -20,6 +20,7 @@ class DiscountField extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppTextField(
       hintText: "Nhập giá trị",
+      onChanged: onChanged,
       textInputType: TextInputType.number,
       validator: discountType == DiscountType.VALUE
           ? Validator.discountValue

@@ -6,8 +6,10 @@ import '../../../../domain/model/voucher/voucher.dart';
 
 class CommonVoucherCubit extends Cubit<CommonVoucherState> {
   CommonVoucherCubit()
-      : super(const CommonVoucherState(
-            Voucher(discountType: DiscountType.VALUE)));
+      : super(const CommonVoucherState(Voucher(
+            discountType: DiscountType.VALUE,
+            percentValue: 0,
+            discountValue: 0)));
 
   void changedName(String? val) {
     emit(state.copyWith(voucher: state.voucher.copyWith(name: val)));
