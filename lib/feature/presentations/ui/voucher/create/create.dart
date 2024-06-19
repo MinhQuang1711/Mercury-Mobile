@@ -29,20 +29,24 @@ class CreateVoucherPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
     final cubit = context.read<CommonVoucherCubit>();
     return Padding(
       padding: AppPadding.padding12,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          VoucherNameField(
-            onChanged: cubit.changedName,
-          ),
-          _discountSelection(cubit),
-          _discountField(cubit),
-          const SizedBox(height: 30),
-          const CreateVoucherButton(),
-        ],
+      child: Form(
+        key: formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            VoucherNameField(
+              onChanged: cubit.changedName,
+            ),
+            _discountSelection(cubit),
+            _discountField(cubit),
+            const SizedBox(height: 30),
+            CreateVoucherButton(formKey: formKey),
+          ],
+        ),
       ),
     );
   }

@@ -36,4 +36,30 @@ class Validator {
     }
     return null;
   }
+
+  static String? discountValue(String? val) {
+    String? numberError = doubleNotNull(val);
+    if (numberError != null) {
+      return numberError;
+    }
+    double discountValue = double.tryParse(val ?? "")!;
+    if (discountValue < 0) {
+      return "Giá trị phải lớn hơn 0";
+    }
+    return null;
+  }
+
+  static String? discountPercent(String? val) {
+    String? numberError = doubleNotNull(val);
+    if (numberError != null) {
+      return numberError;
+    }
+    double discountPercent = double.tryParse(val ?? "")!;
+    if (discountPercent < 0) {
+      return "Giá trị phải lớn hơn 0";
+    } else if (discountPercent > 100) {
+      return "Giá trị không được quá 100%";
+    }
+    return null;
+  }
 }

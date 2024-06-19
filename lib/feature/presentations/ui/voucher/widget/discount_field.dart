@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mercury/core/utils/validator/validator.dart';
 import 'package:mercury/feature/domain/enum/discunt_type.dart';
 import 'package:mercury/feature/presentations/widget/textfield/textfield.dart';
 
@@ -20,6 +21,9 @@ class DiscountField extends StatelessWidget {
     return AppTextField(
       hintText: "Nhập giá trị",
       textInputType: TextInputType.number,
+      validator: discountType == DiscountType.VALUE
+          ? Validator.discountValue
+          : Validator.discountPercent,
       sufWidget: Text("| ${discountType == DiscountType.VALUE ? "VND" : "%"}"),
     );
   }
