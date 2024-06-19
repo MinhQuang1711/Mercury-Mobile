@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Voucher {
   String? get name => throw _privateConstructorUsedError;
-  int? get discountType => throw _privateConstructorUsedError;
+  DiscountType? get discountType => throw _privateConstructorUsedError;
   double? get percentValue => throw _privateConstructorUsedError;
   double? get discountValue => throw _privateConstructorUsedError;
 
@@ -33,7 +33,7 @@ abstract class $VoucherCopyWith<$Res> {
   @useResult
   $Res call(
       {String? name,
-      int? discountType,
+      DiscountType? discountType,
       double? percentValue,
       double? discountValue});
 }
@@ -64,7 +64,7 @@ class _$VoucherCopyWithImpl<$Res, $Val extends Voucher>
       discountType: freezed == discountType
           ? _value.discountType
           : discountType // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as DiscountType?,
       percentValue: freezed == percentValue
           ? _value.percentValue
           : percentValue // ignore: cast_nullable_to_non_nullable
@@ -86,7 +86,7 @@ abstract class _$$VoucherImplCopyWith<$Res> implements $VoucherCopyWith<$Res> {
   @useResult
   $Res call(
       {String? name,
-      int? discountType,
+      DiscountType? discountType,
       double? percentValue,
       double? discountValue});
 }
@@ -115,7 +115,7 @@ class __$$VoucherImplCopyWithImpl<$Res>
       discountType: freezed == discountType
           ? _value.discountType
           : discountType // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as DiscountType?,
       percentValue: freezed == percentValue
           ? _value.percentValue
           : percentValue // ignore: cast_nullable_to_non_nullable
@@ -137,7 +137,7 @@ class _$VoucherImpl implements _Voucher {
   @override
   final String? name;
   @override
-  final int? discountType;
+  final DiscountType? discountType;
   @override
   final double? percentValue;
   @override
@@ -184,14 +184,14 @@ class _$VoucherImpl implements _Voucher {
 abstract class _Voucher implements Voucher {
   const factory _Voucher(
       {final String? name,
-      final int? discountType,
+      final DiscountType? discountType,
       final double? percentValue,
       final double? discountValue}) = _$VoucherImpl;
 
   @override
   String? get name;
   @override
-  int? get discountType;
+  DiscountType? get discountType;
   @override
   double? get percentValue;
   @override

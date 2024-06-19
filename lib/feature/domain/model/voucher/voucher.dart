@@ -3,6 +3,7 @@
 //     final voucher = voucherFromJson(jsonString);
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:mercury/feature/domain/enum/discunt_type.dart';
 
 part 'voucher.freezed.dart';
 part 'voucher.g.dart';
@@ -11,7 +12,7 @@ part 'voucher.g.dart';
 class Voucher with _$Voucher {
   const factory Voucher({
     String? name,
-    int? discountType,
+    DiscountType? discountType,
     double? percentValue,
     double? discountValue,
   }) = _Voucher;

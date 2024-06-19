@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/const/padding.dart';
+import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/domain/enum/discunt_type.dart';
+import 'package:mercury/feature/presentations/bloc/voucher/cubit/cubit.dart';
+import 'package:mercury/feature/presentations/bloc/voucher/cubit/state/state.dart';
 import 'package:mercury/feature/presentations/ui/voucher/create/widget/create_button.dart';
 import 'package:mercury/feature/presentations/ui/voucher/widget/discount_field.dart';
 import 'package:mercury/feature/presentations/ui/voucher/widget/discount_type_selection.dart';
@@ -11,17 +15,58 @@ class CreateVoucherScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => getIt.get<CommonVoucherCubit>()),
+      ],
+      child: const CreateVoucherPage(),
+    );
+  }
+}
+
+class CreateVoucherPage extends StatelessWidget {
+  const CreateVoucherPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final cubit = context.read<CommonVoucherCubit>();
     return Padding(
       padding: AppPadding.padding12,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const VoucherNameField(),
-          DiscountTypeSelection(onChanged: (val) {}),
-          const DiscountField(discountType: DiscountType.PERCENT),
+          VoucherNameField(
+            onChanged: cubit.changedName,
+          ),
+          _discountSelection(cubit),
+          _discountField(cubit),
           const SizedBox(height: 30),
           const CreateVoucherButton(),
         ],
+      ),
+    );
+  }
+
+  BlocBuilder<CommonVoucherCubit, CommonVoucherState> _discountSelection(
+      CommonVoucherCubit cubit) {
+    return BlocBuilder<CommonVoucherCubit, CommonVoucherState>(
+      buildWhen: (p, c) => p.voucher.discountType != c.voucher.discountType,
+      builder: (context, state) => DiscountTypeSelection(
+        onChanged: cubit.changedDiscountType,
+        discountType: state.voucher.discountType!,
+      ),
+    );
+  }
+
+  BlocBuilder<CommonVoucherCubit, CommonVoucherState> _discountField(
+      CommonVoucherCubit cubit) {
+    return BlocBuilder<CommonVoucherCubit, CommonVoucherState>(
+      buildWhen: (p, c) => p.voucher.discountType != c.voucher.discountType,
+      builder: (context, state) => DiscountField(
+        discountType: state.voucher.discountType!,
+        onChanged: state.voucher.discountType == DiscountType.VALUE
+            ? cubit.changedDiscountValue
+            : cubit.changedDiscountPercent,
       ),
     );
   }

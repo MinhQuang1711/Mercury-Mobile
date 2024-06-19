@@ -5,8 +5,9 @@ import '../../../../../config/theme/color.dart';
 import '../../../../../config/theme/text_style.dart';
 
 class DiscountTypeSelection extends StatelessWidget {
-  const DiscountTypeSelection({super.key, this.init, required this.onChanged});
-  final DiscountType? init;
+  const DiscountTypeSelection(
+      {super.key, required this.discountType, required this.onChanged});
+  final DiscountType discountType;
   final Function(DiscountType?) onChanged;
 
   @override
@@ -16,13 +17,13 @@ class DiscountTypeSelection extends StatelessWidget {
         _button(
           title: "Giá trị",
           val: DiscountType.VALUE,
-          groupVal: DiscountType.VALUE,
+          groupVal: discountType,
           onChanged: onChanged,
         ),
         _button(
           title: "Phần trăm",
           val: DiscountType.PERCENT,
-          groupVal: DiscountType.VALUE,
+          groupVal: discountType,
           onChanged: onChanged,
         )
       ],

@@ -9,7 +9,12 @@ part of 'voucher.dart';
 Map<String, dynamic> _$$VoucherImplToJson(_$VoucherImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'discountType': instance.discountType,
+      'discountType': _$DiscountTypeEnumMap[instance.discountType],
       'percentValue': instance.percentValue,
       'discountValue': instance.discountValue,
     };
+
+const _$DiscountTypeEnumMap = {
+  DiscountType.PERCENT: 'PERCENT',
+  DiscountType.VALUE: 'VALUE',
+};

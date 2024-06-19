@@ -6,6 +6,7 @@ import 'package:mercury/feature/data/repositories/import_invoice_repository.dart
 import 'package:mercury/feature/data/repositories/ingredient_repository.dart';
 import 'package:mercury/feature/data/repositories/product_repository.dart';
 import 'package:mercury/feature/data/repositories/sale_invoice_repository.dart';
+import 'package:mercury/feature/data/repositories/voucher_repository.dart';
 import 'package:mercury/feature/domain/repositories/i_authen.dart';
 import 'package:mercury/feature/domain/repositories/i_combo_box.dart';
 import 'package:mercury/feature/domain/repositories/i_dashboard.dart';
@@ -13,6 +14,7 @@ import 'package:mercury/feature/domain/repositories/i_import_invoice.dart';
 import 'package:mercury/feature/domain/repositories/i_ingredient.dart';
 import 'package:mercury/feature/domain/repositories/i_product.dart';
 import 'package:mercury/feature/domain/repositories/i_sale_invoice.dart';
+import 'package:mercury/feature/domain/repositories/i_voucher.dart';
 
 void registerRepository() {
   getIt.registerLazySingleton<IAuthenRepository>(() => AuthenRepository());
@@ -26,4 +28,5 @@ void registerRepository() {
       () => ImportInvoiceRepository());
   getIt
       .registerLazySingleton<IDashboardRepository>(() => DashboardRepositoty());
+  getIt.registerLazySingleton<IVoucherRepository>(() => VoucherRepository());
 }
