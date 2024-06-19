@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mercury/config/router/path.dart';
+import 'package:mercury/core/utils/extension/contetxt.dart';
+import 'package:mercury/feature/presentations/ui/voucher/create/create.dart';
 
 import '../../../../../config/theme/color.dart';
 import '../../../../../config/theme/text_style.dart';
@@ -19,11 +21,16 @@ class CreateInvoiceRow extends StatelessWidget {
       context.push(AppPath.createImportInvoice);
     }
 
+    void createVoucher() {
+      context.showDialogAndListen(child: const CreateVoucherScreen());
+    }
+
     return Wrap(
       spacing: 30,
       children: [
         _button(
           label: "Phiếu giảm",
+          onTap: createVoucher,
           assetGenImage: Assets.icon.coupon,
         ),
         _button(
