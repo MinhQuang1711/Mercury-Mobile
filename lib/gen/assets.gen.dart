@@ -12,6 +12,12 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconGen {
   const $AssetsIconGen();
 
+  /// File path: assets/icon/coupon.png
+  AssetGenImage get coupon => const AssetGenImage('assets/icon/coupon.png');
+
+  /// File path: assets/icon/customer.png
+  AssetGenImage get customer => const AssetGenImage('assets/icon/customer.png');
+
   /// File path: assets/icon/empty_box.png
   AssetGenImage get emptyBox =>
       const AssetGenImage('assets/icon/empty_box.png');
@@ -19,11 +25,30 @@ class $AssetsIconGen {
   /// File path: assets/icon/import.png
   AssetGenImage get import => const AssetGenImage('assets/icon/import.png');
 
+  /// File path: assets/icon/import_prod.png
+  AssetGenImage get importProd =>
+      const AssetGenImage('assets/icon/import_prod.png');
+
+  /// File path: assets/icon/invoice.png
+  AssetGenImage get invoice => const AssetGenImage('assets/icon/invoice.png');
+
   /// File path: assets/icon/invoices.png
   AssetGenImage get invoices => const AssetGenImage('assets/icon/invoices.png');
 
+  /// File path: assets/icon/voucher.png
+  AssetGenImage get voucher => const AssetGenImage('assets/icon/voucher.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [emptyBox, import, invoices];
+  List<AssetGenImage> get values => [
+        coupon,
+        customer,
+        emptyBox,
+        import,
+        importProd,
+        invoice,
+        invoices,
+        voucher
+      ];
 }
 
 class $AssetsImageGen {

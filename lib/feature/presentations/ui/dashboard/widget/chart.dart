@@ -3,7 +3,6 @@ import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/chart_of_day.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/chart_of_month.dart';
 
-import '../../../../../config/const/box_shadow.dart';
 import '../../../../../config/const/radius.dart';
 import '../../../../../config/theme/text_style.dart';
 
@@ -22,11 +21,6 @@ class Chart extends StatelessWidget {
       child: Container(
         height: size.height * (2 / 4),
         padding: const EdgeInsets.symmetric(vertical: 12),
-        decoration: BoxDecoration(
-          borderRadius: AppContainerBorder.radius6,
-          color: AppColor.white,
-          boxShadow: defaultBoxShadow,
-        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

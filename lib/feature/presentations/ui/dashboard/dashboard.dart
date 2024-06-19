@@ -5,6 +5,7 @@ import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/overview_bar.dart';
 
 import 'widget/chart.dart';
+import 'widget/create_invoice_row.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -42,8 +43,9 @@ class DashboardPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           OverViewBar(),
-          SizedBox(height: 10),
-          // CreateInvoiceRow(),
+          SizedBox(height: 35),
+          CreateInvoiceRow(),
+          SizedBox(height: 20),
           Chart(),
         ],
       ),
