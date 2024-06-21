@@ -76,7 +76,6 @@ class _DialogAddDetailProductState extends State<DialogAddDetailProduct> {
         hintText: "Nhập định lượng",
         sufWidget: const Text("| gram"),
         validator: Validator.doubleNotNull,
-        textInputType: TextInputType.number,
       ),
     );
   }

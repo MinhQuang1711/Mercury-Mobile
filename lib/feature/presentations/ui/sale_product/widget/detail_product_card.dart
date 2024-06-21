@@ -52,7 +52,7 @@ class DetailProductCard extends StatelessWidget {
 
   Text _totalPrice(double weight, double cost) {
     return Text(
-      "| Thành tiền: ${(weight * cost).formatNumber()}",
+      "| Thành tiền: ${(weight * cost).formatDouble()} VND",
       style: captionMedium,
     );
   }
@@ -67,7 +67,7 @@ class DetailProductCard extends StatelessWidget {
 
   Text _weight() {
     return Text(
-      "Định lượng: ${(comboBox.value ?? 0).formatNumber()} g",
+      "Định lượng: ${(comboBox.value ?? 0).formatDouble()} g",
       style: captionRegular,
     );
   }
