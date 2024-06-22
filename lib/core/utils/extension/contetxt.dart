@@ -102,6 +102,25 @@ extension ContextEx on BuildContext {
     });
   }
 
+  Future<DateTime?> showAppDatePicker({
+    DateTime? firstDate,
+    DateTime? lastDate,
+    DateTime? initDate,
+  }) async {
+    var date = await showAppDialog<DateTime?>(
+      child: SizedBox(
+        height: MediaQuery.of(this).size.height * 0.7,
+        child: DatePickerDialog(
+          initialDate: initDate,
+          helpText: "Chọn ngày",
+          firstDate: firstDate ?? DateTime.now(),
+          lastDate: lastDate ?? DateTime(2030),
+        ),
+      ),
+    );
+    return date;
+  }
+
   Future<DateTimeRange?> showAppDateRangePicker({
     DateTime? firstDate,
     DateTime? lastDate,

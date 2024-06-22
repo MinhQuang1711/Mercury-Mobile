@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mercury/core/utils/injection/get_it.dart';
+import 'package:mercury/feature/presentations/bloc/customer/cubit/cubit.dart';
 import 'package:mercury/feature/presentations/ui/customer/widget/birthday.dart';
 import 'package:mercury/feature/presentations/ui/customer/widget/name_field.dart';
 import 'package:mercury/feature/presentations/ui/customer/widget/phonenumber.dart';
@@ -14,7 +17,12 @@ class CreateCustomerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CreateCustomerPage();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => getIt.get<CommonCustomerCubit>())
+      ],
+      child: const CreateCustomerPage(),
+    );
   }
 }
 
@@ -23,17 +31,24 @@ class CreateCustomerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<CommonCustomerCubit>();
     return Scaffold(
       appBar: _appBar(context),
-      body: const AppStack(
-        bottomWidget: SizedBox(),
+      body: AppStack(
+        bottomWidget: const SizedBox(),
         backgroundWidget: Column(
           children: [
-            CustomerNameField(),
-            SizedBox(height: 15),
-            PhoneNumberNameField(),
-            SizedBox(height: 15),
-            CustomerBirthDayField(),
+            CustomerNameField(
+              onChanged: cubit.changedName,
+            ),
+            const SizedBox(height: 15),
+            PhoneNumberNameField(
+              onChanged: cubit.changedPhoneNumber,
+            ),
+            const SizedBox(height: 15),
+            CustomerBirthDayField(
+              onTap: () => cubit.selectBirthDay(context),
+            ),
           ],
         ),
       ),

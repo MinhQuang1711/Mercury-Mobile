@@ -3,6 +3,7 @@ import 'package:mercury/feature/domain/repositories/i_combo_box.dart';
 import 'package:mercury/feature/domain/repositories/i_dashboard.dart';
 import 'package:mercury/feature/presentations/bloc/authen/cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
+import 'package:mercury/feature/presentations/bloc/customer/cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/dashboard/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/common/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/get_import_invoice/cubit.dart';
@@ -33,4 +34,5 @@ void registerCubit() {
   getIt.registerLazySingleton<DashboardCubit>(
       () => DashboardCubit(getIt.get<IDashboardRepository>()));
   getIt.registerFactory<CommonVoucherCubit>(() => CommonVoucherCubit());
+  getIt.registerFactory<CommonCustomerCubit>(() => CommonCustomerCubit());
 }
