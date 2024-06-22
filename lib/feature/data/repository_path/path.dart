@@ -38,4 +38,6 @@ class AppRepositoryPath {
 
   // Voucher
   static String createVoucher = "/api/voucher/create";
+  // Customer
+  static String createCustomer = "/api/customer/create";
 }
