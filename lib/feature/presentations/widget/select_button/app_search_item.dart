@@ -5,9 +5,10 @@ import 'package:mercury/core/utils/extension/number.dart';
 import 'package:mercury/gen/assets.gen.dart';
 import 'package:select_button_package/model/search_item.dart';
 
+import '../../../data/model/voucher/voucher.dart';
 import '../../../domain/enum/discunt_type.dart';
 import '../../../domain/model/combo_box/combo_box.dart';
-import '../../../domain/model/voucher/voucher.dart';
+// import '../../../domain/model/voucher/voucher.dart';
 
 class AppSearchItem {
   static SearchItem<ComboBox> comboBox(ComboBox val) {
