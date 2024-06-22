@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sale_invoice_cubit/cubit.dart';
-import 'package:searchfield/searchfield.dart';
+import 'package:select_button_package/model/search_item.dart';
 
 import '../../../../../../config/const/padding.dart';
 import '../../../../../../config/theme/text_style.dart';
@@ -21,10 +21,8 @@ class CreateSaleInvoiceBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<CommonSaleInvoiceCubit>();
-    void selectProduct(SearchFieldListItem<ComboBox> val) {
-      if (val.item != null) {
-        cubit.selectDelailSaleInvoice(val.item!);
-      }
+    void selectProduct(SearchItem<ComboBox> val) {
+      cubit.selectDelailSaleInvoice(val.item);
     }
 
     return Column(

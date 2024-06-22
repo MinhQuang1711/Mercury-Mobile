@@ -6,13 +6,13 @@ import 'package:mercury/feature/presentations/bloc/combo_box/state/state.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sale_invoice_cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sale_invoice_cubit/state/state.dart';
 import 'package:mercury/feature/presentations/widget/column_input/column_input.dart';
-import 'package:mercury/feature/presentations/widget/search_field/search_field.dart';
-import 'package:mercury/feature/presentations/widget/search_field/search_item.dart';
-import 'package:searchfield/searchfield.dart';
+import 'package:mercury/feature/presentations/widget/select_button/app_search_item.dart';
+import 'package:mercury/feature/presentations/widget/select_button/select_button.dart';
+import 'package:select_button_package/model/search_item.dart';
 
 class ProductField extends StatelessWidget {
   const ProductField({super.key, this.onTap});
-  final Function(SearchFieldListItem<ComboBox>)? onTap;
+  final Function(SearchItem<ComboBox>)? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +33,13 @@ class ProductField extends StatelessWidget {
               return ColumnInput(
                 isRequied: true,
                 titleLabel: "Sản phẩm",
-                bottomWidget: AppSearchFiled(
-                  onTap: onTap,
-                  autoClear: true,
+                bottomWidget: AppSelectButton(
+                  title: "Chọn sản phẩm",
+                  hintText: "Chọn sản phẩm",
+                  searchHint: "Tìm kiếm sản phẩm theo tên",
                   items: allProducts,
-                  hint: "Chọn sản phẩm",
-                  appItemFields: AppItemField.comboBox,
+                  onTap: onTap ?? (val) {},
+                  appSearchItem: AppSearchItem.product,
                 ),
               );
             });

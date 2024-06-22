@@ -35,6 +35,9 @@ class $AssetsIconGen {
   /// File path: assets/icon/invoices.png
   AssetGenImage get invoices => const AssetGenImage('assets/icon/invoices.png');
 
+  /// File path: assets/icon/search.png
+  AssetGenImage get search => const AssetGenImage('assets/icon/search.png');
+
   /// File path: assets/icon/voucher.png
   AssetGenImage get voucher => const AssetGenImage('assets/icon/voucher.png');
 
@@ -47,6 +50,7 @@ class $AssetsIconGen {
         importProd,
         invoice,
         invoices,
+        search,
         voucher
       ];
 }
