@@ -10,8 +10,17 @@ class ComboBoxCubit extends Cubit<ComboBoxState> {
           users: [],
           voucher: [],
           products: [],
+          customer: [],
           ingredient: [],
         ));
+
+  void getCustomer() async {
+    (await repo.getCustomer()).on(
+      whenSuccess: (data) => emit(state.copyWith(customer: data)),
+      whenFaild: (msg) {},
+    );
+  }
+
   void getIngredients() async {
     (await repo.getIngredients()).on(
       whenSuccess: (data) => emit(state.copyWith(ingredient: data)),

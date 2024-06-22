@@ -27,6 +27,7 @@ class CreateSaleInvoiceScreen extends StatelessWidget {
         BlocProvider(
             create: (_) => getIt.get<ComboBoxCubit>()
               ..getProducts()
+              ..getCustomer()
               ..getVouchers())
       ],
       child: const CreateSaleInvoicePage(),

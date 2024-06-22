@@ -32,9 +32,15 @@ class ComboBoxRepository extends IComboBoxRepository {
   }
 
   @override
-  Future<DataRespone<List<ComboBox>>> getCustomer() {
-    // TODO: implement getCustomer
-    throw UnimplementedError();
+  Future<DataRespone<List<ComboBox>>> getCustomer() async {
+    return await excuter(
+      paramRequest: ParamRequest(
+        method: Method.GET,
+        endPoint: AppRepositoryPath.customerComboBox,
+      ),
+      parser: (data) =>
+          (data as List).map((e) => ComboBox.fromJson(e)).toList(),
+    );
   }
 
   @override
@@ -46,5 +52,11 @@ class ComboBoxRepository extends IComboBoxRepository {
       ),
       parser: (data) => (data as List).map((e) => Voucher.fromJson(e)).toList(),
     );
+  }
+
+  @override
+  Future<DataRespone<List<ComboBox>>> getCustomers() {
+    // TODO: implement getCustomers
+    throw UnimplementedError();
   }
 }

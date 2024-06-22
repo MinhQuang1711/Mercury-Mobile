@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
+import 'package:mercury/feature/presentations/bloc/combo_box/state/state.dart';
 import 'package:mercury/feature/presentations/widget/button/create_square_button.dart';
 
 import '../../../../domain/model/combo_box/combo_box.dart';
@@ -17,11 +20,17 @@ class CustomerField extends StatelessWidget {
       bottomWidget: Row(
         children: [
           Expanded(
-            child: AppSearchFiled<ComboBox>(
-              items: const [],
-              initValue: initValue,
-              hint: "Chọn khách hàng",
-              appItemFields: AppItemField.comboBox,
+            child: BlocBuilder<ComboBoxCubit, ComboBoxState>(
+              buildWhen: (previous, current) =>
+                  previous.customer != current.customer,
+              builder: (context, state) {
+                return AppSearchFiled<ComboBox>(
+                  items: state.customer,
+                  initValue: initValue,
+                  hint: "Chọn khách hàng",
+                  appItemFields: AppItemField.comboBox,
+                );
+              },
             ),
           ),
           const CreateSquareButton(),
