@@ -25,6 +25,10 @@ class CreateInvoiceRow extends StatelessWidget {
       context.showDialogAndListen(child: const CreateVoucherScreen());
     }
 
+    void createCustomer() {
+      context.pushAndListen(location: AppPath.createCustomer);
+    }
+
     return Wrap(
       spacing: 30,
       children: [
@@ -45,6 +49,7 @@ class CreateInvoiceRow extends StatelessWidget {
         ),
         _button(
           label: "Khách hàng",
+          onTap: createCustomer,
           assetGenImage: Assets.icon.customer,
         ),
       ],
