@@ -34,6 +34,7 @@ class ProductField extends StatelessWidget {
                 isRequied: true,
                 titleLabel: "Sản phẩm",
                 bottomWidget: AppSelectButton(
+                  hideSelectedItem: true,
                   title: "Chọn sản phẩm",
                   hintText: "Chọn sản phẩm",
                   searchHint: "Tìm kiếm sản phẩm theo tên",
