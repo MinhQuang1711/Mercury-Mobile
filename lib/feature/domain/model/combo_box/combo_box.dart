@@ -7,6 +7,7 @@ part 'combo_box.g.dart';
 class ComboBox with _$ComboBox {
   const factory ComboBox({
     String? name,
+    String? name2,
     String? id,
     double? value,
     double? price,

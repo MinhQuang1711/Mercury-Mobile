@@ -18,6 +18,49 @@ class AppSearchItem {
     );
   }
 
+  static SearchItem<ComboBox> customer(ComboBox val) {
+    return SearchItem<ComboBox>(
+      item: val,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        child: Row(
+          children: [
+            ImageIcon(
+              AssetImage(Assets.icon.customer.keyName),
+              size: 30,
+              color: AppColor.blue,
+            ),
+            const SizedBox(width: 25),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(val.name ?? "", style: bodyMedium),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        val.name2 ?? "",
+                        style: captionMedium,
+                      ),
+                      Text(
+                        "${val.value?.formatDouble() ?? "0"} điểm",
+                        style: captionMedium,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      searchValue: val.name2,
+      displayLabel: val.name ?? "",
+    );
+  }
+
   static SearchItem<ComboBox> product(ComboBox val) {
     return SearchItem<ComboBox>(
       item: val,

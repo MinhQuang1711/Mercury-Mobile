@@ -21,6 +21,7 @@ ComboBox _$ComboBoxFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ComboBox {
   String? get name => throw _privateConstructorUsedError;
+  String? get name2 => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
   double? get value => throw _privateConstructorUsedError;
   double? get price => throw _privateConstructorUsedError;
@@ -38,7 +39,12 @@ abstract class $ComboBoxCopyWith<$Res> {
       _$ComboBoxCopyWithImpl<$Res, ComboBox>;
   @useResult
   $Res call(
-      {String? name, String? id, double? value, double? price, int? quantity});
+      {String? name,
+      String? name2,
+      String? id,
+      double? value,
+      double? price,
+      int? quantity});
 }
 
 /// @nodoc
@@ -55,6 +61,7 @@ class _$ComboBoxCopyWithImpl<$Res, $Val extends ComboBox>
   @override
   $Res call({
     Object? name = freezed,
+    Object? name2 = freezed,
     Object? id = freezed,
     Object? value = freezed,
     Object? price = freezed,
@@ -64,6 +71,10 @@ class _$ComboBoxCopyWithImpl<$Res, $Val extends ComboBox>
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name2: freezed == name2
+          ? _value.name2
+          : name2 // ignore: cast_nullable_to_non_nullable
               as String?,
       id: freezed == id
           ? _value.id
@@ -94,7 +105,12 @@ abstract class _$$ComboBoxImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? name, String? id, double? value, double? price, int? quantity});
+      {String? name,
+      String? name2,
+      String? id,
+      double? value,
+      double? price,
+      int? quantity});
 }
 
 /// @nodoc
@@ -109,6 +125,7 @@ class __$$ComboBoxImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = freezed,
+    Object? name2 = freezed,
     Object? id = freezed,
     Object? value = freezed,
     Object? price = freezed,
@@ -118,6 +135,10 @@ class __$$ComboBoxImplCopyWithImpl<$Res>
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name2: freezed == name2
+          ? _value.name2
+          : name2 // ignore: cast_nullable_to_non_nullable
               as String?,
       id: freezed == id
           ? _value.id
@@ -143,13 +164,15 @@ class __$$ComboBoxImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ComboBoxImpl implements _ComboBox {
   const _$ComboBoxImpl(
-      {this.name, this.id, this.value, this.price, this.quantity});
+      {this.name, this.name2, this.id, this.value, this.price, this.quantity});
 
   factory _$ComboBoxImpl.fromJson(Map<String, dynamic> json) =>
       _$$ComboBoxImplFromJson(json);
 
   @override
   final String? name;
+  @override
+  final String? name2;
   @override
   final String? id;
   @override
@@ -161,7 +184,7 @@ class _$ComboBoxImpl implements _ComboBox {
 
   @override
   String toString() {
-    return 'ComboBox(name: $name, id: $id, value: $value, price: $price, quantity: $quantity)';
+    return 'ComboBox(name: $name, name2: $name2, id: $id, value: $value, price: $price, quantity: $quantity)';
   }
 
   @override
@@ -170,6 +193,7 @@ class _$ComboBoxImpl implements _ComboBox {
         (other.runtimeType == runtimeType &&
             other is _$ComboBoxImpl &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.name2, name2) || other.name2 == name2) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.value, value) || other.value == value) &&
             (identical(other.price, price) || other.price == price) &&
@@ -180,7 +204,7 @@ class _$ComboBoxImpl implements _ComboBox {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, id, value, price, quantity);
+      Object.hash(runtimeType, name, name2, id, value, price, quantity);
 
   @JsonKey(ignore: true)
   @override
@@ -199,6 +223,7 @@ class _$ComboBoxImpl implements _ComboBox {
 abstract class _ComboBox implements ComboBox {
   const factory _ComboBox(
       {final String? name,
+      final String? name2,
       final String? id,
       final double? value,
       final double? price,
@@ -209,6 +234,8 @@ abstract class _ComboBox implements ComboBox {
 
   @override
   String? get name;
+  @override
+  String? get name2;
   @override
   String? get id;
   @override

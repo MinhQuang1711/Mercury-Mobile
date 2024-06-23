@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
+import 'package:mercury/feature/presentations/widget/empty_widget.dart';
 import 'package:mercury/feature/presentations/widget/textfield/textfield.dart';
 import 'package:select_button_package/model/search_decoration.dart';
 import 'package:select_button_package/model/search_item.dart';
@@ -35,6 +36,7 @@ class AppSelectButton<T> extends StatelessWidget {
         hint: searchHint,
         underLineColor: AppColor.blue,
       ),
+      emptyWidget: const EmptyWidget(),
       decoration: TextFieldProperties.getInputDecoration(
         hintText: hintText,
         sufWidget: const Icon(
