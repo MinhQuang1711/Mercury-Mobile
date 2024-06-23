@@ -25,6 +25,10 @@ class CreateSaleInvoiceBody extends StatelessWidget {
       cubit.selectDelailSaleInvoice(val.item);
     }
 
+    void selectCustomer(SearchItem<ComboBox> val) {
+      cubit.selectCustomer(val.item.id);
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -34,7 +38,9 @@ class CreateSaleInvoiceBody extends StatelessWidget {
         const SizedBox(height: 10),
         const VoucherField(),
         const SizedBox(height: 10),
-        const CustomerField(),
+        CustomerField(
+          onTap: selectCustomer,
+        ),
         _titleWithPadding("Thông tin hóa đơn"),
         const GreyContainer(
           child: Padding(

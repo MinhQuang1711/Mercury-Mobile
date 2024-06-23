@@ -22,6 +22,10 @@ class CommonSaleInvoiceCubit extends Cubit<CommonSaleInvoiceState> {
     return list.fold(0, (p, e) => p + (e.quantity ?? 1) * (e.price ?? 0));
   }
 
+  void selectCustomer(String? val) {
+    emit(state.copyWith(request: state.request.copyWith(customerId: val)));
+  }
+
   void selectDelailSaleInvoice(ComboBox val) {
     final oldList = List<ComboBox>.from(state.request.detailSaleInvoice ?? []);
     final newList = oldList..add(val.copyWith(quantity: 1));

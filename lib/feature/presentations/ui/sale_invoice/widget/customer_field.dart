@@ -5,14 +5,15 @@ import 'package:mercury/feature/presentations/bloc/combo_box/state/state.dart';
 import 'package:mercury/feature/presentations/widget/button/create_square_button.dart';
 import 'package:mercury/feature/presentations/widget/select_button/app_search_item.dart';
 import 'package:mercury/feature/presentations/widget/select_button/select_button.dart';
+import 'package:select_button_package/model/search_item.dart';
 
 import '../../../../domain/model/combo_box/combo_box.dart';
 import '../../../widget/column_input/column_input.dart';
 
 class CustomerField extends StatelessWidget {
-  const CustomerField({super.key, this.initValue});
+  const CustomerField({super.key, this.initValue, required this.onTap});
   final String? initValue;
-
+  final Function(SearchItem<ComboBox>) onTap;
   @override
   Widget build(BuildContext context) {
     return ColumnInput(
@@ -27,8 +28,9 @@ class CustomerField extends StatelessWidget {
                 return AppSelectButton<ComboBox>(
                   items: state.customer,
                   // initValue: initValue,
+
                   searchHint: "Tìm kiếm theo số điện thoại",
-                  hintText: "Chọn khách hàng", onTap: (val) {},
+                  hintText: "Chọn khách hàng", onTap: onTap,
                   appSearchItem: AppSearchItem.customer,
                   // appItemFields: AppItemField.comboBox,
                 );
