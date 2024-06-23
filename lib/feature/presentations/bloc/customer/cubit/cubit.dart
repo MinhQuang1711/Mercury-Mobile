@@ -20,6 +20,8 @@ class CommonCustomerCubit extends Cubit<CommonCustomerState> {
       firstDate: DateTime(1990),
       initDate: state.request.birthDay,
     );
-    emit(state.copyWith(request: state.request.copyWith(birthDay: date)));
+    if (date != null) {
+      emit(state.copyWith(request: state.request.copyWith(birthDay: date)));
+    }
   }
 }

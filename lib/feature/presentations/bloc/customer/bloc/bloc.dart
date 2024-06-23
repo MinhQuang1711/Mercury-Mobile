@@ -13,7 +13,7 @@ class CustomerBloc extends Bloc<CustomerEvent, CustomerState> {
   }
 
   void _onEvent(CustomerEvent event, Emitter emitter) async {
-    event.when(
+    await event.when(
       get: (_) {},
       create: (dto) async => await _create(dto, emitter),
     );
