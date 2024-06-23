@@ -1,9 +1,11 @@
 import 'package:mercury/core/utils/injection/get_it.dart';
+import 'package:mercury/feature/domain/repositories/i_customer.dart';
 import 'package:mercury/feature/domain/repositories/i_import_invoice.dart';
 import 'package:mercury/feature/domain/repositories/i_ingredient.dart';
 import 'package:mercury/feature/domain/repositories/i_product.dart';
 import 'package:mercury/feature/domain/repositories/i_voucher.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/bloc.dart';
+import 'package:mercury/feature/presentations/bloc/customer/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/product/bloc/bloc.dart';
@@ -26,4 +28,6 @@ void registerBloc() {
       () => ImportInvoiceBloc(getIt.get<IImportInvoiceRepository>()));
   getIt.registerFactory<VoucherBloc>(
       () => VoucherBloc(getIt.get<IVoucherRepository>()));
+  getIt.registerFactory<CustomerBloc>(
+      () => CustomerBloc(getIt.get<ICustomerRepository>()));
 }
