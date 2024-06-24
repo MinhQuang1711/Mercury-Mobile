@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
+import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sale_invoice_cubit/cubit.dart';
+import 'package:mercury/feature/presentations/ui/customer/create/create.dart';
 import 'package:select_button_package/model/search_item.dart';
 
 import '../../../../../../config/const/padding.dart';
@@ -29,6 +32,13 @@ class CreateSaleInvoiceBody extends StatelessWidget {
       cubit.selectCustomer(val.item.id);
     }
 
+    void onTapCreate() {
+      context.showDialogAndListen(
+        child: const CreateCustomerScreen(),
+        handleWhenHasValue: () => context.read<ComboBoxCubit>().getCustomer(),
+      );
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -40,6 +50,7 @@ class CreateSaleInvoiceBody extends StatelessWidget {
         const SizedBox(height: 10),
         CustomerField(
           onTap: selectCustomer,
+          onTapCreate: onTapCreate,
         ),
         _titleWithPadding("Thông tin hóa đơn"),
         const GreyContainer(

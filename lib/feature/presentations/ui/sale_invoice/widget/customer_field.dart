@@ -11,8 +11,10 @@ import '../../../../domain/model/combo_box/combo_box.dart';
 import '../../../widget/column_input/column_input.dart';
 
 class CustomerField extends StatelessWidget {
-  const CustomerField({super.key, this.initValue, required this.onTap});
+  const CustomerField(
+      {super.key, this.initValue, required this.onTap, this.onTapCreate});
   final String? initValue;
+  final Function()? onTapCreate;
   final Function(SearchItem<ComboBox>) onTap;
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,9 @@ class CustomerField extends StatelessWidget {
               },
             ),
           ),
-          const CreateSquareButton(),
+          CreateSquareButton(
+            onTap: onTapCreate,
+          ),
         ],
       ),
     );
