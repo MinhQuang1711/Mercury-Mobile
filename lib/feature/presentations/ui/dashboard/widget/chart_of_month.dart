@@ -19,7 +19,7 @@ class ChartOfMonth extends StatelessWidget {
           max = state.chartOfMonth
                   .map((e) => e.numberSold ?? 1)
                   .reduce((a, b) => a > b ? a : b) +
-              2;
+              3;
         }
         return state.chartOfMonth.isEmpty
             ? const EmptyWidget()

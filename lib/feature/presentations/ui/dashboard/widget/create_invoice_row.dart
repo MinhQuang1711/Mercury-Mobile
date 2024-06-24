@@ -31,6 +31,8 @@ class CreateInvoiceRow extends StatelessWidget {
 
     return Wrap(
       spacing: 30,
+      runSpacing: 20,
+      alignment: WrapAlignment.spaceEvenly,
       children: [
         _button(
           label: "Phiếu giảm",
@@ -62,18 +64,19 @@ class CreateInvoiceRow extends StatelessWidget {
     required AssetGenImage assetGenImage,
   }) {
     return GestureDetector(
+      behavior: HitTestBehavior.translucent,
       onTap: onTap,
       child: Column(
         children: [
           ImageIcon(
             AssetImage(assetGenImage.keyName),
             color: const Color.fromARGB(255, 23, 100, 208),
-            size: 35,
+            size: 30,
           ),
           const SizedBox(height: 10),
           Text(
             label,
-            style: captionMedium.copyWith(color: AppColor.grey5),
+            style: captionMedium.copyWith(color: AppColor.black),
           )
         ],
       ),

@@ -19,7 +19,7 @@ class ChartOfDay extends StatelessWidget {
           max = state.chartOfDay
                   .map((e) => e.numberSold ?? 1)
                   .reduce((a, b) => a > b ? a : b) +
-              2;
+              3;
         }
         return state.chartOfDay.isEmpty
             ? const EmptyWidget()
