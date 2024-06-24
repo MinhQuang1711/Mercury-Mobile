@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mercury/core/utils/validator/validator.dart';
 
 import '../../../../../config/theme/color.dart';
 import '../../../widget/column_input/column_input.dart';
@@ -20,6 +21,7 @@ class CustomerBirthDayField extends StatelessWidget {
         onTap: onTap,
         hintText: "Chọn ngày sinh",
         controller: ctrl,
+        validator: Validator.required,
         sufWidget: const Icon(
           Icons.calendar_month_rounded,
           color: AppColor.blue,

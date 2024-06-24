@@ -6,6 +6,14 @@ class Validator {
     return null;
   }
 
+  static String? phoneNumber(String? val) {
+    const String phonePattern = r'^\+?1?\d{9,15}$';
+    final regex = RegExp(phonePattern);
+    return !regex.hasMatch(val ?? "")
+        ? "Số điện thoại không đsung định dạng"
+        : null;
+  }
+
   static String? password(String? val) {
     var message = required(val);
     if (message != null) {

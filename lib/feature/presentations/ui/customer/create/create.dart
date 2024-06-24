@@ -44,7 +44,7 @@ class CreateCustomerPage extends StatelessWidget {
       appBar: _appBar(context),
       body: CustomerListener(
         child: AppStack(
-          key: formKey,
+          formKey: formKey,
           bottomWidget: CustomerCreateButton(formKey: formKey),
           backgroundWidget: Column(
             children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mercury/core/utils/validator/validator.dart';
 
 import '../../../widget/column_input/column_input.dart';
 import '../../../widget/textfield/textfield.dart';
@@ -18,6 +19,7 @@ class PhoneNumberNameField extends StatelessWidget {
         initValue: initValue,
         readOnly: readOnly,
         onChanged: onChanged,
+        validator: Validator.phoneNumber,
         hintText: "Nhập số điện thoại khách hàng",
       ),
     );
