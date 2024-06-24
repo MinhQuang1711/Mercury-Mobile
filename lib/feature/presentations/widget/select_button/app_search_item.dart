@@ -110,6 +110,7 @@ class AppSearchItem {
                 AssetImage(Assets.icon.coupon.keyName),
                 color: AppColor.green,
               ),
+              const SizedBox(width: 20),
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
