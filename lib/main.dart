@@ -29,7 +29,8 @@ void main() async {
             ..getfinancialRecordOfDay()
             ..getfinancialRecordOfMonth()
             ..getChartOfDay()
-            ..getChartOfMonth(),
+            ..getChartOfMonth()
+            ..getFinancialOf7Days(),
         ),
         BlocProvider(create: (_) => getIt.get<SaleInvoiceBloc>()),
         BlocProvider(

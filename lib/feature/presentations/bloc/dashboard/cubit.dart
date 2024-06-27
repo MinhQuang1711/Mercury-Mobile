@@ -10,6 +10,7 @@ class DashboardCubit extends Cubit<DashboardState> {
       : super(const DashboardState(
             chartOfDay: [],
             chartOfMonth: [],
+            financial: [],
             financialRecordOfDay: FinancialRecord(),
             financialRecordOfMonth: FinancialRecord()));
 
@@ -37,6 +38,13 @@ class DashboardCubit extends Cubit<DashboardState> {
   void getfinancialRecordOfMonth() async {
     (await repo.financialRecordOfMonth()).on(
       whenSuccess: (data) => emit(state.copyWith(financialRecordOfMonth: data)),
+      whenFaild: (msg) {},
+    );
+  }
+
+  void getFinancialOf7Days() async {
+    (await repo.financialOf7Days()).on(
+      whenSuccess: (data) => emit(state.copyWith(financial: data)),
       whenFaild: (msg) {},
     );
   }

@@ -22,6 +22,7 @@ mixin _$DashboardState {
       throw _privateConstructorUsedError;
   FinancialRecord get financialRecordOfMonth =>
       throw _privateConstructorUsedError;
+  List<Financial> get financial => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DashboardStateCopyWith<DashboardState> get copyWith =>
@@ -38,7 +39,8 @@ abstract class $DashboardStateCopyWith<$Res> {
       {List<ChartItem> chartOfDay,
       List<ChartItem> chartOfMonth,
       FinancialRecord financialRecordOfDay,
-      FinancialRecord financialRecordOfMonth});
+      FinancialRecord financialRecordOfMonth,
+      List<Financial> financial});
 
   $FinancialRecordCopyWith<$Res> get financialRecordOfDay;
   $FinancialRecordCopyWith<$Res> get financialRecordOfMonth;
@@ -61,6 +63,7 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
     Object? chartOfMonth = null,
     Object? financialRecordOfDay = null,
     Object? financialRecordOfMonth = null,
+    Object? financial = null,
   }) {
     return _then(_value.copyWith(
       chartOfDay: null == chartOfDay
@@ -79,6 +82,10 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
           ? _value.financialRecordOfMonth
           : financialRecordOfMonth // ignore: cast_nullable_to_non_nullable
               as FinancialRecord,
+      financial: null == financial
+          ? _value.financial
+          : financial // ignore: cast_nullable_to_non_nullable
+              as List<Financial>,
     ) as $Val);
   }
 
@@ -112,7 +119,8 @@ abstract class _$$StateImplCopyWith<$Res>
       {List<ChartItem> chartOfDay,
       List<ChartItem> chartOfMonth,
       FinancialRecord financialRecordOfDay,
-      FinancialRecord financialRecordOfMonth});
+      FinancialRecord financialRecordOfMonth,
+      List<Financial> financial});
 
   @override
   $FinancialRecordCopyWith<$Res> get financialRecordOfDay;
@@ -135,6 +143,7 @@ class __$$StateImplCopyWithImpl<$Res>
     Object? chartOfMonth = null,
     Object? financialRecordOfDay = null,
     Object? financialRecordOfMonth = null,
+    Object? financial = null,
   }) {
     return _then(_$StateImpl(
       chartOfDay: null == chartOfDay
@@ -153,6 +162,10 @@ class __$$StateImplCopyWithImpl<$Res>
           ? _value.financialRecordOfMonth
           : financialRecordOfMonth // ignore: cast_nullable_to_non_nullable
               as FinancialRecord,
+      financial: null == financial
+          ? _value._financial
+          : financial // ignore: cast_nullable_to_non_nullable
+              as List<Financial>,
     ));
   }
 }
@@ -164,9 +177,11 @@ class _$StateImpl implements _State {
       {required final List<ChartItem> chartOfDay,
       required final List<ChartItem> chartOfMonth,
       required this.financialRecordOfDay,
-      required this.financialRecordOfMonth})
+      required this.financialRecordOfMonth,
+      required final List<Financial> financial})
       : _chartOfDay = chartOfDay,
-        _chartOfMonth = chartOfMonth;
+        _chartOfMonth = chartOfMonth,
+        _financial = financial;
 
   final List<ChartItem> _chartOfDay;
   @override
@@ -188,10 +203,17 @@ class _$StateImpl implements _State {
   final FinancialRecord financialRecordOfDay;
   @override
   final FinancialRecord financialRecordOfMonth;
+  final List<Financial> _financial;
+  @override
+  List<Financial> get financial {
+    if (_financial is EqualUnmodifiableListView) return _financial;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_financial);
+  }
 
   @override
   String toString() {
-    return 'DashboardState(chartOfDay: $chartOfDay, chartOfMonth: $chartOfMonth, financialRecordOfDay: $financialRecordOfDay, financialRecordOfMonth: $financialRecordOfMonth)';
+    return 'DashboardState(chartOfDay: $chartOfDay, chartOfMonth: $chartOfMonth, financialRecordOfDay: $financialRecordOfDay, financialRecordOfMonth: $financialRecordOfMonth, financial: $financial)';
   }
 
   @override
@@ -206,7 +228,9 @@ class _$StateImpl implements _State {
             (identical(other.financialRecordOfDay, financialRecordOfDay) ||
                 other.financialRecordOfDay == financialRecordOfDay) &&
             (identical(other.financialRecordOfMonth, financialRecordOfMonth) ||
-                other.financialRecordOfMonth == financialRecordOfMonth));
+                other.financialRecordOfMonth == financialRecordOfMonth) &&
+            const DeepCollectionEquality()
+                .equals(other._financial, _financial));
   }
 
   @override
@@ -215,7 +239,8 @@ class _$StateImpl implements _State {
       const DeepCollectionEquality().hash(_chartOfDay),
       const DeepCollectionEquality().hash(_chartOfMonth),
       financialRecordOfDay,
-      financialRecordOfMonth);
+      financialRecordOfMonth,
+      const DeepCollectionEquality().hash(_financial));
 
   @JsonKey(ignore: true)
   @override
@@ -229,7 +254,8 @@ abstract class _State implements DashboardState {
       {required final List<ChartItem> chartOfDay,
       required final List<ChartItem> chartOfMonth,
       required final FinancialRecord financialRecordOfDay,
-      required final FinancialRecord financialRecordOfMonth}) = _$StateImpl;
+      required final FinancialRecord financialRecordOfMonth,
+      required final List<Financial> financial}) = _$StateImpl;
 
   @override
   List<ChartItem> get chartOfDay;
@@ -239,6 +265,8 @@ abstract class _State implements DashboardState {
   FinancialRecord get financialRecordOfDay;
   @override
   FinancialRecord get financialRecordOfMonth;
+  @override
+  List<Financial> get financial;
   @override
   @JsonKey(ignore: true)
   _$$StateImplCopyWith<_$StateImpl> get copyWith =>
