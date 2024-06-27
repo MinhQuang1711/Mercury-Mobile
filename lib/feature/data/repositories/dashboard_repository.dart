@@ -1,6 +1,7 @@
 import 'package:mercury/core/network/request/param_payload.dart';
 import 'package:mercury/core/network/response/data_response.dart';
 import 'package:mercury/feature/data/model/chart_item/chart_item.dart';
+import 'package:mercury/feature/data/model/financial/financial.dart';
 import 'package:mercury/feature/data/model/financial_record/financial_record.dart';
 import 'package:mercury/feature/data/repository_path/path.dart';
 import 'package:mercury/feature/domain/enum/method.dart';
@@ -50,6 +51,18 @@ class DashboardRepositoty extends IDashboardRepository {
         endPoint: AppRepositoryPath.financialRecordOfMonth,
       ),
       parser: (data) => FinancialRecord.fromJson(data),
+    );
+  }
+
+  @override
+  Future<DataRespone<List<Financial>>> financialOf7Days() async {
+    return await excuter(
+      paramRequest: ParamRequest(
+        method: Method.GET,
+        endPoint: AppRepositoryPath.financialOf7Days,
+      ),
+      parser: (data) =>
+          (data as List).map((e) => Financial.fromJson(e)).toList(),
     );
   }
 }

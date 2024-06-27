@@ -35,6 +35,7 @@ class AppRepositoryPath {
   static String chartOfMonth = "/api/dashboard/statistical-product-of-month";
   static String financialRecordOfDay = "/api/dashboard/bussiness-of-day";
   static String financialRecordOfMonth = "/api/dashboard/bussiness-of-month";
+  static String financialOf7Days = "/api/dashboard/sale-business";
 
   // Voucher
   static String createVoucher = "/api/voucher/create";
