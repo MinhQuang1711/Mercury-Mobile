@@ -77,7 +77,7 @@ class CreateInvoiceRow extends StatelessWidget {
               label,
               textAlign: TextAlign.center,
               overflow: TextOverflow.visible,
-              style: captionMedium.copyWith(color: AppColor.black),
+              style: captionRegular.copyWith(color: AppColor.grey5),
             )
           ],
         ),

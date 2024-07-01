@@ -26,7 +26,7 @@ class Chart extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Biểu đồ sản phẩm đã bán",
-                style: captionBold.copyWith(color: AppColor.blue)),
+                style: captionBold.copyWith(color: AppColor.grey5)),
             SizedBox(
               height: size.height * (2 / 5),
               child: const TabBarView(

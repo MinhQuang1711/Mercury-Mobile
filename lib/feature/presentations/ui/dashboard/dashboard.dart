@@ -53,7 +53,7 @@ class DashboardPage extends StatelessWidget {
           const SizedBox(height: 25),
           Text(
             "Biểu đồ tài chính 7 ngày gần nhất",
-            style: captionBold.copyWith(color: AppColor.blue),
+            style: captionBold.copyWith(color: AppColor.grey5),
           ),
           const SizedBox(height: 15),
           Container(
@@ -152,6 +152,7 @@ class DashboardPage extends StatelessWidget {
                       lineBarsData: [
                         LineChartBarData(
                           isCurved: true,
+                          barWidth: 1,
                           dotData: const FlDotData(show: false),
                           belowBarData: BarAreaData(
                               show: true,
@@ -165,6 +166,7 @@ class DashboardPage extends StatelessWidget {
                         ),
                         LineChartBarData(
                           isCurved: true,
+                          barWidth: 1,
                           dotData: const FlDotData(show: false),
                           color: AppColor.blue,
                           spots: state.financial
@@ -175,6 +177,7 @@ class DashboardPage extends StatelessWidget {
                         ),
                         LineChartBarData(
                           isCurved: true,
+                          barWidth: 1,
                           dotData: const FlDotData(show: false),
                           belowBarData: BarAreaData(
                               show: true,
