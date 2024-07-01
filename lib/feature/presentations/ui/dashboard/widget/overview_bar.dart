@@ -51,7 +51,7 @@ class OverViewBar extends StatelessWidget {
             ),
             const SizedBox(height: 25),
             const SizedBox(
-              height: 135,
+              height: 130,
               child: TabBarView(children: [
                 OverviewBarByDay(),
                 OverviewBarByMonth(),

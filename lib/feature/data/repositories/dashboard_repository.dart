@@ -61,8 +61,9 @@ class DashboardRepositoty extends IDashboardRepository {
         method: Method.GET,
         endPoint: AppRepositoryPath.financialOf7Days,
       ),
-      parser: (data) =>
-          (data as List).map((e) => Financial.fromJson(e)).toList(),
+      parser: (data) {
+        return (data as List).map((e) => Financial.fromJson(e)).toList();
+      },
     );
   }
 }

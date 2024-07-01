@@ -9,6 +9,7 @@ class Financial with _$Financial {
     String? date,
     double? revenue,
     double? profit,
+    double? importPrice,
   }) = _Financial;
 
   factory Financial.fromJson(Map<String, dynamic> json) =>

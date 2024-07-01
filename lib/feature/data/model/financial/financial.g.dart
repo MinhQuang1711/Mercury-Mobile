@@ -11,4 +11,5 @@ _$FinancialImpl _$$FinancialImplFromJson(Map<String, dynamic> json) =>
       date: json['date'] as String?,
       revenue: (json['revenue'] as num?)?.toDouble(),
       profit: (json['profit'] as num?)?.toDouble(),
+      importPrice: (json['importPrice'] as num?)?.toDouble(),
     );

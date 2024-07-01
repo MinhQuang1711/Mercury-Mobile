@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:intl/intl.dart';
 
 extension NumberEx on double {
@@ -25,5 +27,18 @@ extension NumberEx on double {
     return symbol == false
         ? number.formatDouble()
         : number.formatDouble() + getUnit();
+  }
+
+  int roundedNumber() {
+    int lenght = toInt().toString().length - 1;
+    int donVi = pow(10, lenght) as int;
+
+    var firstNumber = int.tryParse(toString()[0]) ?? 0;
+
+    var maxValue = firstNumber * donVi;
+    if (this <= maxValue) {
+      return maxValue;
+    }
+    return maxValue = (firstNumber + 1) * donVi;
   }
 }

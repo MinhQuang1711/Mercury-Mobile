@@ -23,6 +23,7 @@ mixin _$Financial {
   String? get date => throw _privateConstructorUsedError;
   double? get revenue => throw _privateConstructorUsedError;
   double? get profit => throw _privateConstructorUsedError;
+  double? get importPrice => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FinancialCopyWith<Financial> get copyWith =>
@@ -34,7 +35,8 @@ abstract class $FinancialCopyWith<$Res> {
   factory $FinancialCopyWith(Financial value, $Res Function(Financial) then) =
       _$FinancialCopyWithImpl<$Res, Financial>;
   @useResult
-  $Res call({String? date, double? revenue, double? profit});
+  $Res call(
+      {String? date, double? revenue, double? profit, double? importPrice});
 }
 
 /// @nodoc
@@ -53,6 +55,7 @@ class _$FinancialCopyWithImpl<$Res, $Val extends Financial>
     Object? date = freezed,
     Object? revenue = freezed,
     Object? profit = freezed,
+    Object? importPrice = freezed,
   }) {
     return _then(_value.copyWith(
       date: freezed == date
@@ -67,6 +70,10 @@ class _$FinancialCopyWithImpl<$Res, $Val extends Financial>
           ? _value.profit
           : profit // ignore: cast_nullable_to_non_nullable
               as double?,
+      importPrice: freezed == importPrice
+          ? _value.importPrice
+          : importPrice // ignore: cast_nullable_to_non_nullable
+              as double?,
     ) as $Val);
   }
 }
@@ -79,7 +86,8 @@ abstract class _$$FinancialImplCopyWith<$Res>
       __$$FinancialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? date, double? revenue, double? profit});
+  $Res call(
+      {String? date, double? revenue, double? profit, double? importPrice});
 }
 
 /// @nodoc
@@ -96,6 +104,7 @@ class __$$FinancialImplCopyWithImpl<$Res>
     Object? date = freezed,
     Object? revenue = freezed,
     Object? profit = freezed,
+    Object? importPrice = freezed,
   }) {
     return _then(_$FinancialImpl(
       date: freezed == date
@@ -110,6 +119,10 @@ class __$$FinancialImplCopyWithImpl<$Res>
           ? _value.profit
           : profit // ignore: cast_nullable_to_non_nullable
               as double?,
+      importPrice: freezed == importPrice
+          ? _value.importPrice
+          : importPrice // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -117,7 +130,8 @@ class __$$FinancialImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable(createToJson: false)
 class _$FinancialImpl implements _Financial {
-  const _$FinancialImpl({this.date, this.revenue, this.profit});
+  const _$FinancialImpl(
+      {this.date, this.revenue, this.profit, this.importPrice});
 
   factory _$FinancialImpl.fromJson(Map<String, dynamic> json) =>
       _$$FinancialImplFromJson(json);
@@ -128,10 +142,12 @@ class _$FinancialImpl implements _Financial {
   final double? revenue;
   @override
   final double? profit;
+  @override
+  final double? importPrice;
 
   @override
   String toString() {
-    return 'Financial(date: $date, revenue: $revenue, profit: $profit)';
+    return 'Financial(date: $date, revenue: $revenue, profit: $profit, importPrice: $importPrice)';
   }
 
   @override
@@ -141,12 +157,15 @@ class _$FinancialImpl implements _Financial {
             other is _$FinancialImpl &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.revenue, revenue) || other.revenue == revenue) &&
-            (identical(other.profit, profit) || other.profit == profit));
+            (identical(other.profit, profit) || other.profit == profit) &&
+            (identical(other.importPrice, importPrice) ||
+                other.importPrice == importPrice));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, date, revenue, profit);
+  int get hashCode =>
+      Object.hash(runtimeType, date, revenue, profit, importPrice);
 
   @JsonKey(ignore: true)
   @override
@@ -159,7 +178,8 @@ abstract class _Financial implements Financial {
   const factory _Financial(
       {final String? date,
       final double? revenue,
-      final double? profit}) = _$FinancialImpl;
+      final double? profit,
+      final double? importPrice}) = _$FinancialImpl;
 
   factory _Financial.fromJson(Map<String, dynamic> json) =
       _$FinancialImpl.fromJson;
@@ -170,6 +190,8 @@ abstract class _Financial implements Financial {
   double? get revenue;
   @override
   double? get profit;
+  @override
+  double? get importPrice;
   @override
   @JsonKey(ignore: true)
   _$$FinancialImplCopyWith<_$FinancialImpl> get copyWith =>
