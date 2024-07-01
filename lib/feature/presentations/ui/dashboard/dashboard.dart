@@ -125,15 +125,6 @@ class DashboardPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        // leftTitles: const AxisTitles(
-                        //   // axisNameSize: 20,
-                        //   sideTitles: SideTitles(
-                        //     showTitles: true,
-                        //     reservedSize: 16,
-                        //     getTitlesWidget: defaultGetTitle,
-                        //   ),
-                        // ),
-                        // leftTitles: const AxisTitles(),
                         bottomTitles: AxisTitles(
                             sideTitles: SideTitles(
                           showTitles: true,

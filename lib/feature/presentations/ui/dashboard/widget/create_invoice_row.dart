@@ -29,10 +29,8 @@ class CreateInvoiceRow extends StatelessWidget {
       context.pushAndListen(location: AppPath.createCustomer);
     }
 
-    return Wrap(
-      spacing: 30,
-      runSpacing: 20,
-      alignment: WrapAlignment.spaceEvenly,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         _button(
           label: "Phiếu giảm",
@@ -63,22 +61,26 @@ class CreateInvoiceRow extends StatelessWidget {
     required String label,
     required AssetGenImage assetGenImage,
   }) {
-    return GestureDetector(
-      behavior: HitTestBehavior.translucent,
-      onTap: onTap,
-      child: Column(
-        children: [
-          ImageIcon(
-            AssetImage(assetGenImage.keyName),
-            color: const Color.fromARGB(255, 23, 100, 208),
-            size: 30,
-          ),
-          const SizedBox(height: 10),
-          Text(
-            label,
-            style: captionMedium.copyWith(color: AppColor.black),
-          )
-        ],
+    return Expanded(
+      child: GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onTap: onTap,
+        child: Column(
+          children: [
+            ImageIcon(
+              AssetImage(assetGenImage.keyName),
+              color: const Color.fromARGB(255, 23, 100, 208),
+              size: 30,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              label,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.visible,
+              style: captionMedium.copyWith(color: AppColor.black),
+            )
+          ],
+        ),
       ),
     );
   }
