@@ -31,8 +31,9 @@ class OverViewBar extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              height: 38,
-              padding: const EdgeInsets.all(4),
+              margin: const EdgeInsets.symmetric(horizontal: 30),
+              height: 30,
+              padding: const EdgeInsets.all(2),
               decoration: BoxDecoration(
                 color: AppColor.grey3,
                 borderRadius: AppContainerBorder.radius6,
@@ -43,15 +44,15 @@ class OverViewBar extends StatelessWidget {
                   color: AppColor.blue,
                   borderRadius: AppContainerBorder.radius6,
                 ),
-                labelStyle: bodyMedium.copyWith(color: AppColor.white),
+                labelStyle: captionMedium.copyWith(color: AppColor.white),
                 dividerColor: AppColor.grey3,
-                unselectedLabelStyle: captionRegular,
+                unselectedLabelStyle: detailRegular,
                 indicatorSize: TabBarIndicatorSize.tab,
               ),
             ),
-            const SizedBox(height: 25),
+            const SizedBox(height: 20),
             const SizedBox(
-              height: 130,
+              height: 115,
               child: TabBarView(children: [
                 OverviewBarByDay(),
                 OverviewBarByMonth(),

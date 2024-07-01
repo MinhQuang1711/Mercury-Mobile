@@ -22,6 +22,7 @@ class Chart extends StatelessWidget {
         height: size.height * (2 / 4),
         padding: const EdgeInsets.symmetric(vertical: 12),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Biểu đồ sản phẩm đã bán",
