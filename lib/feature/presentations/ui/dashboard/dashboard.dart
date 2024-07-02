@@ -86,7 +86,9 @@ class DashboardPage extends StatelessWidget {
                         ),
                       ),
                       lineTouchData: LineTouchData(
+                        touchSpotThreshold: 1000,
                         touchTooltipData: LineTouchTooltipData(
+                          fitInsideHorizontally: true,
                           maxContentWidth: 350,
                           getTooltipColor: (touchedSpot) => AppColor.white,
                           tooltipBorder: const BorderSide(width: 0.2),
@@ -107,7 +109,7 @@ class DashboardPage extends StatelessWidget {
                                   TextSpan(
                                     text: e.y.formatNumber(),
                                     style: captionMedium.copyWith(
-                                        color: e.bar.color),
+                                        color: e.bar.color, fontSize: 13),
                                   )
                                 ]);
                           }).toList(),
