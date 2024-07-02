@@ -13,18 +13,25 @@ class SplashTabView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SplashCubit, SplashState>(
-      builder: (context, state) {
-        return IndexedStack(
-          index: state.index,
-          children: const [
-            DashboardScreen(),
-            ProductScreen(),
-            ManageInvoiceScreen(),
-            AccountScreen(),
-          ],
-        );
-      },
+    return Column(
+      children: [
+        Expanded(
+          child: BlocBuilder<SplashCubit, SplashState>(
+            builder: (context, state) {
+              return IndexedStack(
+                index: state.index,
+                children: const [
+                  DashboardScreen(),
+                  ProductScreen(),
+                  ManageInvoiceScreen(),
+                  AccountScreen(),
+                ],
+              );
+            },
+          ),
+        ),
+        const SizedBox(height: 80)
+      ],
     );
   }
 }
