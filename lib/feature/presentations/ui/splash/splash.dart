@@ -21,9 +21,19 @@ class SplashPage extends StatelessWidget {
     return Scaffold(
       appBar: _appBar(),
       body: const SafeArea(
-        child: SplashTabView(),
+        child: Stack(
+          children: [
+            Positioned.fill(child: SplashTabView()),
+            Positioned(
+              left: 10,
+              right: 10,
+              bottom: 15,
+              child: SplashBottomBar(),
+            )
+          ],
+        ),
       ),
-      bottomNavigationBar: const SplashBottomBar(),
+      // bottomNavigationBar: const SplashBottomBar(),
     );
   }
 
