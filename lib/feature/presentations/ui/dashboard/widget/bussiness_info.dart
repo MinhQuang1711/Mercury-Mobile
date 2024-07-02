@@ -19,7 +19,7 @@ class BussinessInfo extends StatelessWidget {
         children: [
           Text(
             title,
-            style: captionRegular.copyWith(color: AppColor.grey5),
+            style: captionRegular.copyWith(color: AppColor.grey5, fontSize: 13),
           ),
           const SizedBox(height: 5),
           RichText(
@@ -29,7 +29,7 @@ class BussinessInfo extends StatelessWidget {
                   children: [
                 TextSpan(
                     text: value.getUnit(),
-                    style: captionMedium.copyWith(color: AppColor.grey5))
+                    style: captionRegular.copyWith(color: AppColor.grey5))
               ]))
         ],
       ),
