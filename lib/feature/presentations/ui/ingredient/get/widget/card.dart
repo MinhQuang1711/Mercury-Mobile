@@ -44,7 +44,12 @@ class IngredientCard extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          "Tồn: ${ingredient.weight.formatNumber()} g",
+          "Tồn: ${ingredient.weight.formatDouble()} g",
+          style: captionRegular.copyWith(color: AppColor.grey5),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          "Cost: ${ingredient.cost.formatDouble()} vnd",
           style: captionRegular.copyWith(color: AppColor.grey5),
         ),
         const SizedBox(height: 4),
