@@ -13,6 +13,7 @@ class AppRepositoryPath {
   static String getProduct = "/api/product";
   static String createProduct = "/api/product/create";
   static String deleteProduct = "/api/product/delete";
+  static String updateProduct = "/api/product/update";
 
   // Sale invoice
   static String getSaleInvoice = "/api/sale-invoice";

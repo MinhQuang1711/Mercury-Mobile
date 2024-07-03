@@ -9,5 +9,6 @@ import '../../../core/use_case/use_case.dart';
 abstract class IProductRepository extends UseCaseNetwork {
   Future<DataRespone> delete(String id);
   Future<DataRespone> create(ProductRequest productRequest);
+  Future<DataRespone> update(ProductRequest productRequest);
   Future<DataRespone<PagedList<Product>>> getProducts(SearchByName searchDto);
 }

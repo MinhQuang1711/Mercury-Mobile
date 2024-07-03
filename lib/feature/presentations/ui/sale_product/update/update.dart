@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/core/utils/extension/number.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/combo_box/state/state.dart';
 import 'package:mercury/feature/presentations/bloc/product/bloc/bloc.dart';
+import 'package:mercury/feature/presentations/bloc/product/bloc/state/state.dart';
 import 'package:mercury/feature/presentations/bloc/product/cubit/create_and_update/cubit.dart';
 import 'package:mercury/feature/presentations/ui/sale_product/update/widget/update_button.dart';
 import 'package:mercury/feature/presentations/widget/factory/screen/update_screen.dart';
@@ -55,7 +57,13 @@ class UpdateProductPage extends StatelessWidget {
 
     return Scaffold(
       appBar: _appBar(context),
-      body: _buildBody(cubit, formKey, onTapRemove),
+      body: BlocListener<ProductBloc, ProductState>(
+        listener: (context, state) => state.whenOrNull(
+          failure: context.showFailureSnackBar,
+          updated: (msg) => context.showSuccesSnackBar(msg),
+        ),
+        child: _buildBody(cubit, formKey, onTapRemove),
+      ),
     );
   }
 
@@ -70,8 +78,14 @@ class UpdateProductPage extends StatelessWidget {
         children: [
           const ProductImageField(),
           const ProductInfoTitle(),
-          ProductNameField(initValue: cubit.state.dto.name),
-          ProductPriceField(initValue: cubit.state.dto.price?.formatDouble()),
+          ProductNameField(
+            initValue: cubit.state.dto.name,
+            onChanged: cubit.changedName,
+          ),
+          ProductPriceField(
+            onChanged: cubit.changedPrice,
+            initValue: cubit.state.dto.price?.formatDouble(),
+          ),
           const SizedBox(height: 25),
           const AddDetailButton(),
           const SizedBox(height: 15),

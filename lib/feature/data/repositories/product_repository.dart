@@ -45,4 +45,16 @@ class ProductRepository extends IProductRepository {
       parser: (data) {},
     );
   }
+
+  @override
+  Future<DataRespone> update(ProductRequest productRequest) async {
+    return await excuter(
+      paramRequest: ParamRequest(
+        method: Method.PUT,
+        endPoint: AppRepositoryPath.updateProduct,
+        payload: Payload.json(productRequest.toJson()),
+      ),
+      parser: (data) {},
+    );
+  }
 }

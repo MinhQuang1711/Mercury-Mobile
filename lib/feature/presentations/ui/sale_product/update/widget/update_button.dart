@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/feature/presentations/widget/button/button.dart';
 
+import '../../../../bloc/product/bloc/bloc.dart';
+import '../../../../bloc/product/bloc/event/event.dart';
 import '../../../../bloc/product/cubit/create_and_update/cubit.dart';
 
 class UpdateProductButton extends StatelessWidget {
@@ -14,7 +16,7 @@ class UpdateProductButton extends StatelessWidget {
         ..validateDetailProduct(context);
       if (formKey.currentState?.validate() == true &&
           (cubit.state.dto.detailProducts ?? []).isNotEmpty) {
-        // TODO : implement logic update
+        context.read<ProductBloc>().add(ProductEvent.update(cubit.state.dto));
       }
     }
 
