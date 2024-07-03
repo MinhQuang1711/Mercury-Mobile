@@ -15,6 +15,7 @@ class AddDetailButton extends StatelessWidget {
     final cubit = context.read<ProductCubit>();
     Future<ComboBox?> showAddDetailDialog() async {
       return await context.showAppDialog<ComboBox>(
+        title: "Tạo công thức nguyên liệu",
         child: DialogAddDetailProduct(
           comboBoxes: context.read<ProductCubit>().state.comboBoxes,
         ),

@@ -23,7 +23,8 @@ class ColumnInput extends StatelessWidget {
           children: [
             Text(
               titleLabel,
-              style: captionMedium.copyWith(color: Colors.grey.shade800),
+              style:
+                  captionMedium.copyWith(color: AppColor.grey5, fontSize: 14),
             ),
             if (isRequied == true)
               Text(" *", style: captionBold.copyWith(color: AppColor.red)),

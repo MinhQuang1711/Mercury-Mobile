@@ -2,8 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/const/radius.dart';
+import 'package:mercury/config/theme/text_style.dart';
 
+import '../../../config/theme/color.dart';
 import '../../../feature/presentations/widget/snack_bar.dart';
 
 extension ContextEx on BuildContext {
@@ -66,18 +69,49 @@ extension ContextEx on BuildContext {
 
   Future<T?> showAppDialog<T>({
     required Widget child,
+    String? title,
     EdgeInsets? insertPadding,
   }) async {
     return await showDialog<T>(
       context: this,
       builder: (_) => Dialog(
-        insetPadding: insertPadding,
+        insetPadding:
+            insertPadding ?? const EdgeInsets.symmetric(horizontal: 10),
         surfaceTintColor: Colors.white,
         backgroundColor: Colors.white,
         shape: RoundedRectangleBorder(
           borderRadius: AppContainerBorder.radius8,
         ),
-        child: child,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: AppPadding.padding12,
+              child: Row(
+                children: [
+                  if (title != null)
+                    Text(title, style: bodyBold.copyWith(color: AppColor.blue)),
+                  const Spacer(),
+                  GestureDetector(
+                    onTap: pop,
+                    child: Container(
+                      padding: const EdgeInsets.all(4),
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColor.grey2,
+                      ),
+                      child: const Icon(
+                        Icons.close,
+                        size: 18,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            child,
+          ],
+        ),
       ),
     );
   }

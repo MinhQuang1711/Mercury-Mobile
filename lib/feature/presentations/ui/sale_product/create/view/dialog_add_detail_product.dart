@@ -6,10 +6,10 @@ import 'package:mercury/core/utils/validator/validator.dart';
 import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
 import 'package:mercury/feature/presentations/widget/button/button.dart';
 import 'package:mercury/feature/presentations/widget/column_input/column_input.dart';
-import 'package:mercury/feature/presentations/widget/search_field/search_field.dart';
-import 'package:mercury/feature/presentations/widget/search_field/search_item.dart';
+import 'package:mercury/feature/presentations/widget/select_button/app_search_item.dart';
+import 'package:mercury/feature/presentations/widget/select_button/select_button.dart';
 import 'package:mercury/feature/presentations/widget/textfield/textfield.dart';
-import 'package:searchfield/searchfield.dart';
+import 'package:select_button_package/model/search_item.dart';
 
 class DialogAddDetailProduct extends StatefulWidget {
   const DialogAddDetailProduct({super.key, required this.comboBoxes});
@@ -27,9 +27,12 @@ class _DialogAddDetailProductState extends State<DialogAddDetailProduct> {
     _detailProduct = _detailProduct.copyWith(value: weight ?? 0);
   }
 
-  void _changedIngredientId(SearchFieldListItem<ComboBox>? val) {
+  void _changedIngredientId(SearchItem<ComboBox> val) {
     _detailProduct = _detailProduct.copyWith(
-        id: val?.item?.id, name: val?.item?.name, price: val?.item?.price);
+      id: val.item.id,
+      name: val.item.name,
+      price: val.item.price,
+    );
   }
 
   void _onSubmit() {
@@ -52,6 +55,7 @@ class _DialogAddDetailProductState extends State<DialogAddDetailProduct> {
             _weightField(),
             const SizedBox(height: 45),
             _submitButton(),
+            const SizedBox(height: 15),
           ],
         ),
       ),
@@ -83,12 +87,13 @@ class _DialogAddDetailProductState extends State<DialogAddDetailProduct> {
   ColumnInput _ingredientField() {
     return ColumnInput(
       titleLabel: "Nguyên liệu",
-      bottomWidget: AppSearchFiled(
+      bottomWidget: AppSelectButton(
         items: widget.comboBoxes,
-        hint: "Chọn nguyên liệu",
         onTap: _changedIngredientId,
-        appItemFields: AppItemField.comboBox,
-        validator: (val) => Validator.required(_detailProduct.id),
+        hintText: "Chọn nguyên liệu",
+        searchHint: "Tìm kiếm nguyên liệu",
+        title: "Chọn nguyên liệu",
+        appSearchItem: AppSearchItem.comboBox,
       ),
     );
   }
