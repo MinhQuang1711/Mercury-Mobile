@@ -7,7 +7,8 @@ import '../../../bloc/sale_invoice/cubit/common_sale_invoice_cubit/cubit.dart';
 import '../../../bloc/sale_invoice/cubit/common_sale_invoice_cubit/state/state.dart';
 
 class ShippingFeeField extends StatelessWidget {
-  const ShippingFeeField({super.key});
+  const ShippingFeeField({super.key, this.shippingFee});
+  final String? shippingFee;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,8 @@ class ShippingFeeField extends StatelessWidget {
           previous.request.shippingFee != current.request.shippingFee,
       builder: (context, state) => SaleInvoiceInfo(
           title: "Phí vận chuyển",
-          content: (state.request.shippingFee ?? 0).formatNumber()),
+          content:
+              shippingFee ?? (state.request.shippingFee ?? 0).formatNumber()),
     );
   }
 }

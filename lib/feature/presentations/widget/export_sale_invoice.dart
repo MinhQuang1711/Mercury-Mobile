@@ -13,10 +13,12 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
       {super.key,
       required this.saleInvoice,
       required this.total,
+      required this.shippingFee,
       required this.discount});
   final SaleInvoiceRequest saleInvoice;
   final double total;
   final double discount;
+  final double shippingFee;
 
   @override
   Widget build(BuildContext context) {
@@ -44,11 +46,17 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
           const SizedBox(height: 10),
           _rowTable(),
           const SizedBox(height: 10),
-          Column(
-            children: (saleInvoice.detailSaleInvoice ?? [])
+          Column(children: [
+            ...(saleInvoice.detailSaleInvoice ?? [])
                 .map((e) => _card(e))
                 .toList(),
-          ),
+            if (shippingFee > 0)
+              _card(ComboBox(
+                name: "Phí vận chuyển",
+                quantity: 1,
+                price: shippingFee,
+              ))
+          ]),
           const SizedBox(height: 30),
           Row(
             children: [
@@ -101,7 +109,7 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
             style: captionRegular.copyWith(color: AppColor.black),
             children: [
               TextSpan(
-                text: (total - discount).formatNumber(),
+                text: (total - discount + shippingFee).formatNumber(),
                 style: captionBold.copyWith(color: AppColor.black),
               )
             ],

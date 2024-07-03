@@ -3,11 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
+import 'package:mercury/core/utils/extension/number.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/domain/model/sale_invoice/sale_invoice.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sale_invoice_cubit/cubit.dart';
 import 'package:mercury/feature/presentations/ui/sale_invoice/detail/widget/product_selected.dart';
 import 'package:mercury/feature/presentations/ui/sale_invoice/detail/widget/user_field.dart';
+import 'package:mercury/feature/presentations/ui/sale_invoice/widget/shipping_fee.dart';
 import 'package:mercury/feature/presentations/widget/button/button.dart';
 import 'package:mercury/feature/presentations/widget/stack/screen_allway_see_bottom.dart';
 
@@ -15,6 +17,7 @@ import '../../../../../config/const/padding.dart';
 import '../../../widget/grey_container.dart';
 import '../widget/final_price.dart';
 import '../widget/price_of_product.dart';
+import '../widget/shipping_field.dart';
 import '../widget/total_discount.dart';
 import 'print_invoice_button.dart';
 import 'widget/voucher_field.dart';
@@ -39,6 +42,7 @@ class DetailSaleInvoiceScreen extends StatelessWidget {
                 total: totalPrice,
                 discount: totalDiscount,
                 saleInvoice: saleInvoice,
+                shippingFee: saleInvoice.shippingFee ?? 0,
               ),
               const SizedBox(width: 10),
               AppButton(
@@ -58,6 +62,11 @@ class DetailSaleInvoiceScreen extends StatelessWidget {
               const VoucherField(),
               const SizedBox(height: 10),
               const UserField(),
+              const SizedBox(height: 10),
+              ShippingField(
+                readOnly: true,
+                init: saleInvoice.shippingFee?.toString(),
+              ),
               _titleWithPadding("Thông tin hóa đơn"),
               GreyContainer(
                 child: Padding(
@@ -66,6 +75,9 @@ class DetailSaleInvoiceScreen extends StatelessWidget {
                     children: [
                       PriceOfProduct(price: totalPrice),
                       TotalDiscount(price: totalDiscount),
+                      ShippingFeeField(
+                        shippingFee: saleInvoice.shippingFee?.formatNumber(),
+                      ),
                       const Divider(),
                       FinalPrice(
                         initPrice: finalPrice,

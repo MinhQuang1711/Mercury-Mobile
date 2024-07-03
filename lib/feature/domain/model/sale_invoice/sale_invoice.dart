@@ -17,6 +17,7 @@ class SaleInvoice with _$SaleInvoice {
     String? createdByName,
     String? ownerName,
     String? id,
+    double? shippingFee,
     List<DetailSaleInvoice>? detailSaleInvoices,
     Customer? customer,
   }) = _SaleInvoice;

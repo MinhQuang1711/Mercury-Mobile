@@ -27,6 +27,7 @@ class SaveinvoiceButton extends StatelessWidget {
               total: cubit.state.totalPrice,
               saleInvoice: cubit.state.request,
               discount: cubit.state.totalDiscount,
+              shippingFee: cubit.state.request.shippingFee ?? 0,
             ),
             AppButton(
               label: "Tải xuống",
@@ -37,6 +38,7 @@ class SaveinvoiceButton extends StatelessWidget {
                   total: cubit.state.totalPrice,
                   saleInvoice: cubit.state.request,
                   discount: cubit.state.totalDiscount,
+                  shippingFee: cubit.state.request.shippingFee ?? 0,
                 ),
               )
                   .then((bytes) async {

@@ -16,10 +16,12 @@ class SaveInvoiceButton extends StatelessWidget {
       {super.key,
       required this.saleInvoice,
       required this.total,
-      required this.discount});
+      required this.discount,
+      required this.shippingFee});
   final SaleInvoice saleInvoice;
   final double total;
   final double discount;
+  final double shippingFee;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +46,7 @@ class SaveInvoiceButton extends StatelessWidget {
               total: total,
               discount: discount,
               saleInvoice: invoiceRequest,
+              shippingFee: shippingFee,
             ),
             Padding(
               padding: AppPadding.padding14,
@@ -51,9 +54,11 @@ class SaveInvoiceButton extends StatelessWidget {
                 label: "Tải xuống",
                 onTap: () => controller
                     .captureFromWidget(ExportSaleInvoiceScreen(
-                        total: total,
-                        discount: discount,
-                        saleInvoice: invoiceRequest))
+                  total: total,
+                  discount: discount,
+                  saleInvoice: invoiceRequest,
+                  shippingFee: shippingFee,
+                ))
                     .then((bytes) async {
                   Gal.putImageBytes(bytes).then((value) => context.pop());
                 }),

@@ -28,6 +28,7 @@ mixin _$SaleInvoice {
   String? get createdByName => throw _privateConstructorUsedError;
   String? get ownerName => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
+  double? get shippingFee => throw _privateConstructorUsedError;
   List<DetailSaleInvoice>? get detailSaleInvoices =>
       throw _privateConstructorUsedError;
   Customer? get customer => throw _privateConstructorUsedError;
@@ -52,6 +53,7 @@ abstract class $SaleInvoiceCopyWith<$Res> {
       String? createdByName,
       String? ownerName,
       String? id,
+      double? shippingFee,
       List<DetailSaleInvoice>? detailSaleInvoices,
       Customer? customer});
 
@@ -79,6 +81,7 @@ class _$SaleInvoiceCopyWithImpl<$Res, $Val extends SaleInvoice>
     Object? createdByName = freezed,
     Object? ownerName = freezed,
     Object? id = freezed,
+    Object? shippingFee = freezed,
     Object? detailSaleInvoices = freezed,
     Object? customer = freezed,
   }) {
@@ -115,6 +118,10 @@ class _$SaleInvoiceCopyWithImpl<$Res, $Val extends SaleInvoice>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      shippingFee: freezed == shippingFee
+          ? _value.shippingFee
+          : shippingFee // ignore: cast_nullable_to_non_nullable
+              as double?,
       detailSaleInvoices: freezed == detailSaleInvoices
           ? _value.detailSaleInvoices
           : detailSaleInvoices // ignore: cast_nullable_to_non_nullable
@@ -156,6 +163,7 @@ abstract class _$$SaleInvoiceImplCopyWith<$Res>
       String? createdByName,
       String? ownerName,
       String? id,
+      double? shippingFee,
       List<DetailSaleInvoice>? detailSaleInvoices,
       Customer? customer});
 
@@ -182,6 +190,7 @@ class __$$SaleInvoiceImplCopyWithImpl<$Res>
     Object? createdByName = freezed,
     Object? ownerName = freezed,
     Object? id = freezed,
+    Object? shippingFee = freezed,
     Object? detailSaleInvoices = freezed,
     Object? customer = freezed,
   }) {
@@ -218,6 +227,10 @@ class __$$SaleInvoiceImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
+      shippingFee: freezed == shippingFee
+          ? _value.shippingFee
+          : shippingFee // ignore: cast_nullable_to_non_nullable
+              as double?,
       detailSaleInvoices: freezed == detailSaleInvoices
           ? _value._detailSaleInvoices
           : detailSaleInvoices // ignore: cast_nullable_to_non_nullable
@@ -242,6 +255,7 @@ class _$SaleInvoiceImpl implements _SaleInvoice {
       this.createdByName,
       this.ownerName,
       this.id,
+      this.shippingFee,
       final List<DetailSaleInvoice>? detailSaleInvoices,
       this.customer})
       : _detailSaleInvoices = detailSaleInvoices;
@@ -265,6 +279,8 @@ class _$SaleInvoiceImpl implements _SaleInvoice {
   final String? ownerName;
   @override
   final String? id;
+  @override
+  final double? shippingFee;
   final List<DetailSaleInvoice>? _detailSaleInvoices;
   @override
   List<DetailSaleInvoice>? get detailSaleInvoices {
@@ -281,7 +297,7 @@ class _$SaleInvoiceImpl implements _SaleInvoice {
 
   @override
   String toString() {
-    return 'SaleInvoice(totalPrice: $totalPrice, dicount: $dicount, voucherId: $voucherId, customerId: $customerId, createDate: $createDate, createdByName: $createdByName, ownerName: $ownerName, id: $id, detailSaleInvoices: $detailSaleInvoices, customer: $customer)';
+    return 'SaleInvoice(totalPrice: $totalPrice, dicount: $dicount, voucherId: $voucherId, customerId: $customerId, createDate: $createDate, createdByName: $createdByName, ownerName: $ownerName, id: $id, shippingFee: $shippingFee, detailSaleInvoices: $detailSaleInvoices, customer: $customer)';
   }
 
   @override
@@ -303,6 +319,8 @@ class _$SaleInvoiceImpl implements _SaleInvoice {
             (identical(other.ownerName, ownerName) ||
                 other.ownerName == ownerName) &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.shippingFee, shippingFee) ||
+                other.shippingFee == shippingFee) &&
             const DeepCollectionEquality()
                 .equals(other._detailSaleInvoices, _detailSaleInvoices) &&
             (identical(other.customer, customer) ||
@@ -321,6 +339,7 @@ class _$SaleInvoiceImpl implements _SaleInvoice {
       createdByName,
       ownerName,
       id,
+      shippingFee,
       const DeepCollectionEquality().hash(_detailSaleInvoices),
       customer);
 
@@ -341,6 +360,7 @@ abstract class _SaleInvoice implements SaleInvoice {
       final String? createdByName,
       final String? ownerName,
       final String? id,
+      final double? shippingFee,
       final List<DetailSaleInvoice>? detailSaleInvoices,
       final Customer? customer}) = _$SaleInvoiceImpl;
 
@@ -363,6 +383,8 @@ abstract class _SaleInvoice implements SaleInvoice {
   String? get ownerName;
   @override
   String? get id;
+  @override
+  double? get shippingFee;
   @override
   List<DetailSaleInvoice>? get detailSaleInvoices;
   @override
