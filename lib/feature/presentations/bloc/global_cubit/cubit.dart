@@ -4,14 +4,14 @@ import 'package:mercury/feature/presentations/bloc/global_cubit/state/state.dart
 class GlobalCubit extends Cubit<GlobalState> {
   GlobalCubit()
       : super(const GlobalState(
-            reloadProduct: false,
             reloadDasboard: false,
+            reloadIngredient: false,
             reloadSaleInvoice: false,
             reloadImportInvoice: false));
 
-  void changedReloadProduct() {
-    emit(state.copyWith(reloadProduct: true));
-    emit(state.copyWith(reloadProduct: false));
+  void changedreloadIngredient() {
+    emit(state.copyWith(reloadIngredient: true));
+    emit(state.copyWith(reloadIngredient: false));
   }
 
   void changedReloadDashboard() {

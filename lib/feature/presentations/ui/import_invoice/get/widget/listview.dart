@@ -63,8 +63,10 @@ class _ImportInvoiceListState extends State<ImportInvoiceList> {
                   onDelete: (val) => context.showBottomSheetAndListen(
                     child: DeleteImportInvoice(importInvoice: val),
                     handleWhenHasValue: () {
+                      final glocalCubit = context.read<GlobalCubit>();
                       bloc.add(defaultImportInvoiceEvent);
-                      context.read<GlobalCubit>().changedReloadDashboard();
+                      glocalCubit.changedReloadDashboard();
+                      glocalCubit.changedreloadIngredient();
                     },
                   ),
                 ),

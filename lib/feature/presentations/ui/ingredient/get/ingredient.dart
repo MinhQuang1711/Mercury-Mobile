@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/feature/domain/enum/screen.dart';
 import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/bloc/state/state.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/cubit/get/cubit.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/get/widget/list_view.dart';
+import 'package:mercury/feature/presentations/widget/global_listener.dart';
 
 import '../../../../../core/utils/injection/get_it.dart';
 import '../../../../data/model/ingredinent/ingredient.dart';
@@ -48,17 +50,22 @@ class IngredientPage extends StatelessWidget {
           current.whenOrNull(got: (searchByName, pagedList) => pagedList);
     }
 
-    return BlocListener<IngredientBloc, IngredientState>(
-      listenWhen: listenWhen,
-      listener: (context, state) => state.whenOrNull(
-        got: handleGot,
-      ),
-      child: const Column(
-        children: [
-          IngredientSearchBar(),
-          SizedBox(height: 10),
-          IngredientList(),
-        ],
+    return GlobalListenerWidget(
+      screenEnum: ScreenEnum.INGREDIENT,
+      functionReload: () =>
+          context.read<IngredientBloc>().add(defaultIngredientEvent),
+      child: BlocListener<IngredientBloc, IngredientState>(
+        listenWhen: listenWhen,
+        listener: (context, state) => state.whenOrNull(
+          got: handleGot,
+        ),
+        child: const Column(
+          children: [
+            IngredientSearchBar(),
+            SizedBox(height: 10),
+            IngredientList(),
+          ],
+        ),
       ),
     );
   }

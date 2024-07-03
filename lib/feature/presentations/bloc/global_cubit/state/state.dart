@@ -5,8 +5,8 @@ part 'state.freezed.dart';
 @freezed
 class GlobalState with _$GlobalState {
   const factory GlobalState({
-    required bool reloadProduct,
     required bool reloadDasboard,
+    required bool reloadIngredient,
     required bool reloadSaleInvoice,
     required bool reloadImportInvoice,
   }) = _State;

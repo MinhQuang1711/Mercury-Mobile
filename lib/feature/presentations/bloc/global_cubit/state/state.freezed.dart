@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$GlobalState {
-  bool get reloadProduct => throw _privateConstructorUsedError;
   bool get reloadDasboard => throw _privateConstructorUsedError;
+  bool get reloadIngredient => throw _privateConstructorUsedError;
   bool get reloadSaleInvoice => throw _privateConstructorUsedError;
   bool get reloadImportInvoice => throw _privateConstructorUsedError;
 
@@ -33,8 +33,8 @@ abstract class $GlobalStateCopyWith<$Res> {
       _$GlobalStateCopyWithImpl<$Res, GlobalState>;
   @useResult
   $Res call(
-      {bool reloadProduct,
-      bool reloadDasboard,
+      {bool reloadDasboard,
+      bool reloadIngredient,
       bool reloadSaleInvoice,
       bool reloadImportInvoice});
 }
@@ -52,19 +52,19 @@ class _$GlobalStateCopyWithImpl<$Res, $Val extends GlobalState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? reloadProduct = null,
     Object? reloadDasboard = null,
+    Object? reloadIngredient = null,
     Object? reloadSaleInvoice = null,
     Object? reloadImportInvoice = null,
   }) {
     return _then(_value.copyWith(
-      reloadProduct: null == reloadProduct
-          ? _value.reloadProduct
-          : reloadProduct // ignore: cast_nullable_to_non_nullable
-              as bool,
       reloadDasboard: null == reloadDasboard
           ? _value.reloadDasboard
           : reloadDasboard // ignore: cast_nullable_to_non_nullable
+              as bool,
+      reloadIngredient: null == reloadIngredient
+          ? _value.reloadIngredient
+          : reloadIngredient // ignore: cast_nullable_to_non_nullable
               as bool,
       reloadSaleInvoice: null == reloadSaleInvoice
           ? _value.reloadSaleInvoice
@@ -87,8 +87,8 @@ abstract class _$$StateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool reloadProduct,
-      bool reloadDasboard,
+      {bool reloadDasboard,
+      bool reloadIngredient,
       bool reloadSaleInvoice,
       bool reloadImportInvoice});
 }
@@ -104,19 +104,19 @@ class __$$StateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? reloadProduct = null,
     Object? reloadDasboard = null,
+    Object? reloadIngredient = null,
     Object? reloadSaleInvoice = null,
     Object? reloadImportInvoice = null,
   }) {
     return _then(_$StateImpl(
-      reloadProduct: null == reloadProduct
-          ? _value.reloadProduct
-          : reloadProduct // ignore: cast_nullable_to_non_nullable
-              as bool,
       reloadDasboard: null == reloadDasboard
           ? _value.reloadDasboard
           : reloadDasboard // ignore: cast_nullable_to_non_nullable
+              as bool,
+      reloadIngredient: null == reloadIngredient
+          ? _value.reloadIngredient
+          : reloadIngredient // ignore: cast_nullable_to_non_nullable
               as bool,
       reloadSaleInvoice: null == reloadSaleInvoice
           ? _value.reloadSaleInvoice
@@ -134,15 +134,15 @@ class __$$StateImplCopyWithImpl<$Res>
 
 class _$StateImpl implements _State {
   const _$StateImpl(
-      {required this.reloadProduct,
-      required this.reloadDasboard,
+      {required this.reloadDasboard,
+      required this.reloadIngredient,
       required this.reloadSaleInvoice,
       required this.reloadImportInvoice});
 
   @override
-  final bool reloadProduct;
-  @override
   final bool reloadDasboard;
+  @override
+  final bool reloadIngredient;
   @override
   final bool reloadSaleInvoice;
   @override
@@ -150,7 +150,7 @@ class _$StateImpl implements _State {
 
   @override
   String toString() {
-    return 'GlobalState(reloadProduct: $reloadProduct, reloadDasboard: $reloadDasboard, reloadSaleInvoice: $reloadSaleInvoice, reloadImportInvoice: $reloadImportInvoice)';
+    return 'GlobalState(reloadDasboard: $reloadDasboard, reloadIngredient: $reloadIngredient, reloadSaleInvoice: $reloadSaleInvoice, reloadImportInvoice: $reloadImportInvoice)';
   }
 
   @override
@@ -158,10 +158,10 @@ class _$StateImpl implements _State {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StateImpl &&
-            (identical(other.reloadProduct, reloadProduct) ||
-                other.reloadProduct == reloadProduct) &&
             (identical(other.reloadDasboard, reloadDasboard) ||
                 other.reloadDasboard == reloadDasboard) &&
+            (identical(other.reloadIngredient, reloadIngredient) ||
+                other.reloadIngredient == reloadIngredient) &&
             (identical(other.reloadSaleInvoice, reloadSaleInvoice) ||
                 other.reloadSaleInvoice == reloadSaleInvoice) &&
             (identical(other.reloadImportInvoice, reloadImportInvoice) ||
@@ -169,7 +169,7 @@ class _$StateImpl implements _State {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, reloadProduct, reloadDasboard,
+  int get hashCode => Object.hash(runtimeType, reloadDasboard, reloadIngredient,
       reloadSaleInvoice, reloadImportInvoice);
 
   @JsonKey(ignore: true)
@@ -181,15 +181,15 @@ class _$StateImpl implements _State {
 
 abstract class _State implements GlobalState {
   const factory _State(
-      {required final bool reloadProduct,
-      required final bool reloadDasboard,
+      {required final bool reloadDasboard,
+      required final bool reloadIngredient,
       required final bool reloadSaleInvoice,
       required final bool reloadImportInvoice}) = _$StateImpl;
 
   @override
-  bool get reloadProduct;
-  @override
   bool get reloadDasboard;
+  @override
+  bool get reloadIngredient;
   @override
   bool get reloadSaleInvoice;
   @override

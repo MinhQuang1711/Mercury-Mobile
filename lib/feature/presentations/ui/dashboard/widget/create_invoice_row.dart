@@ -32,6 +32,7 @@ class CreateInvoiceRow extends StatelessWidget {
           final glocalCubit = context.read<GlobalCubit>();
           glocalCubit.changedReloadDashboard();
           glocalCubit.changedReloadImportInvoice();
+          glocalCubit.changedreloadIngredient();
         },
       );
     }

@@ -19,8 +19,8 @@ class GlobalListenerWidget extends StatelessWidget {
     return BlocListener<GlobalCubit, GlobalState>(
       listenWhen: (previous, current) {
         switch (screenEnum) {
-          case ScreenEnum.PRODUCT:
-            return previous.reloadProduct != current.reloadProduct;
+          case ScreenEnum.INGREDIENT:
+            return previous.reloadIngredient != current.reloadIngredient;
           case ScreenEnum.DASHBOARD:
             return previous.reloadDasboard != current.reloadDasboard;
           case ScreenEnum.SALE_INVOICE:
@@ -31,7 +31,7 @@ class GlobalListenerWidget extends StatelessWidget {
       },
       listener: (context, state) {
         if (state.reloadDasboard ||
-            state.reloadProduct ||
+            state.reloadIngredient ||
             state.reloadSaleInvoice ||
             state.reloadImportInvoice) {
           functionReload?.call();

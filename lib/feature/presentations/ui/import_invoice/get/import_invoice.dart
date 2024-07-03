@@ -45,8 +45,10 @@ class ImportInvoicePage extends StatelessWidget {
       context.pushAndListen(
         location: AppPath.createImportInvoice,
         handleWhenHasValue: () {
+          final globalCubit = context.read<GlobalCubit>();
           bloc.add(defaultImportInvoiceEvent);
-          context.read<GlobalCubit>().changedReloadDashboard();
+          globalCubit.changedReloadDashboard();
+          globalCubit.changedreloadIngredient();
         },
       );
     }
