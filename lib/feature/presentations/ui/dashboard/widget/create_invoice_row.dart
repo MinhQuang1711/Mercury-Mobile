@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mercury/config/router/path.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
@@ -7,6 +8,7 @@ import 'package:mercury/feature/presentations/ui/voucher/create/create.dart';
 import '../../../../../config/theme/color.dart';
 import '../../../../../config/theme/text_style.dart';
 import '../../../../../gen/assets.gen.dart';
+import '../../../bloc/global_cubit/cubit.dart';
 
 class CreateInvoiceRow extends StatelessWidget {
   const CreateInvoiceRow({super.key});
@@ -18,7 +20,14 @@ class CreateInvoiceRow extends StatelessWidget {
     }
 
     void createImportInvoice() {
-      context.push(AppPath.createImportInvoice);
+      context.pushAndListen(
+        location: AppPath.createImportInvoice,
+        handleWhenHasValue: () {
+          final glocalCubit = context.read<GlobalCubit>();
+          glocalCubit.changedReloadDashboard();
+          glocalCubit.changedReloadImportInvoice();
+        },
+      );
     }
 
     void createVoucher() {
