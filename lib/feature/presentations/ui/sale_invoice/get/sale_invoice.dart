@@ -21,9 +21,12 @@ class SaleInvoiceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<SaleInvoiceBloc>().add(defaultSaleInvoiceEvent);
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (_) =>
+              getIt.get<SaleInvoiceBloc>()..add(defaultSaleInvoiceEvent),
+        ),
         BlocProvider(create: (_) => getIt.get<GetSaleInvoiceCubit>()),
       ],
       child: const SaleInvoicePage(),

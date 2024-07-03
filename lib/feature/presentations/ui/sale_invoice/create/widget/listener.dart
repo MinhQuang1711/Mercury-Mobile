@@ -5,26 +5,15 @@ import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/state/state.dart';
 
-import '../../../../bloc/dashboard/cubit.dart';
-
 class SaleInvoiceListenWidget extends StatelessWidget {
   const SaleInvoiceListenWidget({super.key, required this.child});
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    final dashboardCubit = context.read<DashboardCubit>();
     return BlocListener<SaleInvoiceBloc, SaleInvoiceState>(
       listener: (context, state) => state.whenOrNull(
-        created: (msg) {
-          context.pop(msg);
-          dashboardCubit
-            ..getChartOfDay()
-            ..getChartOfMonth()
-            ..getfinancialRecordOfDay()
-            ..getfinancialRecordOfMonth();
-          return null;
-        },
+        created: (msg) => context.pop(msg),
         failure: (msg) => context.showFailureSnackBar(msg),
       ),
       child: child,

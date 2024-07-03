@@ -9,11 +9,8 @@ import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/core/utils/singleton/token_singleton.dart';
 import 'package:mercury/core/utils/storage/token_storage.dart';
-import 'package:mercury/feature/presentations/bloc/dashboard/cubit.dart';
+import 'package:mercury/feature/presentations/bloc/global_cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/splash/cubit.dart';
-
-import 'feature/presentations/bloc/import_invoice/bloc/bloc.dart';
-import 'feature/presentations/bloc/sale_invoice/bloc/bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,18 +22,7 @@ void main() async {
     MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => getIt.get<SplashCubit>()),
-        BlocProvider(
-          create: (_) => getIt.get<DashboardCubit>()
-            ..getfinancialRecordOfDay()
-            ..getfinancialRecordOfMonth()
-            ..getChartOfDay()
-            ..getChartOfMonth()
-            ..getFinancialOf7Days(),
-        ),
-        BlocProvider(create: (_) => getIt.get<SaleInvoiceBloc>()),
-        BlocProvider(
-          create: (_) => getIt.get<ImportInvoiceBloc>(),
-        ),
+        BlocProvider(create: (_) => getIt.get<GlobalCubit>()),
       ],
       child: const MyApp(),
     ),

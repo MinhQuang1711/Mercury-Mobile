@@ -20,9 +20,11 @@ class ImportInvoiceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<ImportInvoiceBloc>().add(defaultImportInvoiceEvent);
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+            create: (_) =>
+                getIt.get<ImportInvoiceBloc>()..add(defaultImportInvoiceEvent)),
         BlocProvider(create: (_) => getIt.get<GetImportInvoiceCubit>()),
       ],
       child: const ImportInvoicePage(),
@@ -36,7 +38,11 @@ class ImportInvoicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void onTapCreate() {
-      context.pushAndListen(location: AppPath.createImportInvoice);
+      final bloc = context.read<ImportInvoiceBloc>();
+      context.pushAndListen(
+        location: AppPath.createImportInvoice,
+        handleWhenHasValue: () => bloc.add(defaultImportInvoiceEvent),
+      );
     }
 
     return ImportBlocListenWidget(

@@ -11,6 +11,7 @@ import 'package:mercury/feature/presentations/bloc/dashboard/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/dashboard/state/state.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/overview_bar.dart';
 
+import '../../../../core/utils/injection/get_it.dart';
 import 'widget/chart.dart';
 import 'widget/create_invoice_row.dart';
 
@@ -19,7 +20,15 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const DashboardPage();
+    return BlocProvider(
+      create: (_) => getIt.get<DashboardCubit>()
+        ..getfinancialRecordOfDay()
+        ..getfinancialRecordOfMonth()
+        ..getChartOfDay()
+        ..getChartOfMonth()
+        ..getFinancialOf7Days(),
+      child: const DashboardPage(),
+    );
   }
 }
 

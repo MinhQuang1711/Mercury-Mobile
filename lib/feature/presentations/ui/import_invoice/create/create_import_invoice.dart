@@ -8,11 +8,9 @@ import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/bloc.dart
 import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/state/state.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/common/cubit.dart';
 import 'package:mercury/feature/presentations/ui/import_invoice/create/widget/ingredient_field.dart';
-import 'package:mercury/feature/presentations/ui/import_invoice/get/import_invoice.dart';
 import 'package:mercury/feature/presentations/widget/app_bar.dart';
 import 'package:mercury/feature/presentations/widget/stack/screen_allway_see_bottom.dart';
 
-import '../../../bloc/dashboard/cubit.dart';
 import 'widget/create_button.dart';
 import 'widget/description_field.dart';
 import 'widget/ingredient_selected.dart';
@@ -39,21 +37,10 @@ class CreateImportInvoicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<ImportInvoiceBloc>();
-    final dashboardCubit = context.read<DashboardCubit>();
     return BlocListener<ImportInvoiceBloc, ImportInvoiceState>(
       listener: (context, state) => state.whenOrNull(
         failure: (msg) => context.showFailureSnackBar(msg),
-        success: (msg) {
-          context.pop(msg);
-          bloc.add(defaultImportInvoiceEvent);
-          dashboardCubit
-            ..getChartOfDay()
-            ..getChartOfMonth()
-            ..getfinancialRecordOfDay()
-            ..getfinancialRecordOfMonth();
-          return null;
-        },
+        success: (msg) => context.pop(msg),
       ),
       child: const Scaffold(
         appBar: ActionAppBar(),
