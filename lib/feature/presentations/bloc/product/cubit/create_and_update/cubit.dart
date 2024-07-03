@@ -21,8 +21,37 @@ class ProductCubit extends Cubit<ProductCubitState> {
       name: product.name,
       price: product.salePrice,
       attachFile: product.imageByte,
+      detailProducts: product.detailProducts
+          ?.map((e) => ComboBox(
+                value: e.weight,
+                id: e.ingredientId,
+              ))
+          .toList(),
     );
     emit(state.copyWith(dto: newDto));
+  }
+
+  /*
+    Lấy ra danh sách nguyên liệu từ id có sẵn
+    Xóa các nguyên liệu đã được chọn
+  */
+  void initDetailProduct() {
+    List<ComboBox> ingredients = [];
+    for (ComboBox item in state.dto.detailProducts ?? []) {
+      ComboBox comboBox = state.comboBoxes.where((e) => e.id == item.id).first;
+      // Cập nhật khối lượng cho nguyên liệu
+      ingredients.add(comboBox.copyWith(value: item.value));
+    }
+    var oldComboBoxes = List<ComboBox>.from(state.comboBoxes);
+    var comboBoxesAfterRemove = oldComboBoxes
+      ..removeWhere((e) => ingredients.any((e1) => e.id == e1.id));
+
+    emit(
+      state.copyWith(
+        comboBoxes: comboBoxesAfterRemove,
+        dto: state.dto.copyWith(detailProducts: ingredients),
+      ),
+    );
   }
 
   void initComboBoxes(List<ComboBox> val) {

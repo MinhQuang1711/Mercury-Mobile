@@ -19,8 +19,9 @@ class ListDetailProduct extends StatelessWidget {
     return _container(
       BlocBuilder<ProductCubit, ProductCubitState>(
         buildWhen: (p, c) => p.dto.detailProducts != c.dto.detailProducts,
-        builder: (context, state) =>
-            state.comboBoxes.isEmpty ? const EmptyWidget() : _listCard(state),
+        builder: (context, state) => state.dto.detailProducts?.isEmpty == true
+            ? const EmptyWidget()
+            : _listCard(state),
       ),
     );
   }

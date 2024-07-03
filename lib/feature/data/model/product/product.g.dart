@@ -18,5 +18,8 @@ _$ProductImpl _$$ProductImplFromJson(Map<String, dynamic> json) =>
       createDate: json['createDate'] == null
           ? null
           : DateTime.parse(json['createDate'] as String),
+      detailProducts: (json['detailProducts'] as List<dynamic>?)
+          ?.map((e) => DetailProduct.fromJson(e as Map<String, dynamic>))
+          .toList(),
       createdByName: json['createdByName'] as String?,
     );

@@ -28,6 +28,7 @@ mixin _$Product {
   String? get ownerName => throw _privateConstructorUsedError;
   String? get imageByte => throw _privateConstructorUsedError;
   DateTime? get createDate => throw _privateConstructorUsedError;
+  List<DetailProduct>? get detailProducts => throw _privateConstructorUsedError;
   String? get createdByName => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -48,6 +49,7 @@ abstract class $ProductCopyWith<$Res> {
       String? ownerName,
       String? imageByte,
       DateTime? createDate,
+      List<DetailProduct>? detailProducts,
       String? createdByName});
 }
 
@@ -72,6 +74,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? ownerName = freezed,
     Object? imageByte = freezed,
     Object? createDate = freezed,
+    Object? detailProducts = freezed,
     Object? createdByName = freezed,
   }) {
     return _then(_value.copyWith(
@@ -107,6 +110,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      detailProducts: freezed == detailProducts
+          ? _value.detailProducts
+          : detailProducts // ignore: cast_nullable_to_non_nullable
+              as List<DetailProduct>?,
       createdByName: freezed == createdByName
           ? _value.createdByName
           : createdByName // ignore: cast_nullable_to_non_nullable
@@ -131,6 +138,7 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String? ownerName,
       String? imageByte,
       DateTime? createDate,
+      List<DetailProduct>? detailProducts,
       String? createdByName});
 }
 
@@ -153,6 +161,7 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? ownerName = freezed,
     Object? imageByte = freezed,
     Object? createDate = freezed,
+    Object? detailProducts = freezed,
     Object? createdByName = freezed,
   }) {
     return _then(_$ProductImpl(
@@ -188,6 +197,10 @@ class __$$ProductImplCopyWithImpl<$Res>
           ? _value.createDate
           : createDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      detailProducts: freezed == detailProducts
+          ? _value._detailProducts
+          : detailProducts // ignore: cast_nullable_to_non_nullable
+              as List<DetailProduct>?,
       createdByName: freezed == createdByName
           ? _value.createdByName
           : createdByName // ignore: cast_nullable_to_non_nullable
@@ -208,7 +221,9 @@ class _$ProductImpl implements _Product {
       this.ownerName,
       this.imageByte,
       this.createDate,
-      this.createdByName});
+      final List<DetailProduct>? detailProducts,
+      this.createdByName})
+      : _detailProducts = detailProducts;
 
   factory _$ProductImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProductImplFromJson(json);
@@ -229,12 +244,22 @@ class _$ProductImpl implements _Product {
   final String? imageByte;
   @override
   final DateTime? createDate;
+  final List<DetailProduct>? _detailProducts;
+  @override
+  List<DetailProduct>? get detailProducts {
+    final value = _detailProducts;
+    if (value == null) return null;
+    if (_detailProducts is EqualUnmodifiableListView) return _detailProducts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String? createdByName;
 
   @override
   String toString() {
-    return 'Product(id: $id, name: $name, sumCost: $sumCost, salePrice: $salePrice, imagePath: $imagePath, ownerName: $ownerName, imageByte: $imageByte, createDate: $createDate, createdByName: $createdByName)';
+    return 'Product(id: $id, name: $name, sumCost: $sumCost, salePrice: $salePrice, imagePath: $imagePath, ownerName: $ownerName, imageByte: $imageByte, createDate: $createDate, detailProducts: $detailProducts, createdByName: $createdByName)';
   }
 
   @override
@@ -255,14 +280,26 @@ class _$ProductImpl implements _Product {
                 other.imageByte == imageByte) &&
             (identical(other.createDate, createDate) ||
                 other.createDate == createDate) &&
+            const DeepCollectionEquality()
+                .equals(other._detailProducts, _detailProducts) &&
             (identical(other.createdByName, createdByName) ||
                 other.createdByName == createdByName));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, sumCost, salePrice,
-      imagePath, ownerName, imageByte, createDate, createdByName);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      sumCost,
+      salePrice,
+      imagePath,
+      ownerName,
+      imageByte,
+      createDate,
+      const DeepCollectionEquality().hash(_detailProducts),
+      createdByName);
 
   @JsonKey(ignore: true)
   @override
@@ -281,6 +318,7 @@ abstract class _Product implements Product {
       final String? ownerName,
       final String? imageByte,
       final DateTime? createDate,
+      final List<DetailProduct>? detailProducts,
       final String? createdByName}) = _$ProductImpl;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$ProductImpl.fromJson;
@@ -301,6 +339,8 @@ abstract class _Product implements Product {
   String? get imageByte;
   @override
   DateTime? get createDate;
+  @override
+  List<DetailProduct>? get detailProducts;
   @override
   String? get createdByName;
   @override
