@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
+import 'package:mercury/core/utils/validator/validator.dart';
 import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
 import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sale_invoice_cubit/cubit.dart';
 import 'package:mercury/feature/presentations/ui/customer/create/create.dart';
+import 'package:mercury/feature/presentations/ui/sale_invoice/widget/shipping_fee.dart';
 import 'package:select_button_package/model/search_item.dart';
 
 import '../../../../../../config/const/padding.dart';
 import '../../../../../../config/theme/text_style.dart';
+import '../../../../widget/column_input/column_input.dart';
 import '../../../../widget/grey_container.dart';
+import '../../../../widget/textfield/textfield.dart';
 import '../../widget/customer_field.dart';
 import '../../widget/final_price.dart';
 import '../../widget/price_of_product.dart';
@@ -52,6 +57,20 @@ class CreateSaleInvoiceBody extends StatelessWidget {
           onTap: selectCustomer,
           onTapCreate: onTapCreate,
         ),
+        const SizedBox(height: 10),
+        ColumnInput(
+          titleLabel: "Phí vận chuyển",
+          bottomWidget: AppTextField(
+            initValue: "0",
+            validator: Validator.doubleOrNull,
+            hintText: "Nhập phí vận chuyển",
+            onChanged: cubit.changedShippingFee,
+            sufWidget: const Icon(
+              Icons.attach_money,
+              color: AppColor.blue,
+            ),
+          ),
+        ),
         _titleWithPadding("Thông tin hóa đơn"),
         const GreyContainer(
           child: Padding(
@@ -60,6 +79,7 @@ class CreateSaleInvoiceBody extends StatelessWidget {
               children: [
                 PriceOfProduct(),
                 TotalDiscount(),
+                ShippingFeeField(),
                 Divider(),
                 FinalPrice(),
               ],

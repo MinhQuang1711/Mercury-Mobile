@@ -19,6 +19,7 @@ mixin _$SaleInvoiceRequest {
   double? get discount => throw _privateConstructorUsedError;
   Voucher? get voucher => throw _privateConstructorUsedError;
   String? get customerId => throw _privateConstructorUsedError;
+  double? get shippingFee => throw _privateConstructorUsedError;
   int? get paymentType => throw _privateConstructorUsedError;
   List<ComboBox>? get detailSaleInvoice => throw _privateConstructorUsedError;
 
@@ -38,6 +39,7 @@ abstract class $SaleInvoiceRequestCopyWith<$Res> {
       {double? discount,
       Voucher? voucher,
       String? customerId,
+      double? shippingFee,
       int? paymentType,
       List<ComboBox>? detailSaleInvoice});
 
@@ -60,6 +62,7 @@ class _$SaleInvoiceRequestCopyWithImpl<$Res, $Val extends SaleInvoiceRequest>
     Object? discount = freezed,
     Object? voucher = freezed,
     Object? customerId = freezed,
+    Object? shippingFee = freezed,
     Object? paymentType = freezed,
     Object? detailSaleInvoice = freezed,
   }) {
@@ -76,6 +79,10 @@ class _$SaleInvoiceRequestCopyWithImpl<$Res, $Val extends SaleInvoiceRequest>
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
               as String?,
+      shippingFee: freezed == shippingFee
+          ? _value.shippingFee
+          : shippingFee // ignore: cast_nullable_to_non_nullable
+              as double?,
       paymentType: freezed == paymentType
           ? _value.paymentType
           : paymentType // ignore: cast_nullable_to_non_nullable
@@ -112,6 +119,7 @@ abstract class _$$SaleInvoiceRequestImplCopyWith<$Res>
       {double? discount,
       Voucher? voucher,
       String? customerId,
+      double? shippingFee,
       int? paymentType,
       List<ComboBox>? detailSaleInvoice});
 
@@ -133,6 +141,7 @@ class __$$SaleInvoiceRequestImplCopyWithImpl<$Res>
     Object? discount = freezed,
     Object? voucher = freezed,
     Object? customerId = freezed,
+    Object? shippingFee = freezed,
     Object? paymentType = freezed,
     Object? detailSaleInvoice = freezed,
   }) {
@@ -149,6 +158,10 @@ class __$$SaleInvoiceRequestImplCopyWithImpl<$Res>
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
               as String?,
+      shippingFee: freezed == shippingFee
+          ? _value.shippingFee
+          : shippingFee // ignore: cast_nullable_to_non_nullable
+              as double?,
       paymentType: freezed == paymentType
           ? _value.paymentType
           : paymentType // ignore: cast_nullable_to_non_nullable
@@ -168,6 +181,7 @@ class _$SaleInvoiceRequestImpl implements _SaleInvoiceRequest {
       {this.discount,
       this.voucher,
       this.customerId,
+      this.shippingFee,
       this.paymentType = 0,
       final List<ComboBox>? detailSaleInvoice = const []})
       : _detailSaleInvoice = detailSaleInvoice;
@@ -178,6 +192,8 @@ class _$SaleInvoiceRequestImpl implements _SaleInvoiceRequest {
   final Voucher? voucher;
   @override
   final String? customerId;
+  @override
+  final double? shippingFee;
   @override
   @JsonKey()
   final int? paymentType;
@@ -195,7 +211,7 @@ class _$SaleInvoiceRequestImpl implements _SaleInvoiceRequest {
 
   @override
   String toString() {
-    return 'SaleInvoiceRequest(discount: $discount, voucher: $voucher, customerId: $customerId, paymentType: $paymentType, detailSaleInvoice: $detailSaleInvoice)';
+    return 'SaleInvoiceRequest(discount: $discount, voucher: $voucher, customerId: $customerId, shippingFee: $shippingFee, paymentType: $paymentType, detailSaleInvoice: $detailSaleInvoice)';
   }
 
   @override
@@ -208,6 +224,8 @@ class _$SaleInvoiceRequestImpl implements _SaleInvoiceRequest {
             (identical(other.voucher, voucher) || other.voucher == voucher) &&
             (identical(other.customerId, customerId) ||
                 other.customerId == customerId) &&
+            (identical(other.shippingFee, shippingFee) ||
+                other.shippingFee == shippingFee) &&
             (identical(other.paymentType, paymentType) ||
                 other.paymentType == paymentType) &&
             const DeepCollectionEquality()
@@ -216,8 +234,14 @@ class _$SaleInvoiceRequestImpl implements _SaleInvoiceRequest {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, discount, voucher, customerId,
-      paymentType, const DeepCollectionEquality().hash(_detailSaleInvoice));
+  int get hashCode => Object.hash(
+      runtimeType,
+      discount,
+      voucher,
+      customerId,
+      shippingFee,
+      paymentType,
+      const DeepCollectionEquality().hash(_detailSaleInvoice));
 
   @JsonKey(ignore: true)
   @override
@@ -239,6 +263,7 @@ abstract class _SaleInvoiceRequest implements SaleInvoiceRequest {
       {final double? discount,
       final Voucher? voucher,
       final String? customerId,
+      final double? shippingFee,
       final int? paymentType,
       final List<ComboBox>? detailSaleInvoice}) = _$SaleInvoiceRequestImpl;
 
@@ -248,6 +273,8 @@ abstract class _SaleInvoiceRequest implements SaleInvoiceRequest {
   Voucher? get voucher;
   @override
   String? get customerId;
+  @override
+  double? get shippingFee;
   @override
   int? get paymentType;
   @override

@@ -14,8 +14,13 @@ class FinalPrice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CommonSaleInvoiceCubit, CommonSaleInvoiceState>(
+      buildWhen: (previous, current) =>
+          (previous.totalPrice != current.totalPrice) ||
+          (previous.totalDiscount != current.totalDiscount) ||
+          (previous.request.shippingFee != current.request.shippingFee),
       builder: (context, state) {
-        final double price = state.totalPrice - state.totalDiscount;
+        final double price = (state.totalPrice - state.totalDiscount) +
+            (state.request.shippingFee ?? 0);
         return SaleInvoiceInfo(
           title: "Tổng sau giảm",
           content: (initPrice ?? price).formatNumber(),

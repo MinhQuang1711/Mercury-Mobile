@@ -19,7 +19,15 @@ class CommonSaleInvoiceCubit extends Cubit<CommonSaleInvoiceState> {
         );
 
   double _calulateTotalPrice(List<ComboBox> list) {
-    return list.fold(0, (p, e) => p + (e.quantity ?? 1) * (e.price ?? 0));
+    return list.fold<double>(
+        0, (p, e) => p + (e.quantity ?? 1) * (e.price ?? 0));
+  }
+
+  void changedShippingFee(String? val) {
+    double shippingFee = double.tryParse(val ?? "0") ?? 0;
+    emit(state.copyWith(
+      request: state.request.copyWith(shippingFee: shippingFee),
+    ));
   }
 
   void selectCustomer(String? val) {

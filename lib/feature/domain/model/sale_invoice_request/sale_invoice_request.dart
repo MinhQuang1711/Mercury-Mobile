@@ -12,6 +12,7 @@ class SaleInvoiceRequest with _$SaleInvoiceRequest {
     double? discount,
     Voucher? voucher,
     String? customerId,
+    double? shippingFee,
     @Default(0) int? paymentType,
     @Default([]) List<ComboBox>? detailSaleInvoice,
   }) = _SaleInvoiceRequest;
