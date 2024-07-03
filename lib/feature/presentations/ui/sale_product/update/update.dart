@@ -55,34 +55,47 @@ class UpdateProductPage extends StatelessWidget {
 
     return Scaffold(
       appBar: _appBar(context),
-      body: AppStack(
-        formKey: formKey,
-        backgroundWidget: Column(
-          children: [
-            const ProductImageField(),
-            const ProductInfoTitle(),
-            ProductNameField(initValue: cubit.state.dto.name),
-            ProductPriceField(initValue: cubit.state.dto.price?.formatDouble()),
-            const SizedBox(height: 25),
-            const AddDetailButton(),
-            const SizedBox(height: 15),
-            BlocListener<ComboBoxCubit, ComboBoxState>(
-              listenWhen: (previous, current) =>
-                  previous.ingredient != current.ingredient,
-              listener: (context, state) {
-                if (state.ingredient.isNotEmpty) {
-                  cubit
-                    ..initComboBoxes(state.ingredient)
-                    ..initDetailProduct();
-                }
-              },
-              child: ListDetailProduct(
-                onTapRemove: onTapRemove,
-              ),
-            ),
-          ],
-        ),
-        bottomWidget: UpdateProductButton(formKey: formKey),
+      body: _buildBody(cubit, formKey, onTapRemove),
+    );
+  }
+
+  AppStack _buildBody(
+    ProductCubit cubit,
+    GlobalKey<FormState> formKey,
+    void Function(ComboBox val) onTapRemove,
+  ) {
+    return AppStack(
+      formKey: formKey,
+      backgroundWidget: Column(
+        children: [
+          const ProductImageField(),
+          const ProductInfoTitle(),
+          ProductNameField(initValue: cubit.state.dto.name),
+          ProductPriceField(initValue: cubit.state.dto.price?.formatDouble()),
+          const SizedBox(height: 25),
+          const AddDetailButton(),
+          const SizedBox(height: 15),
+          _ingredientList(cubit, onTapRemove),
+        ],
+      ),
+      bottomWidget: UpdateProductButton(formKey: formKey),
+    );
+  }
+
+  BlocListener<ComboBoxCubit, ComboBoxState> _ingredientList(
+      ProductCubit cubit, void Function(ComboBox val) onTapRemove) {
+    return BlocListener<ComboBoxCubit, ComboBoxState>(
+      listenWhen: (previous, current) =>
+          previous.ingredient != current.ingredient,
+      listener: (context, state) {
+        if (state.ingredient.isNotEmpty) {
+          cubit
+            ..initComboBoxes(state.ingredient)
+            ..initDetailProduct();
+        }
+      },
+      child: ListDetailProduct(
+        onTapRemove: onTapRemove,
       ),
     );
   }
