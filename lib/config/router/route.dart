@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:mercury/config/router/path.dart';
 import 'package:mercury/feature/data/model/ingredinent/ingredient.dart';
+import 'package:mercury/feature/data/model/product/product.dart';
 import 'package:mercury/feature/domain/model/sale_invoice/sale_invoice.dart';
 import 'package:mercury/feature/presentations/ui/customer/create/create.dart';
 import 'package:mercury/feature/presentations/ui/import_invoice/create/create_import_invoice.dart';
@@ -12,6 +13,7 @@ import 'package:mercury/feature/presentations/ui/logo/logo_screen.dart';
 import 'package:mercury/feature/presentations/ui/sale_invoice/create/create.dart';
 import 'package:mercury/feature/presentations/ui/sale_invoice/detail/detail.dart';
 import 'package:mercury/feature/presentations/ui/sale_product/create/create.dart';
+import 'package:mercury/feature/presentations/ui/sale_product/update/update.dart';
 import 'package:mercury/feature/presentations/ui/splash/splash.dart';
 
 class AppRouter {
@@ -65,6 +67,11 @@ class AppRouter {
       GoRoute(
         path: AppPath.createCustomer,
         builder: (context, state) => const CreateCustomerScreen(),
+      ),
+      GoRoute(
+        path: AppPath.updateProduct,
+        builder: (context, state) =>
+            UpdateProductScreen(product: state.extra as Product),
       ),
     ],
   );

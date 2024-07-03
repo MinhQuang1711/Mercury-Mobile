@@ -4,6 +4,7 @@ import 'package:mercury/core/utils/extension/combo_box.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/core/utils/extension/platformfile.dart';
 import 'package:mercury/core/utils/service/file_picker.dart';
+import 'package:mercury/feature/data/model/product/product.dart';
 import 'package:mercury/feature/domain/model/product/product_request.dart';
 import 'package:mercury/feature/presentations/bloc/product/cubit/create_and_update/state/state.dart';
 
@@ -13,6 +14,16 @@ class ProductCubit extends Cubit<ProductCubitState> {
   ProductCubit()
       : super(const ProductCubitState(
             dto: ProductRequest(detailProducts: []), comboBoxes: []));
+
+  void initDto(Product product) {
+    var newDto = state.dto.copyWith(
+      id: product.id,
+      name: product.name,
+      price: product.salePrice,
+      attachFile: product.imageByte,
+    );
+    emit(state.copyWith(dto: newDto));
+  }
 
   void initComboBoxes(List<ComboBox> val) {
     emit(state.copyWith(comboBoxes: val));

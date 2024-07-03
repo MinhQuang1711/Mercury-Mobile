@@ -6,6 +6,7 @@ class AppPath {
   static String detailIngredient = "/detailIngredient";
   static String updateIngredient = "/updateIngredient";
   static String createProduct = "/createProduct";
+  static String updateProduct = "/updateProduct";
   static String createSaleInvoice = "/createSaleInvoice";
   static String createImportInvoice = "/createImportInvoice";
   static String detailSaleInvoice = "/detailSaleInvoice";
