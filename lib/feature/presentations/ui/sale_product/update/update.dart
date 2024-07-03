@@ -76,6 +76,7 @@ class UpdateProductPage extends StatelessWidget {
           const AddDetailButton(),
           const SizedBox(height: 15),
           _ingredientList(cubit, onTapRemove),
+          const SizedBox(height: 100),
         ],
       ),
       bottomWidget: UpdateProductButton(formKey: formKey),
