@@ -16,7 +16,7 @@ class GlobalCubit extends Cubit<GlobalState> {
 
   void changedReloadDashboard() {
     emit(state.copyWith(reloadDasboard: true));
-    emit(state.copyWith(reloadProduct: false));
+    emit(state.copyWith(reloadDasboard: false));
   }
 
   void changedReloadSaleInvoice() {

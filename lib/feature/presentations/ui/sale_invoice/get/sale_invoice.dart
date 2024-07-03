@@ -4,6 +4,7 @@ import 'package:mercury/config/router/path.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/domain/model/invoice_query/invoice_query.dart';
+import 'package:mercury/feature/presentations/bloc/global_cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/get_sale_invoice/cubit.dart';
 import 'package:mercury/feature/presentations/widget/button/create_square_button.dart';
@@ -39,11 +40,13 @@ class SaleInvoicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<SaleInvoiceBloc>();
     void onTapCreateButton() {
       context.pushAndListen(
         location: AppPath.createSaleInvoice,
-        handleWhenHasValue: () => bloc.add(defaultSaleInvoiceEvent),
+        handleWhenHasValue: () {
+          context.read<SaleInvoiceBloc>().add(defaultSaleInvoiceEvent);
+          context.read<GlobalCubit>().changedReloadDashboard();
+        },
       );
     }
 

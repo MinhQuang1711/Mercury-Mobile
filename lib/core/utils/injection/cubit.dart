@@ -5,6 +5,7 @@ import 'package:mercury/feature/presentations/bloc/authen/cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/customer/cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/dashboard/cubit.dart';
+import 'package:mercury/feature/presentations/bloc/global_cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/common/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/get_import_invoice/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/cubit/create/cubit.dart';
@@ -35,4 +36,5 @@ void registerCubit() {
       () => DashboardCubit(getIt.get<IDashboardRepository>()));
   getIt.registerFactory<CommonVoucherCubit>(() => CommonVoucherCubit());
   getIt.registerFactory<CommonCustomerCubit>(() => CommonCustomerCubit());
+  getIt.registerFactory<GlobalCubit>(() => GlobalCubit());
 }

@@ -11,6 +11,8 @@ import 'package:mercury/feature/presentations/ui/import_invoice/get/widget/card.
 import 'package:mercury/feature/presentations/widget/list_view/list_view.dart';
 import 'package:mercury/feature/presentations/widget/listen_scroll_widget.dart';
 
+import '../../../../bloc/global_cubit/cubit.dart';
+
 class ImportInvoiceList extends StatefulWidget {
   const ImportInvoiceList({super.key});
 
@@ -60,8 +62,10 @@ class _ImportInvoiceListState extends State<ImportInvoiceList> {
                   invoice: state.list[index],
                   onDelete: (val) => context.showBottomSheetAndListen(
                     child: DeleteImportInvoice(importInvoice: val),
-                    handleWhenHasValue: () =>
-                        bloc.add(defaultImportInvoiceEvent),
+                    handleWhenHasValue: () {
+                      bloc.add(defaultImportInvoiceEvent);
+                      context.read<GlobalCubit>().changedReloadDashboard();
+                    },
                   ),
                 ),
               )),

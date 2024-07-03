@@ -10,6 +10,7 @@ import 'package:mercury/feature/presentations/ui/sale_invoice/delete/delete.dart
 import 'package:mercury/feature/presentations/ui/sale_invoice/get/sale_invoice.dart';
 import 'package:mercury/feature/presentations/widget/list_view/list_view.dart';
 
+import '../../../../bloc/global_cubit/cubit.dart';
 import 'card.dart';
 
 class ListSaleInvoice extends StatefulWidget {
@@ -35,7 +36,10 @@ class _ListSaleInvoiceState extends State<ListSaleInvoice> {
               onTap: (p0) => context.push(AppPath.detailSaleInvoice, extra: p0),
               onDelete: (val) => context.showBottomSheetAndListen(
                 child: DeleteSaleInvoiceScreen(saleInvoice: val),
-                handleWhenHasValue: () => bloc.add(defaultSaleInvoiceEvent),
+                handleWhenHasValue: () {
+                  bloc.add(defaultSaleInvoiceEvent);
+                  context.read<GlobalCubit>().changedReloadDashboard();
+                },
               ),
             ),
           ),

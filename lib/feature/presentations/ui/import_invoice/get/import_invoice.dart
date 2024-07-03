@@ -9,6 +9,7 @@ import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/get_impo
 import 'package:mercury/feature/presentations/ui/import_invoice/get/widget/listview.dart';
 import 'package:mercury/feature/presentations/widget/button/create_square_button.dart';
 
+import '../../../bloc/global_cubit/cubit.dart';
 import '../../../bloc/import_invoice/bloc/bloc.dart';
 import 'widget/listener.dart';
 import 'widget/search_bar.dart';
@@ -41,7 +42,10 @@ class ImportInvoicePage extends StatelessWidget {
       final bloc = context.read<ImportInvoiceBloc>();
       context.pushAndListen(
         location: AppPath.createImportInvoice,
-        handleWhenHasValue: () => bloc.add(defaultImportInvoiceEvent),
+        handleWhenHasValue: () {
+          bloc.add(defaultImportInvoiceEvent);
+          context.read<GlobalCubit>().changedReloadDashboard();
+        },
       );
     }
 
