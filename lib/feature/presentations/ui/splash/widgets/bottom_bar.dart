@@ -17,7 +17,7 @@ class SplashBottomBar extends StatelessWidget {
         icon: Icon(Icons.dashboard_customize_rounded),
       ),
       const BottomNavigationBarItem(
-        label: "Sản phẩm",
+        label: "Hàng hóa",
         icon: Icon(Icons.local_drink_rounded),
       ),
       const BottomNavigationBarItem(

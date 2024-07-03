@@ -56,12 +56,15 @@ class OverviewBarByDay extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
         children: [
-          Icon(iconData),
+          Icon(
+            iconData,
+            color: AppColor.grey5,
+          ),
           const SizedBox(width: 10),
           Expanded(
             child: Text(
               title,
-              style: bodyRegular,
+              style: captionRegular.copyWith(color: AppColor.grey5),
             ),
           ),
           Expanded(

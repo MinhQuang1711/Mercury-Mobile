@@ -25,7 +25,8 @@ class BussinessInfo extends StatelessWidget {
           RichText(
               text: TextSpan(
                   text: value.formatNumber(symbol: false),
-                  style: h5Bold.copyWith(color: color ?? AppColor.blueShade2),
+                  style: h5Bold.copyWith(
+                      color: color ?? AppColor.blueShade2, fontSize: 24),
                   children: [
                 TextSpan(
                     text: value.getUnit(),

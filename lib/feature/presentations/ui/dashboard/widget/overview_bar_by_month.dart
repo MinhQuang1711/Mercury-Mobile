@@ -54,6 +54,11 @@ class OverviewBarByMonth extends StatelessWidget {
       Color? color}) {
     return Row(
       children: [
+        Icon(
+          iconData,
+          color: AppColor.grey5,
+        ),
+        const SizedBox(width: 10),
         Expanded(
           child: Text(
             title,

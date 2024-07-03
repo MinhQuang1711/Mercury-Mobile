@@ -37,7 +37,7 @@ class SaleProductCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _nameAndPercentCost(),
-              const SizedBox(height: 5),
+              const SizedBox(height: 7),
               _salePrice()
             ],
           ),
@@ -52,36 +52,43 @@ class SaleProductCard extends StatelessWidget {
 
   Text _salePrice() {
     return Text(
-      "${product.salePrice?.formatNumber() ?? 0}",
-      style: captionRegular.copyWith(color: AppColor.grey5),
+      "${product.salePrice?.formatDouble() ?? 0} VND",
+      style: captionRegular.copyWith(color: AppColor.grey5, fontSize: 14),
     );
   }
 
-  Row _nameAndPercentCost() {
+  Widget _nameAndPercentCost() {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Expanded(
+          flex: 2,
           child: Text(
             product.name ?? "",
-            style: bodyBold.copyWith(color: AppColor.blueShade2),
+            style: captionBold.copyWith(color: AppColor.blueShade2),
           ),
         ),
+        const SizedBox(width: 10),
         Expanded(
-            child: Row(
-          children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: Text("|"),
-            ),
-            Icon(Icons.bar_chart_rounded,
-                color: product.getColorOfPercenCost()),
-            Text(
-              " ${product.caculatePercentCost().formatDouble()} %",
-              style:
-                  captionMedium.copyWith(color: product.getColorOfPercenCost()),
-            )
-          ],
-        ))
+          child: Text(
+            " ${product.caculatePercentCost().formatDouble()} %",
+            style: detailBold.copyWith(color: product.getColorOfPercenCost()),
+          ),
+        )
+        // Row(
+        //   children: [
+        //     const Padding(
+        //       padding: EdgeInsets.symmetric(horizontal: 10),
+        //       child: Text("|"),
+        //     ),
+        //     Icon(Icons.bar_chart_rounded,
+        //         color: product.getColorOfPercenCost()),
+        //     Text(
+        //       " ${product.caculatePercentCost().formatDouble()} %",
+        //       style: detailBold.copyWith(color: product.getColorOfPercenCost()),
+        //     )
+        //   ],
+        // )
       ],
     );
   }
