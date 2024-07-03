@@ -20,7 +20,7 @@ class BottomSheetItem extends StatelessWidget {
       onTap: onTap,
       behavior: HitTestBehavior.translucent,
       child: Container(
-        padding: AppPadding.padding14,
+        padding: AppPadding.padding12,
         child: Row(
           children: [
             Icon(iconData ?? Icons.delete_outline_rounded,
@@ -28,7 +28,7 @@ class BottomSheetItem extends StatelessWidget {
             const SizedBox(width: 12),
             Text(
               label ?? "",
-              style: bodyRegular.copyWith(color: AppColor.black),
+              style: captionMedium.copyWith(color: AppColor.grey5),
             )
           ],
         ),

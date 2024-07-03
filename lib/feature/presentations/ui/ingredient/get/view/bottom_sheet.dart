@@ -29,7 +29,6 @@ class IngredietnBottomSheet extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         _title(),
-        const SizedBox(height: 10),
         _options(context),
       ],
     );
@@ -40,7 +39,7 @@ class IngredietnBottomSheet extends StatelessWidget {
       margin: AppPadding.padding12,
       padding: AppPadding.padding12,
       decoration: BoxDecoration(
-        color: AppColor.grey3,
+        color: AppColor.grey2,
         borderRadius: AppContainerBorder.radius8,
       ),
       child: Column(
@@ -88,7 +87,7 @@ class IngredietnBottomSheet extends StatelessWidget {
   Text _title() {
     return Text(
       ingredient.name,
-      style: h6Bold.copyWith(color: AppColor.blue),
+      style: bodyBold.copyWith(color: AppColor.blue),
     );
   }
 

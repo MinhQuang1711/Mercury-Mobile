@@ -89,7 +89,7 @@ class ProductActionBottom extends StatelessWidget {
   Text _productName() {
     return Text(
       product.name ?? "",
-      style: h6Bold.copyWith(color: AppColor.blueShade2),
+      style: bodyBold.copyWith(color: AppColor.blueShade2),
     );
   }
 }
