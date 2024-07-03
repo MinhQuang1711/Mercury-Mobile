@@ -3,11 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/router/path.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
+import 'package:mercury/feature/domain/enum/screen.dart';
 import 'package:mercury/feature/domain/model/invoice_query/invoice_query.dart';
 import 'package:mercury/feature/presentations/bloc/global_cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/get_sale_invoice/cubit.dart';
 import 'package:mercury/feature/presentations/widget/button/create_square_button.dart';
+import 'package:mercury/feature/presentations/widget/global_listener.dart';
 
 import '../../../bloc/sale_invoice/bloc/bloc.dart';
 import 'widget/bloc_listen.dart';
@@ -40,28 +42,33 @@ class SaleInvoicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<SaleInvoiceBloc>();
     void onTapCreateButton() {
       context.pushAndListen(
         location: AppPath.createSaleInvoice,
         handleWhenHasValue: () {
-          context.read<SaleInvoiceBloc>().add(defaultSaleInvoiceEvent);
+          bloc.add(defaultSaleInvoiceEvent);
           context.read<GlobalCubit>().changedReloadDashboard();
         },
       );
     }
 
-    return SaleInvoiceBlocListenWidget(
-      child: Column(
-        children: [
-          Row(
-            children: [
-              CreateSquareButton(onTap: onTapCreateButton),
-              const SaleInvoiceSearchBar(),
-            ],
-          ),
-          const ItemFilterOfSaleInvoice(),
-          const ListSaleInvoice(),
-        ],
+    return GlobalListenerWidget(
+      screenEnum: ScreenEnum.SALE_INVOICE,
+      functionReload: () => bloc.add(defaultSaleInvoiceEvent),
+      child: SaleInvoiceBlocListenWidget(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                CreateSquareButton(onTap: onTapCreateButton),
+                const SaleInvoiceSearchBar(),
+              ],
+            ),
+            const ItemFilterOfSaleInvoice(),
+            const ListSaleInvoice(),
+          ],
+        ),
       ),
     );
   }

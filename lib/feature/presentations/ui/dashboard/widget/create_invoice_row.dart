@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:mercury/config/router/path.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/feature/presentations/ui/voucher/create/create.dart';
@@ -16,7 +15,14 @@ class CreateInvoiceRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void createSaleInovice() {
-      context.push(AppPath.createSaleInvoice);
+      context.pushAndListen(
+        location: AppPath.createSaleInvoice,
+        handleWhenHasValue: () {
+          final glocalCubit = context.read<GlobalCubit>();
+          glocalCubit.changedReloadDashboard();
+          glocalCubit.changedReloadSaleInvoice();
+        },
+      );
     }
 
     void createImportInvoice() {
