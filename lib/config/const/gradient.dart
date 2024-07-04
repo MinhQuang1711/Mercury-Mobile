@@ -11,9 +11,9 @@ class AppGradient {
         end: _end,
       );
   static LinearGradient getBlueGradient() => setGradient(
-      [AppColor.blue.withOpacity(0.4), AppColor.white.withOpacity(0.2)]);
+      [AppColor.blue.withOpacity(0.2), AppColor.blue.withOpacity(0.1)]);
   static LinearGradient getGreenGradient() => setGradient(
-      [AppColor.green.withOpacity(0.4), AppColor.white.withOpacity(0.2)]);
+      [AppColor.green.withOpacity(0.4), AppColor.green.withOpacity(0.2)]);
   static LinearGradient getRedGradient() => setGradient(
-      [AppColor.darkRed.withOpacity(0.4), AppColor.white.withOpacity(0.2)]);
+      [AppColor.darkRed.withOpacity(0.4), AppColor.red.withOpacity(0.2)]);
 }

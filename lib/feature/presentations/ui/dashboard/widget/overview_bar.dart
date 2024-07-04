@@ -25,7 +25,7 @@ class OverViewBar extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColor.white,
           boxShadow: defaultBoxShadow,
-          borderRadius: AppContainerBorder.radius6,
+          borderRadius: AppContainerBorder.radius10,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,

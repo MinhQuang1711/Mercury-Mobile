@@ -6,6 +6,6 @@ List<BoxShadow> defaultBoxShadow = [
     blurRadius: 5,
     spreadRadius: 2,
     offset: const Offset(2, 2),
-    color: AppColor.grey3.withOpacity(0.35),
+    color: AppColor.grey4.withOpacity(0.35),
   ),
 ];

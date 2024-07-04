@@ -45,30 +45,33 @@ class CreateInvoiceRow extends StatelessWidget {
       context.pushAndListen(location: AppPath.createCustomer);
     }
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        _button(
-          label: "Phiếu giảm",
-          onTap: createVoucher,
-          assetGenImage: Assets.icon.coupon,
-        ),
-        _button(
-          label: "Đơn nhập",
-          onTap: createImportInvoice,
-          assetGenImage: Assets.icon.importProd,
-        ),
-        _button(
-          label: "Đơn bán",
-          onTap: createSaleInovice,
-          assetGenImage: Assets.icon.invoice,
-        ),
-        _button(
-          label: "Khách hàng",
-          onTap: createCustomer,
-          assetGenImage: Assets.icon.customer,
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _button(
+            label: "Phiếu giảm",
+            onTap: createVoucher,
+            assetGenImage: Assets.icon.coupon,
+          ),
+          _button(
+            label: "Đơn nhập",
+            onTap: createImportInvoice,
+            assetGenImage: Assets.icon.importProd,
+          ),
+          _button(
+            label: "Đơn bán",
+            onTap: createSaleInovice,
+            assetGenImage: Assets.icon.invoice,
+          ),
+          _button(
+            label: "Khách hàng",
+            onTap: createCustomer,
+            assetGenImage: Assets.icon.customer,
+          ),
+        ],
+      ),
     );
   }
 
@@ -86,7 +89,7 @@ class CreateInvoiceRow extends StatelessWidget {
             ImageIcon(
               AssetImage(assetGenImage.keyName),
               color: const Color.fromARGB(255, 23, 100, 208),
-              size: 30,
+              size: 26,
             ),
             const SizedBox(height: 10),
             Text(
