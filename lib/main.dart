@@ -43,11 +43,12 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
       theme: ThemeData(
         useMaterial3: true,
         fontFamily: "Nunito-Medium",
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColor.blue),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColor.white),
       ),
     );
   }
