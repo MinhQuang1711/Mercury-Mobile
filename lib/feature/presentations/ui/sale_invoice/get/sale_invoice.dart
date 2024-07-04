@@ -17,7 +17,10 @@ import 'widget/item_filter.dart';
 import 'widget/listview.dart';
 import 'widget/search_bar.dart';
 
-const defaultSaleInvoiceEvent = SaleInvoiceEvent.get(InvoiceQuery());
+var defaultSaleInvoiceEvent = SaleInvoiceEvent.get(InvoiceQuery(
+  endTime: DateTime.now().copyWith(hour: 23, minute: 59, second: 59),
+  startTime: DateTime.now().copyWith(hour: 0, minute: 0, second: 1),
+));
 
 class SaleInvoiceScreen extends StatelessWidget {
   const SaleInvoiceScreen({super.key});
