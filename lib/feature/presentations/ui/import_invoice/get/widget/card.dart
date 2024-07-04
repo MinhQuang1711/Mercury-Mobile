@@ -79,7 +79,7 @@ class ImportInvoiceCard extends StatelessWidget {
   Text _id() {
     return Text(
       invoice.id ?? "",
-      style: bodyBold.copyWith(color: AppColor.blueShade2),
+      style: captionBold.copyWith(color: AppColor.blueShade2),
     );
   }
 }

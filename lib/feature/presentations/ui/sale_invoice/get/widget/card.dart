@@ -86,7 +86,7 @@ class SaleInvoiceCard extends StatelessWidget {
   Text _invoiceId() {
     return Text(
       saleInvoice.id ?? "",
-      style: bodyBold.copyWith(color: AppColor.blueShade2),
+      style: captionBold.copyWith(color: AppColor.blueShade2),
     );
   }
 }
