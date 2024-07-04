@@ -49,6 +49,7 @@ class DashboardPage extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: AppColor.white,
       appBar: AppBar(
         backgroundColor: AppColor.blue,
         centerTitle: true,
