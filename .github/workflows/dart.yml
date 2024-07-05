@@ -10,10 +10,10 @@ jobs:
     steps:
         # Step 1
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
         # Step 2
       - name: Setup Flutter
-        uses: subosito/flutter-action@v1
+        uses: subosito/flutter-action@v2
         with: 
           flutter-version: '3.22.2'
         # Step 3
