@@ -24,6 +24,6 @@ class AppColor {
   static const Color blue = Color.fromARGB(255, 18, 82, 171);
   static const Color blueShade3 = Color(0XFF0240BF);
 
-  static const Color pink = Color(0XFFFD3259);
+  static const Color pinkk = Color(0XFFFD3259);
   static const Color blueTint = Color.fromARGB(255, 96, 172, 248);
 }
