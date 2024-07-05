@@ -19,6 +19,8 @@ jobs:
         # Step 3
       - name: Install dependencies
         run: flutter pub get
+      - name: Build iOS app
+        run: flutter build ios
         # Step 4
       - name: Build iOS
         run: flutter build ipa -allowProvisioningUpdates
