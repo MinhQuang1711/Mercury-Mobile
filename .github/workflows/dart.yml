@@ -20,7 +20,7 @@ jobs:
       run: flutter pub get
       # Step 4
     - name: Build iOS
-      run: flutter build ipa --target lib/main_prod.dart --flavor prod
+      run: flutter build ipa
       # Step 5
     - name: Install Ruby
       uses: actions/setup-ruby@v1
