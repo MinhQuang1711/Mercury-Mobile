@@ -3,44 +3,43 @@ on:
   push: 
     branches:
     - CI-CD
-name: Build and Release IPA
 jobs:
   build:
     name: Build IPA
     runs-on: macos-latest
     steps:
-      # Step 1
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-      # Step 2
-    - name: Setup Flutter
-      uses: subosito/flutter-action@v4
-      with: 
-        flutter-version: '3.22.2'
-      # Step 3
-    - name: Install dependencies
-      run: flutter pub get
-      # Step 4
-    - name: Build iOS
-      run: flutter build ipa
-      # Step 5
-    - name: Install Ruby
-      uses: actions/setup-ruby@v1
-      with:
-        ruby-version: '3.3.3'
-      # Step 6
-    - name: Install Fastlane
-      run: sudo gem install fastlane -NV
-      # Step 7
-    - name: Setup fastlane session
-      run: fastlane spaceauth -u ${{ secrets.APP_STORE_CONNECT_USERNAME }}
-      env:
-        FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
-    - name: Deploy to App Store
-      run: fastlane ios release
-      env:
-        FASTLANE_USER: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
-        FASTLANE_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
-        APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
-        APP_STORE_CONNECT_TEAM_ID: ${{ secrets.APP_STORE_CONNECT_TEAM_ID }}
-  
+        # Step 1
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        # Step 2
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v4
+        with: 
+          flutter-version: '3.22.2'
+        # Step 3
+      - name: Install dependencies
+        run: flutter pub get
+        # Step 4
+      - name: Build iOS
+        run: flutter build ipa
+        # Step 5
+      - name: Install Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3.3.3'
+        # Step 6
+      - name: Install Fastlane
+        run: sudo gem install fastlane -NV
+        # Step 7
+      - name: Setup fastlane session
+        run: fastlane spaceauth -u ${{ secrets.APP_STORE_CONNECT_USERNAME }}
+        env:
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+      - name: Deploy to App Store
+        run: fastlane ios release
+        env:
+          FASTLANE_USER: ${{ secrets.APP_STORE_CONNECT_USERNAME }}
+          FASTLANE_PASSWORD: ${{ secrets.APP_STORE_CONNECT_PASSWORD }}
+          APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+          APP_STORE_CONNECT_TEAM_ID: ${{ secrets.APP_STORE_CONNECT_TEAM_ID }}
+    
