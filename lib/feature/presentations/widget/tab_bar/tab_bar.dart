@@ -24,7 +24,7 @@ class AppTabBar {
         labelColor: AppColor.blue,
         labelPadding: EdgeInsets.zero,
         dividerColor: AppColor.blue,
-        unselectedLabelStyle: captionRegular,
+        unselectedLabelStyle: detailRegular,
         unselectedLabelColor: Colors.white,
         indicatorSize: TabBarIndicatorSize.tab,
         indicator: BoxDecoration(

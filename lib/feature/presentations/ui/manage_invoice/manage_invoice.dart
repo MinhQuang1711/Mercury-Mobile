@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/feature/presentations/ui/import_invoice/get/import_invoice.dart';
 import 'package:mercury/feature/presentations/ui/sale_invoice/get/sale_invoice.dart';
 
-import '../../../../config/theme/color.dart';
-import '../../widget/app_bar/app_bar.dart';
+import '../../../../config/theme/text_style.dart';
 import '../../widget/tab_bar/tab_bar.dart';
 
 class ManageInvoiceScreen extends StatelessWidget {
@@ -33,24 +33,30 @@ class MangageInvoicePage extends StatelessWidget {
       length: tabs.length,
       child: Column(
         children: [
-          _topBar(appTabBar),
+          _topBar(appTabBar, tabs),
           Expanded(child: appTabBar.tabBarView),
         ],
       ),
     );
   }
 
-  Container _topBar(AppTabBar appTabBar) {
-    return Container(
-      color: AppColor.blue,
-      child: Column(
-        children: [
-          const CustomAppBar(
-            labelTitle: "Hóa đơn",
-          ),
-          appTabBar.tabBar,
-          const SizedBox(height: 10)
-        ],
+  Widget _topBar(
+    AppTabBar appTabBar,
+    List<Tab> tabs,
+  ) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        top: 5,
+        left: 12,
+        right: 12,
+      ),
+      child: TabBar(
+        tabs: tabs,
+        labelStyle: captionMedium,
+        labelColor: AppColor.blue,
+        indicatorColor: AppColor.blue,
+        unselectedLabelStyle: detailRegular,
+        indicatorSize: TabBarIndicatorSize.tab,
       ),
     );
   }

@@ -52,13 +52,12 @@ class AppTextField extends StatefulWidget {
 class _AppTextFieldState extends State<AppTextField> {
   bool hasValue = false;
   Timer? timer;
-  TextEditingController controller = TextEditingController();
+  late TextEditingController controller;
   @override
   void initState() {
     super.initState();
-    if (widget.controller != null) {
-      controller = widget.controller!;
-    }
+    controller = widget.controller ?? TextEditingController();
+
     if (widget.initValue != null) {
       controller.text = widget.initValue!;
     }
@@ -82,7 +81,10 @@ class _AppTextFieldState extends State<AppTextField> {
 
   @override
   void dispose() {
-    controller.dispose();
+    if (widget.controller == null) {
+      controller.dispose();
+    }
+
     timer?.cancel();
     super.dispose();
   }

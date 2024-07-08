@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/core/utils/extension/datetime_ex.dart';
-import 'package:mercury/feature/domain/model/invoice_query/invoice_query.dart';
-import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/bloc.dart';
-import 'package:mercury/feature/presentations/bloc/sale_invoice/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/get_sale_invoice/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/get_sale_invoice/state/state.dart';
 
@@ -12,11 +10,6 @@ class ItemFilterOfSaleInvoice extends StatelessWidget {
   const ItemFilterOfSaleInvoice({super.key});
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<SaleInvoiceBloc>();
-    void clearItem() {
-      bloc.add(const SaleInvoiceEvent.get(InvoiceQuery()));
-    }
-
     return Padding(
       padding: const EdgeInsets.only(right: 12),
       child: Align(
@@ -30,15 +23,11 @@ class ItemFilterOfSaleInvoice extends StatelessWidget {
             var endDate = state.query.endTime?.toDateFormat() ?? "";
 
             return state.query.startTime != null && state.query.endTime != null
-                ? Chip(
-                    labelPadding: EdgeInsets.zero,
-                    onDeleted: clearItem,
-                    label: Text(
-                      (startDate == endDate)
-                          ? state.query.startTime?.getName() ?? ""
-                          : "$startDate -> $endDate",
-                      style: captionMedium,
-                    ),
+                ? Text(
+                    (startDate == endDate)
+                        ? state.query.startTime?.getName() ?? ""
+                        : "$startDate -> $endDate",
+                    style: detailBold.copyWith(color: AppColor.blue),
                   )
                 : const SizedBox();
           },

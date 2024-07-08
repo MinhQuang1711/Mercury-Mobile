@@ -12,6 +12,9 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconGen {
   const $AssetsIconGen();
 
+  /// File path: assets/icon/calendar.png
+  AssetGenImage get calendar => const AssetGenImage('assets/icon/calendar.png');
+
   /// File path: assets/icon/coupon.png
   AssetGenImage get coupon => const AssetGenImage('assets/icon/coupon.png');
 
@@ -43,6 +46,7 @@ class $AssetsIconGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+        calendar,
         coupon,
         customer,
         emptyBox,
