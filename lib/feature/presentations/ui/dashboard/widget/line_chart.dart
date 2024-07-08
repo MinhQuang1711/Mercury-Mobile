@@ -46,7 +46,8 @@ class DashboardLineChart extends StatelessWidget {
                   ),
                   _lineBarData(
                     color: AppColor.blue,
-                    gradient: AppGradient.getBlueGradient(),
+
+                    // gradient: AppGradient.getBlueGradient(),
                     spots: state.financial
                         .map((e) => FlSpot(
                             state.financial.indexOf(e).toDouble(),
@@ -88,7 +89,8 @@ class DashboardLineChart extends StatelessWidget {
       color: color,
       spots: spots,
       dotData: const FlDotData(show: false),
-      belowBarData: BarAreaData(show: true, gradient: gradient),
+      belowBarData: BarAreaData(
+          show: gradient != null ? true : false, gradient: gradient),
     );
   }
 

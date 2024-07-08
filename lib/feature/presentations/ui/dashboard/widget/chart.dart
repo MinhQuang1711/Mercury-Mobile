@@ -19,7 +19,7 @@ class Chart extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Container(
-        height: size.height * (2 / 4),
+        height: size.height * (2 / 3.9),
         padding: const EdgeInsets.symmetric(vertical: 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

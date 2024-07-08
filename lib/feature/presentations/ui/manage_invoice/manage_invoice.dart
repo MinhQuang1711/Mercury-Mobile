@@ -45,25 +45,12 @@ class MangageInvoicePage extends StatelessWidget {
     List<Tab> tabs,
   ) {
     return Container(
-      // padding: const EdgeInsets.only(
-      //   top: 5,
-      //   left: 12,
-      //   right: 12,
-      // ),
       color: AppColor.blue,
       child: Column(
         children: [
           Text("Hóa đơn", style: h6Bold.copyWith(color: AppColor.white)),
           const SizedBox(height: 5),
           appTabBar.tabBar,
-          // TabBar(
-          //   tabs: tabs,
-          //   labelStyle: captionMedium,
-          //   labelColor: AppColor.blue,
-          //   indicatorColor: AppColor.blue,
-          //   unselectedLabelStyle: detailRegular,
-          //   indicatorSize: TabBarIndicatorSize.tab,
-          // ),
         ],
       ),
     );
