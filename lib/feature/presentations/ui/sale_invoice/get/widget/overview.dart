@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/config/theme/text_style.dart';
+import 'package:mercury/core/utils/extension/number.dart';
 
 import '../../../../../../config/theme/color.dart';
-import '../../../../../../config/theme/text_style.dart';
 import '../../../../bloc/sale_invoice/bloc/bloc.dart';
 import '../../../../bloc/sale_invoice/bloc/state/state.dart';
 
@@ -12,19 +13,27 @@ class SaleInvoiceOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SaleInvoiceBloc, SaleInvoiceState>(
+      buildWhen: (p, c) =>
+          p.mapOrNull(got: (value) => value) !=
+          c.mapOrNull(got: (value) => value),
       builder: (context, state) {
         var metaData = state.whenOrNull(got: (_, pagedList) => pagedList);
 
         return Column(
           children: [
             _info(
-                title: "Tổng tiền hàng: ",
-                content: "0",
-                titleColor: AppColor.grey5,
-                contentColor: AppColor.blue),
+              title: "Tổng tiền hàng: ",
+              content: (metaData?.totalPrice ?? 0).formatDouble(),
+              contentStyle: detailBold.copyWith(color: AppColor.blue),
+              titleStyle: detailRegular.copyWith(color: AppColor.grey5),
+            ),
+            const SizedBox(height: 3),
             _info(
-                title: (metaData?.totalCount ?? 0).toString(),
-                content: " hóa đơn")
+              content: " hóa đơn",
+              title: (metaData?.totalCount ?? 0).toString(),
+              titleStyle: detailBold.copyWith(color: AppColor.blue),
+              contentStyle: detailRegular.copyWith(color: AppColor.grey5),
+            )
           ],
         );
       },
@@ -34,20 +43,14 @@ class SaleInvoiceOverview extends StatelessWidget {
   RichText _info({
     required String title,
     required String content,
-    Color? titleColor,
-    Color? contentColor,
+    TextStyle? titleStyle,
+    TextStyle? contentStyle,
   }) {
     return RichText(
       text: TextSpan(
         text: title,
-        style: detailBold.copyWith(color: titleColor ?? AppColor.blue),
-        children: [
-          TextSpan(
-            text: content,
-            style:
-                detailRegular.copyWith(color: contentColor ?? AppColor.grey5),
-          )
-        ],
+        style: titleStyle,
+        children: [TextSpan(text: content, style: contentStyle)],
       ),
     );
   }
