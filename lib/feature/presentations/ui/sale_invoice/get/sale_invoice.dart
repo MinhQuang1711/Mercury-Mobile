@@ -71,15 +71,17 @@ class SaleInvoicePage extends StatelessWidget {
       child: SaleInvoiceBlocListenWidget(
         child: Column(
           children: [
-            const SizedBox(height: 8),
-            Row(
-              children: [
-                CreateSquareButton(onTap: onTapCreateButton),
-                const SaleInvoiceSearchBar(),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              child: Row(
+                children: [
+                  const SaleInvoiceSearchBar(),
+                  CreateSquareButton(onTap: onTapCreateButton),
+                ],
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
               child: Row(
                 children: [
                   Expanded(child: SaleInvoiceFilterButton(onTap: onTapFilter)),

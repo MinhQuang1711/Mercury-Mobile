@@ -31,7 +31,7 @@ class SaleInvoiceOverview extends StatelessWidget {
             _info(
               content: " hóa đơn",
               title: (metaData?.totalCount ?? 0).toString(),
-              titleStyle: detailBold.copyWith(color: AppColor.blue),
+              titleStyle: detailBold.copyWith(color: AppColor.grey5),
               contentStyle: detailRegular.copyWith(color: AppColor.grey5),
             )
           ],

@@ -17,7 +17,7 @@ class PagedList<T> {
       : pageSize = json["pageSize"],
         currentPage = json["currentPage"],
         totalCount = json["totalCount"],
-        totalPrice = (json["totalPrice"] ?? 0.0) as double,
+        totalPrice = ((json["totalPrice"] ?? 0) as num).toDouble(),
         items = (json["data"] as List)
             .map((e) => parser.call(e as dynamic))
             .toList();
