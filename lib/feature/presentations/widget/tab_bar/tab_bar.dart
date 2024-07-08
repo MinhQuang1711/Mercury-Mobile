@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/const/radius.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
@@ -11,12 +10,12 @@ class AppTabBar {
   late final TabBarView tabBarView;
   AppTabBar({required this.tabs, required this.children}) {
     tabBar = Container(
-      height: 40,
+      height: 38,
       decoration: BoxDecoration(
         borderRadius: AppContainerBorder.radius8,
         color: AppColor.blueTint.withOpacity(0.2),
       ),
-      margin: AppPadding.padding12,
+      margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
       child: TabBar(
         tabs: tabs,
         labelStyle: captionMedium,

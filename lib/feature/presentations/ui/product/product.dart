@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mercury/config/theme/color.dart';
+import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/get/ingredient.dart';
 import 'package:mercury/feature/presentations/ui/sale_product/get/sale_product.dart';
-import 'package:mercury/feature/presentations/widget/app_bar/app_bar.dart';
 import 'package:mercury/feature/presentations/widget/tab_bar/tab_bar.dart';
 
 class ProductScreen extends StatelessWidget {
@@ -45,11 +45,12 @@ class ProductPage extends StatelessWidget {
       color: AppColor.blue,
       child: Column(
         children: [
-          const CustomAppBar(
-            labelTitle: "Quản lý",
+          Text(
+            "Quản lý",
+            style: h6Bold.copyWith(color: AppColor.white),
           ),
+          const SizedBox(height: 5),
           appTabBar.tabBar,
-          const SizedBox(height: 10)
         ],
       ),
     );
