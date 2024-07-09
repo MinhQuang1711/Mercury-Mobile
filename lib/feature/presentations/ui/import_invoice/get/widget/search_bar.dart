@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/feature/domain/model/invoice_query/invoice_query.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/event/event.dart';
@@ -47,7 +46,7 @@ class _ImportInvoiceSearchBarState extends State<ImportInvoiceSearchBar> {
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: AppPadding.padding12,
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         child: AppTextField(
           canDelete: true,
           onChanged: _onChanged,

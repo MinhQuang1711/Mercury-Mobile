@@ -7,6 +7,7 @@ import 'package:mercury/feature/domain/enum/screen.dart';
 import 'package:mercury/feature/domain/model/invoice_query/invoice_query.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/get_import_invoice/cubit.dart';
+import 'package:mercury/feature/presentations/ui/import_invoice/get/widget/filter_button.dart';
 import 'package:mercury/feature/presentations/ui/import_invoice/get/widget/listview.dart';
 import 'package:mercury/feature/presentations/widget/button/create_square_button.dart';
 import 'package:mercury/feature/presentations/widget/global_listener.dart';
@@ -14,9 +15,11 @@ import 'package:mercury/feature/presentations/widget/global_listener.dart';
 import '../../../bloc/global_cubit/cubit.dart';
 import '../../../bloc/import_invoice/bloc/bloc.dart';
 import 'widget/listener.dart';
+import 'widget/overview.dart';
 import 'widget/search_bar.dart';
 
-var defaultImportInvoiceEvent = const ImportInvoiceEvent.get(InvoiceQuery());
+var defaultImportInvoiceEvent = ImportInvoiceEvent.get(
+    InvoiceQuery(startTime: DateTime.now(), endTime: DateTime.now()));
 
 class ImportInvoiceScreen extends StatelessWidget {
   const ImportInvoiceScreen({super.key});
@@ -65,6 +68,16 @@ class ImportInvoicePage extends StatelessWidget {
                 CreateSquareButton(onTap: onTapCreate),
               ],
             ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              child: Row(
+                children: [
+                  Expanded(child: ImportInvoiceFilterButton()),
+                  ImportInvoiceOverview(),
+                ],
+              ),
+            ),
+            const Divider(thickness: 8),
             const ImportInvoiceList(),
           ],
         ),
