@@ -61,10 +61,8 @@ class ImportInvoicePage extends StatelessWidget {
           children: [
             Row(
               children: [
-                CreateSquareButton(
-                  onTap: onTapCreate,
-                ),
                 const ImportInvoiceSearchBar(),
+                CreateSquareButton(onTap: onTapCreate),
               ],
             ),
             const ImportInvoiceList(),
