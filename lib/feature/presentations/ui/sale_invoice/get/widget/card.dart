@@ -62,7 +62,7 @@ class SaleInvoiceCard extends StatelessWidget {
 
   Text _valueAfterDiscount(double valueDiscount) {
     return Text(
-      ((saleInvoice.totalPrice ?? 0) - valueDiscount).formatNumber(),
+      "${((saleInvoice.totalPrice ?? 0) - valueDiscount).formatDouble()} VND",
       style: captionMedium.copyWith(color: AppColor.blue),
     );
   }
@@ -71,14 +71,14 @@ class SaleInvoiceCard extends StatelessWidget {
 
   Text _totalDiscount(double val) {
     return Text(
-      "Giảm giá: ${val.formatNumber()} VND",
+      "Giảm giá: ${val.formatDouble()} VND",
       style: captionRegular,
     );
   }
 
   Text _valueOfBill() {
     return Text(
-      "Giá trị: ${saleInvoice.totalPrice?.formatNumber() ?? "0"}",
+      "Giá trị: ${saleInvoice.totalPrice?.formatDouble() ?? "0"} VND",
       style: captionRegular,
     );
   }
