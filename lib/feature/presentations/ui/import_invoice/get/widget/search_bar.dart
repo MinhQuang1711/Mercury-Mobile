@@ -7,7 +7,6 @@ import 'package:mercury/feature/presentations/widget/search_icon.dart';
 import 'package:mercury/feature/presentations/widget/textfield/textfield.dart';
 
 import '../../../../bloc/import_invoice/bloc/state/state.dart';
-import '../../../../widget/square_filter_icon.dart';
 
 class ImportInvoiceSearchBar extends StatefulWidget {
   const ImportInvoiceSearchBar({super.key});
@@ -45,17 +44,13 @@ class _ImportInvoiceSearchBarState extends State<ImportInvoiceSearchBar> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        child: AppTextField(
-          canDelete: true,
-          onChanged: _onChanged,
-          controller: _controller,
-          hintText: "Tìm theo mã hóa đơn",
-          prefWidget: const SearchIcon(),
-          onTapClearButton: () => _onChanged(null),
-          sufWidget: const SquareFilterIcon(),
-        ),
+      child: AppTextField(
+        canDelete: true,
+        onChanged: _onChanged,
+        controller: _controller,
+        hintText: "Tìm theo mã hóa đơn",
+        prefWidget: const SearchIcon(),
+        onTapClearButton: () => _onChanged(null),
       ),
     );
   }

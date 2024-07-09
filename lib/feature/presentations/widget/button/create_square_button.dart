@@ -20,7 +20,6 @@ class CreateSquareButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(left: 12),
         padding: padding ?? AppPadding.padding12,
         decoration: BoxDecoration(
           borderRadius: AppContainerBorder.radius8,

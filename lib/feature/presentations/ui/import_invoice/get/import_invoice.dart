@@ -62,11 +62,14 @@ class ImportInvoicePage extends StatelessWidget {
       child: ImportBlocListenWidget(
         child: Column(
           children: [
-            Row(
-              children: [
-                const ImportInvoiceSearchBar(),
-                CreateSquareButton(onTap: onTapCreate),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              child: Row(
+                children: [
+                  const ImportInvoiceSearchBar(),
+                  CreateSquareButton(onTap: onTapCreate),
+                ],
+              ),
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
