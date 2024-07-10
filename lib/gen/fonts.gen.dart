@@ -12,4 +12,7 @@ class FontFamily {
 
   /// Font family: Nunito-Medium
   static const String nunitoMedium = 'Nunito-Medium';
+
+  /// Font family: Nunito-Medium-Regular
+  static const String nunitoMediumRegular = 'Nunito-Medium-Regular';
 }

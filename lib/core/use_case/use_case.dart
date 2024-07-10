@@ -14,7 +14,7 @@ class UseCaseNetwork {
     required ParamRequest paramRequest,
     required T Function(dynamic json) parser,
   }) async {
-    final dioClient = DioClient();
+    final dioClient = DioClient(otherServerUrl: paramRequest.baseUrl);
 
     try {
       final json = await dioClient.makeRequest(paramRequest: paramRequest);

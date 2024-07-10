@@ -3,6 +3,7 @@ import 'payload/payload.dart';
 
 class ParamRequest {
   final Method method;
+  final String? baseUrl;
   final String endPoint;
   final Payload? payload;
   final Duration? duration;
@@ -13,6 +14,7 @@ class ParamRequest {
     this.query,
     this.header,
     this.payload,
+    this.baseUrl,
     this.duration,
     required this.method,
     required this.endPoint,

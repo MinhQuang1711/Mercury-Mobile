@@ -12,6 +12,10 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconGen {
   const $AssetsIconGen();
 
+  /// File path: assets/icon/bar-chart.png
+  AssetGenImage get barChart =>
+      const AssetGenImage('assets/icon/bar-chart.png');
+
   /// File path: assets/icon/calendar.png
   AssetGenImage get calendar => const AssetGenImage('assets/icon/calendar.png');
 
@@ -38,6 +42,14 @@ class $AssetsIconGen {
   /// File path: assets/icon/invoices.png
   AssetGenImage get invoices => const AssetGenImage('assets/icon/invoices.png');
 
+  /// File path: assets/icon/report_box.png
+  AssetGenImage get reportBox =>
+      const AssetGenImage('assets/icon/report_box.png');
+
+  /// File path: assets/icon/report_time.png
+  AssetGenImage get reportTime =>
+      const AssetGenImage('assets/icon/report_time.png');
+
   /// File path: assets/icon/search.png
   AssetGenImage get search => const AssetGenImage('assets/icon/search.png');
 
@@ -46,6 +58,7 @@ class $AssetsIconGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+        barChart,
         calendar,
         coupon,
         customer,
@@ -54,6 +67,8 @@ class $AssetsIconGen {
         importProd,
         invoice,
         invoices,
+        reportBox,
+        reportTime,
         search,
         voucher
       ];
