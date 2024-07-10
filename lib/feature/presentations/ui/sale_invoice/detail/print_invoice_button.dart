@@ -60,7 +60,10 @@ class SaveInvoiceButton extends StatelessWidget {
                   shippingFee: shippingFee,
                 ))
                     .then((bytes) async {
-                  Gal.putImageBytes(bytes).then((value) => context.pop());
+                  Gal.putImageBytes(bytes).then((value) {
+                    context.showSuccesSnackBar("Lưu thành công");
+                    context.pop();
+                  });
                 }),
                 buttonType: ButtonType.OUTLINE,
               ),

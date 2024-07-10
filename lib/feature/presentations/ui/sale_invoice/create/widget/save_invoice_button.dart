@@ -42,14 +42,10 @@ class SaveinvoiceButton extends StatelessWidget {
                 ),
               )
                   .then((bytes) async {
-                // var path = await getApplicationDocumentsDirectory();
-                Gal.putImageBytes(bytes).then((value) => context.pop());
-                // logError(path.path);
-                // // GallerySaver.saveImage(path)
-                // var name = UuidV4().generate();
-                // final file = File("$path/$name");
-                // file.writeAsBytesSync(bytes);
-                // logError(file.readAsBytes());
+                Gal.putImageBytes(bytes).then((value) {
+                  context.showSuccesSnackBar("Lưu thành công");
+                  context.pop();
+                });
               }),
               buttonType: ButtonType.OUTLINE,
             ),
