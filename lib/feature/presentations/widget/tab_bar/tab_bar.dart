@@ -8,7 +8,8 @@ class AppTabBar {
   late final Widget tabBar;
   final List<Widget> children;
   late final TabBarView tabBarView;
-  AppTabBar({required this.tabs, required this.children}) {
+  final TabController? tabController;
+  AppTabBar({required this.tabs, required this.children, this.tabController}) {
     tabBar = Container(
       height: 38,
       decoration: BoxDecoration(
@@ -18,6 +19,7 @@ class AppTabBar {
       margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
       child: TabBar(
         tabs: tabs,
+        controller: tabController,
         labelStyle: captionMedium,
         padding: EdgeInsets.zero,
         labelColor: AppColor.blue,
@@ -32,6 +34,9 @@ class AppTabBar {
         ),
       ),
     );
-    tabBarView = TabBarView(children: children);
+    tabBarView = TabBarView(
+      controller: tabController,
+      children: children,
+    );
   }
 }
