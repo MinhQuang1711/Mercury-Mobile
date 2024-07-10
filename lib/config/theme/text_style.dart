@@ -18,7 +18,7 @@ const h5Medium = TextStyle(fontWeight: FontWeight.w500, fontSize: 24);
 
 // HEADING 6
 const h6ExtraBold = TextStyle(fontWeight: FontWeight.w900, fontSize: 18);
-const h6Bold = TextStyle(fontWeight: FontWeight.w600, fontSize: 18);
+const h6Bold = TextStyle(fontWeight: FontWeight.w700, fontSize: 18);
 const h6Regular = TextStyle(fontWeight: FontWeight.w400, fontSize: 18);
 const h6Medium = TextStyle(fontWeight: FontWeight.w500, fontSize: 18);
 

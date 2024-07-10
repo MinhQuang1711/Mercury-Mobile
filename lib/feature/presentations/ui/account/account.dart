@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mercury/config/const/padding.dart';
-import 'package:mercury/config/theme/color.dart';
-import 'package:mercury/config/theme/text_style.dart';
-import 'package:mercury/feature/presentations/ui/account/widgets/avartar.dart';
-import 'package:mercury/feature/presentations/ui/account/widgets/control_bar.dart';
-import 'package:mercury/feature/presentations/ui/account/widgets/info_user.dart';
-import 'package:mercury/feature/presentations/ui/account/widgets/logout_button.dart';
+import 'package:mercury/feature/presentations/ui/account/widgets/customer_and_cupon.dart';
+import 'package:mercury/feature/presentations/ui/account/widgets/invoice.dart';
+import 'package:mercury/feature/presentations/ui/account/widgets/reports.dart';
+import 'package:mercury/feature/presentations/ui/account/widgets/setting_account.dart';
+import 'package:mercury/feature/presentations/ui/account/widgets/user_bar.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -21,37 +19,26 @@ class AccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: const CustomAppBar(labelTitle: "Giới thiệu"),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const AccountAvatar(),
-          Padding(
-            padding: AppPadding.padding12,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 5),
-                Text(
-                  "Thông tin cá nhân",
-                  style: bodyBold.copyWith(color: AppColor.grey5),
-                ),
-                const SizedBox(height: 5),
-                const UserInfoWidget(),
-                const SizedBox(height: 25),
-                Text(
-                  "Cài đặt chỉnh sửa",
-                  style: bodyBold.copyWith(color: AppColor.grey5),
-                ),
-                const SizedBox(height: 5),
-                const ControlBar(),
-                const SizedBox(height: 100),
-                const LogoutButton(),
-              ],
-            ),
-          )
-        ],
+    return const Scaffold(
+      backgroundColor: Color.fromARGB(255, 236, 234, 234),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 6),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              UserBar(),
+              SizedBox(height: 8),
+              AccountInvoice(),
+              SizedBox(height: 8),
+              CustomerAndCupon(),
+              SizedBox(height: 8),
+              Reports(),
+              SizedBox(height: 8),
+              SettingAccount(),
+              SizedBox(height: 100),
+            ],
+          ),
+        ),
       ),
     );
   }
