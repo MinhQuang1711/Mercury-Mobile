@@ -76,6 +76,7 @@ class SaleInvoicePage extends StatelessWidget {
               child: Row(
                 children: [
                   const SaleInvoiceSearchBar(),
+                  const SizedBox(width: 10),
                   CreateSquareButton(onTap: onTapCreateButton),
                 ],
               ),
