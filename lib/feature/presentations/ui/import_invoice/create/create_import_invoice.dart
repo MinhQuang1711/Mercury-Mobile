@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
@@ -43,6 +44,7 @@ class CreateImportInvoicePage extends StatelessWidget {
         success: (msg) => context.pop(msg),
       ),
       child: const Scaffold(
+        backgroundColor: AppColor.white,
         appBar: ActionAppBar(),
         body: AppStack(
           bottomWidget: CreateButton(),

@@ -42,6 +42,7 @@ class CreateSaleInvoicePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SaleInvoiceListenWidget(
       child: Scaffold(
+        backgroundColor: AppColor.white,
         resizeToAvoidBottomInset: false,
         appBar: _appBar(context),
         body: const AppStack(

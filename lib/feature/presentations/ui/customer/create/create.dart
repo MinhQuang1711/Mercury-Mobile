@@ -42,6 +42,7 @@ class CreateCustomerPage extends StatelessWidget {
     final cubit = context.read<CommonCustomerCubit>();
     return Scaffold(
       appBar: _appBar(context),
+      backgroundColor: AppColor.white,
       body: CustomerListener(
         child: AppStack(
           formKey: formKey,
