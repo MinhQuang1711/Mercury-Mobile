@@ -7,10 +7,10 @@ import 'package:mercury/core/utils/validator/validator.dart';
 import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
 import 'package:mercury/feature/presentations/widget/button/button.dart';
 import 'package:mercury/feature/presentations/widget/column_input/column_input.dart';
-import 'package:mercury/feature/presentations/widget/search_field/search_field.dart';
-import 'package:mercury/feature/presentations/widget/search_field/search_item.dart';
+import 'package:mercury/feature/presentations/widget/select_button/app_search_item.dart';
+import 'package:mercury/feature/presentations/widget/select_button/select_button.dart';
 import 'package:mercury/feature/presentations/widget/textfield/textfield.dart';
-import 'package:searchfield/searchfield.dart';
+import 'package:select_button_package/model/search_item.dart';
 
 class SelectIngredientDialog extends StatelessWidget {
   const SelectIngredientDialog({super.key, required this.ingredients});
@@ -21,8 +21,8 @@ class SelectIngredientDialog extends StatelessWidget {
     ComboBox comboBox = const ComboBox();
     final formKey = GlobalKey<FormState>();
 
-    void onSelectIngredient(SearchFieldListItem<ComboBox> val) {
-      comboBox = comboBox.copyWith(id: val.item?.id, name: val.item?.name);
+    void onSelectIngredient(SearchItem<ComboBox> val) {
+      comboBox = comboBox.copyWith(id: val.item.id, name: val.item.name);
     }
 
     void onChangedWeight(String? val) {
@@ -49,14 +49,14 @@ class SelectIngredientDialog extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             ColumnInput(
-              isRequied: true,
               titleLabel: "Nguyên liệu",
-              bottomWidget: AppSearchFiled(
+              bottomWidget: AppSelectButton(
                 items: ingredients,
-                hint: "Chọn nguyên liệu",
                 onTap: onSelectIngredient,
-                validator: Validator.required,
-                appItemFields: AppItemField.comboBox,
+                title: "Chọn nguyên liệu",
+                hintText: "Chọn nguyên liệu",
+                searchHint: "Tìm kiếm nguyên liệu",
+                appSearchItem: AppSearchItem.comboBox,
               ),
             ),
             const SizedBox(height: 15),
