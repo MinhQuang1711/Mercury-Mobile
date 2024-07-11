@@ -22,15 +22,15 @@ class UpdateBankCubit extends Cubit<UpdateBankState> {
 
   void init() {
     var user = UserSingleton.instance.user;
-    emit(state.copyWith(
-        request: state.request.copyWith(
-            bankInfo: state.request.bankInfo?.copyWith(
+    var initBankInfo = state.request.bankInfo?.copyWith(
       bankBin: user?.bankBin,
       bankCode: user?.bankCode,
       reciverName: user?.reciverName,
       bankShortName: user?.bankShortName,
       reciverAccountNumber: user?.reciverAccountNumber,
-    ))));
+    );
+    emit(state.copyWith(
+        request: state.request.copyWith(bankInfo: initBankInfo)));
   }
 
   void getBank() async {

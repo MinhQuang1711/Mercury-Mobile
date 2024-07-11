@@ -1,7 +1,6 @@
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/domain/repositories/i_combo_box.dart';
 import 'package:mercury/feature/domain/repositories/i_dashboard.dart';
-import 'package:mercury/feature/domain/repositories/ibank_repository.dart';
 import 'package:mercury/feature/presentations/bloc/authen/cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/customer/cubit/cubit.dart';
@@ -15,7 +14,6 @@ import 'package:mercury/feature/presentations/bloc/product/cubit/get/cubit.dart'
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sale_invoice_cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/get_sale_invoice/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/splash/cubit.dart';
-import 'package:mercury/feature/presentations/bloc/update_bank/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/voucher/cubit/cubit.dart';
 
 import '../../../feature/presentations/bloc/product/cubit/create_and_update/cubit.dart';
@@ -39,6 +37,4 @@ void registerCubit() {
   getIt.registerFactory<CommonVoucherCubit>(() => CommonVoucherCubit());
   getIt.registerFactory<CommonCustomerCubit>(() => CommonCustomerCubit());
   getIt.registerFactory<GlobalCubit>(() => GlobalCubit());
-  getIt.registerLazySingleton<UpdateBankCubit>(
-      () => UpdateBankCubit(getIt.get<IBankRepository>()));
 }

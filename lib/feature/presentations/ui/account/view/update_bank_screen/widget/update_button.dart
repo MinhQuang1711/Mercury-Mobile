@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/feature/presentations/bloc/account/bloc/bloc.dart';
-import 'package:mercury/feature/presentations/bloc/account/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/account/bloc/state/state.dart';
-import 'package:mercury/feature/presentations/bloc/update_bank/cubit.dart';
 
 import '../../../../../widget/button/button.dart';
 
 class UpdateButton extends StatelessWidget {
-  const UpdateButton({super.key});
+  const UpdateButton({super.key, required this.controller});
+  final PageController controller;
 
   @override
   Widget build(BuildContext context) {
     void onTap() {
-      final cubit = context.read<UpdateBankCubit>();
-      final bloc = context.read<AccountBloc>();
-      bloc.add(AccountEvent.updateBank(cubit.state.request));
+      controller.nextPage(
+          duration: const Duration(milliseconds: 400), curve: Curves.easeInOut);
     }
 
     var button = AppButton(label: "Xác nhận", onTap: onTap);
