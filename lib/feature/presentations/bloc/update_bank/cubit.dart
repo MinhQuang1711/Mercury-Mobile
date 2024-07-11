@@ -29,14 +29,14 @@ class UpdateBankCubit extends Cubit<UpdateBankState> {
   ) async {
     (await repo.lookUp(
       accountNumber: accountNumber ?? "",
-      bin: state.bankInfo.bin ?? "",
+      bin: state.bankInfo.bankBin ?? "",
     ))
         .on(
       whenSuccess: (data) => emit(
         state.copyWith(
           bankInfo: state.bankInfo.copyWith(
-            name: data,
-            accountNumber: accountNumber,
+            reciverName: data,
+            reciverAccountNumber: accountNumber,
           ),
         ),
       ),
@@ -47,9 +47,9 @@ class UpdateBankCubit extends Cubit<UpdateBankState> {
   void onSelectBank(SearchItem<Bank> item) {
     emit(state.copyWith(
         bankInfo: state.bankInfo.copyWith(
-      bin: item.item.bin,
-      code: item.item.code,
-      shortName: item.item.shortName,
+      bankBin: item.item.bin,
+      bankCode: item.item.code,
+      bankShortName: item.item.shortName,
     )));
   }
 }

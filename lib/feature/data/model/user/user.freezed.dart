@@ -20,11 +20,21 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
-  String? get id => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
+  String? get bankBin => throw _privateConstructorUsedError;
+  String? get bankCode => throw _privateConstructorUsedError;
   String? get userName => throw _privateConstructorUsedError;
+  String? get password => throw _privateConstructorUsedError;
   String? get fullName => throw _privateConstructorUsedError;
+  String? get avatarUrl => throw _privateConstructorUsedError;
   String? get phoneNumber => throw _privateConstructorUsedError;
+  String? get reciverName => throw _privateConstructorUsedError;
+  String? get shortNameBank => throw _privateConstructorUsedError;
+  String? get accountBankNumber => throw _privateConstructorUsedError;
+  DateTime? get createDate => throw _privateConstructorUsedError;
+  String? get createdByName => throw _privateConstructorUsedError;
+  String? get ownerName => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   List<int>? get permissions => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,11 +48,21 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res, User>;
   @useResult
   $Res call(
-      {String? id,
-      String? email,
+      {String? email,
+      String? bankBin,
+      String? bankCode,
       String? userName,
+      String? password,
       String? fullName,
+      String? avatarUrl,
       String? phoneNumber,
+      String? reciverName,
+      String? shortNameBank,
+      String? accountBankNumber,
+      DateTime? createDate,
+      String? createdByName,
+      String? ownerName,
+      String? id,
       List<int>? permissions});
 }
 
@@ -59,33 +79,83 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
     Object? email = freezed,
+    Object? bankBin = freezed,
+    Object? bankCode = freezed,
     Object? userName = freezed,
+    Object? password = freezed,
     Object? fullName = freezed,
+    Object? avatarUrl = freezed,
     Object? phoneNumber = freezed,
+    Object? reciverName = freezed,
+    Object? shortNameBank = freezed,
+    Object? accountBankNumber = freezed,
+    Object? createDate = freezed,
+    Object? createdByName = freezed,
+    Object? ownerName = freezed,
+    Object? id = freezed,
     Object? permissions = freezed,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bankBin: freezed == bankBin
+          ? _value.bankBin
+          : bankBin // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bankCode: freezed == bankCode
+          ? _value.bankCode
+          : bankCode // ignore: cast_nullable_to_non_nullable
               as String?,
       userName: freezed == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String?,
+      password: freezed == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
       fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
               as String?,
+      avatarUrl: freezed == avatarUrl
+          ? _value.avatarUrl
+          : avatarUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      reciverName: freezed == reciverName
+          ? _value.reciverName
+          : reciverName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      shortNameBank: freezed == shortNameBank
+          ? _value.shortNameBank
+          : shortNameBank // ignore: cast_nullable_to_non_nullable
+              as String?,
+      accountBankNumber: freezed == accountBankNumber
+          ? _value.accountBankNumber
+          : accountBankNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createDate: freezed == createDate
+          ? _value.createDate
+          : createDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      createdByName: freezed == createdByName
+          ? _value.createdByName
+          : createdByName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      ownerName: freezed == ownerName
+          ? _value.ownerName
+          : ownerName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String?,
       permissions: freezed == permissions
           ? _value.permissions
@@ -103,11 +173,21 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? id,
-      String? email,
+      {String? email,
+      String? bankBin,
+      String? bankCode,
       String? userName,
+      String? password,
       String? fullName,
+      String? avatarUrl,
       String? phoneNumber,
+      String? reciverName,
+      String? shortNameBank,
+      String? accountBankNumber,
+      DateTime? createDate,
+      String? createdByName,
+      String? ownerName,
+      String? id,
       List<int>? permissions});
 }
 
@@ -121,33 +201,83 @@ class __$$UserImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
     Object? email = freezed,
+    Object? bankBin = freezed,
+    Object? bankCode = freezed,
     Object? userName = freezed,
+    Object? password = freezed,
     Object? fullName = freezed,
+    Object? avatarUrl = freezed,
     Object? phoneNumber = freezed,
+    Object? reciverName = freezed,
+    Object? shortNameBank = freezed,
+    Object? accountBankNumber = freezed,
+    Object? createDate = freezed,
+    Object? createdByName = freezed,
+    Object? ownerName = freezed,
+    Object? id = freezed,
     Object? permissions = freezed,
   }) {
     return _then(_$UserImpl(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bankBin: freezed == bankBin
+          ? _value.bankBin
+          : bankBin // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bankCode: freezed == bankCode
+          ? _value.bankCode
+          : bankCode // ignore: cast_nullable_to_non_nullable
               as String?,
       userName: freezed == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
               as String?,
+      password: freezed == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
       fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
               as String?,
+      avatarUrl: freezed == avatarUrl
+          ? _value.avatarUrl
+          : avatarUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      reciverName: freezed == reciverName
+          ? _value.reciverName
+          : reciverName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      shortNameBank: freezed == shortNameBank
+          ? _value.shortNameBank
+          : shortNameBank // ignore: cast_nullable_to_non_nullable
+              as String?,
+      accountBankNumber: freezed == accountBankNumber
+          ? _value.accountBankNumber
+          : accountBankNumber // ignore: cast_nullable_to_non_nullable
+              as String?,
+      createDate: freezed == createDate
+          ? _value.createDate
+          : createDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      createdByName: freezed == createdByName
+          ? _value.createdByName
+          : createdByName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      ownerName: freezed == ownerName
+          ? _value.ownerName
+          : ownerName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String?,
       permissions: freezed == permissions
           ? _value._permissions
@@ -161,11 +291,21 @@ class __$$UserImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserImpl implements _User {
   const _$UserImpl(
-      {this.id,
-      this.email,
+      {this.email,
+      this.bankBin,
+      this.bankCode,
       this.userName,
+      this.password,
       this.fullName,
+      this.avatarUrl,
       this.phoneNumber,
+      this.reciverName,
+      this.shortNameBank,
+      this.accountBankNumber,
+      this.createDate,
+      this.createdByName,
+      this.ownerName,
+      this.id,
       final List<int>? permissions})
       : _permissions = permissions;
 
@@ -173,15 +313,35 @@ class _$UserImpl implements _User {
       _$$UserImplFromJson(json);
 
   @override
-  final String? id;
-  @override
   final String? email;
+  @override
+  final String? bankBin;
+  @override
+  final String? bankCode;
   @override
   final String? userName;
   @override
+  final String? password;
+  @override
   final String? fullName;
   @override
+  final String? avatarUrl;
+  @override
   final String? phoneNumber;
+  @override
+  final String? reciverName;
+  @override
+  final String? shortNameBank;
+  @override
+  final String? accountBankNumber;
+  @override
+  final DateTime? createDate;
+  @override
+  final String? createdByName;
+  @override
+  final String? ownerName;
+  @override
+  final String? id;
   final List<int>? _permissions;
   @override
   List<int>? get permissions {
@@ -194,7 +354,7 @@ class _$UserImpl implements _User {
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, userName: $userName, fullName: $fullName, phoneNumber: $phoneNumber, permissions: $permissions)';
+    return 'User(email: $email, bankBin: $bankBin, bankCode: $bankCode, userName: $userName, password: $password, fullName: $fullName, avatarUrl: $avatarUrl, phoneNumber: $phoneNumber, reciverName: $reciverName, shortNameBank: $shortNameBank, accountBankNumber: $accountBankNumber, createDate: $createDate, createdByName: $createdByName, ownerName: $ownerName, id: $id, permissions: $permissions)';
   }
 
   @override
@@ -202,22 +362,57 @@ class _$UserImpl implements _User {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserImpl &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.email, email) || other.email == email) &&
+            (identical(other.bankBin, bankBin) || other.bankBin == bankBin) &&
+            (identical(other.bankCode, bankCode) ||
+                other.bankCode == bankCode) &&
             (identical(other.userName, userName) ||
                 other.userName == userName) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
             (identical(other.fullName, fullName) ||
                 other.fullName == fullName) &&
+            (identical(other.avatarUrl, avatarUrl) ||
+                other.avatarUrl == avatarUrl) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
+            (identical(other.reciverName, reciverName) ||
+                other.reciverName == reciverName) &&
+            (identical(other.shortNameBank, shortNameBank) ||
+                other.shortNameBank == shortNameBank) &&
+            (identical(other.accountBankNumber, accountBankNumber) ||
+                other.accountBankNumber == accountBankNumber) &&
+            (identical(other.createDate, createDate) ||
+                other.createDate == createDate) &&
+            (identical(other.createdByName, createdByName) ||
+                other.createdByName == createdByName) &&
+            (identical(other.ownerName, ownerName) ||
+                other.ownerName == ownerName) &&
+            (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality()
                 .equals(other._permissions, _permissions));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, email, userName, fullName,
-      phoneNumber, const DeepCollectionEquality().hash(_permissions));
+  int get hashCode => Object.hash(
+      runtimeType,
+      email,
+      bankBin,
+      bankCode,
+      userName,
+      password,
+      fullName,
+      avatarUrl,
+      phoneNumber,
+      reciverName,
+      shortNameBank,
+      accountBankNumber,
+      createDate,
+      createdByName,
+      ownerName,
+      id,
+      const DeepCollectionEquality().hash(_permissions));
 
   @JsonKey(ignore: true)
   @override
@@ -235,25 +430,55 @@ class _$UserImpl implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {final String? id,
-      final String? email,
+      {final String? email,
+      final String? bankBin,
+      final String? bankCode,
       final String? userName,
+      final String? password,
       final String? fullName,
+      final String? avatarUrl,
       final String? phoneNumber,
+      final String? reciverName,
+      final String? shortNameBank,
+      final String? accountBankNumber,
+      final DateTime? createDate,
+      final String? createdByName,
+      final String? ownerName,
+      final String? id,
       final List<int>? permissions}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
   @override
-  String? get id;
-  @override
   String? get email;
+  @override
+  String? get bankBin;
+  @override
+  String? get bankCode;
   @override
   String? get userName;
   @override
+  String? get password;
+  @override
   String? get fullName;
   @override
+  String? get avatarUrl;
+  @override
   String? get phoneNumber;
+  @override
+  String? get reciverName;
+  @override
+  String? get shortNameBank;
+  @override
+  String? get accountBankNumber;
+  @override
+  DateTime? get createDate;
+  @override
+  String? get createdByName;
+  @override
+  String? get ownerName;
+  @override
+  String? get id;
   @override
   List<int>? get permissions;
   @override

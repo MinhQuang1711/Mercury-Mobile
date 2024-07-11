@@ -8,9 +8,9 @@ part of 'bank_info.dart';
 
 Map<String, dynamic> _$$BankImplToJson(_$BankImpl instance) =>
     <String, dynamic>{
-      'bin': instance.bin,
-      'name': instance.name,
-      'code': instance.code,
-      'shortName': instance.shortName,
-      'accountNumber': instance.accountNumber,
+      'bankBin': instance.bankBin,
+      'bankCode': instance.bankCode,
+      'reciverName': instance.reciverName,
+      'bankShortName': instance.bankShortName,
+      'reciverAccountNumber': instance.reciverAccountNumber,
     };

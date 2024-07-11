@@ -6,10 +6,10 @@ part 'bank_info.g.dart';
 @Freezed(fromJson: false, toJson: true)
 class BankInfo with _$BankInfo {
   const factory BankInfo({
-    String? bin,
-    String? name,
-    String? code,
-    String? shortName,
-    String? accountNumber,
+    String? bankBin,
+    String? bankCode,
+    String? reciverName,
+    String? bankShortName,
+    String? reciverAccountNumber,
   }) = _Bank;
 }

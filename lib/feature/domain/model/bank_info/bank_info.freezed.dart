@@ -16,11 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$BankInfo {
-  String? get bin => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
-  String? get code => throw _privateConstructorUsedError;
-  String? get shortName => throw _privateConstructorUsedError;
-  String? get accountNumber => throw _privateConstructorUsedError;
+  String? get bankBin => throw _privateConstructorUsedError;
+  String? get bankCode => throw _privateConstructorUsedError;
+  String? get reciverName => throw _privateConstructorUsedError;
+  String? get bankShortName => throw _privateConstructorUsedError;
+  String? get reciverAccountNumber => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,11 +34,11 @@ abstract class $BankInfoCopyWith<$Res> {
       _$BankInfoCopyWithImpl<$Res, BankInfo>;
   @useResult
   $Res call(
-      {String? bin,
-      String? name,
-      String? code,
-      String? shortName,
-      String? accountNumber});
+      {String? bankBin,
+      String? bankCode,
+      String? reciverName,
+      String? bankShortName,
+      String? reciverAccountNumber});
 }
 
 /// @nodoc
@@ -54,32 +54,32 @@ class _$BankInfoCopyWithImpl<$Res, $Val extends BankInfo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bin = freezed,
-    Object? name = freezed,
-    Object? code = freezed,
-    Object? shortName = freezed,
-    Object? accountNumber = freezed,
+    Object? bankBin = freezed,
+    Object? bankCode = freezed,
+    Object? reciverName = freezed,
+    Object? bankShortName = freezed,
+    Object? reciverAccountNumber = freezed,
   }) {
     return _then(_value.copyWith(
-      bin: freezed == bin
-          ? _value.bin
-          : bin // ignore: cast_nullable_to_non_nullable
+      bankBin: freezed == bankBin
+          ? _value.bankBin
+          : bankBin // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      bankCode: freezed == bankCode
+          ? _value.bankCode
+          : bankCode // ignore: cast_nullable_to_non_nullable
               as String?,
-      code: freezed == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
+      reciverName: freezed == reciverName
+          ? _value.reciverName
+          : reciverName // ignore: cast_nullable_to_non_nullable
               as String?,
-      shortName: freezed == shortName
-          ? _value.shortName
-          : shortName // ignore: cast_nullable_to_non_nullable
+      bankShortName: freezed == bankShortName
+          ? _value.bankShortName
+          : bankShortName // ignore: cast_nullable_to_non_nullable
               as String?,
-      accountNumber: freezed == accountNumber
-          ? _value.accountNumber
-          : accountNumber // ignore: cast_nullable_to_non_nullable
+      reciverAccountNumber: freezed == reciverAccountNumber
+          ? _value.reciverAccountNumber
+          : reciverAccountNumber // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -93,11 +93,11 @@ abstract class _$$BankImplCopyWith<$Res> implements $BankInfoCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? bin,
-      String? name,
-      String? code,
-      String? shortName,
-      String? accountNumber});
+      {String? bankBin,
+      String? bankCode,
+      String? reciverName,
+      String? bankShortName,
+      String? reciverAccountNumber});
 }
 
 /// @nodoc
@@ -110,32 +110,32 @@ class __$$BankImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bin = freezed,
-    Object? name = freezed,
-    Object? code = freezed,
-    Object? shortName = freezed,
-    Object? accountNumber = freezed,
+    Object? bankBin = freezed,
+    Object? bankCode = freezed,
+    Object? reciverName = freezed,
+    Object? bankShortName = freezed,
+    Object? reciverAccountNumber = freezed,
   }) {
     return _then(_$BankImpl(
-      bin: freezed == bin
-          ? _value.bin
-          : bin // ignore: cast_nullable_to_non_nullable
+      bankBin: freezed == bankBin
+          ? _value.bankBin
+          : bankBin // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      bankCode: freezed == bankCode
+          ? _value.bankCode
+          : bankCode // ignore: cast_nullable_to_non_nullable
               as String?,
-      code: freezed == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
+      reciverName: freezed == reciverName
+          ? _value.reciverName
+          : reciverName // ignore: cast_nullable_to_non_nullable
               as String?,
-      shortName: freezed == shortName
-          ? _value.shortName
-          : shortName // ignore: cast_nullable_to_non_nullable
+      bankShortName: freezed == bankShortName
+          ? _value.bankShortName
+          : bankShortName // ignore: cast_nullable_to_non_nullable
               as String?,
-      accountNumber: freezed == accountNumber
-          ? _value.accountNumber
-          : accountNumber // ignore: cast_nullable_to_non_nullable
+      reciverAccountNumber: freezed == reciverAccountNumber
+          ? _value.reciverAccountNumber
+          : reciverAccountNumber // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -145,22 +145,26 @@ class __$$BankImplCopyWithImpl<$Res>
 @JsonSerializable(createFactory: false)
 class _$BankImpl implements _Bank {
   const _$BankImpl(
-      {this.bin, this.name, this.code, this.shortName, this.accountNumber});
+      {this.bankBin,
+      this.bankCode,
+      this.reciverName,
+      this.bankShortName,
+      this.reciverAccountNumber});
 
   @override
-  final String? bin;
+  final String? bankBin;
   @override
-  final String? name;
+  final String? bankCode;
   @override
-  final String? code;
+  final String? reciverName;
   @override
-  final String? shortName;
+  final String? bankShortName;
   @override
-  final String? accountNumber;
+  final String? reciverAccountNumber;
 
   @override
   String toString() {
-    return 'BankInfo(bin: $bin, name: $name, code: $code, shortName: $shortName, accountNumber: $accountNumber)';
+    return 'BankInfo(bankBin: $bankBin, bankCode: $bankCode, reciverName: $reciverName, bankShortName: $bankShortName, reciverAccountNumber: $reciverAccountNumber)';
   }
 
   @override
@@ -168,19 +172,21 @@ class _$BankImpl implements _Bank {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BankImpl &&
-            (identical(other.bin, bin) || other.bin == bin) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.code, code) || other.code == code) &&
-            (identical(other.shortName, shortName) ||
-                other.shortName == shortName) &&
-            (identical(other.accountNumber, accountNumber) ||
-                other.accountNumber == accountNumber));
+            (identical(other.bankBin, bankBin) || other.bankBin == bankBin) &&
+            (identical(other.bankCode, bankCode) ||
+                other.bankCode == bankCode) &&
+            (identical(other.reciverName, reciverName) ||
+                other.reciverName == reciverName) &&
+            (identical(other.bankShortName, bankShortName) ||
+                other.bankShortName == bankShortName) &&
+            (identical(other.reciverAccountNumber, reciverAccountNumber) ||
+                other.reciverAccountNumber == reciverAccountNumber));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, bin, name, code, shortName, accountNumber);
+  int get hashCode => Object.hash(runtimeType, bankBin, bankCode, reciverName,
+      bankShortName, reciverAccountNumber);
 
   @JsonKey(ignore: true)
   @override
@@ -198,22 +204,22 @@ class _$BankImpl implements _Bank {
 
 abstract class _Bank implements BankInfo {
   const factory _Bank(
-      {final String? bin,
-      final String? name,
-      final String? code,
-      final String? shortName,
-      final String? accountNumber}) = _$BankImpl;
+      {final String? bankBin,
+      final String? bankCode,
+      final String? reciverName,
+      final String? bankShortName,
+      final String? reciverAccountNumber}) = _$BankImpl;
 
   @override
-  String? get bin;
+  String? get bankBin;
   @override
-  String? get name;
+  String? get bankCode;
   @override
-  String? get code;
+  String? get reciverName;
   @override
-  String? get shortName;
+  String? get bankShortName;
   @override
-  String? get accountNumber;
+  String? get reciverAccountNumber;
   @override
   @JsonKey(ignore: true)
   _$$BankImplCopyWith<_$BankImpl> get copyWith =>
