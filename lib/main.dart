@@ -48,6 +48,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         fontFamily: "Nunito-Medium",
+        scaffoldBackgroundColor: AppColor.white,
         colorScheme: ColorScheme.fromSeed(seedColor: AppColor.white),
       ),
     );
