@@ -29,8 +29,8 @@ mixin _$User {
   String? get avatarUrl => throw _privateConstructorUsedError;
   String? get phoneNumber => throw _privateConstructorUsedError;
   String? get reciverName => throw _privateConstructorUsedError;
-  String? get shortNameBank => throw _privateConstructorUsedError;
-  String? get accountBankNumber => throw _privateConstructorUsedError;
+  String? get bankShortName => throw _privateConstructorUsedError;
+  String? get reciverAccountNumber => throw _privateConstructorUsedError;
   DateTime? get createDate => throw _privateConstructorUsedError;
   String? get createdByName => throw _privateConstructorUsedError;
   String? get ownerName => throw _privateConstructorUsedError;
@@ -57,8 +57,8 @@ abstract class $UserCopyWith<$Res> {
       String? avatarUrl,
       String? phoneNumber,
       String? reciverName,
-      String? shortNameBank,
-      String? accountBankNumber,
+      String? bankShortName,
+      String? reciverAccountNumber,
       DateTime? createDate,
       String? createdByName,
       String? ownerName,
@@ -88,8 +88,8 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? avatarUrl = freezed,
     Object? phoneNumber = freezed,
     Object? reciverName = freezed,
-    Object? shortNameBank = freezed,
-    Object? accountBankNumber = freezed,
+    Object? bankShortName = freezed,
+    Object? reciverAccountNumber = freezed,
     Object? createDate = freezed,
     Object? createdByName = freezed,
     Object? ownerName = freezed,
@@ -133,13 +133,13 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.reciverName
           : reciverName // ignore: cast_nullable_to_non_nullable
               as String?,
-      shortNameBank: freezed == shortNameBank
-          ? _value.shortNameBank
-          : shortNameBank // ignore: cast_nullable_to_non_nullable
+      bankShortName: freezed == bankShortName
+          ? _value.bankShortName
+          : bankShortName // ignore: cast_nullable_to_non_nullable
               as String?,
-      accountBankNumber: freezed == accountBankNumber
-          ? _value.accountBankNumber
-          : accountBankNumber // ignore: cast_nullable_to_non_nullable
+      reciverAccountNumber: freezed == reciverAccountNumber
+          ? _value.reciverAccountNumber
+          : reciverAccountNumber // ignore: cast_nullable_to_non_nullable
               as String?,
       createDate: freezed == createDate
           ? _value.createDate
@@ -182,8 +182,8 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       String? avatarUrl,
       String? phoneNumber,
       String? reciverName,
-      String? shortNameBank,
-      String? accountBankNumber,
+      String? bankShortName,
+      String? reciverAccountNumber,
       DateTime? createDate,
       String? createdByName,
       String? ownerName,
@@ -210,8 +210,8 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? avatarUrl = freezed,
     Object? phoneNumber = freezed,
     Object? reciverName = freezed,
-    Object? shortNameBank = freezed,
-    Object? accountBankNumber = freezed,
+    Object? bankShortName = freezed,
+    Object? reciverAccountNumber = freezed,
     Object? createDate = freezed,
     Object? createdByName = freezed,
     Object? ownerName = freezed,
@@ -255,13 +255,13 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.reciverName
           : reciverName // ignore: cast_nullable_to_non_nullable
               as String?,
-      shortNameBank: freezed == shortNameBank
-          ? _value.shortNameBank
-          : shortNameBank // ignore: cast_nullable_to_non_nullable
+      bankShortName: freezed == bankShortName
+          ? _value.bankShortName
+          : bankShortName // ignore: cast_nullable_to_non_nullable
               as String?,
-      accountBankNumber: freezed == accountBankNumber
-          ? _value.accountBankNumber
-          : accountBankNumber // ignore: cast_nullable_to_non_nullable
+      reciverAccountNumber: freezed == reciverAccountNumber
+          ? _value.reciverAccountNumber
+          : reciverAccountNumber // ignore: cast_nullable_to_non_nullable
               as String?,
       createDate: freezed == createDate
           ? _value.createDate
@@ -300,8 +300,8 @@ class _$UserImpl implements _User {
       this.avatarUrl,
       this.phoneNumber,
       this.reciverName,
-      this.shortNameBank,
-      this.accountBankNumber,
+      this.bankShortName,
+      this.reciverAccountNumber,
       this.createDate,
       this.createdByName,
       this.ownerName,
@@ -331,9 +331,9 @@ class _$UserImpl implements _User {
   @override
   final String? reciverName;
   @override
-  final String? shortNameBank;
+  final String? bankShortName;
   @override
-  final String? accountBankNumber;
+  final String? reciverAccountNumber;
   @override
   final DateTime? createDate;
   @override
@@ -354,7 +354,7 @@ class _$UserImpl implements _User {
 
   @override
   String toString() {
-    return 'User(email: $email, bankBin: $bankBin, bankCode: $bankCode, userName: $userName, password: $password, fullName: $fullName, avatarUrl: $avatarUrl, phoneNumber: $phoneNumber, reciverName: $reciverName, shortNameBank: $shortNameBank, accountBankNumber: $accountBankNumber, createDate: $createDate, createdByName: $createdByName, ownerName: $ownerName, id: $id, permissions: $permissions)';
+    return 'User(email: $email, bankBin: $bankBin, bankCode: $bankCode, userName: $userName, password: $password, fullName: $fullName, avatarUrl: $avatarUrl, phoneNumber: $phoneNumber, reciverName: $reciverName, bankShortName: $bankShortName, reciverAccountNumber: $reciverAccountNumber, createDate: $createDate, createdByName: $createdByName, ownerName: $ownerName, id: $id, permissions: $permissions)';
   }
 
   @override
@@ -378,10 +378,10 @@ class _$UserImpl implements _User {
                 other.phoneNumber == phoneNumber) &&
             (identical(other.reciverName, reciverName) ||
                 other.reciverName == reciverName) &&
-            (identical(other.shortNameBank, shortNameBank) ||
-                other.shortNameBank == shortNameBank) &&
-            (identical(other.accountBankNumber, accountBankNumber) ||
-                other.accountBankNumber == accountBankNumber) &&
+            (identical(other.bankShortName, bankShortName) ||
+                other.bankShortName == bankShortName) &&
+            (identical(other.reciverAccountNumber, reciverAccountNumber) ||
+                other.reciverAccountNumber == reciverAccountNumber) &&
             (identical(other.createDate, createDate) ||
                 other.createDate == createDate) &&
             (identical(other.createdByName, createdByName) ||
@@ -406,8 +406,8 @@ class _$UserImpl implements _User {
       avatarUrl,
       phoneNumber,
       reciverName,
-      shortNameBank,
-      accountBankNumber,
+      bankShortName,
+      reciverAccountNumber,
       createDate,
       createdByName,
       ownerName,
@@ -439,8 +439,8 @@ abstract class _User implements User {
       final String? avatarUrl,
       final String? phoneNumber,
       final String? reciverName,
-      final String? shortNameBank,
-      final String? accountBankNumber,
+      final String? bankShortName,
+      final String? reciverAccountNumber,
       final DateTime? createDate,
       final String? createdByName,
       final String? ownerName,
@@ -468,9 +468,9 @@ abstract class _User implements User {
   @override
   String? get reciverName;
   @override
-  String? get shortNameBank;
+  String? get bankShortName;
   @override
-  String? get accountBankNumber;
+  String? get reciverAccountNumber;
   @override
   DateTime? get createDate;
   @override

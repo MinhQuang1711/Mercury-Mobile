@@ -116,6 +116,20 @@ extension ContextEx on BuildContext {
     );
   }
 
+  Future<T?> showBottomSheet<T>(Widget child) async {
+    var result = await showModalBottomSheet(
+      isScrollControlled: true,
+      backgroundColor: Colors.white,
+      context: this,
+      shape: RoundedRectangleBorder(borderRadius: AppContainerBorder.radius12),
+      builder: (_) => Container(
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        child: child,
+      ),
+    );
+    return result;
+  }
+
   void showBottomSheetAndListen({
     Widget? child,
     Function()? handleWhenHasValue,

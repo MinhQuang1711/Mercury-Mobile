@@ -14,7 +14,8 @@ class UpdateBankCubit extends Cubit<UpdateBankState> {
       : super(
           const UpdateBankState(
             banks: [],
-            request: BankRequestUpdate(bankInfo: BankInfo()),
+            request:
+                BankRequestUpdate(bankInfo: BankInfo(), password: "123@123aA"),
           ),
         );
 
@@ -25,9 +26,7 @@ class UpdateBankCubit extends Cubit<UpdateBankState> {
     );
   }
 
-  void lookUp(
-    String? accountNumber,
-  ) async {
+  void lookUp(String? accountNumber) async {
     (await repo.lookUp(
       accountNumber: accountNumber ?? "",
       bin: state.request.bankInfo?.bankBin ?? "",

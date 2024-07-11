@@ -16,8 +16,8 @@ _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       avatarUrl: json['avatarUrl'] as String?,
       phoneNumber: json['phoneNumber'] as String?,
       reciverName: json['reciverName'] as String?,
-      shortNameBank: json['shortNameBank'] as String?,
-      accountBankNumber: json['accountBankNumber'] as String?,
+      bankShortName: json['bankShortName'] as String?,
+      reciverAccountNumber: json['reciverAccountNumber'] as String?,
       createDate: json['createDate'] == null
           ? null
           : DateTime.parse(json['createDate'] as String),
@@ -40,8 +40,8 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
       'avatarUrl': instance.avatarUrl,
       'phoneNumber': instance.phoneNumber,
       'reciverName': instance.reciverName,
-      'shortNameBank': instance.shortNameBank,
-      'accountBankNumber': instance.accountBankNumber,
+      'bankShortName': instance.bankShortName,
+      'reciverAccountNumber': instance.reciverAccountNumber,
       'createDate': instance.createDate?.toIso8601String(),
       'createdByName': instance.createdByName,
       'ownerName': instance.ownerName,
