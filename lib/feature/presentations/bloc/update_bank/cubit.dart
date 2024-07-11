@@ -15,8 +15,7 @@ class UpdateBankCubit extends Cubit<UpdateBankState> {
       : super(
           const UpdateBankState(
             banks: [],
-            request:
-                BankRequestUpdate(bankInfo: BankInfo(), password: "123@123aA"),
+            request: BankRequestUpdate(bankInfo: BankInfo()),
           ),
         );
 

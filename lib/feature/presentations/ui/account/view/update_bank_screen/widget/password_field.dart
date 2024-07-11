@@ -27,6 +27,7 @@ class _PasswordFieldState extends State<PasswordField> {
         onTapOutside: (val) {
           FocusScope.of(context).unfocus();
         },
+        onChanged: widget.onChanged,
         validator: Validator.password,
         obscureText: _isDisplay,
         decoration: _decoration(),
