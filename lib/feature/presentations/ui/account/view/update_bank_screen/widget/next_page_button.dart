@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/theme/color.dart';
-import 'package:mercury/feature/presentations/bloc/account/bloc/bloc.dart';
-import 'package:mercury/feature/presentations/bloc/account/bloc/state/state.dart';
 
 import '../../../../../widget/button/button.dart';
 
-class UpdateButton extends StatelessWidget {
-  const UpdateButton({super.key, required this.controller});
+class NextPageButton extends StatelessWidget {
+  const NextPageButton({super.key, required this.controller});
   final PageController controller;
 
   @override
@@ -25,11 +22,6 @@ class UpdateButton extends StatelessWidget {
         color: AppColor.white,
       ),
     );
-    return BlocBuilder<AccountBloc, AccountState>(
-      builder: (context, state) => state.maybeWhen(
-        orElse: () => button,
-        loading: () => button.copyWith(isLoading: true, onTap: () {}),
-      ),
-    );
+    return button;
   }
 }

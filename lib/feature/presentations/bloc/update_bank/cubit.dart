@@ -70,4 +70,8 @@ class UpdateBankCubit extends Cubit<UpdateBankState> {
       ),
     )));
   }
+
+  void changedPassword(String? val) {
+    emit(state.copyWith(request: state.request.copyWith(password: val)));
+  }
 }

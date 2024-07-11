@@ -5,8 +5,8 @@ import '../../../../../../../config/theme/color.dart';
 import '../../../../../../../config/theme/text_style.dart';
 import 'bank_field.dart';
 import 'bank_number.dart';
+import 'next_page_button.dart';
 import 'receiver_name.dart';
-import 'update_button.dart';
 
 class BankInfoScreen extends StatelessWidget {
   const BankInfoScreen(
@@ -26,7 +26,7 @@ class BankInfoScreen extends StatelessWidget {
         BankNumber(onCompleted: cubit.lookUp),
         const ReceiverName(),
         const Spacer(),
-        UpdateButton(controller: controller),
+        NextPageButton(controller: controller),
       ],
     );
   }

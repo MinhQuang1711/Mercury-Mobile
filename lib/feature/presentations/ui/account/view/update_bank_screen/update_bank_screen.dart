@@ -8,6 +8,7 @@ import 'package:mercury/feature/presentations/bloc/update_bank/cubit.dart';
 import 'package:mercury/feature/presentations/ui/account/view/update_bank_screen/widget/bank_info_screen.dart';
 
 import 'widget/listenner.dart';
+import 'widget/submit_pass_screen.dart';
 
 class UpdateBankScreen extends StatelessWidget {
   const UpdateBankScreen({super.key});
@@ -63,7 +64,7 @@ class _UpdateBankPageState extends State<UpdateBankPage> {
           physics: const NeverScrollableScrollPhysics(),
           children: [
             BankInfoScreen(cubit: _cubit, controller: _pageController),
-            const Placeholder(),
+            SubmitPassScreen(cubit: _cubit, controller: _pageController)
           ],
         ),
       ),
