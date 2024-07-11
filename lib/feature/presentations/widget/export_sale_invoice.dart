@@ -5,6 +5,7 @@ import 'package:mercury/core/utils/extension/datetime_ex.dart';
 import 'package:mercury/core/utils/extension/number.dart';
 import 'package:mercury/core/utils/singleton/qr_code_singleton.dart';
 import 'package:mercury/core/utils/singleton/user_singleton.dart';
+import 'package:mercury/feature/data/model/user/user.dart';
 import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
 import 'package:mercury/feature/domain/model/sale_invoice_request/sale_invoice_request.dart';
 
@@ -22,11 +23,12 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var user = UserSingleton.instance.user;
     QRCodeService.instance
-      ..setBankId("TCB")
-      ..setAccountNo("19034445486011")
+      ..setBankId(user?.bankCode ?? "TCB")
+      ..setAccountNo(user?.reciverAccountNumber ?? "19034445486011")
       ..setAmount((total - discount))
-      ..setAccountName("LE THUY NGAN");
+      ..setAccountName(user?.reciverName ?? "LE THUY NGAN");
     return Container(
       color: AppColor.white,
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
@@ -60,7 +62,7 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
           const SizedBox(height: 30),
           Row(
             children: [
-              _infoTranfer(),
+              _infoTranfer(user),
               _infoBill(),
             ],
           ),
@@ -119,7 +121,7 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
     ));
   }
 
-  Expanded _infoTranfer() {
+  Expanded _infoTranfer(User? user) {
     return Expanded(
         flex: 2,
         child: Column(
@@ -129,12 +131,12 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
                 style: captionBold.copyWith(color: AppColor.black)),
             const SizedBox(height: 10),
             Text(
-              "Techcombank",
+              user?.bankShortName ?? "Techcombank",
               style: captionRegular.copyWith(color: AppColor.black),
             ),
-            Text("1903 4445 4860 11",
+            Text(user?.reciverAccountNumber ?? "1903 4445 4860 11",
                 style: captionRegular.copyWith(color: AppColor.black)),
-            Text("Le Thuy Ngan",
+            Text(user?.reciverName ?? "Le Thuy Ngan",
                 style: captionRegular.copyWith(color: AppColor.black)),
           ],
         ));
