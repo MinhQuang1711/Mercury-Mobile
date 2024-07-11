@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$UpdateBankState {
   List<Bank> get banks => throw _privateConstructorUsedError;
-  BankInfo get bankInfo => throw _privateConstructorUsedError;
+  BankRequestUpdate get request => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UpdateBankStateCopyWith<UpdateBankState> get copyWith =>
@@ -30,9 +30,9 @@ abstract class $UpdateBankStateCopyWith<$Res> {
           UpdateBankState value, $Res Function(UpdateBankState) then) =
       _$UpdateBankStateCopyWithImpl<$Res, UpdateBankState>;
   @useResult
-  $Res call({List<Bank> banks, BankInfo bankInfo});
+  $Res call({List<Bank> banks, BankRequestUpdate request});
 
-  $BankInfoCopyWith<$Res> get bankInfo;
+  $BankRequestUpdateCopyWith<$Res> get request;
 }
 
 /// @nodoc
@@ -49,25 +49,25 @@ class _$UpdateBankStateCopyWithImpl<$Res, $Val extends UpdateBankState>
   @override
   $Res call({
     Object? banks = null,
-    Object? bankInfo = null,
+    Object? request = null,
   }) {
     return _then(_value.copyWith(
       banks: null == banks
           ? _value.banks
           : banks // ignore: cast_nullable_to_non_nullable
               as List<Bank>,
-      bankInfo: null == bankInfo
-          ? _value.bankInfo
-          : bankInfo // ignore: cast_nullable_to_non_nullable
-              as BankInfo,
+      request: null == request
+          ? _value.request
+          : request // ignore: cast_nullable_to_non_nullable
+              as BankRequestUpdate,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $BankInfoCopyWith<$Res> get bankInfo {
-    return $BankInfoCopyWith<$Res>(_value.bankInfo, (value) {
-      return _then(_value.copyWith(bankInfo: value) as $Val);
+  $BankRequestUpdateCopyWith<$Res> get request {
+    return $BankRequestUpdateCopyWith<$Res>(_value.request, (value) {
+      return _then(_value.copyWith(request: value) as $Val);
     });
   }
 }
@@ -80,10 +80,10 @@ abstract class _$$StateImplCopyWith<$Res>
       __$$StateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Bank> banks, BankInfo bankInfo});
+  $Res call({List<Bank> banks, BankRequestUpdate request});
 
   @override
-  $BankInfoCopyWith<$Res> get bankInfo;
+  $BankRequestUpdateCopyWith<$Res> get request;
 }
 
 /// @nodoc
@@ -98,17 +98,17 @@ class __$$StateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? banks = null,
-    Object? bankInfo = null,
+    Object? request = null,
   }) {
     return _then(_$StateImpl(
       banks: null == banks
           ? _value._banks
           : banks // ignore: cast_nullable_to_non_nullable
               as List<Bank>,
-      bankInfo: null == bankInfo
-          ? _value.bankInfo
-          : bankInfo // ignore: cast_nullable_to_non_nullable
-              as BankInfo,
+      request: null == request
+          ? _value.request
+          : request // ignore: cast_nullable_to_non_nullable
+              as BankRequestUpdate,
     ));
   }
 }
@@ -116,7 +116,7 @@ class __$$StateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StateImpl implements _State {
-  const _$StateImpl({required final List<Bank> banks, required this.bankInfo})
+  const _$StateImpl({required final List<Bank> banks, required this.request})
       : _banks = banks;
 
   final List<Bank> _banks;
@@ -128,11 +128,11 @@ class _$StateImpl implements _State {
   }
 
   @override
-  final BankInfo bankInfo;
+  final BankRequestUpdate request;
 
   @override
   String toString() {
-    return 'UpdateBankState(banks: $banks, bankInfo: $bankInfo)';
+    return 'UpdateBankState(banks: $banks, request: $request)';
   }
 
   @override
@@ -141,13 +141,12 @@ class _$StateImpl implements _State {
         (other.runtimeType == runtimeType &&
             other is _$StateImpl &&
             const DeepCollectionEquality().equals(other._banks, _banks) &&
-            (identical(other.bankInfo, bankInfo) ||
-                other.bankInfo == bankInfo));
+            (identical(other.request, request) || other.request == request));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_banks), bankInfo);
+      runtimeType, const DeepCollectionEquality().hash(_banks), request);
 
   @JsonKey(ignore: true)
   @override
@@ -159,12 +158,12 @@ class _$StateImpl implements _State {
 abstract class _State implements UpdateBankState {
   const factory _State(
       {required final List<Bank> banks,
-      required final BankInfo bankInfo}) = _$StateImpl;
+      required final BankRequestUpdate request}) = _$StateImpl;
 
   @override
   List<Bank> get banks;
   @override
-  BankInfo get bankInfo;
+  BankRequestUpdate get request;
   @override
   @JsonKey(ignore: true)
   _$$StateImplCopyWith<_$StateImpl> get copyWith =>

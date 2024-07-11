@@ -26,11 +26,12 @@ class _ReceiverNameState extends State<ReceiverName> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 30),
       child: BlocListener<UpdateBankCubit, UpdateBankState>(
-        listenWhen: (p, c) => p.bankInfo.reciverName != c.bankInfo.reciverName,
+        listenWhen: (p, c) =>
+            p.request.bankInfo?.reciverName != c.request.bankInfo?.reciverName,
         listener: (context, state) {
-          if (state.bankInfo.reciverName != null &&
-              state.bankInfo.reciverName!.isNotEmpty) {
-            _controller.text = state.bankInfo.reciverName ?? "";
+          if (state.request.bankInfo?.reciverName != null &&
+              state.request.bankInfo!.reciverName!.isNotEmpty) {
+            _controller.text = state.request.bankInfo?.reciverName ?? "";
           }
         },
         child: TextFormField(

@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/core/utils/extension/network.dart';
 import 'package:mercury/feature/domain/model/bank_info/bank_info.dart';
+import 'package:mercury/feature/domain/model/bank_request_update/bank_request_update.dart';
 import 'package:mercury/feature/domain/repositories/ibank_repository.dart';
 import 'package:mercury/feature/presentations/bloc/update_bank/state/state.dart';
 import 'package:select_button_package/model/search_item.dart';
@@ -13,7 +14,7 @@ class UpdateBankCubit extends Cubit<UpdateBankState> {
       : super(
           const UpdateBankState(
             banks: [],
-            bankInfo: BankInfo(),
+            request: BankRequestUpdate(bankInfo: BankInfo()),
           ),
         );
 
@@ -29,14 +30,16 @@ class UpdateBankCubit extends Cubit<UpdateBankState> {
   ) async {
     (await repo.lookUp(
       accountNumber: accountNumber ?? "",
-      bin: state.bankInfo.bankBin ?? "",
+      bin: state.request.bankInfo?.bankBin ?? "",
     ))
         .on(
       whenSuccess: (data) => emit(
         state.copyWith(
-          bankInfo: state.bankInfo.copyWith(
-            reciverName: data,
-            reciverAccountNumber: accountNumber,
+          request: state.request.copyWith(
+            bankInfo: state.request.bankInfo?.copyWith(
+              reciverName: data,
+              reciverAccountNumber: accountNumber,
+            ),
           ),
         ),
       ),
@@ -46,10 +49,12 @@ class UpdateBankCubit extends Cubit<UpdateBankState> {
 
   void onSelectBank(SearchItem<Bank> item) {
     emit(state.copyWith(
-        bankInfo: state.bankInfo.copyWith(
-      bankBin: item.item.bin,
-      bankCode: item.item.code,
-      bankShortName: item.item.shortName,
+        request: state.request.copyWith(
+      bankInfo: state.request.bankInfo?.copyWith(
+        bankBin: item.item.bin,
+        bankCode: item.item.code,
+        bankShortName: item.item.shortName,
+      ),
     )));
   }
 }
