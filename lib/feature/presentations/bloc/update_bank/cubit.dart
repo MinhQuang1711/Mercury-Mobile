@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/core/utils/extension/network.dart';
+import 'package:mercury/core/utils/singleton/user_singleton.dart';
 import 'package:mercury/feature/domain/model/bank_info/bank_info.dart';
 import 'package:mercury/feature/domain/model/bank_request_update/bank_request_update.dart';
 import 'package:mercury/feature/domain/repositories/ibank_repository.dart';
@@ -18,6 +19,19 @@ class UpdateBankCubit extends Cubit<UpdateBankState> {
                 BankRequestUpdate(bankInfo: BankInfo(), password: "123@123aA"),
           ),
         );
+
+  void init() {
+    var user = UserSingleton.instance.user;
+    emit(state.copyWith(
+        request: state.request.copyWith(
+            bankInfo: state.request.bankInfo?.copyWith(
+      bankBin: user?.bankBin,
+      bankCode: user?.bankCode,
+      reciverName: user?.reciverName,
+      bankShortName: user?.bankShortName,
+      reciverAccountNumber: user?.reciverAccountNumber,
+    ))));
+  }
 
   void getBank() async {
     (await repo.getBanks()).on(

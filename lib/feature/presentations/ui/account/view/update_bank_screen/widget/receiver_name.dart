@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/const/radius.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
+import 'package:mercury/core/utils/singleton/user_singleton.dart';
 import 'package:mercury/feature/presentations/bloc/update_bank/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/update_bank/state/state.dart';
 
@@ -15,6 +16,12 @@ class ReceiverName extends StatefulWidget {
 
 class _ReceiverNameState extends State<ReceiverName> {
   final TextEditingController _controller = TextEditingController();
+  @override
+  void initState() {
+    _controller.text = UserSingleton.instance.user?.reciverName ?? "";
+    super.initState();
+  }
+
   @override
   void dispose() {
     _controller.dispose();

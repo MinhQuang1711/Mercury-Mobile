@@ -21,7 +21,10 @@ class UpdateBankScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => getIt.get<AccountBloc>()),
-        BlocProvider(create: (_) => getIt.get<UpdateBankCubit>()..getBank()),
+        BlocProvider(
+            create: (_) => getIt.get<UpdateBankCubit>()
+              ..getBank()
+              ..init()),
       ],
       child: const UpdateBankPage(),
     );

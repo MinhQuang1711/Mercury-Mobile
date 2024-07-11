@@ -11,6 +11,7 @@ class AppSelectButton<T> extends StatelessWidget {
   const AppSelectButton({
     super.key,
     this.title,
+    this.init,
     this.hintText,
     this.searchHint,
     this.hideSelectedItem,
@@ -20,6 +21,7 @@ class AppSelectButton<T> extends StatelessWidget {
   });
   final String? title;
   final List<T> items;
+  final String? init;
   final String? hintText;
   final String? searchHint;
   final bool? hideSelectedItem;
@@ -30,6 +32,7 @@ class AppSelectButton<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomSelectButton<T>(
       onTap: onTap,
+      initialValue: init,
       hideSeletedItem: hideSelectedItem,
       searchItems: items.map((e) => appSearchItem(e)).toList(),
       searchDecoration: SearchDecoration(

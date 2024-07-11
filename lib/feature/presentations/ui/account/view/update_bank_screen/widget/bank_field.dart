@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/core/utils/singleton/user_singleton.dart';
 import 'package:mercury/feature/data/model/bank/bank.dart';
 import 'package:mercury/feature/presentations/bloc/update_bank/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/update_bank/state/state.dart';
@@ -23,10 +24,11 @@ class BankField extends StatelessWidget {
           bottomWidget: AppSelectButton<Bank>(
             items: state.banks,
             title: "Chọn ngân hàng",
-            searchHint: "Tìm kiếm theo tên",
             onTap: onTap ?? (val) {},
-            hintText: "Chọn ngân hàng thụ hưởng",
+            searchHint: "Tìm kiếm theo tên",
             appSearchItem: AppSearchItem.bank,
+            hintText: "Chọn ngân hàng thụ hưởng",
+            init: UserSingleton.instance.user?.bankShortName,
           ),
         );
       },

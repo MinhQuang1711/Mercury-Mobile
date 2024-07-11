@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mercury/config/theme/color.dart';
+import 'package:mercury/core/utils/singleton/user_singleton.dart';
 import 'package:mercury/feature/presentations/widget/column_input/column_input.dart';
 import 'package:mercury/feature/presentations/widget/textfield/textfield.dart';
 
@@ -15,6 +16,7 @@ class BankNumber extends StatelessWidget {
         onCompleted: onCompleted,
         unfocusWhenTapOutside: false,
         hintText: "Nhập số tài khoản thụ hưởng",
+        initValue: UserSingleton.instance.user?.reciverAccountNumber,
         sufWidget: Container(
           padding: const EdgeInsets.all(3),
           decoration: BoxDecoration(
