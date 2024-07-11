@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/feature/data/model/bank/bank.dart';
+import 'package:mercury/feature/presentations/bloc/update_bank/cubit.dart';
+import 'package:mercury/feature/presentations/bloc/update_bank/state/state.dart';
 
-import '../../../../../../domain/model/combo_box/combo_box.dart';
 import '../../../../../widget/column_input/column_input.dart';
 import '../../../../../widget/select_button/app_search_item.dart';
 import '../../../../../widget/select_button/select_button.dart';
@@ -10,14 +13,21 @@ class BankField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ColumnInput(
-      titleLabel: "Ngân hàng",
-      bottomWidget: AppSelectButton<ComboBox>(
-        items: const [],
-        onTap: (val) {},
-        hintText: "Chọn ngân hàng thụ hưởng",
-        appSearchItem: AppSearchItem.comboBox,
-      ),
+    return BlocBuilder<UpdateBankCubit, UpdateBankState>(
+      buildWhen: (p, c) => p.banks != c.banks,
+      builder: (context, state) {
+        return ColumnInput(
+          titleLabel: "Ngân hàng",
+          bottomWidget: AppSelectButton<Bank>(
+            items: state.banks,
+            title: "Chọn ngân hàng",
+            searchHint: "Tìm kiếm theo tên",
+            onTap: (val) {},
+            hintText: "Chọn ngân hàng thụ hưởng",
+            appSearchItem: AppSearchItem.bank,
+          ),
+        );
+      },
     );
   }
 }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
+import 'package:mercury/core/utils/injection/get_it.dart';
+import 'package:mercury/feature/presentations/bloc/update_bank/cubit.dart';
 import 'package:mercury/feature/presentations/ui/account/view/update_bank_screen/widget/bank_field.dart';
 import 'package:mercury/feature/presentations/ui/account/view/update_bank_screen/widget/bank_number.dart';
 import 'package:mercury/feature/presentations/widget/button/button.dart';
@@ -13,7 +16,12 @@ class UpdateBankScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const UpdateBankPage();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => getIt.get<UpdateBankCubit>()..getBank()),
+      ],
+      child: const UpdateBankPage(),
+    );
   }
 }
 

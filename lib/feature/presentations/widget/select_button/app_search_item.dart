@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/core/utils/extension/number.dart';
+import 'package:mercury/feature/data/model/bank/bank.dart';
 import 'package:mercury/gen/assets.gen.dart';
 import 'package:select_button_package/model/search_item.dart';
 
@@ -11,6 +12,47 @@ import '../../../domain/model/combo_box/combo_box.dart';
 // import '../../../domain/model/voucher/voucher.dart';
 
 class AppSearchItem {
+  static SearchItem<Bank> bank(Bank val) {
+    return SearchItem<Bank>(
+        item: val,
+        displayLabel: val.shortName ?? "",
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  SizedBox(
+                    height: 50,
+                    width: 85,
+                    child: Image.network(val.logo ?? ""),
+                  ),
+                  const SizedBox(width: 15),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          val.shortName ?? "",
+                          style: captionBold.copyWith(color: AppColor.blue),
+                        ),
+                        const SizedBox(height: 5),
+                        Text(
+                          val.name ?? "",
+                          style: captionRegular,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              const Divider(thickness: 0.7),
+            ],
+          ),
+        ));
+  }
+
   static SearchItem<ComboBox> comboBox(ComboBox val) {
     return SearchItem<ComboBox>(
       item: val,

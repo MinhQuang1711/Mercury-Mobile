@@ -158,7 +158,7 @@ class TextFieldProperties {
       disabledBorder: getBorder(null),
       contentPadding: contentPadding ?? AppPadding.padding12,
       enabledBorder: getBorder(borderColor),
-      fillColor: backgroundColor ?? AppColor.grey2,
+      fillColor: backgroundColor ?? AppColor.grey1,
       errorBorder: getBorder(borderColor ?? AppColor.red),
       focusedBorder: getBorder(borderColor ?? AppColor.blue),
       hintStyle: captionRegular.copyWith(color: AppColor.grey5, fontSize: 14),
