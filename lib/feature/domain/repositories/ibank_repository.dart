@@ -5,4 +5,8 @@ import '../../../core/network/response/data_response.dart';
 
 abstract class IBankRepository extends UseCaseNetwork {
   Future<DataRespone<List<Bank>>> getBanks();
+  Future<DataRespone<String>> lookUp({
+    required String accountNumber,
+    required String bin,
+  });
 }

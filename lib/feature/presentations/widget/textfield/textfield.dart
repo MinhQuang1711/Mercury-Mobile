@@ -26,6 +26,8 @@ class AppTextField extends StatefulWidget {
     this.textInputType,
     this.backgroundColor,
     this.onTapClearButton,
+    this.unfocusWhenTapOutside,
+    this.onCompleted,
   });
   final bool? obs;
   final int? maxLines;
@@ -38,12 +40,14 @@ class AppTextField extends StatefulWidget {
   final Function()? onTap;
   final Color? borderColor;
   final Color? backgroundColor;
+  final bool? unfocusWhenTapOutside;
   final TextInputType? textInputType;
   final Function()? onTapClearButton;
   final TextEditingController? controller;
   final EdgeInsetsGeometry? contentPadding;
   final String? Function(String?)? validator;
   final Function(String? onChaned)? onChanged;
+  final Function(String?)? onCompleted;
 
   @override
   State<AppTextField> createState() => _AppTextFieldState();
@@ -97,13 +101,16 @@ class _AppTextFieldState extends State<AppTextField> {
       onTap: widget.onTap,
       onChanged: onChanged,
       controller: controller,
+      onFieldSubmitted: widget.onCompleted,
       validator: widget.validator,
       readOnly: widget.readOnly ?? false,
       keyboardType: widget.textInputType,
       onTapOutside: (event) {
-        FocusScope.of(context).hasFocus
-            ? FocusScope.of(context).unfocus()
-            : null;
+        if (widget.unfocusWhenTapOutside != false) {
+          FocusScope.of(context).hasFocus
+              ? FocusScope.of(context).unfocus()
+              : null;
+        }
       },
       decoration: TextFieldProperties.getInputDecoration(
         hintText: widget.hintText,

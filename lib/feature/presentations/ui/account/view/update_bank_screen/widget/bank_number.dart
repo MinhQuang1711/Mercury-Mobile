@@ -4,13 +4,16 @@ import 'package:mercury/feature/presentations/widget/column_input/column_input.d
 import 'package:mercury/feature/presentations/widget/textfield/textfield.dart';
 
 class BankNumber extends StatelessWidget {
-  const BankNumber({super.key});
+  const BankNumber({super.key, this.onCompleted});
+  final Function(String?)? onCompleted;
 
   @override
   Widget build(BuildContext context) {
     return ColumnInput(
       titleLabel: "Số tài khoản",
       bottomWidget: AppTextField(
+        onCompleted: onCompleted,
+        unfocusWhenTapOutside: false,
         hintText: "Nhập số tài khoản thụ hưởng",
         sufWidget: Container(
           padding: const EdgeInsets.all(3),

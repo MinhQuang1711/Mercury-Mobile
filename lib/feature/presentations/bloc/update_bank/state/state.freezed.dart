@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$UpdateBankState {
   List<Bank> get banks => throw _privateConstructorUsedError;
+  BankInfo get bankInfo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UpdateBankStateCopyWith<UpdateBankState> get copyWith =>
@@ -29,7 +30,9 @@ abstract class $UpdateBankStateCopyWith<$Res> {
           UpdateBankState value, $Res Function(UpdateBankState) then) =
       _$UpdateBankStateCopyWithImpl<$Res, UpdateBankState>;
   @useResult
-  $Res call({List<Bank> banks});
+  $Res call({List<Bank> banks, BankInfo bankInfo});
+
+  $BankInfoCopyWith<$Res> get bankInfo;
 }
 
 /// @nodoc
@@ -46,13 +49,26 @@ class _$UpdateBankStateCopyWithImpl<$Res, $Val extends UpdateBankState>
   @override
   $Res call({
     Object? banks = null,
+    Object? bankInfo = null,
   }) {
     return _then(_value.copyWith(
       banks: null == banks
           ? _value.banks
           : banks // ignore: cast_nullable_to_non_nullable
               as List<Bank>,
+      bankInfo: null == bankInfo
+          ? _value.bankInfo
+          : bankInfo // ignore: cast_nullable_to_non_nullable
+              as BankInfo,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BankInfoCopyWith<$Res> get bankInfo {
+    return $BankInfoCopyWith<$Res>(_value.bankInfo, (value) {
+      return _then(_value.copyWith(bankInfo: value) as $Val);
+    });
   }
 }
 
@@ -64,7 +80,10 @@ abstract class _$$StateImplCopyWith<$Res>
       __$$StateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Bank> banks});
+  $Res call({List<Bank> banks, BankInfo bankInfo});
+
+  @override
+  $BankInfoCopyWith<$Res> get bankInfo;
 }
 
 /// @nodoc
@@ -79,12 +98,17 @@ class __$$StateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? banks = null,
+    Object? bankInfo = null,
   }) {
     return _then(_$StateImpl(
       banks: null == banks
           ? _value._banks
           : banks // ignore: cast_nullable_to_non_nullable
               as List<Bank>,
+      bankInfo: null == bankInfo
+          ? _value.bankInfo
+          : bankInfo // ignore: cast_nullable_to_non_nullable
+              as BankInfo,
     ));
   }
 }
@@ -92,7 +116,8 @@ class __$$StateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StateImpl implements _State {
-  const _$StateImpl({required final List<Bank> banks}) : _banks = banks;
+  const _$StateImpl({required final List<Bank> banks, required this.bankInfo})
+      : _banks = banks;
 
   final List<Bank> _banks;
   @override
@@ -103,8 +128,11 @@ class _$StateImpl implements _State {
   }
 
   @override
+  final BankInfo bankInfo;
+
+  @override
   String toString() {
-    return 'UpdateBankState(banks: $banks)';
+    return 'UpdateBankState(banks: $banks, bankInfo: $bankInfo)';
   }
 
   @override
@@ -112,12 +140,14 @@ class _$StateImpl implements _State {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StateImpl &&
-            const DeepCollectionEquality().equals(other._banks, _banks));
+            const DeepCollectionEquality().equals(other._banks, _banks) &&
+            (identical(other.bankInfo, bankInfo) ||
+                other.bankInfo == bankInfo));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_banks));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_banks), bankInfo);
 
   @JsonKey(ignore: true)
   @override
@@ -127,10 +157,14 @@ class _$StateImpl implements _State {
 }
 
 abstract class _State implements UpdateBankState {
-  const factory _State({required final List<Bank> banks}) = _$StateImpl;
+  const factory _State(
+      {required final List<Bank> banks,
+      required final BankInfo bankInfo}) = _$StateImpl;
 
   @override
   List<Bank> get banks;
+  @override
+  BankInfo get bankInfo;
   @override
   @JsonKey(ignore: true)
   _$$StateImplCopyWith<_$StateImpl> get copyWith =>

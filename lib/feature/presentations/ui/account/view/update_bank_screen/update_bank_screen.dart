@@ -31,6 +31,7 @@ class UpdateBankPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    var cubit = context.read<UpdateBankCubit>();
     return Container(
       // height: size.height * 0.8,
       padding: AppPadding.padding12,
@@ -39,13 +40,10 @@ class UpdateBankPage extends StatelessWidget {
         children: [
           _title(),
           const SizedBox(height: 35),
-          const BankField(),
+          BankField(onTap: cubit.onSelectBank),
           const SizedBox(height: 15),
-          const BankNumber(),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 30),
-            child: ReceiverName(),
-          ),
+          BankNumber(onCompleted: cubit.lookUp),
+          const ReceiverName(),
           SizedBox(height: size.width / 2),
           const AppButton(label: "Xác nhận"),
         ],

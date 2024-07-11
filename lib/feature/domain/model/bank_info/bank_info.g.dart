@@ -1,0 +1,16 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'bank_info.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Map<String, dynamic> _$$BankImplToJson(_$BankImpl instance) =>
+    <String, dynamic>{
+      'bin': instance.bin,
+      'name': instance.name,
+      'code': instance.code,
+      'shortName': instance.shortName,
+      'accountNumber': instance.accountNumber,
+    };
