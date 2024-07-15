@@ -25,6 +25,9 @@ class $AssetsIconGen {
   /// File path: assets/icon/customer.png
   AssetGenImage get customer => const AssetGenImage('assets/icon/customer.png');
 
+  /// File path: assets/icon/domain.png
+  AssetGenImage get domain => const AssetGenImage('assets/icon/domain.png');
+
   /// File path: assets/icon/empty_box.png
   AssetGenImage get emptyBox =>
       const AssetGenImage('assets/icon/empty_box.png');
@@ -62,6 +65,7 @@ class $AssetsIconGen {
         calendar,
         coupon,
         customer,
+        domain,
         emptyBox,
         import,
         importProd,

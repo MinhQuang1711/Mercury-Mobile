@@ -11,9 +11,9 @@ class DomainStorage {
     prefs.setString(_domainKey, domain ?? "");
   }
 
-  Future<String> getDomain() async {
+  Future<String?> getDomain() async {
     final prefs = await SharedPreferences.getInstance();
     String? domain = prefs.getString(_domainKey);
-    return domain ?? "";
+    return domain;
   }
 }

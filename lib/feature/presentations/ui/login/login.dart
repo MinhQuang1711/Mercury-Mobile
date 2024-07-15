@@ -10,6 +10,7 @@ import 'package:mercury/feature/presentations/bloc/authen/bloc/state/state.dart'
 import 'package:mercury/feature/presentations/bloc/authen/cubit/cubit.dart';
 import 'package:mercury/feature/presentations/ui/login/widgets/login_button.dart';
 import 'package:mercury/feature/presentations/ui/login/widgets/password_field.dart';
+import 'package:mercury/feature/presentations/ui/login/widgets/update_domain_button.dart';
 import 'package:mercury/feature/presentations/ui/login/widgets/user_name_field.dart';
 import 'package:mercury/feature/presentations/widget/app_scaffold.dart';
 
@@ -54,11 +55,14 @@ class LoginPage extends StatelessWidget {
         child: Form(
           key: formKey,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(height: 45),
               UserNameField(cubit: cubit),
               const SizedBox(height: 15),
               PasswordField(cubit: cubit),
+              const UpdateDomainButton(),
               const SizedBox(height: 40),
               LoginButton(formKey: formKey),
             ],
