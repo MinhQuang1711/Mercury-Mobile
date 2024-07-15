@@ -8,6 +8,7 @@ import 'package:mercury/config/server.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/core/utils/singleton/token_singleton.dart';
+import 'package:mercury/core/utils/storage/domain_storage.dart';
 import 'package:mercury/core/utils/storage/token_storage.dart';
 import 'package:mercury/feature/presentations/bloc/global_cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/splash/cubit.dart';
@@ -15,9 +16,14 @@ import 'package:mercury/feature/presentations/bloc/splash/cubit.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   initInjection();
-  TokenSingleton.instance.saveToken(await TokenStorage.instance.getToken());
-  AppConfig.instance.configServer(ServerConfig.company());
   HttpOverrides.global = MyHttpOverrides();
+  TokenSingleton.instance.saveToken(await TokenStorage.instance.getToken());
+
+  // Lấy domain tu local
+  final String domain = await DomainStorage.instance.getDomain();
+  final ServerConfig serverConfig = ServerConfig(domain);
+  AppConfig.instance.configServer(serverConfig);
+
   runApp(
     MultiBlocProvider(
       providers: [
