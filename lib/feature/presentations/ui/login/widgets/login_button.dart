@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mercury/config/server.dart';
-import 'package:mercury/core/utils/log.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/state/state.dart';
@@ -18,8 +16,6 @@ class LoginButton extends StatelessWidget {
       if (formKey.currentState?.validate() == true) {
         final cubit = context.read<AuthenCubit>();
         final bloc = context.read<AuthenBloc>();
-        logError(cubit.state.dto);
-        logError(AppConfig.instance.serverConfig.baseUrl);
         bloc.add(AuthenEvent.login(dto: cubit.state.dto));
       }
     }

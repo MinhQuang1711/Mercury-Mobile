@@ -35,8 +35,8 @@ class _UpdateDomainScreenState extends State<UpdateDomainScreen> {
       ..pop();
     String domain = _controller.text;
     DomainStorage.instance.saveDomain(domain);
-    // var serverConfig = ServerConfig(domain);
-    // AppConfig.instance.configServer(serverConfig);
+    var serverConfig = ServerConfig("")..setDomain(domain);
+    AppConfig.instance.configServer(serverConfig);
   }
 
   @override

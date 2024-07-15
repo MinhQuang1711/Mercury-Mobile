@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/app_provider.dart';
 import 'package:mercury/config/server.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
-import 'package:mercury/core/utils/log.dart';
 import 'package:mercury/core/utils/singleton/token_singleton.dart';
 import 'package:mercury/core/utils/storage/domain_storage.dart';
 import 'package:mercury/core/utils/storage/token_storage.dart';
@@ -21,7 +20,6 @@ void main() async {
   // Lấy domain tu local
   final String? domain = await DomainStorage.instance.getDomain();
   final ServerConfig serverConfig = ServerConfig("")..setDomain(domain ?? "");
-  logError(serverConfig.baseUrl);
   AppConfig.instance.configServer(serverConfig);
 
   runApp(
