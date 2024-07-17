@@ -6,6 +6,7 @@ import 'package:mercury/feature/presentations/bloc/product/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/product/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/product/cubit/get/cubit.dart';
 import 'package:mercury/feature/presentations/ui/sale_product/get/widget/list_view.dart';
+import 'package:mercury/feature/presentations/ui/sale_product/get/widget/price_list_button.dart';
 import 'package:mercury/feature/presentations/ui/sale_product/get/widget/search_bar.dart';
 
 import 'widget/bloc_listen.dart';
@@ -38,7 +39,9 @@ class SaleProductPage extends StatelessWidget {
       child: Column(
         children: [
           SaleProductSearchBar(),
-          SizedBox(height: 10),
+          PriceListButton(),
+          Divider(thickness: 5),
+          SizedBox(height: 12),
           ProductList(),
         ],
       ),
