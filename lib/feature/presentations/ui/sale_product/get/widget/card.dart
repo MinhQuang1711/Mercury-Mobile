@@ -106,7 +106,7 @@ class CircleImage extends StatelessWidget {
       child: ClipOval(
           child: Image.memory(
         base64Decode(base64),
-        fit: BoxFit.cover,
+        fit: BoxFit.fill,
         errorBuilder: (context, error, stackTrace) {
           return Image(
               image: AssetImage(Assets.image.coffeeCup.keyName),
