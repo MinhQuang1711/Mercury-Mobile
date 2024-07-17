@@ -16,14 +16,14 @@ class AccountInvoice extends StatelessWidget {
     var splashCubit = context.read<SplashCubit>();
     void onTabSaleInvoice() {
       splashCubit.changedTab(2);
-      if (InvoiceSingleton.instance.controller.index != 0) {
-        InvoiceSingleton.instance.controller.animateTo(0);
+      if (InvoiceSingleton.instance.controller?.index != 0) {
+        InvoiceSingleton.instance.controller?.animateTo(0);
       }
     }
 
     void onTabImportInvoice() {
       splashCubit.changedTab(2);
-      InvoiceSingleton.instance.controller.animateTo(1);
+      InvoiceSingleton.instance.controller?.animateTo(1);
     }
 
     return ContainerAccount(
