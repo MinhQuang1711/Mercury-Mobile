@@ -28,6 +28,7 @@ class CreateSaleInvoiceScreen extends StatelessWidget {
             create: (_) => getIt.get<ComboBoxCubit>()
               ..getProducts()
               ..getCustomer()
+              ..getPriceList()
               ..getVouchers())
       ],
       child: const CreateSaleInvoicePage(),

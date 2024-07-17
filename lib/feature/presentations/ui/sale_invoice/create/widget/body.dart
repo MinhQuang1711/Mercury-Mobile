@@ -7,6 +7,7 @@ import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
 import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sale_invoice_cubit/cubit.dart';
 import 'package:mercury/feature/presentations/ui/customer/create/create.dart';
+import 'package:mercury/feature/presentations/ui/sale_invoice/create/widget/price_list.dart';
 import 'package:mercury/feature/presentations/ui/sale_invoice/widget/shipping_fee.dart';
 import 'package:select_button_package/model/search_item.dart';
 
@@ -47,6 +48,11 @@ class CreateSaleInvoiceBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const PriceListField(),
+        const Padding(
+          padding: EdgeInsets.symmetric(vertical: 14),
+          child: Divider(),
+        ),
         ProductField(onTap: selectProduct),
         const SizedBox(height: 10),
         const ProductsSelected(),
