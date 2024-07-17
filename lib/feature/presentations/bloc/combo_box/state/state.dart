@@ -12,5 +12,6 @@ class ComboBoxState with _$ComboBoxState {
     required List<ComboBox> products,
     required List<ComboBox> ingredient,
     required List<ComboBox> customer,
+    required List<ComboBox> priceList,
   }) = _State;
 }

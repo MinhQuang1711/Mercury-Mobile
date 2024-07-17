@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/core/utils/extension/network.dart';
+import 'package:mercury/feature/domain/model/product/product_query.dart';
 import 'package:mercury/feature/domain/model/product/product_request.dart';
-import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart';
 import 'package:mercury/feature/domain/repositories/i_product.dart';
 import 'package:mercury/feature/presentations/bloc/product/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/product/bloc/state/state.dart';
@@ -23,7 +23,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
     );
   }
 
-  Future _get(SearchByName searchDto, Emitter emitter) async {
+  Future _get(ProdductQuery searchDto, Emitter emitter) async {
     emitter(const ProductState.loading());
     (await repo.getProducts(searchDto)).on(
       whenSuccess: (data) =>

@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mercury/feature/data/model/paged_list/paged_list.dart';
 import 'package:mercury/feature/data/model/product/product.dart';
-import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart';
+import 'package:mercury/feature/domain/model/product/product_query.dart';
 
 part 'state.freezed.dart';
 
@@ -14,7 +14,7 @@ class ProductState with _$ProductState {
   const factory ProductState.deleted(String msg) = _Deleted;
   const factory ProductState.failure(String msg) = _Failure;
   const factory ProductState.got({
-    required SearchByName searchByName,
+    required ProdductQuery searchByName,
     required PagedList<Product> pagedList,
   }) = _Got;
 }

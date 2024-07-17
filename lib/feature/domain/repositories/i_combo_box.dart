@@ -8,5 +8,5 @@ abstract class IComboBoxRepository extends UseCaseNetwork {
   Future<DataRespone<List<ComboBox>>> getCustomer();
   Future<DataRespone<List<ComboBox>>> getProducts();
   Future<DataRespone<List<ComboBox>>> getIngredients();
-  Future<DataRespone<List<ComboBox>>> getCustomers();
+  Future<DataRespone<List<ComboBox>>> getPriceList();
 }

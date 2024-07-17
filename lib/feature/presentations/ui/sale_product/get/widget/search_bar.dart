@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/config/const/padding.dart';
-import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart';
+import 'package:mercury/feature/domain/model/product/product_query.dart';
 import 'package:mercury/feature/presentations/bloc/product/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/product/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/widget/search_icon.dart';
@@ -16,7 +16,7 @@ class SaleProductSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = context.read<ProductBloc>();
     void search({String? val}) {
-      var searchDto = SearchByName(name: val?.trim());
+      var searchDto = ProdductQuery(name: val?.trim());
       bloc.add(ProductEvent.get(searchDto));
     }
 

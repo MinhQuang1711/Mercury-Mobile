@@ -55,8 +55,14 @@ class ComboBoxRepository extends IComboBoxRepository {
   }
 
   @override
-  Future<DataRespone<List<ComboBox>>> getCustomers() {
-    // TODO: implement getCustomers
-    throw UnimplementedError();
+  Future<DataRespone<List<ComboBox>>> getPriceList() async {
+    return await excuter(
+      paramRequest: ParamRequest(
+        method: Method.GET,
+        endPoint: AppRepositoryPath.priceListComboBox,
+      ),
+      parser: (data) =>
+          (data as List).map((e) => ComboBox.fromJson(e)).toList(),
+    );
   }
 }
