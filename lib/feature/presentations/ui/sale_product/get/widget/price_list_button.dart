@@ -28,7 +28,7 @@ class PriceListButton extends StatelessWidget {
 
           return PopupMenuButton<ComboBox>(
             color: AppColor.white,
-            padding: EdgeInsets.zero,
+            padding: const EdgeInsets.symmetric(horizontal: 12),
             onSelected: (val) {
               var bloc = context.read<ProductBloc>();
               var cubit = context.read<GetProductCubit>();
@@ -72,9 +72,6 @@ class PriceListButton extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        PopupMenuButton(
-          itemBuilder: (context) => [],
-        ),
         _iconTag(),
         Text(
           "  ${name ?? "Mặc định"}  ",
