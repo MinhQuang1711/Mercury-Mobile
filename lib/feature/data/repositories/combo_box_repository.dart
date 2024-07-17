@@ -20,10 +20,11 @@ class ComboBoxRepository extends IComboBoxRepository {
   }
 
   @override
-  Future<DataRespone<List<ComboBox>>> getProducts() async {
+  Future<DataRespone<List<ComboBox>>> getProducts(String? priceListId) async {
     return await excuter(
       paramRequest: ParamRequest(
         method: Method.GET,
+        query: {"priceListId": priceListId},
         endPoint: AppRepositoryPath.productComboBox,
       ),
       parser: (data) =>

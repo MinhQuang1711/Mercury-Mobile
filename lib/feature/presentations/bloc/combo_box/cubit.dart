@@ -29,8 +29,8 @@ class ComboBoxCubit extends Cubit<ComboBoxState> {
     );
   }
 
-  void getProducts() async {
-    (await repo.getProducts()).on(
+  void getProducts({String? priceListId}) async {
+    (await repo.getProducts(priceListId)).on(
       whenSuccess: (data) => emit(state.copyWith(products: data)),
       whenFaild: (msg) {},
     );

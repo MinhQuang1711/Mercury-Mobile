@@ -45,10 +45,15 @@ class CreateSaleInvoiceBody extends StatelessWidget {
       );
     }
 
+    void onTapPriceList(SearchItem<ComboBox> val) {
+      var comboBoxCubit = context.read<ComboBoxCubit>();
+      cubit.selectPriceList(comboBoxCubit, val.item);
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const PriceListField(),
+        PriceListField(onTap: onTapPriceList),
         const Padding(
           padding: EdgeInsets.symmetric(vertical: 14),
           child: Divider(),
