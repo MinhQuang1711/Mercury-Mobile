@@ -25,7 +25,7 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var user = UserSingleton.instance.user;
     QRCodeService.instance
-      ..setBankId(user?.bankCode ?? "TCB")
+      ..setBankId(user?.bankBin ?? "TCB")
       ..setAccountNo(user?.reciverAccountNumber ?? "19034445486011")
       ..setAmount((total - discount))
       ..setAccountName(user?.reciverName ?? "LE THUY NGAN");
