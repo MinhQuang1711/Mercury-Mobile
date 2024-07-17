@@ -4,6 +4,7 @@ import 'package:mercury/config/const/padding.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/feature/domain/enum/screen.dart';
+import 'package:mercury/feature/domain/repositories/i_dashboard.dart';
 import 'package:mercury/feature/presentations/bloc/dashboard/cubit.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/line_chart.dart';
 import 'package:mercury/feature/presentations/ui/dashboard/widget/overview_bar.dart';
@@ -19,7 +20,7 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => getIt.get<DashboardCubit>()
+      create: (_) => DashboardCubit(getIt.get<IDashboardRepository>())
         ..getfinancialRecordOfDay()
         ..getfinancialRecordOfMonth()
         ..getChartOfDay()
