@@ -13,13 +13,13 @@ class CreateAppBar extends AppBar {
             onTap: () => context.pop(),
             child: const Icon(
               Icons.arrow_back_sharp,
-              color: AppColor.blue,
+              color: AppColor.white,
             ),
           ),
-          backgroundColor: AppColor.white,
+          backgroundColor: AppColor.blue,
           title: Text(
             CreateScreen().getTitle(),
-            style: h6Bold.copyWith(color: AppColor.blue),
+            style: h6Bold.copyWith(color: AppColor.white),
           ),
         );
 }
