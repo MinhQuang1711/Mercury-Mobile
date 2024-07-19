@@ -39,7 +39,12 @@ class PriceListCubit extends Cubit<PriceListState> {
     var oldComboBoxes = List<ComboBox>.from(state.comboBoxes);
     var newComboBoxes = oldComboBoxes..remove(comboBox);
     // Cập nhật danh sách detailPrice
-    var detailPrice = DetailPrice(productId: comboBox.id, salePrice: price);
+    var detailPrice = DetailPrice(
+      salePrice: price,
+      productId: comboBox.id,
+      prodName: comboBox.name,
+      defaultPrice: comboBox.price,
+    );
     var oldDetailPrice = List<DetailPrice>.from(state.dto.detailPrices ?? []);
     var newDetailPrice = oldDetailPrice..add(detailPrice);
 
@@ -51,15 +56,18 @@ class PriceListCubit extends Cubit<PriceListState> {
     );
   }
 
-  void removeProduct(DetailPrice detailPrice, List<ComboBox> comboBoxes) {
+  void removeProduct(DetailPrice detailPrice) {
     // Xóa DetailPrice khỏi danh sách dã chọn
     var oldDetailPrice = List<DetailPrice>.from(state.dto.detailPrices ?? []);
     var newDetailPrice = oldDetailPrice..remove(detailPrice);
 
     // Thêm ComboBox vào danh sách có thể lựa chọn
-    var oldComboBoxes = List<ComboBox>.from(state.comboBoxes);
-    var comboBox = comboBoxes.firstWhere((e) => e.id == detailPrice.productId);
-    var newComboBoxes = oldComboBoxes..add(comboBox);
+    var comboBox = ComboBox(
+      id: detailPrice.productId,
+      name: detailPrice.prodName,
+      price: detailPrice.defaultPrice,
+    );
+    var newComboBoxes = List<ComboBox>.from(state.comboBoxes)..add(comboBox);
 
     emit(
       state.copyWith(

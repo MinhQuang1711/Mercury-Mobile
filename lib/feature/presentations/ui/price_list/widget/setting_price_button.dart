@@ -41,8 +41,9 @@ class SettingProductButton extends StatelessWidget {
       backgroundColor: AppColor.blue,
       style: captionMedium.copyWith(color: AppColor.white),
       init: "Thiết lập giá mới",
+      searchHint: "Tìm kiếm sản phẩm theo tên",
       onTap: (val) => cubit.selectProduct(context: context, comboBox: val.item),
-      appSearchItem: AppSearchItem.comboBox,
+      appSearchItem: AppSearchItem.product,
     );
   }
 }

@@ -5,10 +5,9 @@ import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/price_list/cubit/cubit.dart';
 import 'package:mercury/feature/presentations/widget/app_bar/create_app_bar.dart';
 import 'package:mercury/feature/presentations/widget/button/button.dart';
-import 'package:mercury/feature/presentations/widget/empty_widget.dart';
-import 'package:mercury/feature/presentations/widget/grey_container.dart';
 import 'package:mercury/feature/presentations/widget/stack/screen_allway_see_bottom.dart';
 
+import '../widget/detail_price_list.dart';
 import '../widget/name_field.dart';
 import '../widget/setting_price_button.dart';
 import '../widget/title.dart';
@@ -45,8 +44,11 @@ class CreatePricePage extends StatelessWidget {
             SizedBox(height: 10),
             SettingProductTitle(),
             SettingProductButton(),
-            SizedBox(height: 15),
-            GreyContainer(child: EmptyWidget()),
+            SizedBox(height: 25),
+            Align(
+              alignment: Alignment.center,
+              child: DetailPriceList(),
+            ),
           ],
         ),
       ),

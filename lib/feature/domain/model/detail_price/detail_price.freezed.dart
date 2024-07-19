@@ -16,8 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DetailPrice {
-  String? get productId => throw _privateConstructorUsedError;
+  String? get productId =>
+      throw _privateConstructorUsedError; // Name không đẩy lên api. Sử dụng để hiển thị phí client
+  String? get prodName => throw _privateConstructorUsedError;
   double? get salePrice => throw _privateConstructorUsedError;
+  double? get defaultPrice => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -31,7 +34,11 @@ abstract class $DetailPriceCopyWith<$Res> {
           DetailPrice value, $Res Function(DetailPrice) then) =
       _$DetailPriceCopyWithImpl<$Res, DetailPrice>;
   @useResult
-  $Res call({String? productId, double? salePrice});
+  $Res call(
+      {String? productId,
+      String? prodName,
+      double? salePrice,
+      double? defaultPrice});
 }
 
 /// @nodoc
@@ -48,16 +55,26 @@ class _$DetailPriceCopyWithImpl<$Res, $Val extends DetailPrice>
   @override
   $Res call({
     Object? productId = freezed,
+    Object? prodName = freezed,
     Object? salePrice = freezed,
+    Object? defaultPrice = freezed,
   }) {
     return _then(_value.copyWith(
       productId: freezed == productId
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
               as String?,
+      prodName: freezed == prodName
+          ? _value.prodName
+          : prodName // ignore: cast_nullable_to_non_nullable
+              as String?,
       salePrice: freezed == salePrice
           ? _value.salePrice
           : salePrice // ignore: cast_nullable_to_non_nullable
+              as double?,
+      defaultPrice: freezed == defaultPrice
+          ? _value.defaultPrice
+          : defaultPrice // ignore: cast_nullable_to_non_nullable
               as double?,
     ) as $Val);
   }
@@ -71,7 +88,11 @@ abstract class _$$DetailPriceImplCopyWith<$Res>
       __$$DetailPriceImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? productId, double? salePrice});
+  $Res call(
+      {String? productId,
+      String? prodName,
+      double? salePrice,
+      double? defaultPrice});
 }
 
 /// @nodoc
@@ -86,16 +107,26 @@ class __$$DetailPriceImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? productId = freezed,
+    Object? prodName = freezed,
     Object? salePrice = freezed,
+    Object? defaultPrice = freezed,
   }) {
     return _then(_$DetailPriceImpl(
       productId: freezed == productId
           ? _value.productId
           : productId // ignore: cast_nullable_to_non_nullable
               as String?,
+      prodName: freezed == prodName
+          ? _value.prodName
+          : prodName // ignore: cast_nullable_to_non_nullable
+              as String?,
       salePrice: freezed == salePrice
           ? _value.salePrice
           : salePrice // ignore: cast_nullable_to_non_nullable
+              as double?,
+      defaultPrice: freezed == defaultPrice
+          ? _value.defaultPrice
+          : defaultPrice // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
   }
@@ -104,16 +135,22 @@ class __$$DetailPriceImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable(createFactory: false)
 class _$DetailPriceImpl implements _DetailPrice {
-  const _$DetailPriceImpl({this.productId, this.salePrice});
+  const _$DetailPriceImpl(
+      {this.productId, this.prodName, this.salePrice, this.defaultPrice});
 
   @override
   final String? productId;
+// Name không đẩy lên api. Sử dụng để hiển thị phí client
+  @override
+  final String? prodName;
   @override
   final double? salePrice;
+  @override
+  final double? defaultPrice;
 
   @override
   String toString() {
-    return 'DetailPrice(productId: $productId, salePrice: $salePrice)';
+    return 'DetailPrice(productId: $productId, prodName: $prodName, salePrice: $salePrice, defaultPrice: $defaultPrice)';
   }
 
   @override
@@ -123,13 +160,18 @@ class _$DetailPriceImpl implements _DetailPrice {
             other is _$DetailPriceImpl &&
             (identical(other.productId, productId) ||
                 other.productId == productId) &&
+            (identical(other.prodName, prodName) ||
+                other.prodName == prodName) &&
             (identical(other.salePrice, salePrice) ||
-                other.salePrice == salePrice));
+                other.salePrice == salePrice) &&
+            (identical(other.defaultPrice, defaultPrice) ||
+                other.defaultPrice == defaultPrice));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, productId, salePrice);
+  int get hashCode =>
+      Object.hash(runtimeType, productId, prodName, salePrice, defaultPrice);
 
   @JsonKey(ignore: true)
   @override
@@ -147,12 +189,19 @@ class _$DetailPriceImpl implements _DetailPrice {
 
 abstract class _DetailPrice implements DetailPrice {
   const factory _DetailPrice(
-      {final String? productId, final double? salePrice}) = _$DetailPriceImpl;
+      {final String? productId,
+      final String? prodName,
+      final double? salePrice,
+      final double? defaultPrice}) = _$DetailPriceImpl;
 
   @override
   String? get productId;
+  @override // Name không đẩy lên api. Sử dụng để hiển thị phí client
+  String? get prodName;
   @override
   double? get salePrice;
+  @override
+  double? get defaultPrice;
   @override
   @JsonKey(ignore: true)
   _$$DetailPriceImplCopyWith<_$DetailPriceImpl> get copyWith =>

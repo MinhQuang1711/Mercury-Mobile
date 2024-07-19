@@ -9,5 +9,7 @@ part of 'detail_price.dart';
 Map<String, dynamic> _$$DetailPriceImplToJson(_$DetailPriceImpl instance) =>
     <String, dynamic>{
       'productId': instance.productId,
+      'prodName': instance.prodName,
       'salePrice': instance.salePrice,
+      'defaultPrice': instance.defaultPrice,
     };
