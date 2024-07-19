@@ -28,7 +28,9 @@ class AppTextField extends StatefulWidget {
     this.onTapClearButton,
     this.unfocusWhenTapOutside,
     this.onCompleted,
+    this.autoFocus,
   });
+  final bool? autoFocus;
   final bool? obs;
   final int? maxLines;
   final bool? canDelete;
@@ -100,6 +102,7 @@ class _AppTextFieldState extends State<AppTextField> {
       obscureText: widget.obs ?? false,
       onTap: widget.onTap,
       onChanged: onChanged,
+      autofocus: widget.autoFocus ?? false,
       controller: controller,
       onFieldSubmitted: widget.onCompleted,
       validator: widget.validator,
