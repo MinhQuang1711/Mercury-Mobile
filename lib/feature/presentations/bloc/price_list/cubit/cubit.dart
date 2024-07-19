@@ -11,7 +11,9 @@ class PriceListCubit extends Cubit<PriceListState> {
   PriceListCubit()
       : super(const PriceListState(
           comboBoxes: [],
-          dto: PriceListRequest(),
+          dto: PriceListRequest(
+            detailPrices: [],
+          ),
         ));
 
   void initComboBoxes(List<ComboBox> comboBoxes) {

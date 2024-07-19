@@ -7,6 +7,7 @@ import 'package:mercury/feature/data/repositories/customer_repository.dart';
 import 'package:mercury/feature/data/repositories/dashboard_repository.dart';
 import 'package:mercury/feature/data/repositories/import_invoice_repository.dart';
 import 'package:mercury/feature/data/repositories/ingredient_repository.dart';
+import 'package:mercury/feature/data/repositories/price_list_repository.dart';
 import 'package:mercury/feature/data/repositories/product_repository.dart';
 import 'package:mercury/feature/data/repositories/sale_invoice_repository.dart';
 import 'package:mercury/feature/data/repositories/voucher_repository.dart';
@@ -17,6 +18,7 @@ import 'package:mercury/feature/domain/repositories/i_customer.dart';
 import 'package:mercury/feature/domain/repositories/i_dashboard.dart';
 import 'package:mercury/feature/domain/repositories/i_import_invoice.dart';
 import 'package:mercury/feature/domain/repositories/i_ingredient.dart';
+import 'package:mercury/feature/domain/repositories/i_price_list.dart';
 import 'package:mercury/feature/domain/repositories/i_product.dart';
 import 'package:mercury/feature/domain/repositories/i_sale_invoice.dart';
 import 'package:mercury/feature/domain/repositories/i_voucher.dart';
@@ -38,4 +40,6 @@ void registerRepository() {
   getIt.registerLazySingleton<ICustomerRepository>(() => CustomerRepository());
   getIt.registerLazySingleton<IBankRepository>(() => BankRepository());
   getIt.registerLazySingleton<IAccountRepository>(() => AccountRepository());
+  getIt
+      .registerLazySingleton<IPriceListRepository>(() => PriceListRepository());
 }
