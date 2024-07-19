@@ -11,6 +11,7 @@ class ComboBoxCubit extends Cubit<ComboBoxState> {
           voucher: [],
           products: [],
           customer: [],
+          priceList: [],
           ingredient: [],
         ));
 
@@ -28,8 +29,8 @@ class ComboBoxCubit extends Cubit<ComboBoxState> {
     );
   }
 
-  void getProducts() async {
-    (await repo.getProducts()).on(
+  void getProducts({String? priceListId}) async {
+    (await repo.getProducts(priceListId)).on(
       whenSuccess: (data) => emit(state.copyWith(products: data)),
       whenFaild: (msg) {},
     );
@@ -38,6 +39,13 @@ class ComboBoxCubit extends Cubit<ComboBoxState> {
   void getVouchers() async {
     (await repo.getVouchers()).on(
       whenSuccess: (data) => emit(state.copyWith(voucher: data)),
+      whenFaild: (msg) {},
+    );
+  }
+
+  void getPriceList() async {
+    (await repo.getPriceList()).on(
+      whenSuccess: (data) => emit(state.copyWith(priceList: data)),
       whenFaild: (msg) {},
     );
   }

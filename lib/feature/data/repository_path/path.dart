@@ -25,6 +25,7 @@ class AppRepositoryPath {
   static String productComboBox = "/api/product/combo-box";
   static String voucherComboBox = "/api/voucher/combo-box";
   static String customerComboBox = "/api/customer/combo-box";
+  static String priceListComboBox = "/api/price-list/combo-box";
 
   // Import invoice
   static String getImportInvoice = "/api/import-invoice";

@@ -37,7 +37,7 @@ class LoginPage extends StatelessWidget {
     final formKey = GlobalKey<FormState>();
     final cubit = context.read<AuthenCubit>();
 
-    void onLoginSuccess(Token token) {
+    void onLoginSuccess(Token token) async {
       cubit.saveTokenAndUser(token);
       context.go(AppPath.splash);
     }

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/feature/data/model/voucher/voucher.dart';
 import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
 import 'package:mercury/feature/domain/model/sale_invoice_request/sale_invoice_request.dart';
+import 'package:mercury/feature/presentations/bloc/combo_box/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sale_invoice_cubit/state/state.dart';
 
 class CommonSaleInvoiceCubit extends Cubit<CommonSaleInvoiceState> {
@@ -17,6 +18,10 @@ class CommonSaleInvoiceCubit extends Cubit<CommonSaleInvoiceState> {
             totalPrice: 0,
           ),
         );
+
+  void selectPriceList(ComboBoxCubit cubit, ComboBox val) {
+    cubit.getProducts(priceListId: val.id);
+  }
 
   double _calulateTotalPrice(List<ComboBox> list) {
     return list.fold<double>(

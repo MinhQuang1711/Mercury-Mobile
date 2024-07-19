@@ -25,7 +25,7 @@ mixin _$ProductState {
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
-            SearchByName searchByName, PagedList<Product> pagedList)
+            ProdductQuery searchByName, PagedList<Product> pagedList)
         got,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ mixin _$ProductState {
     TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
-    TResult? Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult? Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,7 +49,7 @@ mixin _$ProductState {
     TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
-    TResult Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
     required TResult orElse(),
   }) =>
@@ -152,7 +152,7 @@ class _$InitImpl implements _Init {
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
-            SearchByName searchByName, PagedList<Product> pagedList)
+            ProdductQuery searchByName, PagedList<Product> pagedList)
         got,
   }) {
     return init();
@@ -167,7 +167,7 @@ class _$InitImpl implements _Init {
     TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
-    TResult? Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult? Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
   }) {
     return init?.call();
@@ -182,7 +182,7 @@ class _$InitImpl implements _Init {
     TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
-    TResult Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
     required TResult orElse(),
   }) {
@@ -288,7 +288,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
-            SearchByName searchByName, PagedList<Product> pagedList)
+            ProdductQuery searchByName, PagedList<Product> pagedList)
         got,
   }) {
     return loading();
@@ -303,7 +303,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
-    TResult? Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult? Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
   }) {
     return loading?.call();
@@ -318,7 +318,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
-    TResult Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
     required TResult orElse(),
   }) {
@@ -450,7 +450,7 @@ class _$CreatedImpl implements _Created {
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
-            SearchByName searchByName, PagedList<Product> pagedList)
+            ProdductQuery searchByName, PagedList<Product> pagedList)
         got,
   }) {
     return created(msg);
@@ -465,7 +465,7 @@ class _$CreatedImpl implements _Created {
     TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
-    TResult? Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult? Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
   }) {
     return created?.call(msg);
@@ -480,7 +480,7 @@ class _$CreatedImpl implements _Created {
     TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
-    TResult Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
     required TResult orElse(),
   }) {
@@ -617,7 +617,7 @@ class _$UpdatedImpl implements _Updated {
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
-            SearchByName searchByName, PagedList<Product> pagedList)
+            ProdductQuery searchByName, PagedList<Product> pagedList)
         got,
   }) {
     return updated(msg);
@@ -632,7 +632,7 @@ class _$UpdatedImpl implements _Updated {
     TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
-    TResult? Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult? Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
   }) {
     return updated?.call(msg);
@@ -647,7 +647,7 @@ class _$UpdatedImpl implements _Updated {
     TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
-    TResult Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
     required TResult orElse(),
   }) {
@@ -784,7 +784,7 @@ class _$DeletedImpl implements _Deleted {
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
-            SearchByName searchByName, PagedList<Product> pagedList)
+            ProdductQuery searchByName, PagedList<Product> pagedList)
         got,
   }) {
     return deleted(msg);
@@ -799,7 +799,7 @@ class _$DeletedImpl implements _Deleted {
     TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
-    TResult? Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult? Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
   }) {
     return deleted?.call(msg);
@@ -814,7 +814,7 @@ class _$DeletedImpl implements _Deleted {
     TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
-    TResult Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
     required TResult orElse(),
   }) {
@@ -951,7 +951,7 @@ class _$FailureImpl implements _Failure {
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
-            SearchByName searchByName, PagedList<Product> pagedList)
+            ProdductQuery searchByName, PagedList<Product> pagedList)
         got,
   }) {
     return failure(msg);
@@ -966,7 +966,7 @@ class _$FailureImpl implements _Failure {
     TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
-    TResult? Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult? Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
   }) {
     return failure?.call(msg);
@@ -981,7 +981,7 @@ class _$FailureImpl implements _Failure {
     TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
-    TResult Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
     required TResult orElse(),
   }) {
@@ -1052,9 +1052,9 @@ abstract class _$$GotImplCopyWith<$Res> {
   factory _$$GotImplCopyWith(_$GotImpl value, $Res Function(_$GotImpl) then) =
       __$$GotImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({SearchByName searchByName, PagedList<Product> pagedList});
+  $Res call({ProdductQuery searchByName, PagedList<Product> pagedList});
 
-  $SearchByNameCopyWith<$Res> get searchByName;
+  $ProdductQueryCopyWith<$Res> get searchByName;
 }
 
 /// @nodoc
@@ -1074,7 +1074,7 @@ class __$$GotImplCopyWithImpl<$Res>
       searchByName: null == searchByName
           ? _value.searchByName
           : searchByName // ignore: cast_nullable_to_non_nullable
-              as SearchByName,
+              as ProdductQuery,
       pagedList: null == pagedList
           ? _value.pagedList
           : pagedList // ignore: cast_nullable_to_non_nullable
@@ -1084,8 +1084,8 @@ class __$$GotImplCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
-  $SearchByNameCopyWith<$Res> get searchByName {
-    return $SearchByNameCopyWith<$Res>(_value.searchByName, (value) {
+  $ProdductQueryCopyWith<$Res> get searchByName {
+    return $ProdductQueryCopyWith<$Res>(_value.searchByName, (value) {
       return _then(_value.copyWith(searchByName: value));
     });
   }
@@ -1097,7 +1097,7 @@ class _$GotImpl implements _Got {
   const _$GotImpl({required this.searchByName, required this.pagedList});
 
   @override
-  final SearchByName searchByName;
+  final ProdductQuery searchByName;
   @override
   final PagedList<Product> pagedList;
 
@@ -1136,7 +1136,7 @@ class _$GotImpl implements _Got {
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
     required TResult Function(
-            SearchByName searchByName, PagedList<Product> pagedList)
+            ProdductQuery searchByName, PagedList<Product> pagedList)
         got,
   }) {
     return got(searchByName, pagedList);
@@ -1151,7 +1151,7 @@ class _$GotImpl implements _Got {
     TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
-    TResult? Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult? Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
   }) {
     return got?.call(searchByName, pagedList);
@@ -1166,7 +1166,7 @@ class _$GotImpl implements _Got {
     TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
-    TResult Function(SearchByName searchByName, PagedList<Product> pagedList)?
+    TResult Function(ProdductQuery searchByName, PagedList<Product> pagedList)?
         got,
     required TResult orElse(),
   }) {
@@ -1225,10 +1225,10 @@ class _$GotImpl implements _Got {
 
 abstract class _Got implements ProductState {
   const factory _Got(
-      {required final SearchByName searchByName,
+      {required final ProdductQuery searchByName,
       required final PagedList<Product> pagedList}) = _$GotImpl;
 
-  SearchByName get searchByName;
+  ProdductQuery get searchByName;
   PagedList<Product> get pagedList;
   @JsonKey(ignore: true)
   _$$GotImplCopyWith<_$GotImpl> get copyWith =>

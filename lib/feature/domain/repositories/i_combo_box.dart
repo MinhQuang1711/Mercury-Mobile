@@ -6,7 +6,7 @@ import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
 abstract class IComboBoxRepository extends UseCaseNetwork {
   Future<DataRespone<List<Voucher>>> getVouchers();
   Future<DataRespone<List<ComboBox>>> getCustomer();
-  Future<DataRespone<List<ComboBox>>> getProducts();
   Future<DataRespone<List<ComboBox>>> getIngredients();
-  Future<DataRespone<List<ComboBox>>> getCustomers();
+  Future<DataRespone<List<ComboBox>>> getPriceList();
+  Future<DataRespone<List<ComboBox>>> getProducts(String? priceListId);
 }

@@ -8,7 +8,7 @@ part 'token.g.dart';
 @Freezed(fromJson: true, toJson: true)
 class Token with _$Token {
   const factory Token({
-    final User? user,
+    @JsonKey(name: "entity") final User? user,
     final String? accessToken,
     final String? refreshToken,
   }) = _TOKEN;

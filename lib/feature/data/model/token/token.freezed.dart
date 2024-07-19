@@ -20,6 +20,7 @@ Token _$TokenFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Token {
+  @JsonKey(name: "entity")
   User? get user => throw _privateConstructorUsedError;
   String? get accessToken => throw _privateConstructorUsedError;
   String? get refreshToken => throw _privateConstructorUsedError;
@@ -34,7 +35,10 @@ abstract class $TokenCopyWith<$Res> {
   factory $TokenCopyWith(Token value, $Res Function(Token) then) =
       _$TokenCopyWithImpl<$Res, Token>;
   @useResult
-  $Res call({User? user, String? accessToken, String? refreshToken});
+  $Res call(
+      {@JsonKey(name: "entity") User? user,
+      String? accessToken,
+      String? refreshToken});
 
   $UserCopyWith<$Res>? get user;
 }
@@ -92,7 +96,10 @@ abstract class _$$TOKENImplCopyWith<$Res> implements $TokenCopyWith<$Res> {
       __$$TOKENImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({User? user, String? accessToken, String? refreshToken});
+  $Res call(
+      {@JsonKey(name: "entity") User? user,
+      String? accessToken,
+      String? refreshToken});
 
   @override
   $UserCopyWith<$Res>? get user;
@@ -133,12 +140,16 @@ class __$$TOKENImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$TOKENImpl implements _TOKEN {
-  const _$TOKENImpl({this.user, this.accessToken, this.refreshToken});
+  const _$TOKENImpl(
+      {@JsonKey(name: "entity") this.user,
+      this.accessToken,
+      this.refreshToken});
 
   factory _$TOKENImpl.fromJson(Map<String, dynamic> json) =>
       _$$TOKENImplFromJson(json);
 
   @override
+  @JsonKey(name: "entity")
   final User? user;
   @override
   final String? accessToken;
@@ -182,13 +193,14 @@ class _$TOKENImpl implements _TOKEN {
 
 abstract class _TOKEN implements Token {
   const factory _TOKEN(
-      {final User? user,
+      {@JsonKey(name: "entity") final User? user,
       final String? accessToken,
       final String? refreshToken}) = _$TOKENImpl;
 
   factory _TOKEN.fromJson(Map<String, dynamic> json) = _$TOKENImpl.fromJson;
 
   @override
+  @JsonKey(name: "entity")
   User? get user;
   @override
   String? get accessToken;

@@ -94,35 +94,25 @@ class SaleProductCard extends StatelessWidget {
   }
 }
 
-class CircleImage extends StatefulWidget {
+class CircleImage extends StatelessWidget {
   const CircleImage({super.key, required this.base64});
   final String base64;
 
   @override
-  State<CircleImage> createState() => _CircleImageState();
-}
-
-class _CircleImageState extends State<CircleImage> {
-  bool isBuildImageSuccess = true;
-  void changedStateBuild() {
-    isBuildImageSuccess = !isBuildImageSuccess;
-    setState(() {});
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return isBuildImageSuccess
-        ? CircleAvatar(
-            radius: 30,
-            onBackgroundImageError: (exception, stackTrace) =>
-                changedStateBuild(),
-            backgroundImage: MemoryImage(
-              base64Decode(widget.base64),
-            ),
-          )
-        : CircleAvatar(
-            radius: 30,
-            backgroundColor: AppColor.white,
-            backgroundImage: AssetImage(Assets.image.coffeeCup.keyName));
+    return CircleAvatar(
+      radius: 30,
+      backgroundColor: AppColor.grey2,
+      child: ClipOval(
+          child: Image.memory(
+        base64Decode(base64),
+        fit: BoxFit.fill,
+        errorBuilder: (context, error, stackTrace) {
+          return Image(
+              image: AssetImage(Assets.image.coffeeCup.keyName),
+              fit: BoxFit.cover);
+        },
+      )),
+    );
   }
 }

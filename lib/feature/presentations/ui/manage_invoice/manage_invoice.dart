@@ -48,7 +48,9 @@ class _MangageInvoicePageState extends State<MangageInvoicePage>
 
   @override
   void dispose() {
-    InvoiceSingleton.instance.controller.dispose();
+    InvoiceSingleton.instance.controller?.dispose();
+    InvoiceSingleton.instance.setController(null);
+
     super.dispose();
   }
 

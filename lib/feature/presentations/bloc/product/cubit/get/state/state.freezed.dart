@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$GetProductState {
   List<Product> get list => throw _privateConstructorUsedError;
-  SearchByName get searchByName => throw _privateConstructorUsedError;
+  ProdductQuery get searchByName => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GetProductStateCopyWith<GetProductState> get copyWith =>
@@ -30,9 +30,9 @@ abstract class $GetProductStateCopyWith<$Res> {
           GetProductState value, $Res Function(GetProductState) then) =
       _$GetProductStateCopyWithImpl<$Res, GetProductState>;
   @useResult
-  $Res call({List<Product> list, SearchByName searchByName});
+  $Res call({List<Product> list, ProdductQuery searchByName});
 
-  $SearchByNameCopyWith<$Res> get searchByName;
+  $ProdductQueryCopyWith<$Res> get searchByName;
 }
 
 /// @nodoc
@@ -59,14 +59,14 @@ class _$GetProductStateCopyWithImpl<$Res, $Val extends GetProductState>
       searchByName: null == searchByName
           ? _value.searchByName
           : searchByName // ignore: cast_nullable_to_non_nullable
-              as SearchByName,
+              as ProdductQuery,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SearchByNameCopyWith<$Res> get searchByName {
-    return $SearchByNameCopyWith<$Res>(_value.searchByName, (value) {
+  $ProdductQueryCopyWith<$Res> get searchByName {
+    return $ProdductQueryCopyWith<$Res>(_value.searchByName, (value) {
       return _then(_value.copyWith(searchByName: value) as $Val);
     });
   }
@@ -80,10 +80,10 @@ abstract class _$$StateImplCopyWith<$Res>
       __$$StateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Product> list, SearchByName searchByName});
+  $Res call({List<Product> list, ProdductQuery searchByName});
 
   @override
-  $SearchByNameCopyWith<$Res> get searchByName;
+  $ProdductQueryCopyWith<$Res> get searchByName;
 }
 
 /// @nodoc
@@ -108,7 +108,7 @@ class __$$StateImplCopyWithImpl<$Res>
       searchByName: null == searchByName
           ? _value.searchByName
           : searchByName // ignore: cast_nullable_to_non_nullable
-              as SearchByName,
+              as ProdductQuery,
     ));
   }
 }
@@ -129,7 +129,7 @@ class _$StateImpl implements _State {
   }
 
   @override
-  final SearchByName searchByName;
+  final ProdductQuery searchByName;
 
   @override
   String toString() {
@@ -160,12 +160,12 @@ class _$StateImpl implements _State {
 abstract class _State implements GetProductState {
   const factory _State(
       {required final List<Product> list,
-      required final SearchByName searchByName}) = _$StateImpl;
+      required final ProdductQuery searchByName}) = _$StateImpl;
 
   @override
   List<Product> get list;
   @override
-  SearchByName get searchByName;
+  ProdductQuery get searchByName;
   @override
   @JsonKey(ignore: true)
   _$$StateImplCopyWith<_$StateImpl> get copyWith =>

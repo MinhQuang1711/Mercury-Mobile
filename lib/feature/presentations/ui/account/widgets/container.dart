@@ -25,7 +25,7 @@ class ContainerAccount extends StatelessWidget {
         children: [
           Text(
             title,
-            style: (style ?? h6Bold).copyWith(fontFamily: ""),
+            style: (style ?? bodyBold).copyWith(fontFamily: ""),
           ),
           const SizedBox(height: 20),
           child,

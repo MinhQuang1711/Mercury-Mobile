@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mercury/feature/data/model/product/product.dart';
-import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart';
+import 'package:mercury/feature/domain/model/product/product_query.dart';
 
 part 'state.freezed.dart';
 
@@ -8,6 +8,6 @@ part 'state.freezed.dart';
 class GetProductState with _$GetProductState {
   const factory GetProductState({
     required List<Product> list,
-    required SearchByName searchByName,
+    required ProdductQuery searchByName,
   }) = _State;
 }

@@ -5,11 +5,11 @@ class InvoiceSingleton {
 
   static final instance = InvoiceSingleton._();
 
-  late final TabController _tabController;
+  TabController? _tabController;
 
-  void setController(TabController ctrl) {
+  void setController(TabController? ctrl) {
     _tabController = ctrl;
   }
 
-  TabController get controller => _tabController;
+  TabController? get controller => _tabController;
 }

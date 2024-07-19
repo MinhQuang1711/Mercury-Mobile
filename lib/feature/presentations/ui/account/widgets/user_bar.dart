@@ -12,6 +12,7 @@ class UserBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     User? user = UserSingleton.instance.user;
+
     return Container(
       padding: AppPadding.padding14,
       decoration: const BoxDecoration(

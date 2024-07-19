@@ -1,15 +1,18 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/feature/data/model/product/product.dart';
-import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart';
+import 'package:mercury/feature/domain/model/combo_box/combo_box.dart';
+import 'package:mercury/feature/domain/model/product/product_query.dart';
+import 'package:mercury/feature/presentations/bloc/product/bloc/bloc.dart';
+import 'package:mercury/feature/presentations/bloc/product/bloc/event/event.dart';
 
 import '../../../../../data/model/paged_list/paged_list.dart';
 import 'state/state.dart';
 
 class GetProductCubit extends Cubit<GetProductState> {
   GetProductCubit()
-      : super(const GetProductState(list: [], searchByName: SearchByName()));
+      : super(const GetProductState(list: [], searchByName: ProdductQuery()));
   void handleList({
-    required SearchByName searchByName,
+    required ProdductQuery searchByName,
     required PagedList<Product> pagedList,
   }) {
     final oldList = List<Product>.from(state.list);
@@ -22,5 +25,12 @@ class GetProductCubit extends Cubit<GetProductState> {
         searchByName: searchByName,
       ),
     );
+  }
+
+  void selectPriceList(ProductBloc bloc, ComboBox? val) {
+    var query =
+        bloc.state.whenOrNull(got: (searchByName, pagedList) => searchByName);
+    query = query?.copyWith(priceListId: val?.id);
+    bloc.add(ProductEvent.get(query ?? const ProdductQuery()));
   }
 }
