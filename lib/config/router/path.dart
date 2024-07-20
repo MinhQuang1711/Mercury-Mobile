@@ -11,4 +11,5 @@ class AppPath {
   static String createImportInvoice = "/createImportInvoice";
   static String detailSaleInvoice = "/detailSaleInvoice";
   static String createCustomer = "/createCustomer";
+  static String createPriceList = "/createPriceList";
 }

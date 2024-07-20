@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mercury/config/router/path.dart';
+import 'package:mercury/core/utils/extension/contetxt.dart';
 
 import '../../../../../config/theme/color.dart';
 import '../../../../../gen/assets.gen.dart';
@@ -34,6 +36,8 @@ class CustomerAndCupon extends StatelessWidget {
           Row(
             children: [
               AccountButton(
+                onTap: () =>
+                    context.pushAndListen(location: AppPath.createPriceList),
                 title: "Bảng giá",
                 icon: ImageIcon(
                   AssetImage(Assets.icon.priceTag.keyName),

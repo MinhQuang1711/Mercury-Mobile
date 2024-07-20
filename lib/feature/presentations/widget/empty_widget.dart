@@ -27,7 +27,7 @@ class EmptyWidget extends StatelessWidget {
         const SizedBox(height: 20),
         Text(
           "Danh sách trống !!!!",
-          style: captionMedium.copyWith(color: AppColor.blueShade2),
+          style: detailBold.copyWith(color: AppColor.blueShade2),
         ),
         const SizedBox(height: 10),
         if (onTap != null)

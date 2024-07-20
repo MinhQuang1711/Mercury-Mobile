@@ -10,6 +10,7 @@ import 'package:mercury/feature/presentations/ui/ingredient/detail/detail.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/update/update_ingredient.dart';
 import 'package:mercury/feature/presentations/ui/login/login.dart';
 import 'package:mercury/feature/presentations/ui/logo/logo_screen.dart';
+import 'package:mercury/feature/presentations/ui/price_list/create/create.dart';
 import 'package:mercury/feature/presentations/ui/sale_invoice/create/create.dart';
 import 'package:mercury/feature/presentations/ui/sale_invoice/detail/detail.dart';
 import 'package:mercury/feature/presentations/ui/sale_product/create/create.dart';
@@ -72,6 +73,10 @@ class AppRouter {
         path: AppPath.updateProduct,
         builder: (context, state) =>
             UpdateProductScreen(product: state.extra as Product),
+      ),
+      GoRoute(
+        path: AppPath.createPriceList,
+        builder: (context, state) => const CreatePriceList(),
       ),
     ],
   );

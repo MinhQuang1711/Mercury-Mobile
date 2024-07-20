@@ -1,0 +1,172 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'state.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+/// @nodoc
+mixin _$PriceListState {
+  PriceListRequest get dto => throw _privateConstructorUsedError;
+  List<ComboBox> get comboBoxes => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $PriceListStateCopyWith<PriceListState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PriceListStateCopyWith<$Res> {
+  factory $PriceListStateCopyWith(
+          PriceListState value, $Res Function(PriceListState) then) =
+      _$PriceListStateCopyWithImpl<$Res, PriceListState>;
+  @useResult
+  $Res call({PriceListRequest dto, List<ComboBox> comboBoxes});
+
+  $PriceListRequestCopyWith<$Res> get dto;
+}
+
+/// @nodoc
+class _$PriceListStateCopyWithImpl<$Res, $Val extends PriceListState>
+    implements $PriceListStateCopyWith<$Res> {
+  _$PriceListStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? dto = null,
+    Object? comboBoxes = null,
+  }) {
+    return _then(_value.copyWith(
+      dto: null == dto
+          ? _value.dto
+          : dto // ignore: cast_nullable_to_non_nullable
+              as PriceListRequest,
+      comboBoxes: null == comboBoxes
+          ? _value.comboBoxes
+          : comboBoxes // ignore: cast_nullable_to_non_nullable
+              as List<ComboBox>,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PriceListRequestCopyWith<$Res> get dto {
+    return $PriceListRequestCopyWith<$Res>(_value.dto, (value) {
+      return _then(_value.copyWith(dto: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$StateImplCopyWith<$Res>
+    implements $PriceListStateCopyWith<$Res> {
+  factory _$$StateImplCopyWith(
+          _$StateImpl value, $Res Function(_$StateImpl) then) =
+      __$$StateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({PriceListRequest dto, List<ComboBox> comboBoxes});
+
+  @override
+  $PriceListRequestCopyWith<$Res> get dto;
+}
+
+/// @nodoc
+class __$$StateImplCopyWithImpl<$Res>
+    extends _$PriceListStateCopyWithImpl<$Res, _$StateImpl>
+    implements _$$StateImplCopyWith<$Res> {
+  __$$StateImplCopyWithImpl(
+      _$StateImpl _value, $Res Function(_$StateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? dto = null,
+    Object? comboBoxes = null,
+  }) {
+    return _then(_$StateImpl(
+      dto: null == dto
+          ? _value.dto
+          : dto // ignore: cast_nullable_to_non_nullable
+              as PriceListRequest,
+      comboBoxes: null == comboBoxes
+          ? _value._comboBoxes
+          : comboBoxes // ignore: cast_nullable_to_non_nullable
+              as List<ComboBox>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$StateImpl implements _State {
+  const _$StateImpl(
+      {required this.dto, required final List<ComboBox> comboBoxes})
+      : _comboBoxes = comboBoxes;
+
+  @override
+  final PriceListRequest dto;
+  final List<ComboBox> _comboBoxes;
+  @override
+  List<ComboBox> get comboBoxes {
+    if (_comboBoxes is EqualUnmodifiableListView) return _comboBoxes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_comboBoxes);
+  }
+
+  @override
+  String toString() {
+    return 'PriceListState(dto: $dto, comboBoxes: $comboBoxes)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StateImpl &&
+            (identical(other.dto, dto) || other.dto == dto) &&
+            const DeepCollectionEquality()
+                .equals(other._comboBoxes, _comboBoxes));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, dto, const DeepCollectionEquality().hash(_comboBoxes));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StateImplCopyWith<_$StateImpl> get copyWith =>
+      __$$StateImplCopyWithImpl<_$StateImpl>(this, _$identity);
+}
+
+abstract class _State implements PriceListState {
+  const factory _State(
+      {required final PriceListRequest dto,
+      required final List<ComboBox> comboBoxes}) = _$StateImpl;
+
+  @override
+  PriceListRequest get dto;
+  @override
+  List<ComboBox> get comboBoxes;
+  @override
+  @JsonKey(ignore: true)
+  _$$StateImplCopyWith<_$StateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

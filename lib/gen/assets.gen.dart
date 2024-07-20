@@ -60,6 +60,10 @@ class $AssetsIconGen {
   /// File path: assets/icon/search.png
   AssetGenImage get search => const AssetGenImage('assets/icon/search.png');
 
+  /// File path: assets/icon/trash-bin.png
+  AssetGenImage get trashBin =>
+      const AssetGenImage('assets/icon/trash-bin.png');
+
   /// File path: assets/icon/voucher.png
   AssetGenImage get voucher => const AssetGenImage('assets/icon/voucher.png');
 
@@ -79,6 +83,7 @@ class $AssetsIconGen {
         reportBox,
         reportTime,
         search,
+        trashBin,
         voucher
       ];
 }

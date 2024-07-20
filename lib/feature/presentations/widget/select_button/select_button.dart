@@ -12,19 +12,27 @@ class AppSelectButton<T> extends StatelessWidget {
     super.key,
     this.title,
     this.init,
+    this.style,
     this.hintText,
     this.searchHint,
+    this.textAlign,
     this.hideSelectedItem,
     required this.items,
     required this.onTap,
     required this.appSearchItem,
+    this.sufWidget,
+    this.backgroundColor,
   });
   final String? title;
   final List<T> items;
   final String? init;
+  final Widget? sufWidget;
+  final TextStyle? style;
   final String? hintText;
   final String? searchHint;
+  final TextAlign? textAlign;
   final bool? hideSelectedItem;
+  final Color? backgroundColor;
 
   final Function(SearchItem<T>) onTap;
   final SearchItem<T> Function(T) appSearchItem;
@@ -33,6 +41,8 @@ class AppSelectButton<T> extends StatelessWidget {
     return CustomSelectButton<T>(
       onTap: onTap,
       initialValue: init,
+      textAlign: textAlign,
+      style: style,
       hideSeletedItem: hideSelectedItem,
       searchItems: items.map((e) => appSearchItem(e)).toList(),
       searchDecoration: SearchDecoration(
@@ -42,9 +52,11 @@ class AppSelectButton<T> extends StatelessWidget {
       emptyWidget: const EmptyWidget(),
       decoration: TextFieldProperties.getInputDecoration(
         hintText: hintText,
-        sufWidget: const Icon(
-          Icons.arrow_drop_down_rounded,
-        ),
+        backgroundColor: backgroundColor,
+        sufWidget: sufWidget ??
+            const Icon(
+              Icons.arrow_drop_down_rounded,
+            ),
       ),
       title: title != null
           ? Padding(
