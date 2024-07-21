@@ -19,7 +19,8 @@ void main() async {
 
   // Lấy domain tu local
   final String? domain = await DomainStorage.instance.getDomain();
-  final ServerConfig serverConfig = ServerConfig("")..setDomain(domain ?? "");
+  final ServerConfig serverConfig = ServerConfig("")
+    ..setDomain(domain ?? "192.168.1.29");
   AppConfig.instance.configServer(serverConfig);
 
   runApp(

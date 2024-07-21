@@ -6,6 +6,7 @@ import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/authen/bloc/state/state.dart';
+import 'package:mercury/gen/assets.gen.dart';
 
 class LogoScreen extends StatelessWidget {
   const LogoScreen({super.key});
@@ -32,9 +33,12 @@ class LogoPage extends StatelessWidget {
           gotUser: () => context.go(AppPath.splash),
         );
       },
-      child: Container(
-        height: double.infinity,
-        color: Colors.white,
+      child: Scaffold(
+        body: Center(
+          child: ImageIcon(
+            AssetImage(Assets.image.ava.keyName),
+          ),
+        ),
       ),
     );
   }
