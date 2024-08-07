@@ -28,9 +28,10 @@ class DetailSaleInvoiceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final shippingFee = saleInvoice.shippingFee ?? 0;
     final totalPrice = saleInvoice.totalPrice ?? 0;
     final totalDiscount = saleInvoice.dicount ?? 0;
-    final finalPrice = totalPrice - totalDiscount;
+    final finalPrice = totalPrice - totalDiscount + shippingFee;
     return BlocProvider(
       create: (context) => getIt.get<CommonSaleInvoiceCubit>(),
       child: Scaffold(

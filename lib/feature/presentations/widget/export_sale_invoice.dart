@@ -27,7 +27,7 @@ class ExportSaleInvoiceScreen extends StatelessWidget {
     QRCodeService.instance
       ..setBankId(user?.bankBin ?? "TCB")
       ..setAccountNo(user?.reciverAccountNumber ?? "19034445486011")
-      ..setAmount((total - discount))
+      ..setAmount((total - discount + shippingFee))
       ..setAccountName(user?.reciverName ?? "LE THUY NGAN");
     return Container(
       color: AppColor.white,
