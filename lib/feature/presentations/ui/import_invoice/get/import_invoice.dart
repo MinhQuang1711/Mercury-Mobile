@@ -18,8 +18,10 @@ import 'widget/listener.dart';
 import 'widget/overview.dart';
 import 'widget/search_bar.dart';
 
-var defaultImportInvoiceEvent = ImportInvoiceEvent.get(
-    InvoiceQuery(startTime: DateTime.now(), endTime: DateTime.now()));
+var defaultImportInvoiceEvent = ImportInvoiceEvent.get(InvoiceQuery(
+  startTime: DateTime.now().copyWith(hour: 0, minute: 0, second: 1),
+  endTime: DateTime.now().copyWith(hour: 23, minute: 59, second: 59),
+));
 
 class ImportInvoiceScreen extends StatelessWidget {
   const ImportInvoiceScreen({super.key});
