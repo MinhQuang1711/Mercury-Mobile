@@ -42,11 +42,14 @@ class SaveInvoiceButton extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            ExportSaleInvoiceScreen(
-              total: total,
-              discount: discount,
-              saleInvoice: invoiceRequest,
-              shippingFee: shippingFee,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.7,
+              child: ExportSaleInvoiceScreen(
+                total: total,
+                discount: discount,
+                saleInvoice: invoiceRequest,
+                shippingFee: shippingFee,
+              ),
             ),
             Padding(
               padding: AppPadding.padding14,
