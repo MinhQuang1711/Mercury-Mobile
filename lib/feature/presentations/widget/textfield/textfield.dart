@@ -11,6 +11,7 @@ class AppTextField extends StatefulWidget {
     super.key,
     this.obs,
     this.onTap,
+    this.debounce,
     this.maxLines,
     this.canDelete,
     this.initValue,
@@ -30,6 +31,7 @@ class AppTextField extends StatefulWidget {
     this.onCompleted,
     this.autoFocus,
   });
+  final bool? debounce;
   final bool? autoFocus;
   final bool? obs;
   final int? maxLines;
@@ -101,7 +103,7 @@ class _AppTextFieldState extends State<AppTextField> {
       maxLines: widget.maxLines ?? 1,
       obscureText: widget.obs ?? false,
       onTap: widget.onTap,
-      onChanged: onChanged,
+      onChanged: widget.debounce != false ? onChanged : widget.onChanged,
       autofocus: widget.autoFocus ?? false,
       controller: controller,
       onFieldSubmitted: widget.onCompleted,

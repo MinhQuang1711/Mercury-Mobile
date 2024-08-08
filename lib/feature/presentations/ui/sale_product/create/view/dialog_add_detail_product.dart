@@ -76,6 +76,7 @@ class _DialogAddDetailProductState extends State<DialogAddDetailProduct> {
     return ColumnInput(
       titleLabel: "Định lượng",
       bottomWidget: AppTextField(
+        debounce: false,
         onChanged: _changedWeight,
         hintText: "Nhập định lượng",
         sufWidget: const Text("| gram"),
