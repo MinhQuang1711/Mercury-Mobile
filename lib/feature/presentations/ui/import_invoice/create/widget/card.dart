@@ -29,13 +29,13 @@ class IngredientCard extends StatelessWidget {
               children: [
                 Text(comboBox.name ?? "", style: bodyMedium),
                 const SizedBox(height: 5),
-                Text("Trọng lượng: ${comboBox.value?.formatNumber()} g",
+                Text("Trọng lượng: ${comboBox.value?.formatDouble()} g",
                     style: captionRegular),
               ],
             ),
           ),
           Text(
-            "${comboBox.price?.formatNumber()}",
+            "${comboBox.price?.formatDouble()}",
             style: bodyMedium.copyWith(color: AppColor.blue),
           ),
         ],
