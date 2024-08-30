@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mercury/config/router/path.dart';
 
 import '../../../../../config/theme/color.dart';
 import '../../../../../gen/assets.gen.dart';
@@ -23,6 +25,7 @@ class Reports extends StatelessWidget {
               ),
               AccountButton(
                 title: "Bán hàng",
+                onTap: () => context.push(AppPath.saleReport),
                 icon: ImageIcon(
                   AssetImage(Assets.icon.coupon.keyName),
                   color: AppColor.blue,

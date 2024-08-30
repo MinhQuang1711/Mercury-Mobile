@@ -6,7 +6,8 @@ import '../../../../config/theme/text_style.dart';
 import '../factory/screen/create_screen.dart';
 
 class CreateAppBar extends AppBar {
-  CreateAppBar(BuildContext context, {super.key})
+  final String? titleAppbar;
+  CreateAppBar(BuildContext context, {super.key, this.titleAppbar})
       : super(
           centerTitle: true,
           leading: GestureDetector(
@@ -18,7 +19,7 @@ class CreateAppBar extends AppBar {
           ),
           backgroundColor: AppColor.blue,
           title: Text(
-            CreateScreen().getTitle(),
+            titleAppbar ?? CreateScreen().getTitle(),
             style: h6Bold.copyWith(color: AppColor.white),
           ),
         );
