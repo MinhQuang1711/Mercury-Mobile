@@ -22,6 +22,7 @@ class SelectDateRangeButton extends StatelessWidget {
       child: Row(
         children: [
           BlocBuilder<SaleReportCubit, SaleReportState>(
+            buildWhen: (p, c) => p.startDate != c.startDate,
             builder: (context, state) {
               bool isActive = state.startDate != null;
               return _button(
@@ -36,6 +37,7 @@ class SelectDateRangeButton extends StatelessWidget {
             child: Text("|"),
           ),
           BlocBuilder<SaleReportCubit, SaleReportState>(
+            buildWhen: (p, c) => p.endDate != c.endDate,
             builder: (context, state) {
               bool isActive = state.endDate != null;
               return _button(
