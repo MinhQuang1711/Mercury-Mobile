@@ -39,6 +39,10 @@ class $AssetsIconGen {
   AssetGenImage get importProd =>
       const AssetGenImage('assets/icon/import_prod.png');
 
+  /// File path: assets/icon/ingredient.png
+  AssetGenImage get ingredient =>
+      const AssetGenImage('assets/icon/ingredient.png');
+
   /// File path: assets/icon/invoice.png
   AssetGenImage get invoice => const AssetGenImage('assets/icon/invoice.png');
 
@@ -77,6 +81,7 @@ class $AssetsIconGen {
         emptyBox,
         import,
         importProd,
+        ingredient,
         invoice,
         invoices,
         priceTag,
