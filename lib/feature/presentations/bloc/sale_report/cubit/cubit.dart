@@ -17,7 +17,10 @@ class SaleReportCubit extends Cubit<SaleReportState> {
 
   void selectEndDate(BuildContext context) async {
     var date = await context.showBottomSheet<DateTime?>(
-      SelectDaySheet(initDate: state.endDate),
+      SelectDaySheet(
+        initDate: state.endDate,
+        startDate: state.startDate,
+      ),
     );
     emit(state.copyWith(endDate: date));
   }
