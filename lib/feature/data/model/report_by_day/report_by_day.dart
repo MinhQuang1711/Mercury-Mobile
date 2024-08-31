@@ -8,9 +8,10 @@ class ReportByDay with _$ReportByDay {
   const factory ReportByDay({
     int? quantity,
     DateTime? date,
-    int? revenue,
-    int? discount,
-    int? shippingFee,
+    double? revenue,
+    double? discount,
+    double? shippingFee,
+    double? importPrice,
   }) = _ReportByDay;
 
   factory ReportByDay.fromJson(Map<String, dynamic> json) =>

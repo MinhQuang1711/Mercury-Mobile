@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
+import 'package:mercury/feature/presentations/bloc/sale_report/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/ui/report/sale_report/widget/overview.dart';
 import 'package:mercury/feature/presentations/widget/app_bar/create_app_bar.dart';
 import 'package:mercury/feature/presentations/widget/stack/screen_allway_see_bottom.dart';
@@ -17,6 +18,7 @@ class SaleReportScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => getIt.get<SaleReportCubit>()),
+        BlocProvider(create: (_) => getIt.get<SaleReportBloc>()),
       ],
       child: const SaleReportPage(),
     );

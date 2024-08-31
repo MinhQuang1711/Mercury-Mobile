@@ -15,7 +15,7 @@ class ReportRepository extends IReportRepository {
       paramRequest: ParamRequest(
           method: Method.GET,
           endPoint: AppRepositoryPath.saleReport,
-          header: {"endDate": end, "startDate": start}),
+          query: {"endDate": end, "startDate": start}),
       parser: (data) =>
           (data as List).map((e) => ReportByDay.fromJson(e)).toList(),
     );
