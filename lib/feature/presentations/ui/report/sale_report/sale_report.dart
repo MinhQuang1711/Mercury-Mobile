@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mercury/config/const/padding.dart';
-import 'package:mercury/config/const/radius.dart';
-import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/presentations/bloc/sale_report/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/ui/report/sale_report/widget/overview.dart';
@@ -47,14 +44,8 @@ class SaleReportPage extends StatelessWidget {
             const SizedBox(height: 20),
             const SubmitButton(),
             const SizedBox(height: 20),
-            Container(
-                padding: AppPadding.padding12,
-                decoration: BoxDecoration(
-                  borderRadius: AppContainerBorder.radius8,
-                  color: AppColor.grey2,
-                ),
-                child: const ListReport()),
-            const SizedBox(height: 100),
+            const ListReport(),
+            const SizedBox(height: 120),
           ],
         ),
         bottomWidget: const SaleReportOverview(),

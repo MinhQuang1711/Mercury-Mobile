@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/config/const/box_shadow.dart';
+import 'package:mercury/config/const/padding.dart';
+import 'package:mercury/config/const/radius.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/core/utils/extension/number.dart';
@@ -13,7 +16,12 @@ class SaleReportOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColor.white,
+      padding: AppPadding.padding12,
+      decoration: BoxDecoration(
+        color: AppColor.white,
+        boxShadow: defaultBoxShadow,
+        borderRadius: AppContainerBorder.radius8,
+      ),
       child: BlocBuilder<SaleReportBloc, SaleReportBlocState>(
         buildWhen: (p, c) =>
             p.mapOrNull(getSaleSuccess: (value) => value) !=
@@ -34,14 +42,12 @@ class SaleReportOverview extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              const SizedBox(height: 10),
               _infoItem(title: "Tổng hóa đơn", value: totalBill),
               _infoItem(title: "Doanh thu", value: revenue),
               _infoItem(
                 title: "Doanh thu thực nhận",
                 value: revenue + shippingFee - discount,
               ),
-              const SizedBox(height: 5),
               Row(
                 children: [
                   const Text(

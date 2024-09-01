@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mercury/core/utils/extension/datetime_ex.dart';
-import 'package:mercury/core/utils/extension/number.dart';
-import 'package:mercury/feature/data/model/report_by_day/report_by_day.dart';
 import 'package:mercury/feature/presentations/widget/empty_widget.dart';
 
 import '../../../../../../config/theme/color.dart';
 import '../../../../../../config/theme/text_style.dart';
 import '../../../../bloc/sale_report/bloc/bloc.dart';
 import '../../../../bloc/sale_report/bloc/state/state.dart';
+import 'card.dart';
 
 class ListReport extends StatelessWidget {
   const ListReport({super.key});
@@ -30,35 +28,9 @@ class ListReport extends StatelessWidget {
                 const Divider(
                   color: AppColor.blue,
                 ),
-                ...report.map((e) => _card(e)).toList(),
+                ...report.map((e) => ReportCard(reportByDay: e)).toList(),
               ]);
       },
-    );
-  }
-
-  Padding _card(ReportByDay e) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Row(
-        children: [
-          Expanded(
-              child: Text(
-            e.date?.toDateFormat() ?? "",
-            // style: captionBold,
-          )),
-          Expanded(
-              child: Text(
-            e.revenue?.formatDouble() ?? "",
-            // style: captionBold,
-          )),
-          Expanded(
-              child: Text(
-            ((e.revenue ?? 0) + (e.shippingFee ?? 0) - (e.discount ?? 0))
-                .formatDouble(),
-            // style: captionRegularca,
-          )),
-        ],
-      ),
     );
   }
 
