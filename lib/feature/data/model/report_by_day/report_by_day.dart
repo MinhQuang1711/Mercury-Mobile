@@ -11,7 +11,7 @@ class ReportByDay with _$ReportByDay {
     double? revenue,
     double? discount,
     double? shippingFee,
-    double? importPrice,
+    double? profit,
   }) = _ReportByDay;
 
   factory ReportByDay.fromJson(Map<String, dynamic> json) =>

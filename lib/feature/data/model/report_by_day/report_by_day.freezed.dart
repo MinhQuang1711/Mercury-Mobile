@@ -25,7 +25,7 @@ mixin _$ReportByDay {
   double? get revenue => throw _privateConstructorUsedError;
   double? get discount => throw _privateConstructorUsedError;
   double? get shippingFee => throw _privateConstructorUsedError;
-  double? get importPrice => throw _privateConstructorUsedError;
+  double? get profit => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ReportByDayCopyWith<ReportByDay> get copyWith =>
@@ -44,7 +44,7 @@ abstract class $ReportByDayCopyWith<$Res> {
       double? revenue,
       double? discount,
       double? shippingFee,
-      double? importPrice});
+      double? profit});
 }
 
 /// @nodoc
@@ -65,7 +65,7 @@ class _$ReportByDayCopyWithImpl<$Res, $Val extends ReportByDay>
     Object? revenue = freezed,
     Object? discount = freezed,
     Object? shippingFee = freezed,
-    Object? importPrice = freezed,
+    Object? profit = freezed,
   }) {
     return _then(_value.copyWith(
       quantity: freezed == quantity
@@ -88,9 +88,9 @@ class _$ReportByDayCopyWithImpl<$Res, $Val extends ReportByDay>
           ? _value.shippingFee
           : shippingFee // ignore: cast_nullable_to_non_nullable
               as double?,
-      importPrice: freezed == importPrice
-          ? _value.importPrice
-          : importPrice // ignore: cast_nullable_to_non_nullable
+      profit: freezed == profit
+          ? _value.profit
+          : profit // ignore: cast_nullable_to_non_nullable
               as double?,
     ) as $Val);
   }
@@ -110,7 +110,7 @@ abstract class _$$ReportByDayImplCopyWith<$Res>
       double? revenue,
       double? discount,
       double? shippingFee,
-      double? importPrice});
+      double? profit});
 }
 
 /// @nodoc
@@ -129,7 +129,7 @@ class __$$ReportByDayImplCopyWithImpl<$Res>
     Object? revenue = freezed,
     Object? discount = freezed,
     Object? shippingFee = freezed,
-    Object? importPrice = freezed,
+    Object? profit = freezed,
   }) {
     return _then(_$ReportByDayImpl(
       quantity: freezed == quantity
@@ -152,9 +152,9 @@ class __$$ReportByDayImplCopyWithImpl<$Res>
           ? _value.shippingFee
           : shippingFee // ignore: cast_nullable_to_non_nullable
               as double?,
-      importPrice: freezed == importPrice
-          ? _value.importPrice
-          : importPrice // ignore: cast_nullable_to_non_nullable
+      profit: freezed == profit
+          ? _value.profit
+          : profit // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
   }
@@ -169,7 +169,7 @@ class _$ReportByDayImpl implements _ReportByDay {
       this.revenue,
       this.discount,
       this.shippingFee,
-      this.importPrice});
+      this.profit});
 
   factory _$ReportByDayImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReportByDayImplFromJson(json);
@@ -185,11 +185,11 @@ class _$ReportByDayImpl implements _ReportByDay {
   @override
   final double? shippingFee;
   @override
-  final double? importPrice;
+  final double? profit;
 
   @override
   String toString() {
-    return 'ReportByDay(quantity: $quantity, date: $date, revenue: $revenue, discount: $discount, shippingFee: $shippingFee, importPrice: $importPrice)';
+    return 'ReportByDay(quantity: $quantity, date: $date, revenue: $revenue, discount: $discount, shippingFee: $shippingFee, profit: $profit)';
   }
 
   @override
@@ -205,14 +205,13 @@ class _$ReportByDayImpl implements _ReportByDay {
                 other.discount == discount) &&
             (identical(other.shippingFee, shippingFee) ||
                 other.shippingFee == shippingFee) &&
-            (identical(other.importPrice, importPrice) ||
-                other.importPrice == importPrice));
+            (identical(other.profit, profit) || other.profit == profit));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, quantity, date, revenue, discount, shippingFee, importPrice);
+      runtimeType, quantity, date, revenue, discount, shippingFee, profit);
 
   @JsonKey(ignore: true)
   @override
@@ -228,7 +227,7 @@ abstract class _ReportByDay implements ReportByDay {
       final double? revenue,
       final double? discount,
       final double? shippingFee,
-      final double? importPrice}) = _$ReportByDayImpl;
+      final double? profit}) = _$ReportByDayImpl;
 
   factory _ReportByDay.fromJson(Map<String, dynamic> json) =
       _$ReportByDayImpl.fromJson;
@@ -244,7 +243,7 @@ abstract class _ReportByDay implements ReportByDay {
   @override
   double? get shippingFee;
   @override
-  double? get importPrice;
+  double? get profit;
   @override
   @JsonKey(ignore: true)
   _$$ReportByDayImplCopyWith<_$ReportByDayImpl> get copyWith =>

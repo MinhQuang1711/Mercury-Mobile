@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mercury/config/const/padding.dart';
+import 'package:mercury/config/const/radius.dart';
+import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/core/utils/injection/get_it.dart';
 import 'package:mercury/feature/presentations/bloc/sale_report/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/ui/report/sale_report/widget/overview.dart';
@@ -7,6 +10,7 @@ import 'package:mercury/feature/presentations/widget/app_bar/create_app_bar.dart
 import 'package:mercury/feature/presentations/widget/stack/screen_allway_see_bottom.dart';
 
 import '../../../bloc/sale_report/cubit/cubit.dart';
+import 'widget/list_report.dart';
 import 'widget/select_date_range_button.dart';
 import 'widget/submit_button.dart';
 
@@ -42,6 +46,15 @@ class SaleReportPage extends StatelessWidget {
             SelectDateRangeButton(cubit: cubit),
             const SizedBox(height: 20),
             const SubmitButton(),
+            const SizedBox(height: 20),
+            Container(
+                padding: AppPadding.padding12,
+                decoration: BoxDecoration(
+                  borderRadius: AppContainerBorder.radius8,
+                  color: AppColor.grey2,
+                ),
+                child: const ListReport()),
+            const SizedBox(height: 100),
           ],
         ),
         bottomWidget: const SaleReportOverview(),

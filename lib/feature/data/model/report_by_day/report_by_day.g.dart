@@ -14,5 +14,5 @@ _$ReportByDayImpl _$$ReportByDayImplFromJson(Map<String, dynamic> json) =>
       revenue: (json['revenue'] as num?)?.toDouble(),
       discount: (json['discount'] as num?)?.toDouble(),
       shippingFee: (json['shippingFee'] as num?)?.toDouble(),
-      importPrice: (json['importPrice'] as num?)?.toDouble(),
+      profit: (json['profit'] as num?)?.toDouble(),
     );
