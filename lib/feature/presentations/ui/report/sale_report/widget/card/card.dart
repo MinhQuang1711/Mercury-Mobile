@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mercury/config/const/padding.dart';
+import 'package:mercury/config/router/path.dart';
 import 'package:mercury/config/theme/color.dart';
 import 'package:mercury/core/utils/extension/datetime_ex.dart';
 import 'package:mercury/core/utils/extension/network.dart';
@@ -121,7 +123,8 @@ class _ReportCardState extends State<ReportCard> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  _listSaleInvoiceByDay(),
+                  _listSaleInvoiceByDay((val) =>
+                      context.push(AppPath.detailSaleInvoice, extra: val)),
                 ],
               ),
             ),
@@ -131,7 +134,7 @@ class _ReportCardState extends State<ReportCard> {
     );
   }
 
-  Expanded _listSaleInvoiceByDay() {
+  Expanded _listSaleInvoiceByDay(Function(SaleInvoice) onTap) {
     return Expanded(
       flex: 3,
       child: ListView.builder(
@@ -141,25 +144,28 @@ class _ReportCardState extends State<ReportCard> {
             double shippingFee = saleInvoices[index].shippingFee ?? 0;
             double discount = saleInvoices[index].dicount ?? 0;
 
-            return Container(
-              color: AppColor.white,
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: Row(
-                children: [
-                  Expanded(
-                      flex: 2,
-                      child: Text(
-                        saleInvoices[index].id ?? "",
-                        style: captionRegular.copyWith(color: AppColor.blue),
-                      )),
-                  Expanded(
-                      child: Text(
-                          saleInvoices[index].totalPrice?.formatDouble() ??
-                              "")),
-                  Expanded(
-                      child:
-                          Text((total + shippingFee - discount).formatDouble()))
-                ],
+            return GestureDetector(
+              onTap: () => onTap.call(saleInvoices[index]),
+              child: Container(
+                color: AppColor.white,
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  children: [
+                    Expanded(
+                        flex: 2,
+                        child: Text(
+                          saleInvoices[index].id ?? "",
+                          style: captionRegular.copyWith(color: AppColor.blue),
+                        )),
+                    Expanded(
+                        child: Text(
+                            saleInvoices[index].totalPrice?.formatDouble() ??
+                                "")),
+                    Expanded(
+                        child: Text(
+                            (total + shippingFee - discount).formatDouble()))
+                  ],
+                ),
               ),
             );
           }),
