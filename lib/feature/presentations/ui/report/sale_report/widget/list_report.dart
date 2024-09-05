@@ -6,7 +6,7 @@ import '../../../../../../config/theme/color.dart';
 import '../../../../../../config/theme/text_style.dart';
 import '../../../../bloc/sale_report/bloc/bloc.dart';
 import '../../../../bloc/sale_report/bloc/state/state.dart';
-import 'card.dart';
+import 'card/card.dart';
 
 class ListReport extends StatelessWidget {
   const ListReport({super.key});
