@@ -122,7 +122,6 @@ class _ReportCardState extends State<ReportCard> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 10),
                   _listSaleInvoiceByDay((val) =>
                       context.push(AppPath.detailSaleInvoice, extra: val)),
                 ],
@@ -137,38 +136,42 @@ class _ReportCardState extends State<ReportCard> {
   Expanded _listSaleInvoiceByDay(Function(SaleInvoice) onTap) {
     return Expanded(
       flex: 3,
-      child: ListView.builder(
-          itemCount: saleInvoices.length,
-          itemBuilder: (_, index) {
-            double total = saleInvoices[index].totalPrice ?? 0;
-            double shippingFee = saleInvoices[index].shippingFee ?? 0;
-            double discount = saleInvoices[index].dicount ?? 0;
+      child: Padding(
+        padding: const EdgeInsets.only(top: 10),
+        child: ListView.builder(
+            itemCount: saleInvoices.length,
+            itemBuilder: (_, index) {
+              double total = saleInvoices[index].totalPrice ?? 0;
+              double shippingFee = saleInvoices[index].shippingFee ?? 0;
+              double discount = saleInvoices[index].dicount ?? 0;
 
-            return GestureDetector(
-              onTap: () => onTap.call(saleInvoices[index]),
-              child: Container(
-                color: AppColor.white,
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Row(
-                  children: [
-                    Expanded(
-                        flex: 2,
-                        child: Text(
-                          saleInvoices[index].id ?? "",
-                          style: captionRegular.copyWith(color: AppColor.blue),
-                        )),
-                    Expanded(
-                        child: Text(
-                            saleInvoices[index].totalPrice?.formatDouble() ??
-                                "")),
-                    Expanded(
-                        child: Text(
-                            (total + shippingFee - discount).formatDouble()))
-                  ],
+              return GestureDetector(
+                onTap: () => onTap.call(saleInvoices[index]),
+                child: Container(
+                  color: AppColor.white,
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Row(
+                    children: [
+                      Expanded(
+                          flex: 2,
+                          child: Text(
+                            saleInvoices[index].id ?? "",
+                            style:
+                                captionRegular.copyWith(color: AppColor.blue),
+                          )),
+                      Expanded(
+                          child: Text(
+                              saleInvoices[index].totalPrice?.formatDouble() ??
+                                  "")),
+                      Expanded(
+                          child: Text(
+                              (total + shippingFee - discount).formatDouble()))
+                    ],
+                  ),
                 ),
-              ),
-            );
-          }),
+              );
+            }),
+      ),
     );
   }
 }
