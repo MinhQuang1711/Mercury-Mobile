@@ -1,0 +1,32 @@
+name: Build and deploy
+on:
+  push: 
+    branches:
+      - develop
+jobs: 
+  build: 
+    name: Build iOS
+    runs-on: macos-latest
+    steps: 
+
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      
+      - name: Setup flutter
+        uses: subosito/flutter-action@v2
+        with: 
+          flutter-version: 3.22.2
+
+      - name: Install dependencies
+        run: flutter pub get 
+
+      - name: Setup Fastlane
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6.10
+          rubygems: latest
+          bundler-cache: true
+      - name: Cd iOS folder
+        run: cd ios
+      - name: Run Fastlane command
+        run: fastlane beta
