@@ -26,7 +26,12 @@ jobs:
           ruby-version: 2.6.10
           rubygems: latest
           bundler-cache: true
-      - name: Cd iOS folder
-        run: cd ios
-      - name: Run Fastlane command
-        run: fastlane beta
+      
+      - name: Install Bundler
+        run: gem install bundler
+
+      - name: Install Fastlane
+        run: bundle install
+      
+      - name: Build iOS with Fastlane
+        run: bundle exec fastlane beta
