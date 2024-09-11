@@ -29,9 +29,11 @@ jobs:
 
       - name: Setup Fastlane API Key
         run: |
-          echo "key_id=${{ secrets.FASTLANE_KEY_ID }}" >> ~/.fastlane/.env
-          echo "issuer_id=${{ secrets.FASTLANE_ISSUER_ID }}" >> ~/.fastlane/.env
-          echo "key_filepath=${{ secrets.FASTLANE_KEY_FILEPATH }}" >> ~/.fastlane/.env
+          mkdir -p ios/fastlane
+          echo "key_id=${{ secrets.FASTLANE_KEY_ID }}" >> ios/fastlane/.env
+          echo "issuer_id=${{ secrets.FASTLANE_ISSUER_ID }}" >> ios/fastlane/.env
+          echo "key_filepath=${{ secrets.FASTLANE_KEY_FILEPATH }}" >> ios/fastlane/.env
+
 
       - name: Upload to TestFlight
         env:
