@@ -37,8 +37,6 @@ jobs:
             "issuer_id": "${{ secrets.ISSUER_ID }}",
             "key": "${{ secrets.KEY }}"
           }' > ios/fastlane/store.json
-      - name: install bundle
-        run: cd ios/fastlane && bundle install
 
       - name: Upload to TestFlight
         run: |
