@@ -19,11 +19,29 @@ platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
     increment_build_number(xcodeproj: "Runner.xcodeproj")
+    match(
+      type: "appstore",
+      app_identifier: "minhquang.pham.mercury"
+    )
     build_app(
       workspace: "Runner.xcworkspace", 
       scheme: "Runner",
       archive_path: "../build/ios/Runner.xcarchive",
       output_directory: "../build/ios/Runner")
-    upload_to_testflight
+
+    api_key = app_store_connect_api_key(
+        key_id: "QV229MMV3N",
+        issuer_id: "9f93ea69-cb70-400e-85e1-ad0dc993282a",
+        key_filepath: "fastlane/AuthKey_QV229MMV3N.p8",
+        # duration: 1200, # optional (maximum 1200)
+        in_house: false # optional but may be required if using match/sigh
+    )
+    
+      pilot(api_key: api_key)
+    #   upload_to_testflight(
+    #   api_key_path: "fastlane/store.json",
+    #   ipa: '../build/ios/Runner/Runner.ipa',
+    #   skip_waiting_for_build_processing: true,
+    # )
   end
 end
