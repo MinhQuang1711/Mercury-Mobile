@@ -43,5 +43,5 @@ jobs:
           FASTLANE_APPLE_ISSUER_ID: ${{ secrets.FASTLANE_ISSUER_ID }}
           FASTLANE_APPLE_KEY_PATH: ${{ secrets.FASTLANE_KEY_FILEPATH }}
         run: |
-          fastlane beta
+          bundle exec fastlane ios beta
       
