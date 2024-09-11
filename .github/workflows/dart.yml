@@ -39,9 +39,9 @@ jobs:
           }' > ios/fastlane/store.json
 
       - name: Upload to TestFlight
+        run: |
+          cd ios/fastlane && fastlane beta
         env: 
           MATCH_PASSWORD: ${{secrets.MATCH_PASSWORD}}
           MATCH_GIT_BASIC: ${{secrets.MATCH_GIT_BASIC}}
-        run: |
-          cd ios/fastlane && fastlane beta
       
