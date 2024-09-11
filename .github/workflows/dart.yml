@@ -42,5 +42,5 @@ jobs:
 
       - name: Upload to TestFlight
         run: |
-          cd ios/fastlane && bundle exec fastlane deploy
+          cd ios/fastlane && bundle exec fastlane beta
       
