@@ -26,6 +26,8 @@ jobs:
           ruby-version: 2.6.10
           rubygems: latest
           bundler-cache: true
+      - name: Install Fastlane
+        run: gem install fastlane
 
       - name: Setup Fastlane API Key
         run: |
