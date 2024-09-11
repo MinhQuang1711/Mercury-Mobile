@@ -29,19 +29,16 @@ jobs:
       - name: Install Fastlane
         run: gem install fastlane
 
-      - name: Setup Fastlane API Key
+      - name: Create store.json
         run: |
           mkdir -p ios/fastlane
-          echo "key_id=${{ secrets.FASTLANE_KEY_ID }}" >> ios/fastlane/.env
-          echo "issuer_id=${{ secrets.FASTLANE_ISSUER_ID }}" >> ios/fastlane/.env
-          echo "key_filepath=${{ secrets.FASTLANE_KEY_FILEPATH }}" >> ios/fastlane/.env
-
+          echo '{
+            "key_id": "${{ secrets.KEY_ID }}",
+            "issuer_id": "${{ secrets.ISSUER_ID }}",
+            "key": "${{ secrets.KEY }}"
+          }' > ios/fastlane/store.json
 
       - name: Upload to TestFlight
-        env:
-          FASTLANE_APPLE_API_KEY_ID: ${{ secrets.FASTLANE_KEY_ID }}
-          FASTLANE_APPLE_ISSUER_ID: ${{ secrets.FASTLANE_ISSUER_ID }}
-          FASTLANE_APPLE_KEY_PATH: ${{ secrets.FASTLANE_KEY_FILEPATH }}
         run: |
-          bundle exec fastlane ios beta
+          fastlane beta
       
