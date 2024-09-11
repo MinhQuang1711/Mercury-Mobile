@@ -26,7 +26,18 @@ jobs:
           ruby-version: 2.6.10
           rubygems: latest
           bundler-cache: true
-      - name: Build and deploy to testflight
+
+      - name: Setup Fastlane API Key
         run: |
-          cd ./ios
-          bundler exec fastlane ios beta
+          echo "key_id=${{ secrets.FASTLANE_KEY_ID }}" >> ~/.fastlane/.env
+          echo "issuer_id=${{ secrets.FASTLANE_ISSUER_ID }}" >> ~/.fastlane/.env
+          echo "key_filepath=${{ secrets.FASTLANE_KEY_FILEPATH }}" >> ~/.fastlane/.env
+
+      - name: Upload to TestFlight
+        env:
+          FASTLANE_APPLE_API_KEY_ID: ${{ secrets.FASTLANE_KEY_ID }}
+          FASTLANE_APPLE_ISSUER_ID: ${{ secrets.FASTLANE_ISSUER_ID }}
+          FASTLANE_APPLE_KEY_PATH: ${{ secrets.FASTLANE_KEY_FILEPATH }}
+        run: |
+          fastlane beta
+      
