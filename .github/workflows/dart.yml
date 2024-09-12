@@ -42,6 +42,7 @@ jobs:
         run: |
           cd ios/fastlane && fastlane beta
         env: 
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD}}
           MATCH_PASSWORD: ${{secrets.MATCH_PASSWORD}}
          # ASC_JSON_KEY: ${{secrets.ASC_JSON_KEY}}
           MATCH_GIT_BASIC: ${{secrets.MATCH_GIT_BASIC}}
