@@ -39,7 +39,7 @@ jobs:
           }' > ios/fastlane/store.json
 
       - name: Install Pod
-        run: cd ios && pod install && pod init
+        run: cd ios && pod install
 
       - name: Upload to TestFlight
         run: |
