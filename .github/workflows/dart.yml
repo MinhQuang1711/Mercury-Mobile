@@ -37,10 +37,9 @@ jobs:
             "issuer_id": "${{ secrets.ISSUER_ID }}",
             "key": "${{ secrets.KEY }}"
           }' > ios/fastlane/store.json
-          cat ios/fastlane/store.json
 
       - name: Install Pod
-        run: cd ios && pod install
+        run: cd ios && pod install && pod init
 
       - name: Upload to TestFlight
         run: |
