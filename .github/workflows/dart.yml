@@ -37,14 +37,15 @@ jobs:
             "issuer_id": "${{ secrets.ISSUER_ID }}",
             "key": "${{ secrets.KEY }}"
           }' > ios/fastlane/store.json
+
       - name: Install Pod
         run: cd ios && pod install
+
       - name: Upload to TestFlight
         run: |
-          cd ios/fastlane && fastlane beta
+          cd ios && fastlane beta
         env: 
           FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD}}
           MATCH_PASSWORD: ${{secrets.MATCH_PASSWORD}}
-         # ASC_JSON_KEY: ${{secrets.ASC_JSON_KEY}}
           MATCH_GIT_BASIC: ${{secrets.MATCH_GIT_BASIC}}
       
