@@ -7,6 +7,9 @@ jobs:
   build: 
     name: Build iOS
     runs-on: macos-latest
+    env: 
+      MATCH_PASSWORD: ${{secrets.MATCH_PASSWORD}}
+      MATCH_GIT_BASIC: ${{secrets.MATCH_GIT_BASIC}}
     steps: 
 
       - name: Checkout repo
@@ -46,6 +49,4 @@ jobs:
           cd ios && fastlane beta
         env: 
           FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD}}
-          MATCH_PASSWORD: ${{secrets.MATCH_PASSWORD}}
-          MATCH_GIT_BASIC: ${{secrets.MATCH_GIT_BASIC}}
       
