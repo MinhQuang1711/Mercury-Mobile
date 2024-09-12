@@ -43,6 +43,6 @@ jobs:
           cd ios/fastlane && fastlane beta
         env: 
           MATCH_PASSWORD: ${{secrets.MATCH_PASSWORD}}
-          ASC_JSON_KEY: ${{secrets.ASC_JSON_KEY}}
+         # ASC_JSON_KEY: ${{secrets.ASC_JSON_KEY}}
           MATCH_GIT_BASIC: ${{secrets.MATCH_GIT_BASIC}}
       
