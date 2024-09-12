@@ -19,8 +19,9 @@ platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
     increment_build_number(xcodeproj: "Runner.xcodeproj")
+    setup_ci if is_ci
     match(
-      readonly: true,
+      readonly: is_ci,
       type: "appstore",
       app_identifier: "minhquang.pham.mercury"
     )
