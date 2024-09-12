@@ -32,11 +32,11 @@ jobs:
       - name: Create store.json
         run: |
           mkdir -p ios/fastlane
-          echo '{
+          echo {
             "key_id": "${{ secrets.KEY_ID }}",
             "issuer_id": "${{ secrets.ISSUER_ID }}",
             "key": "${{ secrets.KEY }}"
-          }' > ios/fastlane/store.json
+          } > ios/fastlane/store.json
 
       - name: Install Pod
         run: cd ios && pod install
