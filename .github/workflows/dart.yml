@@ -9,7 +9,7 @@ jobs:
     runs-on: macos-latest
     env: 
       MATCH_PASSWORD: ${{secrets.MATCH_PASSWORD}}
-      MATCH_GIT_BASIC: ${{secrets.MATCH_GIT_BASIC}}
+      MATCH_GIT_BASIC_AUTHORIZATION: ${{secrets.MATCH_GIT_BASIC}}
     steps: 
 
       - name: Checkout repo
