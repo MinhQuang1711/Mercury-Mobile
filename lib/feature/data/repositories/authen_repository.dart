@@ -1,6 +1,7 @@
 import 'package:mercury/core/network/request/param_payload.dart';
 import 'package:mercury/core/network/request/payload/payload.dart';
 import 'package:mercury/core/network/response/data_response.dart';
+import 'package:mercury/core/utils/log.dart';
 import 'package:mercury/feature/data/model/token/token.dart';
 import 'package:mercury/feature/data/model/user/user.dart';
 import 'package:mercury/feature/data/repository_path/path.dart';
@@ -11,6 +12,7 @@ import 'package:mercury/feature/domain/repositories/i_authen.dart';
 class AuthenRepository extends IAuthenRepository {
   @override
   Future<DataRespone<Token>> login(LoginDto dto) async {
+    logError(dto);
     return await excuter(
       paramRequest: ParamRequest(
         method: Method.POST,

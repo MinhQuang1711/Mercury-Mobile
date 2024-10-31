@@ -6,7 +6,7 @@ import 'request/param_payload.dart';
 
 class DioClient {
   late final Dio dio;
-  var defaultTimeOut = const Duration(minutes: 1);
+  var defaultTimeOut = const Duration(seconds: 30);
 
   DioClient({String? otherServerUrl}) {
     // Default option of request

@@ -11,6 +11,7 @@ import 'package:mercury/feature/presentations/bloc/import_invoice/cubit/get_impo
 import 'package:mercury/feature/presentations/bloc/ingredient/cubit/create/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/ingredient/cubit/get/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/price_list/cubit/cubit.dart';
+import 'package:mercury/feature/presentations/bloc/price_list/cubit/get/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/product/cubit/get/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/common_sale_invoice_cubit/cubit.dart';
 import 'package:mercury/feature/presentations/bloc/sale_invoice/cubit/get_sale_invoice/cubit.dart';
@@ -41,4 +42,5 @@ void registerCubit() {
   getIt.registerFactory<GlobalCubit>(() => GlobalCubit());
   getIt.registerFactory<PriceListCubit>(() => PriceListCubit());
   getIt.registerFactory<SaleReportCubit>(() => SaleReportCubit());
+  getIt.registerFactory<GetPriceListCubit>(() => GetPriceListCubit());
 }

@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mercury/core/utils/extension/network.dart';
 import 'package:mercury/feature/domain/model/price_list_request/price_list_request.dart';
+import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart';
 import 'package:mercury/feature/domain/repositories/i_price_list.dart';
 import 'package:mercury/feature/presentations/bloc/price_list/bloc/event/event.dart';
 import 'package:mercury/feature/presentations/bloc/price_list/bloc/state/state.dart';
@@ -16,6 +17,7 @@ class PriceListBloc extends Bloc<PriceListEvent, PriceListState> {
     await event.when(
       delete: (id) {},
       update: (dto) {},
+      get: (dto) async => await _get(dto, emitter),
       create: (dto) async => _create(dto, emitter),
     );
   }
@@ -26,5 +28,13 @@ class PriceListBloc extends Bloc<PriceListEvent, PriceListState> {
         whenSuccess: (data) =>
             emitter(PriceListState.created(CreateScreen().getMessage())),
         whenFaild: (msg) => emitter(PriceListState.failure(msg)));
+  }
+
+  Future _get(SearchByName dto, Emitter emitter) async {
+    emitter(const PriceListState.loading());
+    (await repo.get(dto)).on(
+      whenSuccess: (data) => emitter(PriceListState.getSuccessful(dto, data)),
+      whenFaild: (msg) => emitter(PriceListState.failure(msg)),
+    );
   }
 }

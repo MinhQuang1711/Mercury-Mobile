@@ -47,6 +47,7 @@ class AppRepositoryPath {
   static String updateBank = "/api/owner/update-bank";
   // Price list
   static String createPriceList = "/api/price-list/create";
+  static String getPriceList = "/api/price-list";
   // Report
   static String saleReport = "/api/report";
 }

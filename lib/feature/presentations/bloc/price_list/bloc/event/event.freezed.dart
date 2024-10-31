@@ -19,6 +19,7 @@ mixin _$PriceListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) delete,
+    required TResult Function(SearchByName dto) get,
     required TResult Function(PriceListRequest dto) create,
     required TResult Function(PriceListRequest dto) update,
   }) =>
@@ -26,6 +27,7 @@ mixin _$PriceListEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? delete,
+    TResult? Function(SearchByName dto)? get,
     TResult? Function(PriceListRequest dto)? create,
     TResult? Function(PriceListRequest dto)? update,
   }) =>
@@ -33,6 +35,7 @@ mixin _$PriceListEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? delete,
+    TResult Function(SearchByName dto)? get,
     TResult Function(PriceListRequest dto)? create,
     TResult Function(PriceListRequest dto)? update,
     required TResult orElse(),
@@ -41,6 +44,7 @@ mixin _$PriceListEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Delete value) delete,
+    required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
     required TResult Function(_Update value) update,
   }) =>
@@ -48,6 +52,7 @@ mixin _$PriceListEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Delete value)? delete,
+    TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
     TResult? Function(_Update value)? update,
   }) =>
@@ -55,6 +60,7 @@ mixin _$PriceListEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Delete value)? delete,
+    TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
     TResult Function(_Update value)? update,
     required TResult orElse(),
@@ -145,6 +151,7 @@ class _$DeleteImpl implements _Delete {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) delete,
+    required TResult Function(SearchByName dto) get,
     required TResult Function(PriceListRequest dto) create,
     required TResult Function(PriceListRequest dto) update,
   }) {
@@ -155,6 +162,7 @@ class _$DeleteImpl implements _Delete {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? delete,
+    TResult? Function(SearchByName dto)? get,
     TResult? Function(PriceListRequest dto)? create,
     TResult? Function(PriceListRequest dto)? update,
   }) {
@@ -165,6 +173,7 @@ class _$DeleteImpl implements _Delete {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? delete,
+    TResult Function(SearchByName dto)? get,
     TResult Function(PriceListRequest dto)? create,
     TResult Function(PriceListRequest dto)? update,
     required TResult orElse(),
@@ -179,6 +188,7 @@ class _$DeleteImpl implements _Delete {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Delete value) delete,
+    required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
     required TResult Function(_Update value) update,
   }) {
@@ -189,6 +199,7 @@ class _$DeleteImpl implements _Delete {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Delete value)? delete,
+    TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
     TResult? Function(_Update value)? update,
   }) {
@@ -199,6 +210,7 @@ class _$DeleteImpl implements _Delete {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Delete value)? delete,
+    TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
     TResult Function(_Update value)? update,
     required TResult orElse(),
@@ -216,6 +228,159 @@ abstract class _Delete implements PriceListEvent {
   String get id;
   @JsonKey(ignore: true)
   _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetImplCopyWith<$Res> {
+  factory _$$GetImplCopyWith(_$GetImpl value, $Res Function(_$GetImpl) then) =
+      __$$GetImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({SearchByName dto});
+
+  $SearchByNameCopyWith<$Res> get dto;
+}
+
+/// @nodoc
+class __$$GetImplCopyWithImpl<$Res>
+    extends _$PriceListEventCopyWithImpl<$Res, _$GetImpl>
+    implements _$$GetImplCopyWith<$Res> {
+  __$$GetImplCopyWithImpl(_$GetImpl _value, $Res Function(_$GetImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? dto = null,
+  }) {
+    return _then(_$GetImpl(
+      null == dto
+          ? _value.dto
+          : dto // ignore: cast_nullable_to_non_nullable
+              as SearchByName,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SearchByNameCopyWith<$Res> get dto {
+    return $SearchByNameCopyWith<$Res>(_value.dto, (value) {
+      return _then(_value.copyWith(dto: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$GetImpl implements _Get {
+  const _$GetImpl(this.dto);
+
+  @override
+  final SearchByName dto;
+
+  @override
+  String toString() {
+    return 'PriceListEvent.get(dto: $dto)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetImpl &&
+            (identical(other.dto, dto) || other.dto == dto));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, dto);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetImplCopyWith<_$GetImpl> get copyWith =>
+      __$$GetImplCopyWithImpl<_$GetImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) delete,
+    required TResult Function(SearchByName dto) get,
+    required TResult Function(PriceListRequest dto) create,
+    required TResult Function(PriceListRequest dto) update,
+  }) {
+    return get(dto);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? delete,
+    TResult? Function(SearchByName dto)? get,
+    TResult? Function(PriceListRequest dto)? create,
+    TResult? Function(PriceListRequest dto)? update,
+  }) {
+    return get?.call(dto);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? delete,
+    TResult Function(SearchByName dto)? get,
+    TResult Function(PriceListRequest dto)? create,
+    TResult Function(PriceListRequest dto)? update,
+    required TResult orElse(),
+  }) {
+    if (get != null) {
+      return get(dto);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Delete value) delete,
+    required TResult Function(_Get value) get,
+    required TResult Function(_Create value) create,
+    required TResult Function(_Update value) update,
+  }) {
+    return get(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Delete value)? delete,
+    TResult? Function(_Get value)? get,
+    TResult? Function(_Create value)? create,
+    TResult? Function(_Update value)? update,
+  }) {
+    return get?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Delete value)? delete,
+    TResult Function(_Get value)? get,
+    TResult Function(_Create value)? create,
+    TResult Function(_Update value)? update,
+    required TResult orElse(),
+  }) {
+    if (get != null) {
+      return get(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Get implements PriceListEvent {
+  const factory _Get(final SearchByName dto) = _$GetImpl;
+
+  SearchByName get dto;
+  @JsonKey(ignore: true)
+  _$$GetImplCopyWith<_$GetImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -294,6 +459,7 @@ class _$CreateImpl implements _Create {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) delete,
+    required TResult Function(SearchByName dto) get,
     required TResult Function(PriceListRequest dto) create,
     required TResult Function(PriceListRequest dto) update,
   }) {
@@ -304,6 +470,7 @@ class _$CreateImpl implements _Create {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? delete,
+    TResult? Function(SearchByName dto)? get,
     TResult? Function(PriceListRequest dto)? create,
     TResult? Function(PriceListRequest dto)? update,
   }) {
@@ -314,6 +481,7 @@ class _$CreateImpl implements _Create {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? delete,
+    TResult Function(SearchByName dto)? get,
     TResult Function(PriceListRequest dto)? create,
     TResult Function(PriceListRequest dto)? update,
     required TResult orElse(),
@@ -328,6 +496,7 @@ class _$CreateImpl implements _Create {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Delete value) delete,
+    required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
     required TResult Function(_Update value) update,
   }) {
@@ -338,6 +507,7 @@ class _$CreateImpl implements _Create {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Delete value)? delete,
+    TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
     TResult? Function(_Update value)? update,
   }) {
@@ -348,6 +518,7 @@ class _$CreateImpl implements _Create {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Delete value)? delete,
+    TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
     TResult Function(_Update value)? update,
     required TResult orElse(),
@@ -443,6 +614,7 @@ class _$UpdateImpl implements _Update {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) delete,
+    required TResult Function(SearchByName dto) get,
     required TResult Function(PriceListRequest dto) create,
     required TResult Function(PriceListRequest dto) update,
   }) {
@@ -453,6 +625,7 @@ class _$UpdateImpl implements _Update {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? delete,
+    TResult? Function(SearchByName dto)? get,
     TResult? Function(PriceListRequest dto)? create,
     TResult? Function(PriceListRequest dto)? update,
   }) {
@@ -463,6 +636,7 @@ class _$UpdateImpl implements _Update {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? delete,
+    TResult Function(SearchByName dto)? get,
     TResult Function(PriceListRequest dto)? create,
     TResult Function(PriceListRequest dto)? update,
     required TResult orElse(),
@@ -477,6 +651,7 @@ class _$UpdateImpl implements _Update {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Delete value) delete,
+    required TResult Function(_Get value) get,
     required TResult Function(_Create value) create,
     required TResult Function(_Update value) update,
   }) {
@@ -487,6 +662,7 @@ class _$UpdateImpl implements _Update {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Delete value)? delete,
+    TResult? Function(_Get value)? get,
     TResult? Function(_Create value)? create,
     TResult? Function(_Update value)? update,
   }) {
@@ -497,6 +673,7 @@ class _$UpdateImpl implements _Update {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Delete value)? delete,
+    TResult Function(_Get value)? get,
     TResult Function(_Create value)? create,
     TResult Function(_Update value)? update,
     required TResult orElse(),

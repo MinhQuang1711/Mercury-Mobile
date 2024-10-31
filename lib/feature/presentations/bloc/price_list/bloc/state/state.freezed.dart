@@ -24,6 +24,9 @@ mixin _$PriceListState {
     required TResult Function(String msg) updated,
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
+    required TResult Function(
+            SearchByName searchDto, PagedList<PriceList> paged)
+        getSuccessful,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +37,8 @@ mixin _$PriceListState {
     TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
+    TResult? Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +49,8 @@ mixin _$PriceListState {
     TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
+    TResult Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +62,7 @@ mixin _$PriceListState {
     required TResult Function(_Updated value) updated,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_GetSuccessful value) getSuccessful,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +73,7 @@ mixin _$PriceListState {
     TResult? Function(_Updated value)? updated,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetSuccessful value)? getSuccessful,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +84,7 @@ mixin _$PriceListState {
     TResult Function(_Updated value)? updated,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
+    TResult Function(_GetSuccessful value)? getSuccessful,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,6 +151,9 @@ class _$InitImpl implements _Init {
     required TResult Function(String msg) updated,
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
+    required TResult Function(
+            SearchByName searchDto, PagedList<PriceList> paged)
+        getSuccessful,
   }) {
     return init();
   }
@@ -154,6 +167,8 @@ class _$InitImpl implements _Init {
     TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
+    TResult? Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
   }) {
     return init?.call();
   }
@@ -167,6 +182,8 @@ class _$InitImpl implements _Init {
     TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
+    TResult Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -184,6 +201,7 @@ class _$InitImpl implements _Init {
     required TResult Function(_Updated value) updated,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_GetSuccessful value) getSuccessful,
   }) {
     return init(this);
   }
@@ -197,6 +215,7 @@ class _$InitImpl implements _Init {
     TResult? Function(_Updated value)? updated,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetSuccessful value)? getSuccessful,
   }) {
     return init?.call(this);
   }
@@ -210,6 +229,7 @@ class _$InitImpl implements _Init {
     TResult Function(_Updated value)? updated,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
+    TResult Function(_GetSuccessful value)? getSuccessful,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -267,6 +287,9 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(String msg) updated,
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
+    required TResult Function(
+            SearchByName searchDto, PagedList<PriceList> paged)
+        getSuccessful,
   }) {
     return loading();
   }
@@ -280,6 +303,8 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
+    TResult? Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
   }) {
     return loading?.call();
   }
@@ -293,6 +318,8 @@ class _$LoadingImpl implements _Loading {
     TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
+    TResult Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -310,6 +337,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Updated value) updated,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_GetSuccessful value) getSuccessful,
   }) {
     return loading(this);
   }
@@ -323,6 +351,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Updated value)? updated,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetSuccessful value)? getSuccessful,
   }) {
     return loading?.call(this);
   }
@@ -336,6 +365,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Updated value)? updated,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
+    TResult Function(_GetSuccessful value)? getSuccessful,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -419,6 +449,9 @@ class _$CreatedImpl implements _Created {
     required TResult Function(String msg) updated,
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
+    required TResult Function(
+            SearchByName searchDto, PagedList<PriceList> paged)
+        getSuccessful,
   }) {
     return created(msg);
   }
@@ -432,6 +465,8 @@ class _$CreatedImpl implements _Created {
     TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
+    TResult? Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
   }) {
     return created?.call(msg);
   }
@@ -445,6 +480,8 @@ class _$CreatedImpl implements _Created {
     TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
+    TResult Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
     required TResult orElse(),
   }) {
     if (created != null) {
@@ -462,6 +499,7 @@ class _$CreatedImpl implements _Created {
     required TResult Function(_Updated value) updated,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_GetSuccessful value) getSuccessful,
   }) {
     return created(this);
   }
@@ -475,6 +513,7 @@ class _$CreatedImpl implements _Created {
     TResult? Function(_Updated value)? updated,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetSuccessful value)? getSuccessful,
   }) {
     return created?.call(this);
   }
@@ -488,6 +527,7 @@ class _$CreatedImpl implements _Created {
     TResult Function(_Updated value)? updated,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
+    TResult Function(_GetSuccessful value)? getSuccessful,
     required TResult orElse(),
   }) {
     if (created != null) {
@@ -576,6 +616,9 @@ class _$UpdatedImpl implements _Updated {
     required TResult Function(String msg) updated,
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
+    required TResult Function(
+            SearchByName searchDto, PagedList<PriceList> paged)
+        getSuccessful,
   }) {
     return updated(msg);
   }
@@ -589,6 +632,8 @@ class _$UpdatedImpl implements _Updated {
     TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
+    TResult? Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
   }) {
     return updated?.call(msg);
   }
@@ -602,6 +647,8 @@ class _$UpdatedImpl implements _Updated {
     TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
+    TResult Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
     required TResult orElse(),
   }) {
     if (updated != null) {
@@ -619,6 +666,7 @@ class _$UpdatedImpl implements _Updated {
     required TResult Function(_Updated value) updated,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_GetSuccessful value) getSuccessful,
   }) {
     return updated(this);
   }
@@ -632,6 +680,7 @@ class _$UpdatedImpl implements _Updated {
     TResult? Function(_Updated value)? updated,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetSuccessful value)? getSuccessful,
   }) {
     return updated?.call(this);
   }
@@ -645,6 +694,7 @@ class _$UpdatedImpl implements _Updated {
     TResult Function(_Updated value)? updated,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
+    TResult Function(_GetSuccessful value)? getSuccessful,
     required TResult orElse(),
   }) {
     if (updated != null) {
@@ -733,6 +783,9 @@ class _$DeletedImpl implements _Deleted {
     required TResult Function(String msg) updated,
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
+    required TResult Function(
+            SearchByName searchDto, PagedList<PriceList> paged)
+        getSuccessful,
   }) {
     return deleted(msg);
   }
@@ -746,6 +799,8 @@ class _$DeletedImpl implements _Deleted {
     TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
+    TResult? Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
   }) {
     return deleted?.call(msg);
   }
@@ -759,6 +814,8 @@ class _$DeletedImpl implements _Deleted {
     TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
+    TResult Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
     required TResult orElse(),
   }) {
     if (deleted != null) {
@@ -776,6 +833,7 @@ class _$DeletedImpl implements _Deleted {
     required TResult Function(_Updated value) updated,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_GetSuccessful value) getSuccessful,
   }) {
     return deleted(this);
   }
@@ -789,6 +847,7 @@ class _$DeletedImpl implements _Deleted {
     TResult? Function(_Updated value)? updated,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetSuccessful value)? getSuccessful,
   }) {
     return deleted?.call(this);
   }
@@ -802,6 +861,7 @@ class _$DeletedImpl implements _Deleted {
     TResult Function(_Updated value)? updated,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
+    TResult Function(_GetSuccessful value)? getSuccessful,
     required TResult orElse(),
   }) {
     if (deleted != null) {
@@ -890,6 +950,9 @@ class _$FailureImpl implements _Failure {
     required TResult Function(String msg) updated,
     required TResult Function(String msg) deleted,
     required TResult Function(String msg) failure,
+    required TResult Function(
+            SearchByName searchDto, PagedList<PriceList> paged)
+        getSuccessful,
   }) {
     return failure(msg);
   }
@@ -903,6 +966,8 @@ class _$FailureImpl implements _Failure {
     TResult? Function(String msg)? updated,
     TResult? Function(String msg)? deleted,
     TResult? Function(String msg)? failure,
+    TResult? Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
   }) {
     return failure?.call(msg);
   }
@@ -916,6 +981,8 @@ class _$FailureImpl implements _Failure {
     TResult Function(String msg)? updated,
     TResult Function(String msg)? deleted,
     TResult Function(String msg)? failure,
+    TResult Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -933,6 +1000,7 @@ class _$FailureImpl implements _Failure {
     required TResult Function(_Updated value) updated,
     required TResult Function(_Deleted value) deleted,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_GetSuccessful value) getSuccessful,
   }) {
     return failure(this);
   }
@@ -946,6 +1014,7 @@ class _$FailureImpl implements _Failure {
     TResult? Function(_Updated value)? updated,
     TResult? Function(_Deleted value)? deleted,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetSuccessful value)? getSuccessful,
   }) {
     return failure?.call(this);
   }
@@ -959,6 +1028,7 @@ class _$FailureImpl implements _Failure {
     TResult Function(_Updated value)? updated,
     TResult Function(_Deleted value)? deleted,
     TResult Function(_Failure value)? failure,
+    TResult Function(_GetSuccessful value)? getSuccessful,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -974,5 +1044,194 @@ abstract class _Failure implements PriceListState {
   String get msg;
   @JsonKey(ignore: true)
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetSuccessfulImplCopyWith<$Res> {
+  factory _$$GetSuccessfulImplCopyWith(
+          _$GetSuccessfulImpl value, $Res Function(_$GetSuccessfulImpl) then) =
+      __$$GetSuccessfulImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({SearchByName searchDto, PagedList<PriceList> paged});
+
+  $SearchByNameCopyWith<$Res> get searchDto;
+}
+
+/// @nodoc
+class __$$GetSuccessfulImplCopyWithImpl<$Res>
+    extends _$PriceListStateCopyWithImpl<$Res, _$GetSuccessfulImpl>
+    implements _$$GetSuccessfulImplCopyWith<$Res> {
+  __$$GetSuccessfulImplCopyWithImpl(
+      _$GetSuccessfulImpl _value, $Res Function(_$GetSuccessfulImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? searchDto = null,
+    Object? paged = null,
+  }) {
+    return _then(_$GetSuccessfulImpl(
+      null == searchDto
+          ? _value.searchDto
+          : searchDto // ignore: cast_nullable_to_non_nullable
+              as SearchByName,
+      null == paged
+          ? _value.paged
+          : paged // ignore: cast_nullable_to_non_nullable
+              as PagedList<PriceList>,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SearchByNameCopyWith<$Res> get searchDto {
+    return $SearchByNameCopyWith<$Res>(_value.searchDto, (value) {
+      return _then(_value.copyWith(searchDto: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$GetSuccessfulImpl implements _GetSuccessful {
+  const _$GetSuccessfulImpl(this.searchDto, this.paged);
+
+  @override
+  final SearchByName searchDto;
+  @override
+  final PagedList<PriceList> paged;
+
+  @override
+  String toString() {
+    return 'PriceListState.getSuccessful(searchDto: $searchDto, paged: $paged)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetSuccessfulImpl &&
+            (identical(other.searchDto, searchDto) ||
+                other.searchDto == searchDto) &&
+            (identical(other.paged, paged) || other.paged == paged));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, searchDto, paged);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetSuccessfulImplCopyWith<_$GetSuccessfulImpl> get copyWith =>
+      __$$GetSuccessfulImplCopyWithImpl<_$GetSuccessfulImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() loading,
+    required TResult Function(String msg) created,
+    required TResult Function(String msg) updated,
+    required TResult Function(String msg) deleted,
+    required TResult Function(String msg) failure,
+    required TResult Function(
+            SearchByName searchDto, PagedList<PriceList> paged)
+        getSuccessful,
+  }) {
+    return getSuccessful(searchDto, paged);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? loading,
+    TResult? Function(String msg)? created,
+    TResult? Function(String msg)? updated,
+    TResult? Function(String msg)? deleted,
+    TResult? Function(String msg)? failure,
+    TResult? Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
+  }) {
+    return getSuccessful?.call(searchDto, paged);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? loading,
+    TResult Function(String msg)? created,
+    TResult Function(String msg)? updated,
+    TResult Function(String msg)? deleted,
+    TResult Function(String msg)? failure,
+    TResult Function(SearchByName searchDto, PagedList<PriceList> paged)?
+        getSuccessful,
+    required TResult orElse(),
+  }) {
+    if (getSuccessful != null) {
+      return getSuccessful(searchDto, paged);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Created value) created,
+    required TResult Function(_Updated value) updated,
+    required TResult Function(_Deleted value) deleted,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_GetSuccessful value) getSuccessful,
+  }) {
+    return getSuccessful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Created value)? created,
+    TResult? Function(_Updated value)? updated,
+    TResult? Function(_Deleted value)? deleted,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetSuccessful value)? getSuccessful,
+  }) {
+    return getSuccessful?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Created value)? created,
+    TResult Function(_Updated value)? updated,
+    TResult Function(_Deleted value)? deleted,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_GetSuccessful value)? getSuccessful,
+    required TResult orElse(),
+  }) {
+    if (getSuccessful != null) {
+      return getSuccessful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetSuccessful implements PriceListState {
+  const factory _GetSuccessful(
+          final SearchByName searchDto, final PagedList<PriceList> paged) =
+      _$GetSuccessfulImpl;
+
+  SearchByName get searchDto;
+  PagedList<PriceList> get paged;
+  @JsonKey(ignore: true)
+  _$$GetSuccessfulImplCopyWith<_$GetSuccessfulImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
