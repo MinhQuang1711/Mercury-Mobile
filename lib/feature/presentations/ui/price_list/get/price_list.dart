@@ -47,19 +47,21 @@ class PriceListPage extends StatelessWidget {
       ),
       child: Scaffold(
         appBar: _appBar(context),
-        body: _body(bloc),
+        body: _body(bloc, cubit),
       ),
     );
   }
 
-  Column _body(PriceListBloc bloc) {
-    return Column(
-      children: [
-        PriceListSearchField(bloc: bloc),
-        const ListPrice(),
-      ],
-    );
-  }
+  Column _body(
+    PriceListBloc bloc,
+    GetPriceListCubit cubit,
+  ) =>
+      Column(
+        children: [
+          PriceListSearchField(bloc: bloc),
+          ListPrice(bloc: bloc, cubit: cubit),
+        ],
+      );
 
   AppBar _appBar(BuildContext context) {
     return AppBar(

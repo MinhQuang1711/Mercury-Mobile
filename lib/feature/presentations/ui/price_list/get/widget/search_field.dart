@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:mercury/core/utils/extension/contetxt.dart';
 import 'package:mercury/feature/domain/model/search_by_name/search_by_name.dart';
 import 'package:mercury/feature/presentations/bloc/price_list/bloc/bloc.dart';
 import 'package:mercury/feature/presentations/bloc/price_list/bloc/event/event.dart';
@@ -40,7 +40,10 @@ class PriceListSearchField extends StatelessWidget {
           ),
           const SizedBox(width: 10),
           CreateSquareButton(
-            onTap: () => context.push(AppPath.createPriceList),
+            onTap: () => context.pushAndListen(
+              location: AppPath.createPriceList,
+              handleWhenHasValue: () => bloc?.add(defultPriceListEvent),
+            ),
           ),
         ],
       ),
