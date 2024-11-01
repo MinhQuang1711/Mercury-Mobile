@@ -37,6 +37,7 @@ class PriceListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit = context.read<GetPriceListCubit>();
+    var bloc = context.read<PriceListBloc>();
     return BlocListener<PriceListBloc, PriceListState>(
       listener: (context, state) => state.whenOrNull(
         getSuccessful: (searchDto, paged) => cubit.handleList(
@@ -46,16 +47,16 @@ class PriceListPage extends StatelessWidget {
       ),
       child: Scaffold(
         appBar: _appBar(context),
-        body: _body(),
+        body: _body(bloc),
       ),
     );
   }
 
-  Column _body() {
-    return const Column(
+  Column _body(PriceListBloc bloc) {
+    return Column(
       children: [
-        PriceListSearchField(),
-        ListPrice(),
+        PriceListSearchField(bloc: bloc),
+        const ListPrice(),
       ],
     );
   }
