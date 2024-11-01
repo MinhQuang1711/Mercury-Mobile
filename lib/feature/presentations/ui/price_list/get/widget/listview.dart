@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,6 +14,7 @@ class ListPrice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: BlocBuilder<GetPriceListCubit, GetPriceListState>(
+        buildWhen: (p, c) => !p.list.equals(c.list),
         builder: (context, state) => AppListView(
           items: state.list,
           child: ListView.builder(

@@ -58,6 +58,7 @@ dependencies:
       ref: main
   flutter_localization: ^0.2.0
   table_calendar: ^3.1.2
+  collection: ^1.18.0
 
 dev_dependencies:
   flutter_test:

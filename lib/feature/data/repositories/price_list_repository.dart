@@ -27,6 +27,7 @@ class PriceListRepository extends IPriceListRepository {
     return await excuter(
       paramRequest: ParamRequest(
         method: Method.GET,
+        query: dto.toJson(),
         endPoint: AppRepositoryPath.getPriceList,
       ),
       parser: (data) => PagedList<PriceList>.fromJson(
