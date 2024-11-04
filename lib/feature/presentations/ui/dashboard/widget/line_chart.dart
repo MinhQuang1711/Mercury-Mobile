@@ -56,7 +56,7 @@ class DashboardLineChart extends StatelessWidget {
                   ),
                   _lineBarData(
                     color: AppColor.red,
-                    gradient: AppGradient.getRedGradient(),
+                    // gradient: AppGradient.getRedGradient(),
                     spots: state.financial
                         .map((e) => FlSpot(
                             state.financial.indexOf(e).toDouble(),
@@ -84,7 +84,7 @@ class DashboardLineChart extends StatelessWidget {
     required List<FlSpot> spots,
   }) {
     return LineChartBarData(
-      isCurved: true,
+      // isCurved: true,
       barWidth: 1,
       color: color,
       spots: spots,

@@ -7,6 +7,7 @@ import 'package:mercury/config/const/radius.dart';
 import 'package:mercury/config/theme/text_style.dart';
 
 import '../../../config/theme/color.dart';
+import '../../../feature/presentations/ui/report/sale_report/view/select_day_sheet.dart';
 import '../../../feature/presentations/widget/snack_bar.dart';
 
 extension ContextEx on BuildContext {
@@ -155,15 +156,11 @@ extension ContextEx on BuildContext {
     DateTime? lastDate,
     DateTime? initDate,
   }) async {
-    var date = await showAppDialog<DateTime?>(
-      child: SizedBox(
-        height: MediaQuery.of(this).size.height * 0.7,
-        child: DatePickerDialog(
-          initialDate: initDate,
-          helpText: "Chọn ngày",
-          firstDate: firstDate ?? DateTime.now(),
-          lastDate: lastDate ?? DateTime(2030),
-        ),
+    var date = await showBottomSheet<DateTime?>(
+      SelectDaySheet(
+        startDate: firstDate,
+        initDate: initDate,
+        lastDate: DateTime.now(),
       ),
     );
     return date;
