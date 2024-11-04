@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:mercury/config/router/path.dart';
 import 'package:mercury/feature/data/model/ingredinent/ingredient.dart';
+import 'package:mercury/feature/data/model/price_list/price_list.dart';
 import 'package:mercury/feature/data/model/product/product.dart';
 import 'package:mercury/feature/domain/model/sale_invoice/sale_invoice.dart';
 import 'package:mercury/feature/presentations/ui/customer/create/create.dart';
@@ -11,6 +12,7 @@ import 'package:mercury/feature/presentations/ui/ingredient/update/update_ingred
 import 'package:mercury/feature/presentations/ui/login/login.dart';
 import 'package:mercury/feature/presentations/ui/logo/logo_screen.dart';
 import 'package:mercury/feature/presentations/ui/price_list/create/create.dart';
+import 'package:mercury/feature/presentations/ui/price_list/detail/detail.dart';
 import 'package:mercury/feature/presentations/ui/price_list/get/price_list.dart';
 import 'package:mercury/feature/presentations/ui/report/sale_report/sale_report.dart';
 import 'package:mercury/feature/presentations/ui/sale_invoice/create/create.dart';
@@ -87,6 +89,12 @@ class AppRouter {
       GoRoute(
         path: AppPath.priceList,
         builder: (context, state) => const PriceListScreen(),
+      ),
+      GoRoute(
+        path: AppPath.detailPriceList,
+        builder: (context, state) => PriceListDetailScreen(
+          priceList: state.extra as PriceList,
+        ),
       ),
     ],
   );

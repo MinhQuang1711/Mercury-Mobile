@@ -14,4 +14,5 @@ class AppPath {
   static String createPriceList = "/createPriceList";
   static String saleReport = "/saleReport";
   static String priceList = "/priceList";
+  static String detailPriceList = "/detailPriceList";
 }
