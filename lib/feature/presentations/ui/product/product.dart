@@ -4,6 +4,7 @@ import 'package:mercury/config/theme/text_style.dart';
 import 'package:mercury/feature/presentations/ui/ingredient/get/ingredient.dart';
 import 'package:mercury/feature/presentations/ui/sale_product/get/sale_product.dart';
 import 'package:mercury/feature/presentations/widget/tab_bar/tab_bar.dart';
+import 'package:mercury/gen/assets.gen.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({super.key});
@@ -42,7 +43,15 @@ class ProductPage extends StatelessWidget {
 
   Container _topBar(AppTabBar appTabBar) {
     return Container(
-      color: AppColor.blue,
+      // color: AppColor.blue,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.fitWidth,
+          image: AssetImage(
+            Assets.image.blueBackground.keyName,
+          ),
+        ),
+      ),
       child: Column(
         children: [
           Text(

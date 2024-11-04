@@ -103,6 +103,10 @@ class $AssetsImageGen {
   AssetGenImage get backTextField =>
       const AssetGenImage('assets/image/back_text_field.png');
 
+  /// File path: assets/image/blue_background.png
+  AssetGenImage get blueBackground =>
+      const AssetGenImage('assets/image/blue_background.png');
+
   /// File path: assets/image/coffee-cup.png
   AssetGenImage get coffeeCup =>
       const AssetGenImage('assets/image/coffee-cup.png');
@@ -118,8 +122,15 @@ class $AssetsImageGen {
   AssetGenImage get flower => const AssetGenImage('assets/image/flower.jpg');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ava, backTextField, coffeeCup, defaultAvatar, empty, flower];
+  List<AssetGenImage> get values => [
+        ava,
+        backTextField,
+        blueBackground,
+        coffeeCup,
+        defaultAvatar,
+        empty,
+        flower
+      ];
 }
 
 class Assets {

@@ -5,6 +5,7 @@ import 'package:mercury/feature/presentations/ui/import_invoice/get/import_invoi
 import 'package:mercury/feature/presentations/ui/sale_invoice/get/sale_invoice.dart';
 
 import '../../../../config/theme/text_style.dart';
+import '../../../../gen/assets.gen.dart';
 import '../../widget/tab_bar/tab_bar.dart';
 
 class ManageInvoiceScreen extends StatelessWidget {
@@ -69,7 +70,14 @@ class _MangageInvoicePageState extends State<MangageInvoicePage>
     List<Tab> tabs,
   ) {
     return Container(
-      color: AppColor.blue,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.fitWidth,
+          image: AssetImage(
+            Assets.image.blueBackground.keyName,
+          ),
+        ),
+      ),
       child: Column(
         children: [
           Text("Hóa đơn", style: h6Bold.copyWith(color: AppColor.white)),
